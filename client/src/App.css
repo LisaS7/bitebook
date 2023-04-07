@@ -5,6 +5,11 @@
 /* colours */
 :root{
   --google-button: #4285f4;
+  --dark: #2d2a32;
+  --green: #01696f;
+  --pink: #e36588;
+  --platinum: #dbdbdb;
+  --light: #eef1ef;
 }
 
 /* default button */

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { auth, logout } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useEffect } from "react";
+import { StyledNavbar } from "./style";
 
 function UserActions({ user }) {
   if (!user) {
@@ -35,7 +36,7 @@ export default function CustomNavbar() {
   useEffect(() => {}, [user, loading]);
 
   return (
-    <Navbar expand="lg">
+    <StyledNavbar expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/home">
           <img src="/logo.png" width="30" alt="BiteBook logo" />
@@ -52,6 +53,6 @@ export default function CustomNavbar() {
           <UserActions user={user} />
         </Navbar.Collapse>
       </Container>
-    </Navbar>
+    </StyledNavbar>
   );
 }
