@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledLogin = styled.div`
+export const StyledRegister = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,12 +8,12 @@ export const StyledLogin = styled.div`
   & section {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
     text-align: center;
-    padding: 30px;
+    gap: 1rem;
+    padding: 1rem;
   }
 
-  .forgot-password {
-    margin-top: 15px;
+  .existing-account {
+    margin-top: 1rem;
   }
 `;

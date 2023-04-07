@@ -16,7 +16,7 @@ export default function Login() {
 
   useEffect(() => {
     if (loading) {
-      // loading screen
+      // todo: loading screen
       return;
     }
 
