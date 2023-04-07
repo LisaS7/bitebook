@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { auth, db, logout } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { query, getDocs, collection, where } from "firebase/firestore";
 import { StyledContainer } from "./style";
 
 export default function Profile() {
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const [name, setName] = useState("");
-  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchUserName() {
@@ -23,10 +21,12 @@ export default function Profile() {
       }
     }
 
-    if (loading) return; // todo: loading screen
-    if (!user) return navigate("/");
     fetchUserName();
-  }, [user, loading, navigate]);
+    // disable warning - don't want user to cause rerender as this causes
+    // error alert to appear when logging out from profile page
+    // ok to only fetch data on mount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <StyledContainer>
