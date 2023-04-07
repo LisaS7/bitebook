@@ -1,10 +1,11 @@
 import { Outlet } from "react-router-dom";
+import CustomNavbar from "./Navbar";
 
 export default function Layout() {
   return (
     <>
       <header>
-        <h1>BiteBook Layout Component</h1>
+        <CustomNavbar />
       </header>
       <main>
         <Outlet />

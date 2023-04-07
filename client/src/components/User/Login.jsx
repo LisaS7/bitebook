@@ -47,6 +47,9 @@ export default function Login() {
         <Link to="/reset" className="bottom-link">
           Forgot Password?
         </Link>
+        <div className="bottom-link">
+          New user? <Link to="/register">Sign up here</Link>
+        </div>
       </section>
     </StyledContainer>
   );
