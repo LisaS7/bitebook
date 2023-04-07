@@ -20,7 +20,7 @@ export default function Login() {
       return;
     }
 
-    // if (user) navigate("/home");
+    if (user) navigate("/home");
   }, [user, loading, navigate]);
 
   return (
@@ -38,11 +38,15 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        <button
-          onClick={() => logInWithEmailAndPassword(email, password)}
-        ></button>
-        <button onClick={signInWithGoogle}>Sign In with Google</button>
-        <Link to="/reset">Forgot Password?</Link>
+        <button onClick={() => logInWithEmailAndPassword(email, password)}>
+          Sign In
+        </button>
+        <button className="google-button" onClick={signInWithGoogle}>
+          Sign In with Google
+        </button>
+        <Link to="/reset" className="forgot-password">
+          Forgot Password?
+        </Link>
       </section>
     </StyledLogin>
   );
