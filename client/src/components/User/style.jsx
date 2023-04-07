@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledRegister = styled.div`
+export const StyledContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,12 +8,12 @@ export const StyledRegister = styled.div`
   & section {
     display: flex;
     flex-direction: column;
-    text-align: center;
     gap: 1rem;
-    padding: 1rem;
+    text-align: center;
+    padding: 30px;
   }
 
-  .existing-account {
-    margin-top: 1rem;
+  .bottom-link {
+    margin-top: 15px;
   }
 `;

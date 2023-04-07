@@ -6,7 +6,7 @@ import {
   signInWithGoogle,
 } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { StyledRegister } from "./RegisterStyle";
+import { StyledContainer } from "./style";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -25,10 +25,10 @@ export default function Register() {
 
     // replace register page in history so browser back button works correctly
     if (user) navigate("/home", { replace: true });
-  }, [user, loading]);
+  }, [user, loading, navigate]);
 
   return (
-    <StyledRegister>
+    <StyledContainer>
       <section>
         <input
           type="text"
@@ -52,10 +52,10 @@ export default function Register() {
         <button className="google-button" onClick={signInWithGoogle}>
           Register with Google
         </button>
-        <div className="existing-account">
+        <div className="bottom-link">
           Already have an account? <Link to="/">Sign In</Link>
         </div>
       </section>
-    </StyledRegister>
+    </StyledContainer>
   );
 }

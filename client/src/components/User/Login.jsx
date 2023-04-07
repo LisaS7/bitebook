@@ -6,7 +6,7 @@ import {
   signInWithGoogle,
 } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { StyledLogin } from "./LoginStyle";
+import { StyledContainer } from "./style";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -24,7 +24,7 @@ export default function Login() {
   }, [user, loading, navigate]);
 
   return (
-    <StyledLogin>
+    <StyledContainer>
       <section>
         <input
           type="text"
@@ -44,10 +44,10 @@ export default function Login() {
         <button className="google-button" onClick={signInWithGoogle}>
           Sign In with Google
         </button>
-        <Link to="/reset" className="forgot-password">
+        <Link to="/reset" className="bottom-link">
           Forgot Password?
         </Link>
       </section>
-    </StyledLogin>
+    </StyledContainer>
   );
 }
