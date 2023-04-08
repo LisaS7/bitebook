@@ -1,5 +1,6 @@
 package uk.co.lisasteven.bitebook.food;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -7,9 +8,16 @@ import java.util.List;
 @Service
 public class FoodService {
 
+    private final FoodRepository foodRepository;
+
+    @Autowired
+    public FoodService(FoodRepository foodRepository) {
+        this.foodRepository = foodRepository;
+    }
+
     public List<Food> getFoods() {
-        return List.of(
-                new Food(1L, "banana", "fruit", "yellow", "sweet", "soft", "\uD83C\uDF4C", "blah blah")
-        );
+        return foodRepository.findAll();
     }
 }
+
+// new Food()
