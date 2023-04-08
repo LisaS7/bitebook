@@ -10,3 +10,9 @@ https://blog.logrocket.com/guide-adding-google-login-react-app/
 
 - [Protecting routes](https://www.robinwieruch.de/react-router-private-routes/)
 - The protected route component checks whether the user is authenticated. The user can only access these routes when signed in.
+
+# MySQL
+
+- Command to run SQL: `mysql -u username -p password ojs < "C:\ojs.sql"`
+- See current password requirements: `SHOW VARIABLES LIKE 'validate_password%';`
+- See existing users: `select user, host from mysql.user;`
