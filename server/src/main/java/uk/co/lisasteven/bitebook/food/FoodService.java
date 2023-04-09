@@ -22,6 +22,15 @@ public class FoodService {
     public void addNewFood(Food food) {
         foodRepository.save(food);
     }
+
+    public void deleteFood(Long id) {
+        boolean exists = foodRepository.existsById(id);
+        if (exists) {
+            foodRepository.deleteById(id);
+        } else {
+            throw new IllegalStateException("Food with ID " + id + " does not exist");
+        }
+    }
 }
 
 // new Food()
