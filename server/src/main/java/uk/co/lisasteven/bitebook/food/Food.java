@@ -18,6 +18,7 @@ public class Food {
     private String colour;
     private String flavour;
     private String texture;
+
     private String icon;
     private String notes;
 

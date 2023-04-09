@@ -30,4 +30,12 @@ public class FoodController {
     public void deleteFood(@PathVariable("foodId") Long id) {
         foodService.deleteFood(id);
     }
+
+    @PutMapping(path="{foodId}")
+    public void updateFood(
+            @PathVariable("foodId") Long id,
+            @RequestBody Food food
+    ) {
+        foodService.updateFood(id, food);
+    }
 }
