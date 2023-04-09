@@ -1,13 +1,48 @@
 package uk.co.lisasteven.bitebook;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.web.servlet.MockMvc;
+import uk.co.lisasteven.bitebook.food.Food;
+import uk.co.lisasteven.bitebook.food.FoodController;
+import uk.co.lisasteven.bitebook.food.FoodService;
 
-@SpringBootTest
-class BitebookApplicationTests {
+import java.util.List;
+
+import static org.hamcrest.Matchers.hasSize;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@WebMvcTest(FoodController.class)
+public class BitebookApplicationTests {
+
+	@Autowired
+	private MockMvc mockMvc;
+
+	@MockBean
+	private FoodService service;
 
 	@Test
-	void contextLoads() {
+	public void getFoodsShouldReturnFoodList() throws Exception {
+		Food food1 = new Food(
+				"banana", "fruit", "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
+		);
+		Food food2 = new Food(
+				"noodles", "carb", "beige", "bland", "soft", "\uD83C\uDF5C", "Loves with sweet chilli sauce"
+		);
+
+		when(service.getFoods()).thenReturn(List.of(food1, food2));
+
+		this.mockMvc
+				.perform(get("/api/food"))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$", hasSize(2)))
+				.andExpect(jsonPath("$[0].name").value("banana"));
 	}
 
 }

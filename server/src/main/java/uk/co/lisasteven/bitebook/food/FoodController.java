@@ -1,5 +1,6 @@
 package uk.co.lisasteven.bitebook.food;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,7 @@ public class FoodController {
     }
 
     @PostMapping
-    public void addFood(@RequestBody Food food) {
+    public void addFood(@Valid @RequestBody Food food) {
         foodService.addNewFood(food);
     }
 
@@ -34,7 +35,7 @@ public class FoodController {
     @PutMapping(path="{foodId}")
     public void updateFood(
             @PathVariable("foodId") Long id,
-            @RequestBody Food food
+            @Valid @RequestBody Food food
     ) {
         foodService.updateFood(id, food);
     }
