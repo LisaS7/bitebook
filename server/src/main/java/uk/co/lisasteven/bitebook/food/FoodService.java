@@ -18,6 +18,10 @@ public class FoodService {
     public List<Food> getFoods() {
         return foodRepository.findAll();
     }
+
+    public void addNewFood(Food food) {
+        foodRepository.save(food);
+    }
 }
 
 // new Food()
