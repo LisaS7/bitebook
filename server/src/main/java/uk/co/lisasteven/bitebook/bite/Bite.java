@@ -1,25 +1,45 @@
 package uk.co.lisasteven.bitebook.bite;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+import uk.co.lisasteven.bitebook.food.Food;
 
 import java.time.LocalDate;
 
 @NoArgsConstructor @AllArgsConstructor @ToString @Getter @Setter
+@Entity
+@Table(name="bites")
 public class Bite {
+
+    @Id
+    @SequenceGenerator(name="bite_sequence", sequenceName = "bite_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "bite_sequence")
     private Long id;
+
+    @NotBlank(message = "Date is required")
     private LocalDate date;
-    private Long food_id;
-    private String reaction;
+
+    @ManyToOne
+    @JoinColumn(name="food_id", nullable = false)
+    private Food food;
+
+    @Min(1)
+    @Max(5)
     private Integer rating;
-    private String bitebook;
+
+    @Enumerated(EnumType.STRING)
+    private Group group;
+
     private String notes;
 
-    public Bite(LocalDate date, Long food_id, String reaction, Integer rating, String book, String notes) {
+    public Bite(LocalDate date, Food food, Integer rating, Group group, String notes) {
         this.date = date;
-        this.food_id = food_id;
-        this.reaction = reaction;
+        this.food = food;
         this.rating = rating;
-        this.bitebook = book;
+        this.group = group;
         this.notes = notes;
     }
 
