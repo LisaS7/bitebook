@@ -5,12 +5,11 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
-//https://stackoverflow.com/questions/67825729/using-enums-in-a-spring-entity
-
 @NoArgsConstructor @AllArgsConstructor @ToString @Getter @Setter
 @Entity
-@Table
+@Table(name="foods")
 public class Food {
+
     @Id
     @SequenceGenerator(name="food_sequence", sequenceName = "food_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "food_sequence")
@@ -19,7 +18,9 @@ public class Food {
     @NotBlank(message = "Name is required")
     private String name;
 
-    private String category;
+    @Enumerated(EnumType.STRING)
+    private Category category;
+
     private String colour;
     private String flavour;
     private String texture;
@@ -29,7 +30,7 @@ public class Food {
 
     private String notes;
 
-    public Food(String name, String category, String colour, String flavour, String texture, String icon, String notes) {
+    public Food(String name, Category category, String colour, String flavour, String texture, String icon, String notes) {
         this.name = name;
         this.category = category;
         this.colour = colour;

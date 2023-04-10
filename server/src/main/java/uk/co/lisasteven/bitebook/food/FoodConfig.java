@@ -13,11 +13,11 @@ public class FoodConfig {
     CommandLineRunner commandLineRunner(FoodRepository repository) {
         return args -> {
             Food banana = new Food(
-                    "banana", "fruit", "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
+                    "banana", Category.FRUIT, "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
             );
 
             Food noodles = new Food(
-                    "noodles", "carb", "beige", "bland", "soft", "\uD83C\uDF5C", "Loves with sweet chilli sauce"
+                    "noodles", Category.CARBOHYDRATE, "beige", "bland", "soft", "\uD83C\uDF5C", "Loves with sweet chilli sauce"
             );
 
             repository.saveAll(List.of(banana, noodles));

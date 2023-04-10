@@ -21,8 +21,8 @@ public class FoodService {
         return foodRepository.findAll();
     }
 
-    public void addNewFood(Food food) {
-        foodRepository.save(food);
+    public Food addNewFood(Food food) {
+        return foodRepository.save(food);
     }
 
     public void deleteFood(Long id) {
