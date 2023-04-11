@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/foods")
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600, allowedHeaders = "*")
 public class FoodController {
 
     private final FoodService foodService;
@@ -18,6 +19,7 @@ public class FoodController {
         this.foodService = foodService;
     }
 
+    @CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
     @GetMapping
     public List<Food> getFoods() {
         return foodService.getFoods();

@@ -31,16 +31,12 @@ public class Bite {
     @Max(5)
     private Integer rating;
 
-    @Enumerated(EnumType.STRING)
-    private Group group;
-
     private String notes;
 
-    public Bite(LocalDate date, Food food, Integer rating, Group group, String notes) {
+    public Bite(LocalDate date, Food food, Integer rating, String notes) {
         this.date = date;
         this.food = food;
         this.rating = rating;
-        this.group = group;
         this.notes = notes;
     }
 

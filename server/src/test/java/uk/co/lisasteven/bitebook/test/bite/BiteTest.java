@@ -21,11 +21,11 @@ public class BiteTest {
     @BeforeEach
     public void setup() {
         banana = new Food(
-                "banana", Category.FRUIT, "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
+                "banana", Category.FRUIT, Group.YES, "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
         );
 
         bite = new Bite(
-                LocalDate.of(2020, 07, 15), banana, 4, Group.YES, "This is a note."
+                LocalDate.of(2020, 07, 15), banana, 4, "This is a note."
         );
     }
 
@@ -37,9 +37,6 @@ public class BiteTest {
 
     @Test
     public void hasRating(){ assertEquals(4, bite.getRating()); }
-
-    @Test
-    public void hasGroup(){ assertEquals(Group.YES, bite.getGroup()); }
 
     @Test
     public void hasNote(){ assertEquals("This is a note.", bite.getNotes()); }

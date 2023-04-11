@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
+import uk.co.lisasteven.bitebook.bite.Group;
 
 @NoArgsConstructor @AllArgsConstructor @ToString @Getter @Setter
 @Entity
@@ -21,6 +22,9 @@ public class Food {
     @Enumerated(EnumType.STRING)
     private Category category;
 
+    @Enumerated(EnumType.STRING)
+    private Group group;
+
     private String colour;
     private String flavour;
     private String texture;
@@ -30,9 +34,10 @@ public class Food {
 
     private String notes;
 
-    public Food(String name, Category category, String colour, String flavour, String texture, String icon, String notes) {
+    public Food(String name, Category category, Group group, String colour, String flavour, String texture, String icon, String notes) {
         this.name = name;
         this.category = category;
+        this.group = group;
         this.colour = colour;
         this.flavour = flavour;
         this.texture = texture;

@@ -23,15 +23,15 @@ public class FoodTest {
     @BeforeEach
     public void setup() {
         food = new Food(
-                1L, "banana", Category.FRUIT, "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
+                1L, "banana", Category.FRUIT, Group.YES, "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
         );
 
         Bite bite1 = new Bite(
-                LocalDate.of(2020, 07, 15), food, 4, Group.YES, "This is the second bite."
+                LocalDate.of(2020, 07, 15), food, 4, "This is the second bite."
         );
 
         Bite bite2 = new Bite(
-                LocalDate.of(2020, 07, 10), food, 3, Group.YES, "This is the first bite."
+                LocalDate.of(2020, 07, 10), food, 3, "This is the first bite."
         );
 
     }
