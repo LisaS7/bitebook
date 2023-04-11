@@ -23,7 +23,7 @@ public class Food {
     private Category category;
 
     @Enumerated(EnumType.STRING)
-    private Group group;
+    private Group grouping;
 
     private String colour;
     private String flavour;
@@ -37,7 +37,7 @@ public class Food {
     public Food(String name, Category category, Group group, String colour, String flavour, String texture, String icon, String notes) {
         this.name = name;
         this.category = category;
-        this.group = group;
+        this.grouping = group;
         this.colour = colour;
         this.flavour = flavour;
         this.texture = texture;

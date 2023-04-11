@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import Container from "react-bootstrap/Container";
 
-export const ListContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+export const StyledContainer = styled(Container)`
+  padding: 3vw;
 
-export const ListRow = styled.div`
-  display: flex;
+  @media only screen and (max-width: 600px) {
+    table {
+      padding: 0;
+    }
+  }
 `;
