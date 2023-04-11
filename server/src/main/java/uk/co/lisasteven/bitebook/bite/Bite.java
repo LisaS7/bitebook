@@ -24,6 +24,7 @@ public class Bite {
 
     @ManyToOne
     @JoinColumn(name="food_id", nullable = false)
+    @NotBlank(message = "Food is required")
     private Food food;
 
     @Min(1)
