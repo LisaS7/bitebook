@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { getData } from "./Service";
 import Home from "./pages/home";
 import Error404 from "./pages/error";
 import Layout from "./components/Layout/Layout";
@@ -9,29 +10,19 @@ import Register from "./components/User/Register";
 import Reset from "./components/User/Reset";
 import Profile from "./components/User/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
-import FoodList from "./components/Food/List";
-
-const baseURL = "http://localhost:8080/api/";
+import FoodContainer from "./containers/FoodContainer";
 
 function App() {
   const [foods, setFoods] = useState([]);
   const [bites, setBites] = useState([]);
-
-  async function getFoods() {
-    const response = await fetch(baseURL + "foods");
-    const responseJson = await response.json();
-    setFoods(responseJson);
-  }
-
-  async function getBites() {
-    const response = await fetch(baseURL + "bites");
-    const responseJson = await response.json();
-    setBites(responseJson);
-  }
+  const [categories, setCategories] = useState([]);
+  const [groups, setGroups] = useState([]);
 
   useEffect(() => {
-    getFoods();
-    // getBites();
+    getData("foods", setFoods);
+    // getData("bites", setBites);
+    getData("categories", setCategories);
+    getData("groups", setGroups);
   }, []);
 
   return (
@@ -47,7 +38,16 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/foods" element={<FoodList foods={foods} />} />
+            <Route
+              path="/foods"
+              element={
+                <FoodContainer
+                  foods={foods}
+                  categories={categories}
+                  groups={groups}
+                />
+              }
+            />
           </Route>
         </Route>
       </Routes>

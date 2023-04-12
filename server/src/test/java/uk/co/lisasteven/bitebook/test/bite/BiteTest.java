@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import uk.co.lisasteven.bitebook.bite.Bite;
-import uk.co.lisasteven.bitebook.bite.Group;
+import uk.co.lisasteven.bitebook.food.Group;
 import uk.co.lisasteven.bitebook.food.Category;
 import uk.co.lisasteven.bitebook.food.Food;
 
@@ -21,7 +21,7 @@ public class BiteTest {
     @BeforeEach
     public void setup() {
         banana = new Food(
-                "banana", Category.FRUIT, Group.YES, "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
+                "banana", Category.Fruit, Group.Yes, "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
         );
 
         bite = new Bite(
