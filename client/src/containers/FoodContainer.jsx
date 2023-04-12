@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import Table from "react-bootstrap/Table";
 import Food from "../components/Food/Food";
-import { StyledContainer } from "../components/Food/style";
+import { StyledContainer } from "./style";
 
 export default function FoodContainer() {
   const foods = useSelector((state) => state.foods);
@@ -10,7 +10,7 @@ export default function FoodContainer() {
 
   return (
     <StyledContainer>
-      <Table responsive>
+      <Table size="sm" responsive>
         <thead>
           <tr>
             <th></th>
