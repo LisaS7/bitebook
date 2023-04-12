@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { editFood } from "../../state/slice";
 import { updateFood } from "../../Service";
 
 export default function EditFood({ food, setEditMode }) {
   const [tempFood, setTempFood] = useState({ ...food });
+  const categories = useSelector((state) => state.categories);
+  const groups = useSelector((state) => state.groups);
   const dispatch = useDispatch();
 
   function changeValue(e, key) {
@@ -18,6 +20,20 @@ export default function EditFood({ food, setEditMode }) {
     updateFood(tempFood);
     dispatch(editFood(tempFood));
   }
+
+  console.log(categories);
+
+  const categoryOptions = categories.map((cat) => (
+    <option key={cat} value={cat}>
+      {cat}
+    </option>
+  ));
+
+  const groupOptions = groups.map((group) => (
+    <option key={group} value={group}>
+      {group}
+    </option>
+  ));
 
   return (
     <tr>
@@ -33,16 +49,20 @@ export default function EditFood({ food, setEditMode }) {
         <input value={tempFood.name} onChange={(e) => changeValue(e, "name")} />
       </td>
       <td>
-        <input
+        <select
           value={tempFood.category}
           onChange={(e) => changeValue(e, "category")}
-        />
+        >
+          {categoryOptions}
+        </select>
       </td>
       <td>
-        <input
-          value={tempFood.grouping}
+        <select
+          value={tempFood.group}
           onChange={(e) => changeValue(e, "grouping")}
-        />
+        >
+          {groupOptions}
+        </select>
       </td>
       <td>
         <input
@@ -63,10 +83,10 @@ export default function EditFood({ food, setEditMode }) {
         />
       </td>
       <td>
-        <input
+        <textarea
           value={tempFood.notes}
           onChange={(e) => changeValue(e, "notes")}
-        />
+        ></textarea>
       </td>
       <td>
         <button>

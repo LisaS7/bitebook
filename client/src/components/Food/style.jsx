@@ -2,10 +2,16 @@ import styled from "styled-components";
 import Container from "react-bootstrap/Container";
 
 export const StyledContainer = styled(Container)`
-  padding: 3vw;
-
   & td {
     vertical-align: middle;
+  }
+
+  & input {
+    max-width: 6rem;
+  }
+
+  & textarea {
+    padding: 0.5rem;
   }
 
   & .small-cell {
@@ -15,9 +21,5 @@ export const StyledContainer = styled(Container)`
 
   & .small-text {
     font-size: 0.8rem;
-  }
-
-  @media only screen and (max-width: 600px) {
-    padding: 0;
   }
 `;

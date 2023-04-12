@@ -33,9 +33,3 @@ export async function deleteFood(id) {
 //   })
 //   return await data.json()
 // }
-
-// export async function deleteBooking(id) {
-//   return await fetch(baseURL + id, {
-//       method: "DELETE",
-//   })
-// }

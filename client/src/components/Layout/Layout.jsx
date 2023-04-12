@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import CustomNavbar from "./Navbar";
+import { MainContainer } from "./style";
 
 export default function Layout() {
   return (
@@ -7,9 +8,9 @@ export default function Layout() {
       <header>
         <CustomNavbar />
       </header>
-      <main>
+      <MainContainer>
         <Outlet />
-      </main>
+      </MainContainer>
     </>
   );
 }
