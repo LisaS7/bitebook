@@ -1,6 +1,9 @@
+import { useState } from "react";
 import EditFood from "./EditFood";
 
-export default function Food({ food, editMode, setEditMode }) {
+export default function Food({ food }) {
+  const [editMode, setEditMode] = useState(false);
+
   function handleDelete() {}
 
   if (editMode) {

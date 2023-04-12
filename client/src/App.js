@@ -1,6 +1,8 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setDataState } from "./state/slice";
 import { getData } from "./Service";
 import Home from "./pages/home";
 import Error404 from "./pages/error";
@@ -17,13 +19,18 @@ function App() {
   const [bites, setBites] = useState([]);
   const [categories, setCategories] = useState([]);
   const [groups, setGroups] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getData("foods", setFoods);
-    // getData("bites", setBites);
-    getData("categories", setCategories);
-    getData("groups", setGroups);
+    getData("/foods", setFoods);
+    // getData("/bites", setBites);
+    getData("/categories", setCategories);
+    getData("/groups", setGroups);
   }, []);
+
+  useEffect(() => {
+    dispatch(setDataState({ foods, bites, categories, groups }));
+  }, [foods, bites, categories, groups, dispatch]);
 
   return (
     <Router>
@@ -38,16 +45,7 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
-            <Route
-              path="/foods"
-              element={
-                <FoodContainer
-                  foods={foods}
-                  categories={categories}
-                  groups={groups}
-                />
-              }
-            />
+            <Route path="/foods" element={<FoodContainer />} />
           </Route>
         </Route>
       </Routes>

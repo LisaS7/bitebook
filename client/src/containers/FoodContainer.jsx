@@ -1,19 +1,12 @@
-import { useState } from "react";
+import { useSelector } from "react-redux";
 import Table from "react-bootstrap/Table";
 import Food from "../components/Food/Food";
 import { StyledContainer } from "../components/Food/style";
 
-export default function FoodContainer({ foods }) {
-  const [editMode, setEditMode] = useState(false);
+export default function FoodContainer() {
+  const foods = useSelector((state) => state.foods);
 
-  const foodElements = foods.map((food) => (
-    <Food
-      food={food}
-      key={food.id}
-      editMode={editMode}
-      setEditMode={setEditMode}
-    />
-  ));
+  const foodElements = foods.map((food) => <Food food={food} key={food.id} />);
 
   return (
     <StyledContainer>
