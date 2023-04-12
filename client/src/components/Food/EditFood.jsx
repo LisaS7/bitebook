@@ -1,48 +1,71 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { editFood } from "../../state/slice";
+import { updateFood } from "../../Service";
 
 export default function EditFood({ food, setEditMode }) {
-  const [icon, setIcon] = useState(food.icon);
-  const [name, setName] = useState(food.name);
-  const [category, setCategory] = useState(food.category);
-  const [group, setGroup] = useState(food.grouping);
-  const [colour, setColour] = useState(food.colour);
-  const [flavour, setFlavour] = useState(food.flavour);
-  const [texture, setTexture] = useState(food.texture);
-  const [notes, setNotes] = useState(food.notes);
+  const [tempFood, setTempFood] = useState({ ...food });
+  const dispatch = useDispatch();
+
+  function changeValue(e, key) {
+    const copyFood = { ...tempFood };
+    copyFood[key] = e.target.value;
+    setTempFood({ ...copyFood });
+  }
 
   function handleSave() {
     setEditMode(false);
+    updateFood(tempFood);
+    dispatch(editFood(tempFood));
   }
 
   return (
     <tr>
       <td>
         <input
-          value={icon}
-          onChange={(e) => setIcon(e.target.value)}
+          value={tempFood.icon}
+          onChange={(e) => changeValue(e, "icon")}
           maxLength={4}
         />
       </td>
       <td>
-        <input value={name} onChange={(e) => setName(e.target.value)} />
+        <input value={tempFood.name} onChange={(e) => changeValue(e, "name")} />
       </td>
       <td>
-        <input value={category} onChange={(e) => setCategory(e.target.value)} />
+        <input
+          value={tempFood.category}
+          onChange={(e) => changeValue(e, "category")}
+        />
       </td>
       <td>
-        <input value={group} onChange={(e) => setGroup(e.target.value)} />
+        <input
+          value={tempFood.grouping}
+          onChange={(e) => changeValue(e, "grouping")}
+        />
       </td>
       <td>
-        <input value={colour} onChange={(e) => setColour(e.target.value)} />
+        <input
+          value={tempFood.colour}
+          onChange={(e) => changeValue(e, "colour")}
+        />
       </td>
       <td>
-        <input value={flavour} onChange={(e) => setFlavour(e.target.value)} />
+        <input
+          value={tempFood.flavour}
+          onChange={(e) => changeValue(e, "flavour")}
+        />
       </td>
       <td>
-        <input value={texture} onChange={(e) => setTexture(e.target.value)} />
+        <input
+          value={tempFood.texture}
+          onChange={(e) => changeValue(e, "texture")}
+        />
       </td>
       <td>
-        <input value={notes} onChange={(e) => setNotes(e.target.value)} />
+        <input
+          value={tempFood.notes}
+          onChange={(e) => changeValue(e, "notes")}
+        />
       </td>
       <td>
         <button>

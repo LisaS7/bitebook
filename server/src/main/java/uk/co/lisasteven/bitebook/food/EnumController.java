@@ -9,7 +9,6 @@ import uk.co.lisasteven.bitebook.food.Category;
 
 @RestController
 @RequestMapping(path="api")
-@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600, allowedHeaders = "*")
 public class EnumController {
 
     @GetMapping(path = "categories")
