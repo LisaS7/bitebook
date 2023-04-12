@@ -26,6 +26,7 @@ export default function EditFood({ food, setEditMode }) {
           value={tempFood.icon}
           onChange={(e) => changeValue(e, "icon")}
           maxLength={4}
+          className="small-cell"
         />
       </td>
       <td>

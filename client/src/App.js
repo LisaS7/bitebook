@@ -16,7 +16,7 @@ import FoodContainer from "./containers/FoodContainer";
 
 function App() {
   const [foods, setFoods] = useState([]);
-  const [bites, setBites] = useState([]);
+  const [bites] = useState([]);
   const [categories, setCategories] = useState([]);
   const [groups, setGroups] = useState([]);
   const dispatch = useDispatch();

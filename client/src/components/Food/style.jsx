@@ -4,7 +4,16 @@ import Container from "react-bootstrap/Container";
 export const StyledContainer = styled(Container)`
   padding: 3vw;
 
-  & td:nth-child(8) {
+  & td {
+    vertical-align: middle;
+  }
+
+  & .small-cell {
+    text-align: center;
+    width: 60px;
+  }
+
+  & .small-text {
     font-size: 0.8rem;
   }
 

@@ -19,12 +19,15 @@ export const slice = createSlice({
     },
     editFood: (state, action) => {
       const foodId = action.payload.id;
-      const index = state.foods.findIndex((item) => item.id == foodId);
+      const index = state.foods.findIndex((item) => item.id === foodId);
       state.foods[index] = action.payload;
+    },
+    removeFood: (state, action) => {
+      state.foods = state.foods.filter((item) => item.id !== action.payload);
     },
   },
 });
 
-export const { setDataState, editFood } = slice.actions;
+export const { setDataState, editFood, removeFood } = slice.actions;
 
 export default slice.reducer;

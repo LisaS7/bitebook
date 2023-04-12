@@ -19,6 +19,12 @@ export async function updateFood(food) {
   return await response.json();
 }
 
+export async function deleteFood(id) {
+  const url = `${baseURL}/foods/${id}`;
+  const body = { method: "DELETE" };
+  await fetch(url, body);
+}
+
 // export async function postBooking(booking) {
 //   const data = await fetch(baseURL, {
 //       method: "POST",
@@ -32,13 +38,4 @@ export async function updateFood(food) {
 //   return await fetch(baseURL + id, {
 //       method: "DELETE",
 //   })
-// }
-
-// export async function updateBooking(booking, id) {
-//   const data = await fetch(baseURL + id, {
-//       method: "PUT",
-//       body: JSON.stringify(booking),
-//       headers: {"Content-Type": "application/json"}
-//   })
-//   return await data.json()
 // }
