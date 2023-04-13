@@ -1,27 +1,40 @@
-import { useSelector } from "react-redux";
-import Table from "react-bootstrap/Table";
-import Food from "./Food";
+import { useSelector, useDispatch } from "react-redux";
+import { editFood, removeFood } from "../state/slice";
+import EditableTable from "../components/EditableTable";
+import { deleteRecord, updateRecord } from "../Service";
 
 export default function FoodContainer() {
-  const foods = useSelector((state) => state.foods);
+  const dispatch = useDispatch();
+  const { foods, categories, groups } = useSelector((state) => state);
 
-  const foodElements = foods.map((food) => <Food food={food} key={food.id} />);
+  const dataTemplate = {
+    icon: { heading: "", type: "text" },
+    name: { heading: "Name", type: "text" },
+    category: { heading: "Category", type: "select", options: categories },
+    grouping: { heading: "Group", type: "select", options: groups },
+    colour: { heading: "Colour", type: "text" },
+    flavour: { heading: "Flavour", type: "text" },
+    texture: { heading: "Texture", type: "text" },
+  };
+
+  function handleDelete(id) {
+    deleteRecord(id, "foods");
+    dispatch(removeFood(id));
+  }
+
+  function handleSave(food) {
+    updateRecord(food, "foods");
+    dispatch(editFood(food));
+  }
 
   return (
-    <Table size="sm" responsive>
-      <thead>
-        <tr>
-          <th></th>
-          <th>Name</th>
-          <th>Category</th>
-          <th>Group</th>
-          <th>Colour</th>
-          <th>Flavour</th>
-          <th>Texture</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>{foodElements}</tbody>
-    </Table>
+    <>
+      <EditableTable
+        data={foods}
+        dataTemplate={dataTemplate}
+        handleDelete={handleDelete}
+        handleSave={handleSave}
+      />
+    </>
   );
 }

@@ -6,11 +6,11 @@ export async function getData(endpoint, setData) {
   setData(responseJson);
 }
 
-export async function updateFood(food) {
-  const url = `${baseURL}/foods/${food.id}`;
+export async function updateRecord(item, endpoint) {
+  const url = `${baseURL}/${endpoint}/${item.id}`;
   const body = {
     method: "PUT",
-    body: JSON.stringify(food),
+    body: JSON.stringify(item),
     headers: {
       "Content-Type": "application/json",
     },
@@ -19,8 +19,8 @@ export async function updateFood(food) {
   return await response.json();
 }
 
-export async function deleteFood(id) {
-  const url = `${baseURL}/foods/${id}`;
+export async function deleteRecord(id, endpoint) {
+  const url = `${baseURL}/${endpoint}/${id}`;
   const body = { method: "DELETE" };
   await fetch(url, body);
 }
