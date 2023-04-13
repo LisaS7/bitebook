@@ -5,12 +5,22 @@ const initialState = {
   bites: [],
   categories: [],
   groups: [],
+  user: {
+    uid: "",
+    name: "",
+  },
 };
 
 export const slice = createSlice({
   name: "bitebook",
   initialState,
   reducers: {
+    setUser: (state, action) => {
+      const user = action.payload;
+      console.log("user", user);
+      state.user.uid = user.uid;
+      state.user.name = user.name;
+    },
     setDataState: (state, action) => {
       state.foods = action.payload.foods;
       state.bites = action.payload.bites;
@@ -28,6 +38,6 @@ export const slice = createSlice({
   },
 });
 
-export const { setDataState, editFood, removeFood } = slice.actions;
+export const { setUser, setDataState, editFood, removeFood } = slice.actions;
 
 export default slice.reducer;

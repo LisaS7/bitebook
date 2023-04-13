@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { auth, db, logout } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { query, getDocs, collection, where } from "firebase/firestore";
+import { useSelector, useDispatch } from "react-redux";
+import { setUser } from "../../state/slice";
 import { StyledContainer } from "./style";
 
 export default function Profile() {
+  const dispatch = useDispatch();
   const [user] = useAuthState(auth);
-  const [name, setName] = useState("");
+  const { name } = useSelector((state) => state.user);
 
   useEffect(() => {
     async function fetchUserName() {
@@ -14,7 +17,7 @@ export default function Profile() {
         const q = query(collection(db, "users"), where("uid", "==", user?.uid));
         const doc = await getDocs(q);
         const data = doc.docs[0].data();
-        setName(data.name);
+        dispatch(setUser({ uid: data.uid, name: data.name }));
       } catch (err) {
         console.error(err);
         alert("Error while fetching user data");
@@ -31,7 +34,8 @@ export default function Profile() {
   return (
     <StyledContainer>
       <section>
-        Logged in as <p>{name}</p>
+        Logged in as
+        <p>{name}</p>
         <p>{user?.email}</p>
         <button onClick={logout}>Logout</button>
       </section>
