@@ -33,7 +33,7 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      getData("/foods", setFoods, user?.uid);
+      getData("/foods", setFoods, user.uid);
     }
   }, [user]);
 

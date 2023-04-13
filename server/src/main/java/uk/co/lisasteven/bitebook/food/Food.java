@@ -22,11 +22,8 @@ public class Food {
     @NotBlank(message = "Name is required")
     private String name;
 
-    @Enumerated(EnumType.STRING)
-    private Category category;
-
-    @Enumerated(EnumType.STRING)
-    private Group grouping;
+    private String category;
+    private String grouping;
 
     private String colour;
     private String flavour;
@@ -37,7 +34,7 @@ public class Food {
 
     private String notes;
 
-    public Food(String user, String name, Category category, Group group, String colour, String flavour, String texture, String icon, String notes) {
+    public Food(String user, String name, String category, String group, String colour, String flavour, String texture, String icon, String notes) {
         this.userId = user;
         this.name = name;
         this.category = category;

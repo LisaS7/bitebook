@@ -15,15 +15,15 @@ public class FoodConfig {
     CommandLineRunner commandLineRunner(FoodRepository repository) {
         return args -> {
             Food banana = new Food(
-                    "MxwgBL1xPvUKwzQUrb3rJl7mvRC3", "banana", Category.FRUIT, Group.YES, "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
+                    "MxwgBL1xPvUKwzQUrb3rJl7mvRC3", "banana", Category.FRUIT.getFormattedName(), Group.YES.getFormattedName(), "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
             );
 
             Food noodles = new Food(
-                    "MxwgBL1xPvUKwzQUrb3rJl7mvRC3", "noodles", Category.CARBOHYDRATE, Group.MAYBE, "beige", "bland", "soft", "\uD83C\uDF5C", "Loves with sweet chilli sauce"
+                    "MxwgBL1xPvUKwzQUrb3rJl7mvRC3", "noodles", Category.CARBOHYDRATE.getFormattedName(), Group.MAYBE.getFormattedName(), "beige", "bland", "soft", "\uD83C\uDF5C", "Loves with sweet chilli sauce"
             );
 
             Food courgette = new Food(
-                    "", "courgette", Category.VEGETABLE, Group.NO, "green", "bland", "firm", "", ""
+                    "", "courgette", Category.VEGETABLE.getFormattedName(), Group.NO.getFormattedName(), "green", "bland", "firm", "", ""
             );
 
             repository.saveAll(List.of(banana, noodles, courgette));
