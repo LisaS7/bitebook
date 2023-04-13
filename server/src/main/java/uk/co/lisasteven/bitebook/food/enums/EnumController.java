@@ -1,11 +1,8 @@
-package uk.co.lisasteven.bitebook.food;
+package uk.co.lisasteven.bitebook.food.enums;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import uk.co.lisasteven.bitebook.food.Group;
-import uk.co.lisasteven.bitebook.food.Category;
 
 @RestController
 @RequestMapping(path="api")

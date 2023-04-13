@@ -3,6 +3,8 @@ package uk.co.lisasteven.bitebook.food;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import uk.co.lisasteven.bitebook.food.enums.Category;
+import uk.co.lisasteven.bitebook.food.enums.Group;
 
 import java.util.List;
 

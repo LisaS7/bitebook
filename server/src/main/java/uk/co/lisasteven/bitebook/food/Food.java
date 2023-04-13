@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
+import uk.co.lisasteven.bitebook.food.enums.Category;
+import uk.co.lisasteven.bitebook.food.enums.Group;
 
 @NoArgsConstructor @AllArgsConstructor @ToString @Getter @Setter
 @Entity

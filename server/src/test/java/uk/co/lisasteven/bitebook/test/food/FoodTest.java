@@ -4,8 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import uk.co.lisasteven.bitebook.bite.Bite;
-import uk.co.lisasteven.bitebook.food.Group;
-import uk.co.lisasteven.bitebook.food.Category;
+import uk.co.lisasteven.bitebook.food.enums.Group;
+import uk.co.lisasteven.bitebook.food.enums.Category;
 import uk.co.lisasteven.bitebook.food.Food;
 
 import java.time.LocalDate;
