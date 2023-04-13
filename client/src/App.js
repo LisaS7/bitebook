@@ -14,23 +14,36 @@ import Profile from "./components/User/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import FoodContainer from "./Food/FoodContainer";
 
+import { auth } from "./firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+
 function App() {
   const [foods, setFoods] = useState([]);
   const [bites] = useState([]);
   const [categories, setCategories] = useState([]);
   const [groups, setGroups] = useState([]);
   const dispatch = useDispatch();
+  const [user] = useAuthState(auth);
 
   useEffect(() => {
-    getData("/foods", setFoods);
     // getData("/bites", setBites);
     getData("/categories", setCategories);
     getData("/groups", setGroups);
   }, []);
 
   useEffect(() => {
+    if (user) {
+      getData("/foods", setFoods, user?.uid);
+    }
+  }, [user]);
+
+  useEffect(() => {
     dispatch(setDataState({ foods, bites, categories, groups }));
   }, [foods, bites, categories, groups, dispatch]);
+
+  if (!foods.length) {
+    return "Loading";
+  }
 
   return (
     <Router>

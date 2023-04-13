@@ -19,8 +19,8 @@ public class FoodController {
     }
 
     @GetMapping
-    public List<Food> getFoods() {
-        return foodService.getFoods();
+    public List<Food> getFoods(@RequestParam String uid) {
+        return foodService.getFoods(uid);
     }
 
     @PostMapping

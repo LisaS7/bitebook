@@ -21,7 +21,7 @@ public class BiteTest {
     @BeforeEach
     public void setup() {
         banana = new Food(
-                "banana", Category.FRUIT, Group.YES, "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
+                "ABC", "banana", Category.FRUIT, Group.YES, "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
         );
 
         bite = new Bite(

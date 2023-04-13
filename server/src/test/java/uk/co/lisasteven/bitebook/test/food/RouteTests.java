@@ -41,10 +41,10 @@ public class RouteTests {
     @BeforeAll
     public static void setup() {
         food1 = new Food(
-                1L, "banana", Category.FRUIT, Group.YES, "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
+                1L, "ABC", "banana", Category.FRUIT, Group.YES, "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
         );
         food2 = new Food(
-                2L, "noodles", Category.CARBOHYDRATE, Group.MAYBE, "beige", "bland", "soft", "\uD83C\uDF5C", "Loves with sweet chilli sauce"
+                2L, "ABC","noodles", Category.CARBOHYDRATE, Group.MAYBE, "beige", "bland", "soft", "\uD83C\uDF5C", "Loves with sweet chilli sauce"
         );
         service.addNewFood(food1);
         service.addNewFood(food2);
@@ -54,10 +54,10 @@ public class RouteTests {
     @Test
     public void whenGetFoods_thenReturnFoods() throws Exception {
 
-        when(service.getFoods()).thenReturn(List.of(food1, food2));
+        when(service.getFoods("MxwgBL1xPvUKwzQUrb3rJl7mvRC3")).thenReturn(List.of(food1, food2));
 
         this.mockMvc
-                .perform(get(url))
+                .perform(get(url + "?uid=MxwgBL1xPvUKwzQUrb3rJl7mvRC3"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)))
                 .andExpect(jsonPath("$[0].name").value("banana"));
@@ -75,7 +75,7 @@ public class RouteTests {
     @Test
     public void whenCreateFood_thenReturn201AndCreatedObject() throws Exception {
         Food food3 = new Food(
-                3L, "tuna", Category.CARBOHYDRATE, Group.NO, "pink", "meaty", "flaky", "", "Mix thoroughly with mayo"
+                3L, "ABC", "tuna", Category.CARBOHYDRATE, Group.NO, "pink", "meaty", "flaky", "", "Mix thoroughly with mayo"
         );
 
         String foodAsJson = new ObjectMapper().writeValueAsString(food3);
@@ -93,7 +93,7 @@ public class RouteTests {
     public void whenUpdateFood_thenReturn200AndUpdatedObject() throws Exception {
         String urlId = url + "/" + food2.getId();
         Food food2Updated = new Food(
-                "noodles", Category.CARBOHYDRATE, Group.YES, "beige", "bland", "soft", "\uD83C\uDF5C", "Updated!"
+                "ABC", "noodles", Category.CARBOHYDRATE, Group.YES, "beige", "bland", "soft", "\uD83C\uDF5C", "Updated!"
         );
 
         String foodAsJson = new ObjectMapper().writeValueAsString(food2Updated);

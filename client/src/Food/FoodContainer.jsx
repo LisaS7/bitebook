@@ -6,7 +6,6 @@ import { deleteRecord, updateRecord } from "../Service";
 export default function FoodContainer() {
   const dispatch = useDispatch();
   const { foods, categories, groups } = useSelector((state) => state);
-  const { user } = useSelector((state) => state);
 
   const dataTemplate = {
     icon: { heading: "", type: "text" },
@@ -19,8 +18,6 @@ export default function FoodContainer() {
     notes: { heading: "Notes", type: "textarea" },
   };
 
-  console.log(user);
-
   function handleDelete(id) {
     deleteRecord(id, "foods");
     dispatch(removeFood(id));
@@ -29,6 +26,9 @@ export default function FoodContainer() {
   function handleSave(food) {
     updateRecord(food, "foods");
     dispatch(editFood(food));
+  }
+  if (!foods.length) {
+    return "Loading";
   }
 
   return (

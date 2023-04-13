@@ -17,6 +17,8 @@ public class Food {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "food_sequence")
     private Long id;
 
+    private String userId;
+
     @NotBlank(message = "Name is required")
     private String name;
 
@@ -35,7 +37,8 @@ public class Food {
 
     private String notes;
 
-    public Food(String name, Category category, Group group, String colour, String flavour, String texture, String icon, String notes) {
+    public Food(String user, String name, Category category, Group group, String colour, String flavour, String texture, String icon, String notes) {
+        this.userId = user;
         this.name = name;
         this.category = category;
         this.grouping = group;
