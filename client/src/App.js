@@ -12,7 +12,7 @@ import Register from "./components/User/Register";
 import Reset from "./components/User/Reset";
 import Profile from "./components/User/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
-import FoodContainer from "./containers/FoodContainer";
+import FoodContainer from "./Food/FoodContainer";
 
 function App() {
   const [foods, setFoods] = useState([]);

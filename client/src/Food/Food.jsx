@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { removeFood } from "../../state/slice";
-import { deleteFood } from "../../Service";
+import { removeFood } from "../state/slice";
+import { deleteFood } from "../Service";
 import EditFood from "./EditFood";
 
 export default function Food({ food }) {

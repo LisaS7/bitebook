@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { editFood } from "../../state/slice";
-import { updateFood } from "../../Service";
+import { editFood } from "../state/slice";
+import { updateFood } from "../Service";
 
 export default function EditFood({ food, setEditMode }) {
   const [tempFood, setTempFood] = useState({ ...food });
