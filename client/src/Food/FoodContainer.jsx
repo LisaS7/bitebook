@@ -15,6 +15,7 @@ export default function FoodContainer() {
     colour: { heading: "Colour", type: "text" },
     flavour: { heading: "Flavour", type: "text" },
     texture: { heading: "Texture", type: "text" },
+    notes: { heading: "Notes", type: "textarea" },
   };
 
   function handleDelete(id) {

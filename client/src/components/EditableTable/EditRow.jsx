@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Input, Dropdown, TextArea } from "./FormElements";
+import { CancelButton, SaveButton } from "./Buttons";
 
 export default function EditRow({
   item,
@@ -46,32 +47,27 @@ export default function EditRow({
         />
       );
     }
+
+    if (value.type === "textarea") {
+      cells.push(
+        <TextArea
+          key={key}
+          keyName={key}
+          fieldValue={fieldValue}
+          changeValue={changeValue}
+        />
+      );
+    }
   }
 
   return (
     <tr>
       {cells}
-      <TextArea
-        keyName="notes"
-        fieldValue={tempItem.notes}
-        changeValue={changeValue}
-      />
       <td>
-        <button>
-          <span className="material-symbols-outlined" onClick={handleClickSave}>
-            done
-          </span>
-        </button>
+        <SaveButton handleClickSave={handleClickSave} />
       </td>
       <td>
-        <button>
-          <span
-            className="material-symbols-outlined"
-            onClick={() => setEditMode(false)}
-          >
-            close
-          </span>
-        </button>
+        <CancelButton setEditMode={setEditMode} />
       </td>
     </tr>
   );

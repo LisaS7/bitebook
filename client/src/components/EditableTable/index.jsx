@@ -30,9 +30,9 @@ export default function EditableTable({
       <Row
         key={item.id}
         item={item}
-        handleDelete={handleDelete}
         setEditMode={setEditMode}
         keyOrder={keyOrder}
+        handleDelete={handleDelete}
       />
     )
   );
@@ -40,10 +40,7 @@ export default function EditableTable({
   return (
     <Table size="sm" responsive>
       <thead>
-        <tr>
-          {headingElements}
-          <th>Notes</th>
-        </tr>
+        <tr>{headingElements}</tr>
       </thead>
       <tbody>{dataElements}</tbody>
     </Table>
