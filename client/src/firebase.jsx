@@ -15,6 +15,8 @@ import {
   collection,
   where,
   addDoc,
+  updateDoc,
+  doc,
 } from "firebase/firestore";
 import { seedNewAccount } from "./seed/seed_food";
 
@@ -92,6 +94,19 @@ async function sendPasswordReset(email) {
   }
 }
 
+async function updateUserProfile(uid, data) {
+  try {
+    const q = query(collection(db, "users"), where("uid", "==", uid));
+    const docSnapshot = await getDocs(q);
+    const ref = doc(db, "users", docSnapshot.docs[0].id);
+    await updateDoc(ref, data);
+    alert("Profile updated!");
+  } catch (err) {
+    console.error(err);
+    alert("Error while fetching user data");
+  }
+}
+
 function logout() {
   signOut(auth);
 }
@@ -103,5 +118,6 @@ export {
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,
   sendPasswordReset,
+  updateUserProfile,
   logout,
 };

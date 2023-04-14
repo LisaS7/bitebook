@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const StyledContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-content: center;
 
@@ -17,3 +18,5 @@ export const StyledContainer = styled.div`
     margin-top: 15px;
   }
 `;
+
+export const UserDetailsSection = styled.section``;
