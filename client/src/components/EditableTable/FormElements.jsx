@@ -7,15 +7,11 @@ import { AbsolutePicker, EmojiPickerContainer } from "./style";
 export function EmojiInput({ value }) {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
-  console.log(showEmojiPicker);
-
   function toggleEmojiPicker() {
-    console.log("toggle called");
     setShowEmojiPicker(!showEmojiPicker);
   }
 
   function handleOutsideClick(e) {
-    console.log("target", e.target.id);
     if (e.target.id !== "toggle-emoji") {
       toggleEmojiPicker();
     }

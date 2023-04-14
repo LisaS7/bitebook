@@ -16,6 +16,7 @@ import {
   where,
   addDoc,
 } from "firebase/firestore";
+import { seedNewAccount } from "./seed/seed_food";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCvDGNgCOc-THRKGNLFY4MWuDufM3fh4Dk",
@@ -47,7 +48,7 @@ async function signInWithGoogle() {
         authProvider: "google",
         email: user.email,
       });
-      // seed db with basic foods
+      seedNewAccount(user.uid);
     }
   } catch (error) {
     console.log(error);
@@ -74,7 +75,7 @@ async function registerWithEmailAndPassword(name, email, password) {
       authProvider: "local",
       email,
     });
-    // seed db with basic foods
+    seedNewAccount(user.uid);
   } catch (error) {
     console.log(error);
     alert(error.message);
