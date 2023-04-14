@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import {
   auth,
   db,
@@ -7,19 +8,27 @@ import {
   sendPasswordReset,
   updateUserProfile,
 } from "../../firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
+import { useAuthState, useDeleteUser } from "react-firebase-hooks/auth";
 import { query, getDocs, collection, where } from "firebase/firestore";
 import Loading from "../Layout/Loading";
-import { StyledContainer, UserDetailsSection } from "./style";
+import { StyledContainer } from "./style";
 
 export default function Profile() {
   const [user, loading] = useAuthState(auth);
+  const [deleteUser] = useDeleteUser(auth);
   const [editName, setEditName] = useState("");
   const [editEmail, setEditEmail] = useState("");
 
-  async function handleSubmit(e) {
+  async function handleUpdate(e) {
     e.preventDefault();
     updateUserProfile(user.uid, { name: editName, email: editEmail });
+  }
+
+  async function handleDelete(params) {
+    const success = await deleteUser();
+    if (success) {
+      alert("Account deleted");
+    }
   }
 
   function changeValue(e, setValue) {
@@ -57,7 +66,7 @@ export default function Profile() {
   }
   return (
     <StyledContainer>
-      <Form onSubmit={(e) => handleSubmit(e)}>
+      <Form onSubmit={(e) => handleUpdate(e)}>
         <h4>User Details</h4>
         <Form.Group controlId="formUserName">
           <Form.Label>Name</Form.Label>
@@ -81,6 +90,9 @@ export default function Profile() {
         Reset Password
       </button>
       <button onClick={logout}>Logout</button>
+      <Button variant="danger" onClick={handleDelete}>
+        Delete Account
+      </Button>
     </StyledContainer>
   );
 }

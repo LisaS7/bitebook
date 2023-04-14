@@ -54,7 +54,7 @@ async function signInWithGoogle() {
     }
   } catch (error) {
     console.log(error);
-    alert(error.message);
+    alert("Sign in error: " + error.message);
   }
 }
 
@@ -63,7 +63,7 @@ async function logInWithEmailAndPassword(email, password) {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (error) {
     console.log(error);
-    alert(error.message);
+    alert("Login error: " + error.message);
   }
 }
 
@@ -80,7 +80,7 @@ async function registerWithEmailAndPassword(name, email, password) {
     seedNewAccount(user.uid);
   } catch (error) {
     console.log(error);
-    alert(error.message);
+    alert("Registration error: " + error.message);
   }
 }
 
@@ -90,7 +90,7 @@ async function sendPasswordReset(email) {
     alert("Password reset link sent! Please check your emails.");
   } catch (error) {
     console.log(error);
-    alert(error.message);
+    alert(`Email could not be sent\n${error.message}`);
   }
 }
 
