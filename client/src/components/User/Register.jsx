@@ -7,6 +7,7 @@ import {
 } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { StyledContainer } from "./style";
+import Loading from "../Layout/Loading";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -21,11 +22,13 @@ export default function Register() {
   }
 
   useEffect(() => {
-    if (loading) return; // todo: loading screen
-
     // replace register page in history so browser back button works correctly
     if (user) navigate("/home", { replace: true });
   }, [user, loading, navigate]);
+
+  if (loading) {
+    return <Loading message="Registering user" showLoading={loading} />;
+  }
 
   return (
     <StyledContainer>

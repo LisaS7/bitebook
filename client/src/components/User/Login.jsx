@@ -7,6 +7,7 @@ import {
 } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { StyledContainer } from "./style";
+import Loading from "../Layout/Loading";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -15,14 +16,12 @@ export default function Login() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (loading) {
-      // todo: loading screen
-      return;
-    }
-
     if (user) navigate("/home");
   }, [user, loading, navigate]);
 
+  if (loading) {
+    return <Loading message="Loading user data" showLoading={loading} />;
+  }
   return (
     <StyledContainer>
       <section>

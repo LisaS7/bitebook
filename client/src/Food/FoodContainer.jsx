@@ -28,9 +28,6 @@ export default function FoodContainer() {
     updateRecord(food, "foods");
     dispatch(editFood(food));
   }
-  if (!foods.length) {
-    return "Loading";
-  }
 
   return (
     <>

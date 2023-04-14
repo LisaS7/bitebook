@@ -15,7 +15,10 @@ import {
   collection,
   where,
   addDoc,
+  updateDoc,
+  doc,
 } from "firebase/firestore";
+import { seedNewAccount } from "./seed/seed_food";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCvDGNgCOc-THRKGNLFY4MWuDufM3fh4Dk",
@@ -47,11 +50,11 @@ async function signInWithGoogle() {
         authProvider: "google",
         email: user.email,
       });
-      // seed db with basic foods
+      seedNewAccount(user.uid);
     }
   } catch (error) {
     console.log(error);
-    alert(error.message);
+    alert("Sign in error: " + error.message);
   }
 }
 
@@ -60,7 +63,7 @@ async function logInWithEmailAndPassword(email, password) {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (error) {
     console.log(error);
-    alert(error.message);
+    alert("Login error: " + error.message);
   }
 }
 
@@ -74,10 +77,10 @@ async function registerWithEmailAndPassword(name, email, password) {
       authProvider: "local",
       email,
     });
-    // seed db with basic foods
+    seedNewAccount(user.uid);
   } catch (error) {
     console.log(error);
-    alert(error.message);
+    alert("Registration error: " + error.message);
   }
 }
 
@@ -87,7 +90,20 @@ async function sendPasswordReset(email) {
     alert("Password reset link sent! Please check your emails.");
   } catch (error) {
     console.log(error);
-    alert(error.message);
+    alert(`Email could not be sent\n${error.message}`);
+  }
+}
+
+async function updateUserProfile(uid, data) {
+  try {
+    const q = query(collection(db, "users"), where("uid", "==", uid));
+    const docSnapshot = await getDocs(q);
+    const ref = doc(db, "users", docSnapshot.docs[0].id);
+    await updateDoc(ref, data);
+    alert("Profile updated!");
+  } catch (err) {
+    console.error(err);
+    alert("Error while updating profile");
   }
 }
 
@@ -102,5 +118,6 @@ export {
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,
   sendPasswordReset,
+  updateUserProfile,
   logout,
 };

@@ -28,6 +28,6 @@ export const slice = createSlice({
   },
 });
 
-export const { setDataState, editFood, removeFood } = slice.actions;
+export const { setUser, setDataState, editFood, removeFood } = slice.actions;
 
 export default slice.reducer;

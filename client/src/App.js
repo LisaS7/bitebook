@@ -1,4 +1,5 @@
 import "./App.css";
+import { trackPromise } from "react-promise-tracker";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -26,24 +27,20 @@ function App() {
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    // getData("/bites", setBites);
     getData("/categories", setCategories);
     getData("/groups", setGroups);
   }, []);
 
   useEffect(() => {
     if (user) {
-      getData("/foods", setFoods, user.uid);
+      trackPromise(getData("/foods", setFoods, user.uid));
+      // getData("/bites", setBites);
     }
   }, [user]);
 
   useEffect(() => {
     dispatch(setDataState({ foods, bites, categories, groups }));
   }, [foods, bites, categories, groups, dispatch]);
-
-  if (!foods.length) {
-    return "Loading";
-  }
 
   return (
     <Router>

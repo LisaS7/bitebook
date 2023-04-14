@@ -2,8 +2,10 @@ import styled from "styled-components";
 
 export const StyledContainer = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 3rem;
+  margin: auto;
+  width: 20%;
 
   & section {
     display: flex;
@@ -13,7 +15,22 @@ export const StyledContainer = styled.div`
     padding: 30px;
   }
 
+  & form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  & form > div {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .bottom-link {
     margin-top: 15px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
   }
 `;
