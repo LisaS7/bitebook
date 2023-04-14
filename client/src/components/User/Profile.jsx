@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
-import { auth, db, logout, updateUserProfile } from "../../firebase";
+import {
+  auth,
+  db,
+  logout,
+  sendPasswordReset,
+  updateUserProfile,
+} from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { query, getDocs, collection, where } from "firebase/firestore";
 import Loading from "../Layout/Loading";
@@ -8,7 +14,6 @@ import { StyledContainer, UserDetailsSection } from "./style";
 
 export default function Profile() {
   const [user, loading] = useAuthState(auth);
-  const [name, setName] = useState("");
   const [editName, setEditName] = useState("");
   const [editEmail, setEditEmail] = useState("");
 
@@ -31,7 +36,6 @@ export default function Profile() {
           );
           const doc = await getDocs(q);
           const data = doc.docs[0].data();
-          setName(data.name);
           setEditName(data.name);
           setEditEmail(data.email);
         } catch (err) {
@@ -53,29 +57,30 @@ export default function Profile() {
   }
   return (
     <StyledContainer>
-      <UserDetailsSection>
-        <Form onSubmit={(e) => handleSubmit(e)}>
-          <Form.Group controlId="formUserName">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              type="text"
-              value={editName}
-              onChange={(e) => changeValue(e, setEditName)}
-            />
-          </Form.Group>
-          <Form.Group controlId="formEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="email"
-              value={editEmail}
-              onChange={(e) => changeValue(e, setEditEmail)}
-            />
-          </Form.Group>
-          <button>Save changes</button>
-        </Form>
-        <button onClick={logout}>Logout</button>
-      </UserDetailsSection>
-      <section>stuff</section>
+      <Form onSubmit={(e) => handleSubmit(e)}>
+        <h4>User Details</h4>
+        <Form.Group controlId="formUserName">
+          <Form.Label>Name</Form.Label>
+          <Form.Control
+            type="text"
+            value={editName}
+            onChange={(e) => changeValue(e, setEditName)}
+          />
+        </Form.Group>
+        <Form.Group controlId="formEmail">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="email"
+            value={editEmail}
+            onChange={(e) => changeValue(e, setEditEmail)}
+          />
+        </Form.Group>
+        <button>Save changes</button>
+      </Form>
+      <button onClick={() => sendPasswordReset(user.email)}>
+        Reset Password
+      </button>
+      <button onClick={logout}>Logout</button>
     </StyledContainer>
   );
 }

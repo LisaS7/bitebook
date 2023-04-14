@@ -103,7 +103,7 @@ async function updateUserProfile(uid, data) {
     alert("Profile updated!");
   } catch (err) {
     console.error(err);
-    alert("Error while fetching user data");
+    alert("Error while updating profile");
   }
 }
 
