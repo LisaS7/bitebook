@@ -23,7 +23,7 @@ public class FoodConfig {
             );
 
             Food courgette = new Food(
-                    "", "courgette", Category.VEGETABLE.getFormattedName(), Group.NO.getFormattedName(), "green", "bland", "firm", "", ""
+                    "cPxLfFa9modTTYrjt85XwIzViUr1", "courgette", Category.VEGETABLE.getFormattedName(), Group.NO.getFormattedName(), "green", "bland", "firm", "", ""
             );
 
             repository.saveAll(List.of(banana, noodles, courgette));

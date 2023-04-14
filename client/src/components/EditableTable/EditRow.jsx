@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Input, Dropdown, TextArea } from "./FormElements";
+import { Input, Dropdown, TextArea, EmojiInput } from "./FormElements";
 import { CancelButton, SaveButton } from "./Buttons";
 
 export default function EditRow({
@@ -57,6 +57,10 @@ export default function EditRow({
           changeValue={changeValue}
         />
       );
+    }
+
+    if (value.type === "emoji") {
+      cells.push(<EmojiInput key={key} value={fieldValue} />);
     }
   }
 

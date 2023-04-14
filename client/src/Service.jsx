@@ -27,11 +27,11 @@ export async function deleteRecord(id, endpoint) {
   await fetch(url, body);
 }
 
-// export async function postBooking(booking) {
-//   const data = await fetch(baseURL, {
-//       method: "POST",
-//       body: JSON.stringify(booking),
-//       headers: {"Content-Type": "application/json"}
-//   })
-//   return await data.json()
-// }
+export async function postRecord(item) {
+  const data = await fetch(baseURL, {
+    method: "POST",
+    body: JSON.stringify(item),
+    headers: { "Content-Type": "application/json" },
+  });
+  return await data.json();
+}

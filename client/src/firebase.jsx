@@ -47,6 +47,7 @@ async function signInWithGoogle() {
         authProvider: "google",
         email: user.email,
       });
+      // seed db with basic foods
     }
   } catch (error) {
     console.log(error);
@@ -73,6 +74,7 @@ async function registerWithEmailAndPassword(name, email, password) {
       authProvider: "local",
       email,
     });
+    // seed db with basic foods
   } catch (error) {
     console.log(error);
     alert(error.message);
