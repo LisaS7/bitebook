@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { TextField, Dropdown, TextArea } from "./FormFields";
-import { postRecord } from "../../Service";
 import { FormContainer, StyledForm } from "./style";
 
 export default function AddForm({ setShowAdd, template, handleNew }) {
