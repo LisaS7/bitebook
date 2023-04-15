@@ -2,7 +2,7 @@ import { Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { auth } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import FoodContainer from "./FoodContainer";
+import FoodContainer from "./Container";
 import AddForm from "../components/AddForm";
 import GetDataTemplate from "./dataTemplate";
 import { addFood } from "../state/slice";

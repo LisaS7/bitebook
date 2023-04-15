@@ -40,7 +40,11 @@ export default function EditableTable({
   return (
     <Table size="sm" responsive>
       <thead>
-        <tr>{headingElements}</tr>
+        <tr>
+          {headingElements}
+          <th></th>
+          <th></th>
+        </tr>
       </thead>
       <tbody>{dataElements}</tbody>
     </Table>

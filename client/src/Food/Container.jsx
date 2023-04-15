@@ -4,7 +4,7 @@ import { editFood, removeFood } from "../state/slice";
 import EditableTable from "../components/EditableTable";
 import GetDataTemplate from "./dataTemplate";
 import { deleteRecord, updateRecord } from "../Service";
-import { AddButton, ButtonControls } from "./style";
+import { AddButton, ButtonControls } from "../components/Layout/style";
 
 export default function FoodContainer() {
   const dispatch = useDispatch();

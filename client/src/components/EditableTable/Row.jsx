@@ -1,11 +1,22 @@
+import { DisplayRating } from "../Bites/utils";
 import { DeleteButton, EditButton } from "./Buttons";
 
 export default function Row({ item, handleDelete, setEditMode, keyOrder }) {
-  const data = keyOrder.map((key, index) => <td key={index}>{item[key]}</td>);
+  let cells = [];
+
+  keyOrder.forEach((field) => {
+    if (typeof item[field] === "object" && field !== null) {
+      cells.push(<td key={field}>{item[field].name}</td>);
+    } else if (field === "rating") {
+      cells.push(<td key={field}>{DisplayRating(item[field])}</td>);
+    } else {
+      cells.push(<td key={field}>{item[field]}</td>);
+    }
+  });
 
   return (
     <tr>
-      {data}
+      {cells}
       <td>
         <EditButton setEditMode={setEditMode} />
       </td>

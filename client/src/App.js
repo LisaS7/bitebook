@@ -17,10 +17,11 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import { auth } from "./firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import FoodRoutes from "./Food/Routes";
+import BiteRoutes from "./components/Bites/Routes";
 
 function App() {
   const [foods, setFoods] = useState([]);
-  const [bites] = useState([]);
+  const [bites, setBites] = useState([]);
   const [categories, setCategories] = useState([]);
   const [groups, setGroups] = useState([]);
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ function App() {
   useEffect(() => {
     if (user) {
       trackPromise(getData("/foods", setFoods, user.uid));
-      // getData("/bites", setBites);
+      trackPromise(getData("/bites", setBites, user.uid));
     }
   }, [user]);
 
@@ -56,6 +57,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             {FoodRoutes()}
+            {BiteRoutes()}
           </Route>
         </Route>
       </Routes>
