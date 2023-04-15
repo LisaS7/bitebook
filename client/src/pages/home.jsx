@@ -8,17 +8,23 @@ export default function Home() {
       <StyledCard>
         <Card.Title>Food</Card.Title>
         <ButtonGroup>
-          <Link to="/foods">
+          <Link to="/foods/add">
             <button id="pink-button">Add</button>
           </Link>
-          <button id="pink-button">View</button>
+          <Link to="/foods">
+            <button id="pink-button">View</button>
+          </Link>
         </ButtonGroup>
       </StyledCard>
       <StyledCard>
         <Card.Title>Bites</Card.Title>
         <ButtonGroup>
-          <button id="pink-button">Add</button>
-          <button id="pink-button">View</button>
+          <Link to="/bites/add">
+            <button id="pink-button">Add</button>
+          </Link>
+          <Link to="/bites">
+            <button id="pink-button">View</button>
+          </Link>
         </ButtonGroup>
       </StyledCard>
     </HomeContainer>

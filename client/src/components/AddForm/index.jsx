@@ -1,15 +1,26 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { TextField, Dropdown, TextArea } from "./FormFields";
+import { postRecord } from "../../Service";
 import { FormContainer, StyledForm } from "./style";
 
-export default function AddForm({ setShowAdd, template, handleNew }) {
+export default function AddForm({ uid, template, endpoint, setState }) {
   const formFields = [];
   const [formData, setFormData] = useState({});
+  const navigate = useNavigate();
 
   function handleChange(event) {
     const name = event.target.name;
     const value = event.target.value;
     setFormData((values) => ({ ...values, [name]: value }));
+  }
+
+  function handleNew(data, event) {
+    event.preventDefault();
+    data.userId = uid;
+    postRecord(data, endpoint);
+    navigate("/" + endpoint);
+    setState(data);
   }
 
   for (const [key, value] of Object.entries(template)) {
@@ -49,7 +60,7 @@ export default function AddForm({ setShowAdd, template, handleNew }) {
         {formFields}
         <button>Save</button>
       </StyledForm>
-      <button onClick={() => setShowAdd(false)}>Cancel</button>
+      <button onClick={() => navigate("/foods")}>Cancel</button>
     </FormContainer>
   );
 }
