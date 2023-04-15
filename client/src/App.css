@@ -1,17 +1,24 @@
-* {
-  margin: 0; padding: 0;
-  box-sizing: border-box;
-}
-
 /* colours */
 :root{
   --google-button: #4285f4;
-  --dark: #2d2a32;
+  --dark: #1b1a1e;
   --green: #01696f;
-  --pink: #e36588;
-  --platinum: #dbdbdb;
+  --pink: #df577e;
   --light: #eef1ef;
+  --platinum: #dbdbdb;
 }
+
+
+* {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  color: var(--dark);
+}
+
+.nav-link {
+  color: var(--dark) !important;
+}
+
 
 .small-cell {
   text-align: center;
@@ -32,6 +39,11 @@ button {
 
 .google-button {
   background-color: var(--google-button);
+}
+
+#pink-button {
+  background-color: var(--pink);
+  border-radius: 10px;
 }
 
 
