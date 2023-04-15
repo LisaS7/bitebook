@@ -3,7 +3,7 @@ package uk.co.lisasteven.bitebook.bite;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import uk.co.lisasteven.bitebook.food.Food;
 
@@ -19,12 +19,14 @@ public class Bite {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "bite_sequence")
     private Long id;
 
-    @NotBlank(message = "Date is required")
+    private String userId;
+
+    @NotNull
     private LocalDate date;
 
     @ManyToOne
     @JoinColumn(name="food_id", nullable = false)
-    @NotBlank(message = "Food is required")
+    @NotNull(message = "Food is required")
     private Food food;
 
     @Min(1)
@@ -33,12 +35,12 @@ public class Bite {
 
     private String notes;
 
-    public Bite(LocalDate date, Food food, Integer rating, String notes) {
+    public Bite(String user, LocalDate date, Food food, Integer rating, String notes) {
+        this.userId = user;
         this.date = date;
         this.food = food;
         this.rating = rating;
         this.notes = notes;
     }
-
 
 }

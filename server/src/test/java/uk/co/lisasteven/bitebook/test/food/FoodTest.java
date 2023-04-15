@@ -27,11 +27,11 @@ public class FoodTest {
         );
 
         Bite bite1 = new Bite(
-                LocalDate.of(2020, 07, 15), food, 4, "This is the second bite."
+                "ABC", LocalDate.of(2020, 07, 15), food, 4, "This is the second bite."
         );
 
         Bite bite2 = new Bite(
-                LocalDate.of(2020, 07, 10), food, 3, "This is the first bite."
+               "ABC", LocalDate.of(2020, 07, 10), food, 3, "This is the first bite."
         );
 
     }

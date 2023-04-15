@@ -25,7 +25,7 @@ public class BiteTest {
         );
 
         bite = new Bite(
-                LocalDate.of(2020, 07, 15), banana, 4, "This is a note."
+                "ABC", LocalDate.of(2020, 07, 15), banana, 4, "This is a note."
         );
     }
 
