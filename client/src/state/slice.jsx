@@ -25,9 +25,13 @@ export const slice = createSlice({
     removeFood: (state, action) => {
       state.foods = state.foods.filter((item) => item.id !== action.payload);
     },
+    addFood: (state, action) => {
+      state.foods.push(action.payload);
+    },
   },
 });
 
-export const { setUser, setDataState, editFood, removeFood } = slice.actions;
+export const { setUser, setDataState, editFood, removeFood, addFood } =
+  slice.actions;
 
 export default slice.reducer;

@@ -13,10 +13,10 @@ import Register from "./components/User/Register";
 import Reset from "./components/User/Reset";
 import Profile from "./components/User/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
-import FoodContainer from "./Food/FoodContainer";
 
 import { auth } from "./firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import FoodRoutes from "./Food/Routes";
 
 function App() {
   const [foods, setFoods] = useState([]);
@@ -55,7 +55,7 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/foods" element={<FoodContainer uid={user?.uid} />} />
+            {FoodRoutes()}
           </Route>
         </Route>
       </Routes>
