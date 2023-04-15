@@ -2,7 +2,6 @@ const baseURL = "http://localhost:8080/api";
 
 export async function getData(endpoint, setData, uid = null) {
   const url = uid ? `${baseURL}${endpoint}?uid=${uid}` : baseURL + endpoint;
-  console.log(url);
   const response = await fetch(url);
   const responseJson = await response.json();
   setData(responseJson);
@@ -27,8 +26,10 @@ export async function deleteRecord(id, endpoint) {
   await fetch(url, body);
 }
 
-export async function postRecord(item) {
-  const data = await fetch(baseURL, {
+export async function postRecord(item, endpoint) {
+  const url = `${baseURL}/${endpoint}`;
+
+  const data = await fetch(url, {
     method: "POST",
     body: JSON.stringify(item),
     headers: { "Content-Type": "application/json" },

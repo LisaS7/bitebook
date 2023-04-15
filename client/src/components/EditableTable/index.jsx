@@ -7,7 +7,7 @@ export default function EditableTable({
   data,
   dataTemplate,
   handleDelete,
-  handleSave,
+  handleUpdate,
 }) {
   const [editMode, setEditMode] = useState(false);
   const keyOrder = Object.keys(dataTemplate);
@@ -24,7 +24,7 @@ export default function EditableTable({
         item={item}
         setEditMode={setEditMode}
         dataTemplate={dataTemplate}
-        handleSave={handleSave}
+        handleSave={handleUpdate}
       />
     ) : (
       <Row

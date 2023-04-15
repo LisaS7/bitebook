@@ -5,7 +5,7 @@ export const StyledContainer = styled.div`
   flex-direction: column;
   gap: 3rem;
   margin: auto;
-  width: 20%;
+  width: 30%;
 
   & section {
     display: flex;
@@ -23,7 +23,7 @@ export const StyledContainer = styled.div`
 
   & form > div {
     display: flex;
-    justify-content: space-between;
+    gap: 1rem;
   }
 
   .bottom-link {

@@ -1,12 +1,15 @@
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { editFood, removeFood } from "../state/slice";
 import EditableTable from "../components/EditableTable";
-import { deleteRecord, updateRecord } from "../Service";
+import { deleteRecord, updateRecord, postRecord } from "../Service";
+import AddForm from "../components/AddForm";
 import { AddButton, ButtonControls } from "./style";
 
-export default function FoodContainer() {
+export default function FoodContainer({ uid }) {
   const dispatch = useDispatch();
   const { foods, categories, groups } = useSelector((state) => state);
+  const [showAdd, setShowAdd] = useState(false);
 
   const dataTemplate = {
     icon: { heading: "", type: "emoji" },
@@ -24,15 +27,35 @@ export default function FoodContainer() {
     dispatch(removeFood(id));
   }
 
-  function handleSave(food) {
+  function handleUpdate(food) {
     updateRecord(food, "foods");
     dispatch(editFood(food));
+  }
+
+  function handleNew(food, event) {
+    event.preventDefault();
+    food.userId = uid;
+    postRecord(food, "foods");
+    alert("Food added");
+    setShowAdd(false);
+  }
+
+  useEffect(() => {}, [showAdd]);
+
+  if (showAdd) {
+    return (
+      <AddForm
+        setShowAdd={setShowAdd}
+        template={dataTemplate}
+        handleNew={handleNew}
+      />
+    );
   }
 
   return (
     <>
       <ButtonControls>
-        <AddButton>
+        <AddButton onClick={() => setShowAdd(true)}>
           <span className="material-symbols-outlined">add_circle</span>
         </AddButton>
       </ButtonControls>
@@ -40,7 +63,7 @@ export default function FoodContainer() {
         data={foods}
         dataTemplate={dataTemplate}
         handleDelete={handleDelete}
-        handleSave={handleSave}
+        handleSave={handleUpdate}
       />
     </>
   );
