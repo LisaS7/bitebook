@@ -6,12 +6,12 @@ export default function EditRow({
   item,
   dataTemplate,
   setEditMode,
-  handleSave,
+  handleUpdate,
 }) {
   const [tempItem, setTempItem] = useState({ ...item });
 
   function handleClickSave() {
-    handleSave(tempItem);
+    handleUpdate(tempItem);
     setEditMode(false);
   }
 

@@ -39,7 +39,6 @@ button {
 input {
   padding: 0.25rem;
   font-size: 1rem;
-  max-width: 15ch;
 }
 
 select {
@@ -59,10 +58,13 @@ textarea {
 }
 
  @media only screen and (max-width: 600px) {
+
+  main {
+    padding: 10px !important;
+  }
   
   input {
     padding: 0.5rem;
-    max-width: 9rem;
   }
 
   table {

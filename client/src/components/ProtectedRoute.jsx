@@ -11,7 +11,7 @@ export default function ProtectedRoute() {
   // note that moving this code outside of useEffect will cause a warning
   // "Cannot update a component ('BrowserRouter') while rendering a different component ('ProtectedRoute')
   useEffect(() => {
-    if (!user) {
+    if (!user && !loading) {
       navigate("/");
     }
   }, [user, loading, navigate]);

@@ -55,7 +55,7 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/foods" element={<FoodContainer />} />
+            <Route path="/foods" element={<FoodContainer uid={user?.uid} />} />
           </Route>
         </Route>
       </Routes>
