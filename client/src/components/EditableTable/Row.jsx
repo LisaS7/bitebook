@@ -1,7 +1,7 @@
 import { DeleteButton, EditButton } from "./Buttons";
 
 export default function Row({ item, handleDelete, setEditMode, keyOrder }) {
-  const data = keyOrder.map((key) => <td key={key}>{item[key]}</td>);
+  const data = keyOrder.map((key, index) => <td key={index}>{item[key]}</td>);
 
   return (
     <tr>
