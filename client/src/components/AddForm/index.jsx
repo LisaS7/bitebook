@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { TextField, Dropdown, TextArea } from "./FormFields";
+import {
+  TextField,
+  Dropdown,
+  TextArea,
+  DateInput,
+  RatingInput,
+} from "./FormFields";
 import { postRecord } from "../../Service";
 import { FormContainer, StyledForm } from "./style";
 
@@ -24,38 +30,63 @@ export default function AddForm({ uid, template, endpoint, setState }) {
   }
 
   for (const [key, value] of Object.entries(template)) {
-    if (value.type === "text") {
-      formFields.push(
-        <TextField
-          key={key}
-          name={value.heading}
-          formData={formData}
-          handleChange={handleChange}
-        />
-      );
-    }
-
-    if (value.type === "select") {
-      formFields.push(
-        <Dropdown
-          key={key}
-          name={value.heading}
-          items={value.options}
-          handleChange={handleChange}
-        />
-      );
-    }
-
-    if (value.type === "textarea") {
-      formFields.push(
-        <TextArea key={key} name={value.heading} handleChange={handleChange} />
-      );
+    switch (value.type) {
+      case "text":
+        formFields.push(
+          <TextField
+            key={key}
+            name={value.heading}
+            value={formData[key]}
+            handleChange={handleChange}
+          />
+        );
+        break;
+      case "select":
+        formFields.push(
+          <Dropdown
+            key={key}
+            name={value.heading}
+            items={value.options}
+            handleChange={handleChange}
+          />
+        );
+        break;
+      case "textarea":
+        formFields.push(
+          <TextArea
+            key={key}
+            name={value.heading}
+            handleChange={handleChange}
+          />
+        );
+        break;
+      case "date":
+        formFields.push(
+          <DateInput
+            key={key}
+            name={value.heading}
+            value={formData[key]}
+            handleChange={handleChange}
+          />
+        );
+        break;
+      case "radio":
+        formFields.push(
+          <RatingInput
+            key={key}
+            name={value.heading}
+            value={formData[key]}
+            options={[1, 2, 3, 4, 5]}
+            handleChange={handleChange}
+          />
+        );
+        break;
     }
   }
 
   return (
     <FormContainer>
-      <h2>Add Food</h2>
+      <h2>Add {endpoint[0].toUpperCase() + endpoint.slice(1)}</h2>
       <StyledForm onSubmit={(e) => handleNew(formData, e)}>
         {formFields}
         <button>Save</button>

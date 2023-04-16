@@ -9,14 +9,14 @@ export function IconPicker({ name }) {
   );
 }
 
-export function TextField({ name, formData, handleChange }) {
+export function TextField({ name, value, handleChange }) {
   return (
     <Form.Group controlId={"formfield_" + name}>
       <Form.Label>{name}</Form.Label>
       <Form.Control
         type="text"
         name={name.toLowerCase()}
-        value={formData[name.toLowerCase()] || ""}
+        value={value}
         onChange={handleChange}
       />
     </Form.Group>
@@ -43,6 +43,35 @@ export function TextArea({ name, handleChange }) {
     <Form.Group controlId={"formfield_" + name}>
       <Form.Label>{name}</Form.Label>
       <Form.Control as="textarea" onChange={handleChange} />
+    </Form.Group>
+  );
+}
+
+export function DateInput({ name, value, handleChange }) {
+  return (
+    <Form.Group controlId={"formfield_" + name}>
+      <Form.Label>{name}</Form.Label>
+      <Form.Control type="date" value={value} onChange={handleChange} />
+    </Form.Group>
+  );
+}
+
+export function RatingInput({ name, value, options, handleChange }) {
+  const elements = options.map((option, index) => (
+    <Form.Check
+      inline
+      key={index}
+      type="radio"
+      name="rating"
+      id={option}
+      label={option <= value ? "🟢" : "⚪"}
+      value={option}
+      onClick={handleChange}
+    />
+  ));
+  return (
+    <Form.Group className="rating-box" controlId={"formfield_" + name}>
+      <Form.Label>{name}</Form.Label> <div>{elements}</div>
     </Form.Group>
   );
 }

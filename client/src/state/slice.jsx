@@ -28,10 +28,29 @@ export const slice = createSlice({
     addFood: (state, action) => {
       state.foods.push(action.payload);
     },
+    editBite: (state, action) => {
+      const biteId = action.payload.id;
+      const index = state.bites.findIndex((item) => item.id === biteId);
+      state.foods[index] = action.payload;
+    },
+    removeBite: (state, action) => {
+      state.bites = state.bites.filter((item) => item.id !== action.payload);
+    },
+    addBite: (state, action) => {
+      state.bites.push(action.payload);
+    },
   },
 });
 
-export const { setUser, setDataState, editFood, removeFood, addFood } =
-  slice.actions;
+export const {
+  setUser,
+  setDataState,
+  editFood,
+  removeFood,
+  addFood,
+  editBite,
+  removeBite,
+  addBite,
+} = slice.actions;
 
 export default slice.reducer;

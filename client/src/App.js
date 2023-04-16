@@ -17,7 +17,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import { auth } from "./firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import FoodRoutes from "./Food/Routes";
-import BiteRoutes from "./components/Bites/Routes";
+import BiteRoutes from "./Bites/Routes";
 
 function App() {
   const [foods, setFoods] = useState([]);

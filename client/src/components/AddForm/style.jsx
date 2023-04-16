@@ -12,5 +12,14 @@ export const FormContainer = styled.div`
 export const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
+
+  & .rating-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  & input[name="rating"] {
+    display: none;
+  }
 `;

@@ -1,4 +1,4 @@
-import { DisplayRating } from "../Bites/utils";
+import { DisplayRating } from "../../Bites/utils";
 import { DeleteButton, EditButton } from "./Buttons";
 
 export default function Row({ item, handleDelete, setEditMode, keyOrder }) {
