@@ -38,6 +38,21 @@ export function Dropdown({ name, items, handleChange }) {
   );
 }
 
+export function ObjectDropdown({ name, items, handleChange }) {
+  const options = items.map((item) => (
+    <option key={item.id} value={item.id}>
+      {item.name}
+    </option>
+  ));
+
+  return (
+    <Form.Group controlId={"formfield_" + name}>
+      <Form.Label>{name}</Form.Label>
+      <Form.Select onChange={handleChange}>{options}</Form.Select>
+    </Form.Group>
+  );
+}
+
 export function TextArea({ name, handleChange }) {
   return (
     <Form.Group controlId={"formfield_" + name}>

@@ -6,6 +6,7 @@ import {
   TextArea,
   DateInput,
   RatingInput,
+  ObjectDropdown,
 } from "./FormFields";
 import { postRecord } from "../../Service";
 import { FormContainer, StyledForm } from "./style";
@@ -50,6 +51,17 @@ export default function AddForm({ uid, template, endpoint, setState }) {
             handleChange={handleChange}
           />
         );
+        break;
+      case "select_object":
+        formFields.push(
+          <ObjectDropdown
+            key={key}
+            name={value.heading}
+            items={value.options}
+            handleChange={handleChange}
+          />
+        );
+
         break;
       case "textarea":
         formFields.push(
