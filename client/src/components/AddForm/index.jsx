@@ -24,13 +24,24 @@ export default function AddForm({ uid, template, endpoint, setState }) {
 
   function handleNew(data, event) {
     event.preventDefault();
+
     data.userId = uid;
+
+    if (data.food) {
+      data.food = { id: data.food };
+    }
+
     postRecord(data, endpoint);
-    navigate("/" + endpoint);
     setState(data);
+    navigate("/" + endpoint);
   }
 
+  // set default values from data template
   for (const [key, value] of Object.entries(template)) {
+    if (formData[key] === undefined && value.default) {
+      setFormData((values) => ({ ...values, [key]: value.default }));
+    }
+
     switch (value.type) {
       case "text":
         formFields.push(
@@ -61,7 +72,6 @@ export default function AddForm({ uid, template, endpoint, setState }) {
             handleChange={handleChange}
           />
         );
-
         break;
       case "textarea":
         formFields.push(
@@ -103,7 +113,7 @@ export default function AddForm({ uid, template, endpoint, setState }) {
         {formFields}
         <button>Save</button>
       </StyledForm>
-      <button onClick={() => navigate("/foods")}>Cancel</button>
+      <button onClick={() => navigate("/" + endpoint)}>Cancel</button>
     </FormContainer>
   );
 }

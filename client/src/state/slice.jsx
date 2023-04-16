@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const initialState = {
   foods: [],
@@ -37,7 +37,11 @@ export const slice = createSlice({
       state.bites = state.bites.filter((item) => item.id !== action.payload);
     },
     addBite: (state, action) => {
-      state.bites.push(action.payload);
+      const newBite = action.payload;
+      const foodId = parseInt(newBite.food.id);
+      const food = state.foods.filter((item) => item.id === foodId);
+      newBite.food = food[0];
+      state.bites.push(newBite);
     },
   },
 });

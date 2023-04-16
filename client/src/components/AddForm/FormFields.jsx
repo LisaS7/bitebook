@@ -1,4 +1,5 @@
 import Form from "react-bootstrap/Form";
+import { FormatDate_HTMLInput } from "./utils";
 
 export function IconPicker({ name }) {
   return (
@@ -33,7 +34,9 @@ export function Dropdown({ name, items, handleChange }) {
   return (
     <Form.Group controlId={"formfield_" + name}>
       <Form.Label>{name}</Form.Label>
-      <Form.Select onChange={handleChange}>{options}</Form.Select>
+      <Form.Select name={name.toLowerCase()} onChange={handleChange}>
+        {options}
+      </Form.Select>
     </Form.Group>
   );
 }
@@ -48,7 +51,9 @@ export function ObjectDropdown({ name, items, handleChange }) {
   return (
     <Form.Group controlId={"formfield_" + name}>
       <Form.Label>{name}</Form.Label>
-      <Form.Select onChange={handleChange}>{options}</Form.Select>
+      <Form.Select name={name.toLowerCase()} onChange={handleChange}>
+        {options}
+      </Form.Select>
     </Form.Group>
   );
 }
@@ -57,7 +62,11 @@ export function TextArea({ name, handleChange }) {
   return (
     <Form.Group controlId={"formfield_" + name}>
       <Form.Label>{name}</Form.Label>
-      <Form.Control as="textarea" onChange={handleChange} />
+      <Form.Control
+        as="textarea"
+        name={name.toLowerCase()}
+        onChange={handleChange}
+      />
     </Form.Group>
   );
 }
@@ -66,7 +75,12 @@ export function DateInput({ name, value, handleChange }) {
   return (
     <Form.Group controlId={"formfield_" + name}>
       <Form.Label>{name}</Form.Label>
-      <Form.Control type="date" value={value} onChange={handleChange} />
+      <Form.Control
+        type="date"
+        name={name.toLowerCase()}
+        value={value || FormatDate_HTMLInput(new Date())}
+        onChange={handleChange}
+      />
     </Form.Group>
   );
 }

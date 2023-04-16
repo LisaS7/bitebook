@@ -6,7 +6,7 @@ export default function Row({ item, handleDelete, setEditMode, keyOrder }) {
 
   keyOrder.forEach((field) => {
     if (typeof item[field] === "object" && field !== null) {
-      cells.push(<td key={field}>{item[field].name}</td>);
+      cells.push(<td key={field}>{item[field]?.name}</td>);
     } else if (field === "rating") {
       cells.push(<td key={field}>{DisplayRating(item[field])}</td>);
     } else {
