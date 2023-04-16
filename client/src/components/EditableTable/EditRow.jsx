@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Input, Dropdown, TextArea, EmojiInput } from "./FormElements";
+import {
+  Input,
+  Dropdown,
+  ObjectDropdown,
+  TextArea,
+  EmojiInput,
+  DateInput,
+  RatingInput,
+} from "./FormElements";
 import { CancelButton, SaveButton } from "./Buttons";
 
 export default function EditRow({
@@ -25,42 +33,74 @@ export default function EditRow({
   for (const [key, value] of Object.entries(dataTemplate)) {
     const fieldValue = tempItem[key];
 
-    if (value.type === "text") {
-      cells.push(
-        <Input
-          key={key}
-          keyName={key}
-          fieldValue={fieldValue}
-          changeValue={changeValue}
-        />
-      );
-    }
-
-    if (value.type === "select") {
-      cells.push(
-        <Dropdown
-          key={key}
-          keyName={key}
-          items={value.options}
-          fieldValue={fieldValue}
-          changeValue={changeValue}
-        />
-      );
-    }
-
-    if (value.type === "textarea") {
-      cells.push(
-        <TextArea
-          key={key}
-          keyName={key}
-          fieldValue={fieldValue}
-          changeValue={changeValue}
-        />
-      );
-    }
-
-    if (value.type === "emoji") {
-      cells.push(<EmojiInput key={key} value={fieldValue} />);
+    switch (value.type) {
+      case "text":
+        cells.push(
+          <Input
+            key={key}
+            keyName={key}
+            fieldValue={fieldValue}
+            changeValue={changeValue}
+          />
+        );
+        break;
+      case "select":
+        cells.push(
+          <Dropdown
+            key={key}
+            keyName={key}
+            items={value.options}
+            fieldValue={fieldValue}
+            changeValue={changeValue}
+          />
+        );
+        break;
+      case "select_object":
+        cells.push(
+          <ObjectDropdown
+            key={key}
+            keyName={key}
+            items={value.options}
+            fieldValue={fieldValue}
+            changeValue={changeValue}
+          />
+        );
+        break;
+      case "textarea":
+        cells.push(
+          <TextArea
+            key={key}
+            keyName={key}
+            fieldValue={fieldValue}
+            changeValue={changeValue}
+          />
+        );
+        break;
+      case "date":
+        cells.push(
+          <DateInput
+            key={key}
+            keyName={key}
+            fieldValue={fieldValue}
+            changeValue={changeValue}
+          />
+        );
+        break;
+      case "emoji":
+        cells.push(<EmojiInput key={key} value={fieldValue} />);
+        break;
+      case "radio":
+        cells.push(
+          <RatingInput
+            key={key}
+            keyName={key}
+            value={fieldValue}
+            options={value.options}
+            itemId={item.id}
+            changeValue={changeValue}
+          />
+        );
+        break;
     }
   }
 

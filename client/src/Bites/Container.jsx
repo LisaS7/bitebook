@@ -33,7 +33,7 @@ export default function BiteContainer() {
         data={bites}
         dataTemplate={dataTemplate}
         handleDelete={handleDelete}
-        handleSave={handleUpdate}
+        handleUpdate={handleUpdate}
       />
     </>
   );

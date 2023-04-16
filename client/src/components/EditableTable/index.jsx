@@ -24,7 +24,7 @@ export default function EditableTable({
         item={item}
         setEditMode={setEditMode}
         dataTemplate={dataTemplate}
-        handleSave={handleUpdate}
+        handleUpdate={handleUpdate}
       />
     ) : (
       <Row
