@@ -1,7 +1,7 @@
 import { DisplayRating } from "./utils";
 import { DeleteButton, EditButton } from "./Buttons";
 
-export default function Row({ item, handleDelete, setEditMode, keyOrder }) {
+export default function Row({ item, handleDelete, setMode, keyOrder }) {
   let cells = [];
 
   keyOrder.forEach((field) => {
@@ -18,7 +18,7 @@ export default function Row({ item, handleDelete, setEditMode, keyOrder }) {
     <tr>
       {cells}
       <td>
-        <EditButton setEditMode={setEditMode} />
+        <EditButton setMode={setMode} />
       </td>
       <td>
         <DeleteButton handleDelete={handleDelete} id={item.id} />

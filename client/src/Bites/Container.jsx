@@ -1,12 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { removeBite, editBite } from "../state/slice";
-import { AddButton, ButtonControls } from "../components/Layout/style";
+import { removeBite, editBite, addBite } from "../state/slice";
 import EditableTable from "../components/EditableTable";
 import GetDataTemplate from "./dataTemplate";
-import { deleteRecord, updateRecord } from "../Service";
+import { deleteRecord, updateRecord, postRecord } from "../Service";
 
-export default function BiteContainer() {
+export default function BiteContainer({ uid }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { bites } = useSelector((state) => state);
@@ -25,18 +24,28 @@ export default function BiteContainer() {
     dispatch(editBite(bite));
   }
 
+  function handleNew(event, data) {
+    event.preventDefault();
+    data.userId = uid;
+
+    if (data.food) {
+      data.food = { id: data.food };
+    }
+
+    console.log("DATA", data);
+    postRecord(data, "bites");
+    dispatch(addBite(data));
+    navigate("/bites");
+  }
+
   return (
     <>
-      <ButtonControls>
-        <AddButton onClick={() => navigate("/bites/add")}>
-          <span className="material-symbols-outlined">add_circle</span>
-        </AddButton>
-      </ButtonControls>
       <EditableTable
         data={bites}
         dataTemplate={dataTemplate}
         handleDelete={handleDelete}
         handleUpdate={handleUpdate}
+        handleNew={handleNew}
       />
     </>
   );

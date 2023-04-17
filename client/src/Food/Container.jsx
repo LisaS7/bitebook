@@ -1,14 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { editFood, removeFood } from "../state/slice";
+import { editFood, removeFood, addFood } from "../state/slice";
 import EditableTable from "../components/EditableTable";
 import GetDataTemplate from "./dataTemplate";
-import { deleteRecord, updateRecord } from "../Service";
-import { AddButton, ButtonControls } from "../components/Layout/style";
+import { deleteRecord, updateRecord, postRecord } from "../Service";
 
-export default function FoodContainer() {
-  const dispatch = useDispatch();
+export default function FoodContainer({ uid }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { foods } = useSelector((state) => state);
   const dataTemplate = GetDataTemplate();
 
@@ -22,18 +21,22 @@ export default function FoodContainer() {
     dispatch(editFood(food));
   }
 
+  function handleNew(event, data) {
+    event.preventDefault();
+    data.userId = uid;
+    postRecord(data, "foods");
+    dispatch(addFood(data));
+    navigate("/foods");
+  }
+
   return (
     <>
-      <ButtonControls>
-        <AddButton onClick={() => navigate("/foods/add")}>
-          <span className="material-symbols-outlined">add_circle</span>
-        </AddButton>
-      </ButtonControls>
       <EditableTable
         data={foods}
         dataTemplate={dataTemplate}
         handleDelete={handleDelete}
         handleUpdate={handleUpdate}
+        handleNew={handleNew}
       />
     </>
   );

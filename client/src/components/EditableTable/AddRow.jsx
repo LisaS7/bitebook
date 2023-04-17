@@ -10,11 +10,11 @@ import {
 } from "./FormElements";
 import { CancelButton, SaveButton } from "./Buttons";
 
-export default function EditRow({ item, dataTemplate, setMode, handleUpdate }) {
-  const [tempItem, setTempItem] = useState({ ...item });
+export default function AddRow({ dataTemplate, setMode, handleNew }) {
+  const [tempItem, setTempItem] = useState({});
 
-  function handleClickSave() {
-    handleUpdate(tempItem);
+  function handleClickSave(event) {
+    handleNew(event, tempItem);
     setMode("view");
   }
 
@@ -28,6 +28,9 @@ export default function EditRow({ item, dataTemplate, setMode, handleUpdate }) {
 
   let cells = [];
   for (const [key, value] of Object.entries(dataTemplate)) {
+    if (!tempItem[key]) {
+      tempItem[key] = value.default || "";
+    }
     const fieldValue = tempItem[key];
 
     switch (value.type) {
@@ -58,7 +61,7 @@ export default function EditRow({ item, dataTemplate, setMode, handleUpdate }) {
             key={key}
             keyName={key}
             items={value.options}
-            fieldValue={fieldValue}
+            fieldValue={fieldValue || value.options[0]}
             changeValue={changeValue}
           />
         );
@@ -78,7 +81,7 @@ export default function EditRow({ item, dataTemplate, setMode, handleUpdate }) {
           <DateInput
             key={key}
             keyName={key}
-            fieldValue={fieldValue}
+            fieldValue={fieldValue || value.default}
             changeValue={changeValue}
           />
         );
@@ -95,7 +98,7 @@ export default function EditRow({ item, dataTemplate, setMode, handleUpdate }) {
             keyName={key}
             value={fieldValue}
             options={value.options}
-            itemId={item.id}
+            itemId={1}
             changeValue={changeValue}
           />
         );

@@ -1,5 +1,14 @@
 import { useSelector } from "react-redux";
-import { FormatDate_HTMLInput } from "../components/AddForm/utils";
+
+export function FormatDate_HTMLInput(date) {
+  return (
+    date.getFullYear() +
+    "-" +
+    (date.getMonth() + 1).toString().padStart(2, "0") +
+    "-" +
+    date.getDate().toString().padStart(2, "0")
+  );
+}
 
 export default function GetDataTemplate() {
   const { foods } = useSelector((state) => state);

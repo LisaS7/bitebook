@@ -1,9 +1,9 @@
-export function EditButton({ setEditMode }) {
+export function EditButton({ setMode }) {
   return (
     <button>
       <span
         className="material-symbols-outlined"
-        onClick={() => setEditMode(true)}
+        onClick={() => setMode("edit")}
       >
         edit
       </span>
@@ -27,19 +27,22 @@ export function DeleteButton({ handleDelete, id }) {
 export function SaveButton({ handleClickSave }) {
   return (
     <button>
-      <span className="material-symbols-outlined" onClick={handleClickSave}>
+      <span
+        className="material-symbols-outlined"
+        onClick={(event) => handleClickSave(event)}
+      >
         done
       </span>
     </button>
   );
 }
 
-export function CancelButton({ setEditMode }) {
+export function CancelButton({ setMode }) {
   return (
     <button>
       <span
         className="material-symbols-outlined"
-        onClick={() => setEditMode(false)}
+        onClick={() => setMode("view")}
       >
         close
       </span>
