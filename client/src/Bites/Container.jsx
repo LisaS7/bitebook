@@ -18,6 +18,10 @@ export default function BiteContainer() {
   }
 
   function handleUpdate(bite) {
+    if (typeof bite.food !== "object") {
+      bite.food = { id: bite.food };
+    }
+    console.log("edit bite", bite);
     updateRecord(bite, "bites");
     dispatch(editBite(bite));
   }

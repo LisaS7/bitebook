@@ -65,7 +65,10 @@ export function ObjectDropdown({ keyName, items, fieldValue, changeValue }) {
 
   return (
     <td>
-      <Form.Select value={fieldValue} onChange={(e) => changeValue(e, keyName)}>
+      <Form.Select
+        defaultValue={fieldValue.id}
+        onChange={(e) => changeValue(e, keyName)}
+      >
         {options}
       </Form.Select>
     </td>

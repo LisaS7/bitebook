@@ -7,6 +7,14 @@ const initialState = {
   groups: [],
 };
 
+function getItemById(stateArray, id) {
+  return stateArray.find((item) => item.id === parseInt(id));
+}
+
+function getIndexById(stateArray, id) {
+  return stateArray.findIndex((item) => item.id === parseInt(id));
+}
+
 export const slice = createSlice({
   name: "bitebook",
   initialState,
@@ -17,9 +25,10 @@ export const slice = createSlice({
       state.categories = action.payload.categories;
       state.groups = action.payload.groups;
     },
+    // ============  FOOD  ============
     editFood: (state, action) => {
       const foodId = action.payload.id;
-      const index = state.foods.findIndex((item) => item.id === foodId);
+      const index = getIndexById(current(state.foods), foodId);
       state.foods[index] = action.payload;
     },
     removeFood: (state, action) => {
@@ -28,19 +37,21 @@ export const slice = createSlice({
     addFood: (state, action) => {
       state.foods.push(action.payload);
     },
+    // ============  BITES  ============
     editBite: (state, action) => {
       const biteId = action.payload.id;
-      const index = state.bites.findIndex((item) => item.id === biteId);
-      state.foods[index] = action.payload;
+      const foodId = action.payload.food.id;
+      const biteIndex = getIndexById(current(state.bites), biteId);
+      const food = getItemById(current(state.foods), foodId);
+      state.bites[biteIndex] = { ...action.payload, food };
     },
     removeBite: (state, action) => {
       state.bites = state.bites.filter((item) => item.id !== action.payload);
     },
     addBite: (state, action) => {
       const newBite = action.payload;
-      const foodId = parseInt(newBite.food.id);
-      const food = state.foods.filter((item) => item.id === foodId);
-      newBite.food = food[0];
+      const food = getItemById(current(state.foods), newBite.food.id);
+      newBite.food = food;
       state.bites.push(newBite);
     },
   },

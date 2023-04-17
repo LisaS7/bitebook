@@ -101,6 +101,8 @@ export default function EditRow({
           />
         );
         break;
+      default:
+        break;
     }
   }
 
