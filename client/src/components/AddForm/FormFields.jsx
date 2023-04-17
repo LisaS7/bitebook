@@ -1,12 +1,35 @@
+import { useState } from "react";
 import Form from "react-bootstrap/Form";
+import EmojiPicker from "emoji-picker-react";
 import { FormatDate_HTMLInput } from "./utils";
+import { AbsolutePicker, EmojiPickerContainer } from "./style";
 
-export function IconPicker({ name }) {
+export function IconPicker({ value, changeIcon }) {
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+
+  function toggleEmojiPicker() {
+    setShowEmojiPicker(!showEmojiPicker);
+  }
+
+  function handleEmojiSelect(emoji) {
+    changeIcon(emoji);
+    setShowEmojiPicker(!showEmojiPicker);
+  }
+
   return (
-    <Form.Group controlId={"formfield_" + name}>
+    <EmojiPickerContainer>
       <Form.Label>Icon</Form.Label>
-      <Form.Control type="text" />
-    </Form.Group>
+      <button type="button" id="toggle-emoji" onClick={toggleEmojiPicker}>
+        {value || "⬛"}
+      </button>
+      <AbsolutePicker>
+        {showEmojiPicker && (
+          <EmojiPicker
+            onEmojiClick={(emoji) => handleEmojiSelect(emoji.emoji)}
+          />
+        )}
+      </AbsolutePicker>
+    </EmojiPickerContainer>
   );
 }
 
@@ -17,7 +40,7 @@ export function TextField({ name, value, handleChange }) {
       <Form.Control
         type="text"
         name={name.toLowerCase()}
-        value={value}
+        value={value || ""}
         onChange={handleChange}
       />
     </Form.Group>

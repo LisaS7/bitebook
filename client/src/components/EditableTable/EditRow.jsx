@@ -24,9 +24,7 @@ export default function EditRow({
   }
 
   function changeValue(e, key) {
-    const copyItem = { ...tempItem };
-    copyItem[key] = e.target.value;
-    setTempItem({ ...copyItem });
+    setTempItem({ ...tempItem, [key]: e.target.value });
   }
 
   function changeIcon(icon) {

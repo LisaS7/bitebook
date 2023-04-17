@@ -7,6 +7,7 @@ import {
   DateInput,
   RatingInput,
   ObjectDropdown,
+  IconPicker,
 } from "./FormFields";
 import { postRecord } from "../../Service";
 import { FormContainer, StyledForm } from "./style";
@@ -22,9 +23,12 @@ export default function AddForm({ uid, template, endpoint, setState }) {
     setFormData((values) => ({ ...values, [name]: value }));
   }
 
+  function changeIcon(icon) {
+    setFormData({ ...formData, icon });
+  }
+
   function handleNew(data, event) {
     event.preventDefault();
-
     data.userId = uid;
 
     if (data.food) {
@@ -103,6 +107,10 @@ export default function AddForm({ uid, template, endpoint, setState }) {
           />
         );
         break;
+      case "emoji":
+        formFields.push(
+          <IconPicker key={key} value={formData.icon} changeIcon={changeIcon} />
+        );
     }
   }
 

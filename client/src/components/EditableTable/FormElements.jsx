@@ -14,12 +14,6 @@ export function EmojiInput({ value, changeIcon }) {
     setShowEmojiPicker(!showEmojiPicker);
   }
 
-  function handleOutsideClick(e) {
-    if (e.target.id !== "toggle-emoji") {
-      toggleEmojiPicker();
-    }
-  }
-
   return (
     <EmojiPickerContainer>
       <button id="toggle-emoji" onClick={toggleEmojiPicker}>

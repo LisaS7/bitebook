@@ -23,3 +23,19 @@ export const StyledForm = styled(Form)`
     display: none;
   }
 `;
+
+export const EmojiPickerContainer = styled.div`
+  position: relative;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  .EmojiPickerReact {
+    --epr-emoji-size: 1.5rem;
+  }
+`;
+
+export const AbsolutePicker = styled.div`
+  position: absolute;
+`;
