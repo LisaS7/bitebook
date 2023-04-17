@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Row from "./Row";
-import EditRow from "./EditRow";
-import AddRow from "./AddRow";
+import InputRow from "./InputRow";
 import { StyledTable } from "./style";
 import { AddButton, ButtonControls } from "../Layout/style";
 
@@ -37,12 +36,13 @@ export default function EditableTable({
       break;
     case "edit":
       dataElements = data.map((item) => (
-        <EditRow
+        <InputRow
           key={item.id}
           item={item}
+          mode={mode}
           setMode={setMode}
           dataTemplate={dataTemplate}
-          handleUpdate={handleUpdate}
+          handleAction={handleUpdate}
         />
       ));
       break;
@@ -67,10 +67,12 @@ export default function EditableTable({
         </thead>
         <tbody>
           {mode === "add" && (
-            <AddRow
+            <InputRow
+              item={{}}
+              mode={mode}
               setMode={setMode}
               dataTemplate={dataTemplate}
-              handleNew={handleNew}
+              handleAction={handleNew}
             />
           )}
           {dataElements}
