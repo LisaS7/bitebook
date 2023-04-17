@@ -32,7 +32,7 @@ public class BiteController {
 
     @PutMapping(path="{biteId}")
     public Bite updateBite(
-            @PathVariable("foodId") Long id,
+            @PathVariable("biteId") Long id,
             @Valid @RequestBody Bite bite
     ) {
         biteService.updateBite(id, bite);
