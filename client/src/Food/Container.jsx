@@ -33,7 +33,7 @@ export default function FoodContainer() {
         data={foods}
         dataTemplate={dataTemplate}
         handleDelete={handleDelete}
-        handleSave={handleUpdate}
+        handleUpdate={handleUpdate}
       />
     </>
   );

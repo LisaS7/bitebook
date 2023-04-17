@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Table from "react-bootstrap/Table";
 import Row from "./Row";
 import EditRow from "./EditRow";
+import { StyledTable } from "./style";
 
 export default function EditableTable({
   data,
@@ -38,7 +38,7 @@ export default function EditableTable({
   );
 
   return (
-    <Table size="sm" responsive>
+    <StyledTable size="sm" responsive>
       <thead>
         <tr>
           {headingElements}
@@ -47,6 +47,6 @@ export default function EditableTable({
         </tr>
       </thead>
       <tbody>{dataElements}</tbody>
-    </Table>
+    </StyledTable>
   );
 }

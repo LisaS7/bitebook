@@ -29,6 +29,10 @@ export default function EditRow({
     setTempItem({ ...copyItem });
   }
 
+  function changeIcon(icon) {
+    setTempItem({ ...tempItem, icon });
+  }
+
   let cells = [];
   for (const [key, value] of Object.entries(dataTemplate)) {
     const fieldValue = tempItem[key];
@@ -87,7 +91,9 @@ export default function EditRow({
         );
         break;
       case "emoji":
-        cells.push(<EmojiInput key={key} value={fieldValue} />);
+        cells.push(
+          <EmojiInput key={key} value={fieldValue} changeIcon={changeIcon} />
+        );
         break;
       case "radio":
         cells.push(

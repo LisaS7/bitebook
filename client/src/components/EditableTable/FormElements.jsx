@@ -1,14 +1,13 @@
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
-import data from "@emoji-mart/data";
-import Picker from "@emoji-mart/react";
+import EmojiPicker from "emoji-picker-react";
 import {
   AbsolutePicker,
   EmojiPickerContainer,
   RatingRadioButtons,
 } from "./style";
 
-export function EmojiInput({ value }) {
+export function EmojiInput({ value, changeIcon }) {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
   function toggleEmojiPicker() {
@@ -28,12 +27,7 @@ export function EmojiInput({ value }) {
       </button>
       <AbsolutePicker>
         {showEmojiPicker && (
-          <Picker
-            data={data}
-            theme="light"
-            onEmojiSelect={console.log}
-            onClickOutside={(e) => handleOutsideClick(e)}
-          />
+          <EmojiPicker onEmojiClick={(emoji) => changeIcon(emoji.emoji)} />
         )}
       </AbsolutePicker>
     </EmojiPickerContainer>

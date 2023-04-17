@@ -65,6 +65,11 @@ textarea {
 
  /* table */
 
+ .table-responsive {
+  overflow: visible;
+  overflow-x: visible !important;
+}
+
  td {
   vertical-align: middle;
 }
