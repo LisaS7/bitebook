@@ -86,13 +86,15 @@ export default function Profile() {
         </Form.Group>
         <button>Save changes</button>
       </Form>
-      <button onClick={() => sendPasswordReset(user.email)}>
-        Reset Password
-      </button>
-      <button onClick={logout}>Logout</button>
-      <Button variant="danger" onClick={handleDelete}>
-        Delete Account
-      </Button>
+      <section>
+        <button onClick={() => sendPasswordReset(user.email)}>
+          Reset Password
+        </button>
+        <button onClick={logout}>Logout</button>
+        <Button variant="danger" onClick={handleDelete}>
+          Delete Account
+        </Button>
+      </section>
     </StyledContainer>
   );
 }
