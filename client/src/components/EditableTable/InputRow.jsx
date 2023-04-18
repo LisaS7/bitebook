@@ -10,17 +10,22 @@ import {
 } from "./FormElements";
 import { CancelButton, SaveButton } from "./Buttons";
 
-export default function EditRow({
+export default function InputRow({
   item,
+  mode,
+  setMode,
   dataTemplate,
-  setEditMode,
-  handleUpdate,
+  handleAction,
 }) {
   const [tempItem, setTempItem] = useState({ ...item });
 
-  function handleClickSave() {
-    handleUpdate(tempItem);
-    setEditMode(false);
+  function handleClickSave(event = null) {
+    if (mode === "add") {
+      handleAction(event, tempItem);
+    } else {
+      handleAction(tempItem);
+    }
+    setMode("view");
   }
 
   function changeValue(e, key) {
@@ -33,6 +38,10 @@ export default function EditRow({
 
   let cells = [];
   for (const [key, value] of Object.entries(dataTemplate)) {
+    if (!tempItem[key]) {
+      tempItem[key] = value.default || "";
+    }
+
     const fieldValue = tempItem[key];
 
     switch (value.type) {
@@ -117,7 +126,7 @@ export default function EditRow({
         <SaveButton handleClickSave={handleClickSave} />
       </td>
       <td>
-        <CancelButton setEditMode={setEditMode} />
+        <CancelButton setMode={setMode} />
       </td>
     </tr>
   );
