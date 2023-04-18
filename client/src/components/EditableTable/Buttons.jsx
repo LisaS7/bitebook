@@ -1,16 +1,3 @@
-export function EditButton({ setMode }) {
-  return (
-    <button>
-      <span
-        className="material-symbols-outlined"
-        onClick={() => setMode("edit")}
-      >
-        edit
-      </span>
-    </button>
-  );
-}
-
 export function DeleteButton({ handleDelete, id }) {
   return (
     <button>

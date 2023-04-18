@@ -2,7 +2,7 @@ import { useState } from "react";
 import Row from "./Row";
 import InputRow from "./InputRow";
 import { StyledTable } from "./style";
-import { AddButton, ButtonControls } from "../Layout/style";
+import { LargeButton, ButtonControls } from "../Layout/style";
 
 export default function EditableTable({
   data,
@@ -28,7 +28,6 @@ export default function EditableTable({
         <Row
           key={item.id}
           item={item}
-          setMode={setMode}
           keyOrder={keyOrder}
           handleDelete={handleDelete}
         />
@@ -53,9 +52,17 @@ export default function EditableTable({
   return (
     <section>
       <ButtonControls>
-        <AddButton onClick={() => setMode("add")}>
+        <LargeButton onClick={() => setMode("add")}>
           <span className="material-symbols-outlined">add_circle</span>
-        </AddButton>
+        </LargeButton>
+        <LargeButton setMode={setMode}>
+          <span
+            className="material-symbols-outlined"
+            onClick={() => setMode("edit")}
+          >
+            edit
+          </span>
+        </LargeButton>
       </ButtonControls>
       <StyledTable responsive>
         <thead>

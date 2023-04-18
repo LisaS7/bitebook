@@ -22,7 +22,7 @@ export const ButtonControls = styled.section`
   justify-content: flex-end;
 `;
 
-export const AddButton = styled.button`
+export const LargeButton = styled.button`
   background-color: transparent;
 
   & span {
