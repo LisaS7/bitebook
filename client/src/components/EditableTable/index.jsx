@@ -2,7 +2,8 @@ import { useState } from "react";
 import Row from "./Row";
 import InputRow from "./InputRow";
 import { StyledTable } from "./style";
-import { AddButton, ButtonControls } from "../Layout/style";
+import { LargeButton, ButtonControls } from "../Layout/style";
+import TableHead from "./Head";
 
 export default function EditableTable({
   data,
@@ -13,11 +14,6 @@ export default function EditableTable({
 }) {
   const [mode, setMode] = useState("view");
   const keyOrder = Object.keys(dataTemplate);
-  const headings = Object.values(dataTemplate).map((obj) => obj.heading);
-
-  const headingElements = headings.map((heading, index) => (
-    <th key={index}>{heading}</th>
-  ));
 
   let dataElements;
 
@@ -28,7 +24,6 @@ export default function EditableTable({
         <Row
           key={item.id}
           item={item}
-          setMode={setMode}
           keyOrder={keyOrder}
           handleDelete={handleDelete}
         />
@@ -53,18 +48,20 @@ export default function EditableTable({
   return (
     <section>
       <ButtonControls>
-        <AddButton onClick={() => setMode("add")}>
+        <LargeButton onClick={() => setMode("add")}>
           <span className="material-symbols-outlined">add_circle</span>
-        </AddButton>
+        </LargeButton>
+        <LargeButton setMode={setMode}>
+          <span
+            className="material-symbols-outlined"
+            onClick={() => setMode("edit")}
+          >
+            edit
+          </span>
+        </LargeButton>
       </ButtonControls>
       <StyledTable responsive>
-        <thead>
-          <tr>
-            {headingElements}
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
+        <TableHead template={dataTemplate} />
         <tbody>
           {mode === "add" && (
             <InputRow

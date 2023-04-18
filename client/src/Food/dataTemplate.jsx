@@ -4,13 +4,23 @@ export default function GetDataTemplate() {
   const { categories, groups } = useSelector((state) => state);
 
   return {
-    icon: { heading: "", type: "emoji" },
-    name: { heading: "Name", type: "text" },
-    category: { heading: "Category", type: "select", options: categories },
-    grouping: { heading: "Group", type: "select", options: groups },
-    colour: { heading: "Colour", type: "text" },
-    flavour: { heading: "Flavour", type: "text" },
-    texture: { heading: "Texture", type: "text" },
-    notes: { heading: "Notes", type: "textarea" },
+    icon: { heading: "", type: "emoji", sortable: false },
+    name: { heading: "Name", type: "text", sortable: true },
+    category: {
+      heading: "Category",
+      type: "select",
+      options: categories,
+      sortable: true,
+    },
+    grouping: {
+      heading: "Group",
+      type: "select",
+      options: groups,
+      sortable: true,
+    },
+    colour: { heading: "Colour", type: "text", sortable: true },
+    flavour: { heading: "Flavour", type: "text", sortable: true },
+    texture: { heading: "Texture", type: "text", sortable: true },
+    notes: { heading: "Notes", type: "textarea", sortable: true },
   };
 }

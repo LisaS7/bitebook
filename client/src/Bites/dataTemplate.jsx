@@ -15,14 +15,20 @@ export default function GetDataTemplate() {
   const dateToday = FormatDate_HTMLInput(new Date());
 
   return {
-    date: { heading: "Date", type: "date", default: dateToday },
+    date: { heading: "Date", type: "date", default: dateToday, sortable: true },
     food: {
       heading: "Food",
       type: "select_object",
       options: foods,
       default: foods[0]?.id.toString(),
+      sortable: true,
     },
-    rating: { heading: "Rating", type: "radio", options: [1, 2, 3, 4, 5] },
-    notes: { heading: "Notes", type: "textarea" },
+    rating: {
+      heading: "Rating",
+      type: "radio",
+      options: [1, 2, 3, 4, 5],
+      sortable: true,
+    },
+    notes: { heading: "Notes", type: "textarea", sortable: true },
   };
 }

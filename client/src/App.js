@@ -15,6 +15,7 @@ import Profile from "./components/User/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import FoodContainer from "./Food/Container";
 import BiteContainer from "./Bites/Container";
+import Dashboard from "./pages/dashboard";
 
 import { auth } from "./firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -58,6 +59,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/foods" element={<FoodContainer uid={user?.uid} />} />
             <Route path="/bites" element={<BiteContainer uid={user?.uid} />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Route>
         </Route>
       </Routes>

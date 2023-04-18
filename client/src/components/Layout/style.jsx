@@ -10,7 +10,7 @@ export const StyledNavbar = styled(Navbar)`
 `;
 
 export const MainContainer = styled.main`
-  max-width: 1320px;
+  max-width: 1420px;
   margin: auto;
   padding: 3rem;
 `;
@@ -22,7 +22,7 @@ export const ButtonControls = styled.section`
   justify-content: flex-end;
 `;
 
-export const AddButton = styled.button`
+export const LargeButton = styled.button`
   background-color: transparent;
 
   & span {

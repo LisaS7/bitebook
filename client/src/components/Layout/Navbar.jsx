@@ -49,6 +49,7 @@ export default function CustomNavbar() {
             </Nav.Link>
             <Nav.Link href="/foods">Food</Nav.Link>
             <Nav.Link href="/bites">Bites</Nav.Link>
+            <Nav.Link href="/dashboard">Dashboard</Nav.Link>
           </Nav>
           <UserActions user={user} />
         </Navbar.Collapse>
