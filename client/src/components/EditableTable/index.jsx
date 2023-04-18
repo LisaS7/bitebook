@@ -3,6 +3,7 @@ import Row from "./Row";
 import InputRow from "./InputRow";
 import { StyledTable } from "./style";
 import { LargeButton, ButtonControls } from "../Layout/style";
+import TableHead from "./Head";
 
 export default function EditableTable({
   data,
@@ -13,11 +14,6 @@ export default function EditableTable({
 }) {
   const [mode, setMode] = useState("view");
   const keyOrder = Object.keys(dataTemplate);
-  const headings = Object.values(dataTemplate).map((obj) => obj.heading);
-
-  const headingElements = headings.map((heading, index) => (
-    <th key={index}>{heading}</th>
-  ));
 
   let dataElements;
 
@@ -65,13 +61,7 @@ export default function EditableTable({
         </LargeButton>
       </ButtonControls>
       <StyledTable responsive>
-        <thead>
-          <tr>
-            {headingElements}
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
+        <TableHead template={dataTemplate} />
         <tbody>
           {mode === "add" && (
             <InputRow
