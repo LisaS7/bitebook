@@ -271,7 +271,7 @@ export const newFoods = [
     colour: "Beige, Yellow, Orange",
     flavour: "Milky, Salty, Umami",
     texture: "Firm",
-    icon: "🍄",
+    icon: "🧀",
     notes: "",
   },
   {
