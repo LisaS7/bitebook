@@ -3,6 +3,11 @@ import Table from "react-bootstrap/Table";
 import styled from "styled-components";
 
 export const StyledTable = styled(Table)`
+  & td,
+  th {
+    padding: 10px 20px;
+  }
+
   .EmojiPickerReact {
     --epr-emoji-size: 1.5rem;
   }
@@ -18,6 +23,7 @@ export const AbsolutePicker = styled.div`
 `;
 
 export const RatingRadioButtons = styled(Form.Check)`
+  display: flex;
   & input[name="rating"] {
     display: none;
   }

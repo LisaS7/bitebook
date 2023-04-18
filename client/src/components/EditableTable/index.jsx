@@ -57,9 +57,9 @@ export default function EditableTable({
           <span className="material-symbols-outlined">add_circle</span>
         </AddButton>
       </ButtonControls>
-      <StyledTable size="sm" responsive>
+      <StyledTable responsive>
         <thead>
-          <tr key="headings">
+          <tr>
             {headingElements}
             <th></th>
             <th></th>
