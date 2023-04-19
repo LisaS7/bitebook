@@ -65,6 +65,10 @@ textarea {
 
  /* table */
 
+ table button {
+  background-color: transparent;
+ }
+
  .table-responsive {
   overflow: visible;
   overflow-x: visible !important;

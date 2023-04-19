@@ -1,0 +1,19 @@
+{
+  "id": 1,
+  "userId": "MxwgBL1xPvUKwzQUrb3rJl7mvRC3",
+  "date": "2023-04-18",
+  "food": {
+    "id": 1,
+    "userId": "MxwgBL1xPvUKwzQUrb3rJl7mvRC3",
+    "name": "banana",
+    "category": "Fruit",
+    "grouping": "Yes",
+    "colour": "yellow",
+    "flavour": "sweet",
+    "texture": "soft",
+    "icon": "🍌",
+    "notes": "Must be mashed"
+  },
+  "rating": 3,
+  "notes": "This is a new bite"
+}

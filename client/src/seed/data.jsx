@@ -100,17 +100,6 @@ export const newFoods = [
   },
   {
     userId: "",
-    name: "Blueberries",
-    category: "Fruit",
-    grouping: "",
-    colour: "Blue",
-    flavour: "Sweet",
-    texture: "Soft",
-    icon: "🫐",
-    notes: "",
-  },
-  {
-    userId: "",
     name: "Tomato",
     category: "Fruit",
     grouping: "",
@@ -304,7 +293,7 @@ export const newFoods = [
     colour: "White, Yellow",
     flavour: "Rich, Umami",
     texture: "Soft, Rubbery",
-    icon: "🍗",
+    icon: "🥚",
     notes: "",
   },
   {

@@ -12,7 +12,6 @@ export const HeadingContent = styled.div`
   & button {
     height: 20px;
     padding: 0;
-    background-color: transparent;
   }
 `;
 
