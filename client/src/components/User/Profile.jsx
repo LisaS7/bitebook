@@ -10,23 +10,32 @@ import {
 } from "../../firebase";
 import { useAuthState, useDeleteUser } from "react-firebase-hooks/auth";
 import { query, getDocs, collection, where } from "firebase/firestore";
+import { useSelector, useDispatch } from "react-redux";
 import Loading from "../Layout/Loading";
 import { StyledContainer } from "./style";
+import { deleteRecord } from "../../Service";
 
 export default function Profile() {
   const [user, loading] = useAuthState(auth);
   const [deleteUser] = useDeleteUser(auth);
   const [editName, setEditName] = useState("");
   const [editEmail, setEditEmail] = useState("");
+  const { food, bites } = useSelector((state) => state);
 
   async function handleUpdate(e) {
     e.preventDefault();
     updateUserProfile(user.uid, { name: editName, email: editEmail });
   }
 
-  async function handleDelete(params) {
+  async function handleDelete() {
     const success = await deleteUser();
     if (success) {
+      food.forEach((food) => {
+        deleteRecord(food.id);
+      });
+      bites.forEach((bite) => {
+        deleteRecord(bite.id);
+      });
       alert("Account deleted");
     }
   }
