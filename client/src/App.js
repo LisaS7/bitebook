@@ -13,8 +13,8 @@ import Register from "./components/User/Register";
 import Reset from "./components/User/Reset";
 import Profile from "./components/User/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
-import FoodContainer from "./Food/Container";
-import BiteContainer from "./Bites/Container";
+import FoodContainer from "./food/Container";
+import BiteContainer from "./bites/Container";
 import Dashboard from "./pages/dashboard";
 
 import { auth } from "./firebase";
