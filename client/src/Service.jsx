@@ -1,7 +1,9 @@
+import { debugStyle } from "./console_css";
+
 const baseURL = "http://localhost:8080/api";
-const uid = localStorage.getItem("uid") || null;
 
 export async function getData(endpoint, setData) {
+  const uid = localStorage.getItem("uid");
   const url = uid ? `${baseURL}${endpoint}?uid=${uid}` : baseURL + endpoint;
   const response = await fetch(url);
   const responseJson = await response.json();
@@ -28,6 +30,7 @@ export async function deleteRecord(id, endpoint) {
 }
 
 export async function postRecord(item, endpoint) {
+  const uid = localStorage.getItem("uid");
   const url = `${baseURL}/${endpoint}`;
   item.userId = uid;
 
@@ -37,4 +40,14 @@ export async function postRecord(item, endpoint) {
     headers: { "Content-Type": "application/json" },
   });
   return await data.json();
+}
+
+export async function seedNewAccount() {
+  const uid = localStorage.getItem("uid");
+  const url = `${baseURL}/foods/seed-new-user/${uid}`;
+  console.log("%c Seed url: " + url, debugStyle);
+  const response = await fetch(url);
+  const responseJson = await response.json();
+  console.log("%c Response: " + responseJson, debugStyle);
+  return responseJson;
 }

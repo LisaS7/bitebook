@@ -13,12 +13,12 @@ import { query, getDocs, collection, where } from "firebase/firestore";
 import { useSelector } from "react-redux";
 import Loading from "../Layout/Loading";
 import { StyledContainer } from "./style";
-import { infoStyle } from "../../consolecss";
+import { infoStyle } from "../../console_css";
 import { deleteRecord } from "../../Service";
 
 export default function Profile() {
   const [user, loading] = useAuthState(auth);
-  const [deleteUser] = useDeleteUser(auth);
+  const [deleteUser, loadingDelete, errorDelete] = useDeleteUser(auth);
   const [editName, setEditName] = useState("");
   const [editEmail, setEditEmail] = useState("");
   const { foods, bites } = useSelector((state) => state);
@@ -33,13 +33,15 @@ export default function Profile() {
     if (success) {
       console.info("%c Deleted user " + user?.uid, infoStyle);
       foods.forEach((food) => {
-        deleteRecord(food.id);
+        deleteRecord(food.id, "foods");
       });
       bites.forEach((bite) => {
-        deleteRecord(bite.id);
+        deleteRecord(bite.id, "bites");
       });
       alert("Account deleted");
       logout();
+    } else {
+      console.error(errorDelete);
     }
   }
 

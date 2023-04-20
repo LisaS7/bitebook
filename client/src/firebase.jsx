@@ -18,8 +18,8 @@ import {
   updateDoc,
   doc,
 } from "firebase/firestore";
-import { seedNewAccount } from "./seed/seed_food";
-import { infoStyle } from "./consolecss";
+import { seedNewAccount } from "./Service";
+import { infoStyle } from "./console_css";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCvDGNgCOc-THRKGNLFY4MWuDufM3fh4Dk",
@@ -52,7 +52,9 @@ async function signInWithGoogle() {
         email: user.email,
       });
       console.info("%c Created user " + user.uid, infoStyle);
-      seedNewAccount(user.uid);
+      localStorage.setItem("uid", user.uid);
+      const seed = await seedNewAccount();
+      console.info("%c Seeded user with " + seed.length + " foods", infoStyle);
     }
     localStorage.setItem("uid", user.uid);
   } catch (error) {
@@ -81,9 +83,10 @@ async function registerWithEmailAndPassword(name, email, password) {
       authProvider: "local",
       email,
     });
-    console.info("%c Created user " + user.uid, infoStyle);
-    seedNewAccount(user.uid);
     localStorage.setItem("uid", user.uid);
+    console.info("%c Created user " + user.uid, infoStyle);
+    const seed = await seedNewAccount();
+    console.info("%c Seeded user with " + seed.length + " foods", infoStyle);
   } catch (error) {
     console.error(error);
     alert("Registration error: " + error.message);
@@ -117,6 +120,7 @@ async function updateUserProfile(uid, data) {
 
 function logout() {
   signOut(auth);
+  localStorage.removeItem("uid");
 }
 
 export {
