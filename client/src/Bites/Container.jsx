@@ -32,7 +32,6 @@ export default function BiteContainer({ uid }) {
       data.food = { id: data.food };
     }
 
-    console.log("DATA", data);
     postRecord(data, "bites");
     dispatch(addBite(data));
     navigate("/bites");

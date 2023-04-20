@@ -19,6 +19,7 @@ import {
   doc,
 } from "firebase/firestore";
 import { seedNewAccount } from "./seed/seed_food";
+import { infoStyle } from "./consolecss";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCvDGNgCOc-THRKGNLFY4MWuDufM3fh4Dk",
@@ -50,10 +51,11 @@ async function signInWithGoogle() {
         authProvider: "google",
         email: user.email,
       });
+      console.info("%c Created user " + user.uid, infoStyle);
       seedNewAccount(user.uid);
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
     alert("Sign in error: " + error.message);
   }
 }
@@ -62,7 +64,7 @@ async function logInWithEmailAndPassword(email, password) {
   try {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     alert("Login error: " + error.message);
   }
 }
@@ -77,9 +79,10 @@ async function registerWithEmailAndPassword(name, email, password) {
       authProvider: "local",
       email,
     });
+    console.info("%c Created user " + user.uid, infoStyle);
     seedNewAccount(user.uid);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     alert("Registration error: " + error.message);
   }
 }
@@ -88,8 +91,9 @@ async function sendPasswordReset(email) {
   try {
     await sendPasswordResetEmail(auth, email);
     alert("Password reset link sent! Please check your emails.");
+    console.info("%c Password reset link sent to " + email, infoStyle);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     alert(`Email could not be sent\n${error.message}`);
   }
 }
@@ -101,6 +105,7 @@ async function updateUserProfile(uid, data) {
     const ref = doc(db, "users", docSnapshot.docs[0].id);
     await updateDoc(ref, data);
     alert("Profile updated!");
+    console.info("%c Updated profile for " + uid, infoStyle);
   } catch (err) {
     console.error(err);
     alert("Error while updating profile");

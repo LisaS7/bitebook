@@ -4,6 +4,7 @@ import { addFood } from "../state/slice";
 import { newFoods } from "./data";
 
 export function seedNewAccount(uid) {
+  console.info("Adding food for new user " + uid);
   newFoods.forEach((food) => {
     food.userId = uid;
     postRecord(food, "foods");

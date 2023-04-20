@@ -10,9 +10,10 @@ import {
 } from "../../firebase";
 import { useAuthState, useDeleteUser } from "react-firebase-hooks/auth";
 import { query, getDocs, collection, where } from "firebase/firestore";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import Loading from "../Layout/Loading";
 import { StyledContainer } from "./style";
+import { infoStyle } from "../../consolecss";
 import { deleteRecord } from "../../Service";
 
 export default function Profile() {
@@ -20,7 +21,7 @@ export default function Profile() {
   const [deleteUser] = useDeleteUser(auth);
   const [editName, setEditName] = useState("");
   const [editEmail, setEditEmail] = useState("");
-  const { food, bites } = useSelector((state) => state);
+  const { foods, bites } = useSelector((state) => state);
 
   async function handleUpdate(e) {
     e.preventDefault();
@@ -30,7 +31,8 @@ export default function Profile() {
   async function handleDelete() {
     const success = await deleteUser();
     if (success) {
-      food.forEach((food) => {
+      console.info("%c Deleted user " + user?.uid, infoStyle);
+      foods.forEach((food) => {
         deleteRecord(food.id);
       });
       bites.forEach((bite) => {
