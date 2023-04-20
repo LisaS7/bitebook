@@ -41,10 +41,10 @@ public class RouteTests {
     @BeforeAll
     public static void setup() {
         food1 = new Food(
-                1L, "ABC", "banana", Category.FRUIT, Group.YES, "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
+                1L, "ABC", "banana", "Fruit", "Yes", "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
         );
         food2 = new Food(
-                2L, "ABC","noodles", Category.CARBOHYDRATE, Group.MAYBE, "beige", "bland", "soft", "\uD83C\uDF5C", "Loves with sweet chilli sauce"
+                2L, "ABC","noodles", "Carbohydrate", "Maybe", "beige", "bland", "soft", "\uD83C\uDF5C", "Loves with sweet chilli sauce"
         );
         service.addNewFood(food1);
         service.addNewFood(food2);
@@ -75,7 +75,7 @@ public class RouteTests {
     @Test
     public void whenCreateFood_thenReturn201AndCreatedObject() throws Exception {
         Food food3 = new Food(
-                3L, "ABC", "tuna", Category.CARBOHYDRATE, Group.NO, "pink", "meaty", "flaky", "", "Mix thoroughly with mayo"
+                3L, "ABC", "tuna", "Carbohydrate", "No", "pink", "meaty", "flaky", "", "Mix thoroughly with mayo"
         );
 
         String foodAsJson = new ObjectMapper().writeValueAsString(food3);
@@ -93,7 +93,7 @@ public class RouteTests {
     public void whenUpdateFood_thenReturn200AndUpdatedObject() throws Exception {
         String urlId = url + "/" + food2.getId();
         Food food2Updated = new Food(
-                "ABC", "noodles", Category.CARBOHYDRATE, Group.YES, "beige", "bland", "soft", "\uD83C\uDF5C", "Updated!"
+                "ABC", "noodles", "Carbohydrate", "Yes", "beige", "bland", "soft", "\uD83C\uDF5C", "Updated!"
         );
 
         String foodAsJson = new ObjectMapper().writeValueAsString(food2Updated);
