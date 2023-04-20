@@ -42,4 +42,9 @@ public class FoodController {
         foodService.updateFood(id, food);
         return food;
     }
+
+    @GetMapping(path="/seed-new-user/{userId}")
+    public List<Food> seedNewUser(@PathVariable("userId") String uid) {
+        return foodService.seedNewUser(uid);
+    }
 }
