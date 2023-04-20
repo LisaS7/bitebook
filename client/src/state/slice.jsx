@@ -58,18 +58,20 @@ export const slice = createSlice({
      * @param  {string} action the key to sort the objects by
      */
     sortFoods: (state, action) => {
-      const key = action.payload;
+      const key = action.payload.key.toLowerCase();
+      const direction = action.payload.direction;
 
-      function compare(a, b) {
-        if (a[key] < b[key]) {
-          return -1;
-        }
-        if (a[key] > b[key]) {
-          return 1;
-        }
-        return 0;
+      if (direction === "asc") {
+        state.foods = [...current(state.foods)].sort((a, b) =>
+          a[key]?.localeCompare(b[key]?.toString(), "en", { numeric: true })
+        );
       }
-      state.foods = state.foods.sort(compare);
+
+      if (direction === "desc") {
+        state.foods = [...current(state.foods)].sort((a, b) =>
+          b[key]?.localeCompare(a[key]?.toString(), "en", { numeric: true })
+        );
+      }
     },
     // ============  BITES  ============
     /**

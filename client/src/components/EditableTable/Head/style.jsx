@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const HeadingContent = styled.div`
   display: inline-flex;
+  align-items: center;
   gap: 0.75rem;
 
   & div {
