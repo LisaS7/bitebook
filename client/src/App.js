@@ -28,6 +28,8 @@ function App() {
   const dispatch = useDispatch();
   const [user] = useAuthState(auth);
 
+  user && localStorage.setItem("uid", user.uid);
+
   useEffect(() => {
     getData("/categories", setCategories);
     getData("/groups", setGroups);
@@ -35,8 +37,8 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      trackPromise(getData("/foods", setFoods, user.uid));
-      trackPromise(getData("/bites", setBites, user.uid));
+      trackPromise(getData("/foods", setFoods));
+      trackPromise(getData("/bites", setBites));
     }
   }, [user]);
 
@@ -57,8 +59,8 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/foods" element={<FoodContainer uid={user?.uid} />} />
-            <Route path="/bites" element={<BiteContainer uid={user?.uid} />} />
+            <Route path="/foods" element={<FoodContainer />} />
+            <Route path="/bites" element={<BiteContainer />} />
             <Route path="/dashboard" element={<Dashboard />} />
           </Route>
         </Route>

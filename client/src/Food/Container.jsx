@@ -5,7 +5,7 @@ import EditableTable from "../components/EditableTable";
 import GetDataTemplate from "./dataTemplate";
 import { deleteRecord, updateRecord, postRecord } from "../Service";
 
-export default function FoodContainer({ uid }) {
+export default function FoodContainer() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { foods } = useSelector((state) => state);
@@ -23,7 +23,6 @@ export default function FoodContainer({ uid }) {
 
   function handleNew(event, data) {
     event.preventDefault();
-    data.userId = uid;
     postRecord(data, "foods");
     dispatch(addFood(data));
     navigate("/foods");

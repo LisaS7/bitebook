@@ -5,7 +5,7 @@ import EditableTable from "../components/EditableTable";
 import GetDataTemplate from "./dataTemplate";
 import { deleteRecord, updateRecord, postRecord } from "../Service";
 
-export default function BiteContainer({ uid }) {
+export default function BiteContainer() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { bites } = useSelector((state) => state);
@@ -26,7 +26,6 @@ export default function BiteContainer({ uid }) {
 
   function handleNew(event, data) {
     event.preventDefault();
-    data.userId = uid;
 
     if (data.food) {
       data.food = { id: data.food };

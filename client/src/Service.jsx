@@ -1,6 +1,7 @@
 const baseURL = "http://localhost:8080/api";
+const uid = localStorage.getItem("uid") || null;
 
-export async function getData(endpoint, setData, uid = null) {
+export async function getData(endpoint, setData) {
   const url = uid ? `${baseURL}${endpoint}?uid=${uid}` : baseURL + endpoint;
   const response = await fetch(url);
   const responseJson = await response.json();
@@ -28,6 +29,7 @@ export async function deleteRecord(id, endpoint) {
 
 export async function postRecord(item, endpoint) {
   const url = `${baseURL}/${endpoint}`;
+  item.userId = uid;
 
   const data = await fetch(url, {
     method: "POST",

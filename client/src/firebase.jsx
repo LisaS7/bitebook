@@ -54,6 +54,7 @@ async function signInWithGoogle() {
       console.info("%c Created user " + user.uid, infoStyle);
       seedNewAccount(user.uid);
     }
+    localStorage.setItem("uid", user.uid);
   } catch (error) {
     console.error(error);
     alert("Sign in error: " + error.message);
@@ -63,6 +64,7 @@ async function signInWithGoogle() {
 async function logInWithEmailAndPassword(email, password) {
   try {
     await signInWithEmailAndPassword(auth, email, password);
+    localStorage.setItem("uid", auth.currentUser.uid);
   } catch (error) {
     console.error(error);
     alert("Login error: " + error.message);
@@ -81,6 +83,7 @@ async function registerWithEmailAndPassword(name, email, password) {
     });
     console.info("%c Created user " + user.uid, infoStyle);
     seedNewAccount(user.uid);
+    localStorage.setItem("uid", user.uid);
   } catch (error) {
     console.error(error);
     alert("Registration error: " + error.message);

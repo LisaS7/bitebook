@@ -39,6 +39,7 @@ export default function Profile() {
         deleteRecord(bite.id);
       });
       alert("Account deleted");
+      logout();
     }
   }
 
