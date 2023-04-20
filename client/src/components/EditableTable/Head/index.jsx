@@ -27,8 +27,8 @@ export default function TableHead({ template }) {
     <StyledHead>
       <tr>
         {headingElements}
-        <th></th>
-        <th></th>
+        <th key="button1"></th>
+        <th key="button2"></th>
       </tr>
     </StyledHead>
   );
