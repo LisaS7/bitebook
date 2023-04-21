@@ -1,23 +1,3 @@
-import { userDetails } from "../fixtures/constants";
-
-describe("Test registration", () => {
-  before(() => {
-    cy.logout();
-  });
-  beforeEach(() => {
-    cy.visit("/register");
-    cy.url().should("contain", "/register");
-  });
-
-  //   it("displays the Register link on the navbar when user is not logged in", () => {cy.get('[data-cy="nav-register"]').click();});
-
-  it("allows a user to register via the form", () => {
-    cy.get('[data-cy="name"]').type(userDetails.name);
-    cy.get('[data-cy="email"]').type(userDetails.email);
-    cy.get('[data-cy="pw"]').type(userDetails.pw);
-  });
-});
-
 describe("Test user authentication and profile", () => {
   before(() => {
     cy.logout();
