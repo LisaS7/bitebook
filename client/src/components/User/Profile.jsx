@@ -87,6 +87,7 @@ export default function Profile() {
           <Form.Control
             type="text"
             value={editName}
+            data-cy="name"
             onChange={(e) => changeValue(e, setEditName)}
           />
         </Form.Group>
@@ -95,17 +96,23 @@ export default function Profile() {
           <Form.Control
             type="email"
             value={editEmail}
+            data-cy="email"
             onChange={(e) => changeValue(e, setEditEmail)}
           />
         </Form.Group>
-        <button>Save changes</button>
+        <button data-cy="save-changes">Save changes</button>
       </Form>
       <section>
-        <button onClick={() => sendPasswordReset(user.email)}>
+        <button
+          data-cy="reset-pwd"
+          onClick={() => sendPasswordReset(user.email)}
+        >
           Reset Password
         </button>
-        <button onClick={logout}>Logout</button>
-        <Button variant="danger" onClick={handleDelete}>
+        <button data-cy="logout" onClick={logout}>
+          Logout
+        </button>
+        <Button data-cy="delete-user" variant="danger" onClick={handleDelete}>
           Delete Account
         </Button>
       </section>
