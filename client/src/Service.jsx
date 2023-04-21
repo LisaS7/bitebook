@@ -45,9 +45,7 @@ export async function postRecord(item, endpoint) {
 export async function seedNewAccount() {
   const uid = localStorage.getItem("uid");
   const url = `${baseURL}/foods/seed-new-user/${uid}`;
-  console.log("%c Seed url: " + url, debugStyle);
   const response = await fetch(url);
   const responseJson = await response.json();
-  console.log("%c Response: " + responseJson, debugStyle);
   return responseJson;
 }
