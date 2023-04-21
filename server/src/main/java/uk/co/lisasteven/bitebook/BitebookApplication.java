@@ -2,7 +2,6 @@ package uk.co.lisasteven.bitebook;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import uk.co.lisasteven.bitebook.food.seed.Seed;
 
 import java.io.IOException;
 

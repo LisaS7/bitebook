@@ -1,4 +1,4 @@
-package uk.co.lisasteven.bitebook.food.seed;
+package uk.co.lisasteven.bitebook.food;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
