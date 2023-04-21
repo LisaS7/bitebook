@@ -11,10 +11,10 @@ function UserActions({ user }) {
   if (!user) {
     return (
       <Nav className="ms-auto">
-        <Nav.Link as={Link} to="/">
+        <Nav.Link data-cy="nav-login" as={Link} to="/">
           Login
         </Nav.Link>
-        <Nav.Link as={Link} to="/register">
+        <Nav.Link data-cy="nav-register" as={Link} to="/register">
           Register
         </Nav.Link>
       </Nav>
@@ -22,10 +22,12 @@ function UserActions({ user }) {
   }
   return (
     <Nav className="ms-auto">
-      <Nav.Link as={Link} to="/profile">
+      <Nav.Link data-cy="nav-profile" as={Link} to="/profile">
         Profile
       </Nav.Link>
-      <Nav.Link onClick={() => logout()}>Logout</Nav.Link>
+      <Nav.Link data-cy="nav-logout" onClick={() => logout()}>
+        Logout
+      </Nav.Link>
     </Nav>
   );
 }
@@ -47,9 +49,15 @@ export default function CustomNavbar() {
             <Nav.Link as={Link} to="/home">
               Home
             </Nav.Link>
-            <Nav.Link href="/foods">Food</Nav.Link>
-            <Nav.Link href="/bites">Bites</Nav.Link>
-            <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+            <Nav.Link data-cy="foods-link" href="/foods">
+              Food
+            </Nav.Link>
+            <Nav.Link data-cy="bites-link" href="/bites">
+              Bites
+            </Nav.Link>
+            <Nav.Link data-cy="dashboard-link" href="/dashboard">
+              Dashboard
+            </Nav.Link>
           </Nav>
           <UserActions user={user} />
         </Navbar.Collapse>

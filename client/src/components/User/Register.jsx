@@ -38,24 +38,33 @@ export default function Register() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Name"
+          data-cy="name"
         />
         <input
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email address"
+          data-cy="email"
         />
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
+          data-cy="pw"
         />
-        <button onClick={registerUser}>Register</button>
-        <button className="google-button" onClick={signInWithGoogle}>
+        <button data-cy="submit-reg" onClick={registerUser}>
+          Register
+        </button>
+        <button
+          data-cy="google-reg"
+          className="google-button"
+          onClick={signInWithGoogle}
+        >
           Register with Google
         </button>
-        <div className="bottom-link">
+        <div data-cy="sign-in-link" className="bottom-link">
           Already have an account? <Link to="/">Sign In</Link>
         </div>
       </section>
