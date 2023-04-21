@@ -3,7 +3,6 @@ package uk.co.lisasteven.bitebook.food;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uk.co.lisasteven.bitebook.food.seed.Seed;
 
 import java.util.ArrayList;
 import java.util.List;

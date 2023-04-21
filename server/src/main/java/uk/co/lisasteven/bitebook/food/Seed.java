@@ -1,10 +1,9 @@
-package uk.co.lisasteven.bitebook.food.seed;
+package uk.co.lisasteven.bitebook.food;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import uk.co.lisasteven.bitebook.food.Food;
 
 import java.io.File;
 import java.io.IOException;

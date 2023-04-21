@@ -26,18 +26,23 @@ export default function Login() {
     <StyledContainer>
       <section>
         <input
+          data-cy="email-input"
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email address"
         />
         <input
+          data-cy="password-input"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        <button onClick={() => logInWithEmailAndPassword(email, password)}>
+        <button
+          data-cy="login-button"
+          onClick={() => logInWithEmailAndPassword(email, password)}
+        >
           Sign In
         </button>
         <button className="google-button" onClick={signInWithGoogle}>
