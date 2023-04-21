@@ -1,28 +1,12 @@
-import { userRegistrationDetails } from "../fixtures/constants";
-// import { auth } from "../../src/firebase";
-// import { deleteUser } from "firebase/auth";
+import { userRegistrationDetails } from "../../fixtures/constants";
 
 describe("Test registration", () => {
-  before(() => {
-    cy.logout();
-  });
   beforeEach(() => {
+    cy.logout();
     cy.visit("/register");
     cy.url().should("contain", "/register");
   });
   after(() => {
-    // Doesn't work - auth.currentUser is null
-    //
-    // console.log("clone auth", { ...auth });
-    // console.log("auth", auth);
-    // console.log(auth.currentUser);
-    // deleteUser(auth.currentUser)
-    //   .then(() => {
-    //     console.log("Test user deleted: ", auth.currentUser.uid);
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
     cy.get('[data-cy="nav-profile"]').click();
     cy.url().should("contain", "/profile");
     cy.get('[data-cy="delete-user"]').click();
@@ -36,4 +20,8 @@ describe("Test registration", () => {
     cy.get('[data-cy="submit-reg"]').click();
     cy.url().should("contain", "/home");
   });
+
+  // Did not test register with Google because
+  // 1. The Cypress testing browser doesn't allow google auth.
+  // 2. Nothing was added beyond Firebase's ootb functionality.
 });

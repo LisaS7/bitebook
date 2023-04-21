@@ -20,6 +20,7 @@ Cypress.Commands.add("logout", () => {
     if (url.includes("/home")) {
       console.log("logging out ", url);
       cy.get('[data-cy="nav-logout"]').click();
+      cy.url().should("eq", Cypress.config().baseUrl);
     }
   });
 });
