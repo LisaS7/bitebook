@@ -25,7 +25,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "npx cypress run --record --key 5144a73e-1faf-46e6-9fef-4cbc013ae9f6",
     "eject": "react-scripts eject",
     "server:dev": "nodemon app.js"
   },
