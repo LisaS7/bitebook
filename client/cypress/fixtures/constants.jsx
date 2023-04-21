@@ -5,6 +5,7 @@ export const userRegistrationDetails = {
 };
 
 export const userLoginDetails = {
+  name: "tester",
   email: "test@test.com",
   pw: "test123",
 };

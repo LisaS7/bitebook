@@ -7,17 +7,17 @@ describe("Test registration", () => {
     cy.url().should("contain", "/register");
   });
   after(() => {
-    cy.get('[data-cy="nav-profile"]').click();
+    cy.getByAttr("nav-profile").click();
     cy.url().should("contain", "/profile");
-    cy.get('[data-cy="delete-user"]').click();
+    cy.getByAttr("delete-user").click();
     cy.url().should("contain", "/");
   });
 
   it("allows a user to register via the form and redirects to the home page", () => {
-    cy.get('[data-cy="name"]').type(userRegistrationDetails.name);
-    cy.get('[data-cy="email"]').type(userRegistrationDetails.email);
-    cy.get('[data-cy="pw"]').type(userRegistrationDetails.pw);
-    cy.get('[data-cy="submit-reg"]').click();
+    cy.getByAttr("name").type(userRegistrationDetails.name);
+    cy.getByAttr("email").type(userRegistrationDetails.email);
+    cy.getByAttr("pw").type(userRegistrationDetails.pw);
+    cy.getByAttr("submit-reg").click();
     cy.url().should("contain", "/home");
   });
 
