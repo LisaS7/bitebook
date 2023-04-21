@@ -31,12 +31,9 @@ function App() {
   user && localStorage.setItem("uid", user.uid);
 
   useEffect(() => {
-    getData("/categories", setCategories);
-    getData("/groups", setGroups);
-  }, []);
-
-  useEffect(() => {
     if (user) {
+      getData("/categories", setCategories);
+      getData("/groups", setGroups);
       trackPromise(getData("/foods", setFoods));
       trackPromise(getData("/bites", setBites));
     }
