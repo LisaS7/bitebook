@@ -6,3 +6,5 @@ A tracking app for food preferences.
 
 - React
 - Firebase
+- Redux
+- Cypress
