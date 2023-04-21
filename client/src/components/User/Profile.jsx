@@ -73,7 +73,7 @@ export default function Profile() {
     // error alert to appear when logging out from profile page
     // ok to only fetch data on mount
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [user]);
 
   if (loading) {
     return <Loading message="Loading user data" showLoading={loading} />;
