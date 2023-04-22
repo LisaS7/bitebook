@@ -1,0 +1,56 @@
+[
+  {
+    "userId": "UMFv48MMnlhjZODF64847U9nxzO2",
+    "date": "2023-01-02",
+    "food": {
+      "id": 361,
+      "userId": "UMFv48MMnlhjZODF64847U9nxzO2",
+      "name": "Banana",
+      "category": "Fruit",
+      "grouping": "",
+      "colour": "Yellow",
+      "flavour": "Sweet",
+      "texture": "Soft",
+      "icon": "🍌",
+      "notes": ""
+    },
+    "rating": 1,
+    "notes": "Dummy data"
+  },
+  {
+    "userId": "UMFv48MMnlhjZODF64847U9nxzO2",
+    "date": "2023-01-03",
+    "food": {
+      "id": 365,
+      "userId": "UMFv48MMnlhjZODF64847U9nxzO2",
+      "name": "Orange",
+      "category": "Fruit",
+      "grouping": "",
+      "colour": "Orange",
+      "flavour": "Sweet, Acidic",
+      "texture": "Juicy",
+      "icon": "🍊",
+      "notes": ""
+    },
+    "rating": 2,
+    "notes": "Dummy data"
+  },
+  {
+    "userId": "UMFv48MMnlhjZODF64847U9nxzO2",
+    "date": "2023-01-03",
+    "food": {
+      "id": 377,
+      "userId": "UMFv48MMnlhjZODF64847U9nxzO2",
+      "name": "Cucumber",
+      "category": "Vegetable",
+      "grouping": "",
+      "colour": "Green",
+      "flavour": "Mild",
+      "texture": "Crunchy, Juicy",
+      "icon": "🥒",
+      "notes": ""
+    },
+    "rating": 3,
+    "notes": "Dummy data"
+  }
+]
