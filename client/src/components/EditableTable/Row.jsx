@@ -6,11 +6,23 @@ export default function Row({ item, handleDelete, keyOrder }) {
 
   keyOrder.forEach((field) => {
     if (typeof item[field] === "object" && field !== null) {
-      cells.push(<td key={field}>{item[field]?.name}</td>);
+      cells.push(
+        <td data-cy={field} key={field}>
+          {item[field]?.name}
+        </td>
+      );
     } else if (field === "rating") {
-      cells.push(<td key={field}>{DisplayRating(item[field])}</td>);
+      cells.push(
+        <td data-cy={field} key={field}>
+          {DisplayRating(item[field])}
+        </td>
+      );
     } else {
-      cells.push(<td key={field}>{item[field]}</td>);
+      cells.push(
+        <td data-cy={field} key={field}>
+          {item[field]}
+        </td>
+      );
     }
   });
 
@@ -18,7 +30,7 @@ export default function Row({ item, handleDelete, keyOrder }) {
     <tr>
       {cells}
       <td key="blank"></td>
-      <td key="delete">
+      <td data-cy="delete" key="delete">
         <DeleteButton handleDelete={handleDelete} id={item.id} />
       </td>
     </tr>

@@ -60,7 +60,7 @@ export default function EditableTable({
           </span>
         </LargeButton>
       </ButtonControls>
-      <StyledTable responsive>
+      <StyledTable data-cy="table" responsive>
         <TableHead template={dataTemplate} />
         <tbody>
           {mode === "add" && (
