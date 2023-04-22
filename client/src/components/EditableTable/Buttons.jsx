@@ -13,7 +13,7 @@ export function DeleteButton({ handleDelete, id }) {
 
 export function SaveButton({ handleClickSave }) {
   return (
-    <button>
+    <button data-cy="save-btn">
       <span
         className="material-symbols-outlined"
         onClick={(event) => handleClickSave(event)}

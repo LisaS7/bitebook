@@ -29,8 +29,8 @@ export default function Row({ item, handleDelete, keyOrder }) {
   return (
     <tr>
       {cells}
-      <td key="blank"></td>
-      <td data-cy="delete" key="delete">
+      <td data-cy={`save-${item.name}`} key="blank"></td>
+      <td data-cy={`delete-${item.name}`} key="delete">
         <DeleteButton handleDelete={handleDelete} id={item.id} />
       </td>
     </tr>

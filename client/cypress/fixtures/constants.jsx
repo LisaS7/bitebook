@@ -11,12 +11,12 @@ export const userLoginDetails = {
 };
 
 export const testFood = {
-  icon: "🍌",
-  name: "Banana",
-  category: "Fruit",
-  grouping: "",
-  colour: "Yellow",
-  flavour: "Sweet",
-  texture: "Soft",
-  notes: "",
+  icon: "❗",
+  name: "TestName",
+  category: "Protein",
+  grouping: "Maybe",
+  colour: "TestColour",
+  flavour: "TestFlavour",
+  texture: "TestTexture",
+  notes: "TestNote",
 };

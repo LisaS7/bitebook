@@ -16,7 +16,11 @@ export function EmojiInput({ value, changeIcon }) {
 
   return (
     <EmojiPickerContainer>
-      <button id="toggle-emoji" onClick={toggleEmojiPicker}>
+      <button
+        data-cy="toggle-icon"
+        id="toggle-emoji"
+        onClick={toggleEmojiPicker}
+      >
         {value}
       </button>
       <AbsolutePicker>
@@ -37,7 +41,11 @@ export function Dropdown({ items, keyName, fieldValue, changeValue }) {
 
   return (
     <td>
-      <Form.Select value={fieldValue} onChange={(e) => changeValue(e, keyName)}>
+      <Form.Select
+        data-cy={`input-${keyName}`}
+        value={fieldValue}
+        onChange={(e) => changeValue(e, keyName)}
+      >
         {options}
       </Form.Select>
     </td>
@@ -54,6 +62,7 @@ export function ObjectDropdown({ keyName, items, fieldValue, changeValue }) {
   return (
     <td>
       <Form.Select
+        data-cy={`input-${keyName}`}
         defaultValue={fieldValue.id}
         onChange={(e) => changeValue(e, keyName)}
       >
@@ -67,6 +76,7 @@ export function Input({ keyName, fieldValue, changeValue }) {
   return (
     <td>
       <Form.Control
+        data-cy={`input-${keyName}`}
         type="text"
         value={fieldValue}
         onChange={(e) => changeValue(e, keyName)}
@@ -79,6 +89,7 @@ export function TextArea({ keyName, fieldValue, changeValue }) {
   return (
     <td>
       <Form.Control
+        data-cy={`input-${keyName}`}
         as="textarea"
         value={fieldValue}
         onChange={(e) => changeValue(e, keyName)}
@@ -91,6 +102,7 @@ export function DateInput({ keyName, fieldValue, changeValue }) {
   return (
     <td>
       <Form.Control
+        data-cy={`input-${keyName}`}
         type="date"
         value={fieldValue}
         onChange={(e) => changeValue(e, keyName)}
@@ -110,6 +122,7 @@ export function RatingInput({ keyName, value, options, itemId, changeValue }) {
         name="rating"
         id={option + itemId}
         value={option}
+        data-cy={`input-${keyName}-${option}`}
         onClick={(e) => changeValue(e, keyName)}
       />
     </Form.Label>

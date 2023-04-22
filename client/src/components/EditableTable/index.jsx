@@ -48,10 +48,10 @@ export default function EditableTable({
   return (
     <section>
       <ButtonControls>
-        <LargeButton onClick={() => setMode("add")}>
+        <LargeButton data-cy="add-btn" onClick={() => setMode("add")}>
           <span className="material-symbols-outlined">add_circle</span>
         </LargeButton>
-        <LargeButton setMode={setMode}>
+        <LargeButton data-cy="edit-btn" setMode={setMode}>
           <span
             className="material-symbols-outlined"
             onClick={() => setMode("edit")}
