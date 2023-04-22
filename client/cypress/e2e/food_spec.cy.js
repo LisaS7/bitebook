@@ -51,12 +51,9 @@ describe("Tests for foods route", () => {
   });
   it("can edit a food", () => {
     cy.getByAttr("edit-btn").click();
-    // cy.get("td").contains("❗").next().clear().type("EditName");
-    // cy.getByAttr("save-btn").click();
-    // cy.get("td").contains("EditName").should("exist");
-    /* ==== Generated with Cypress Studio ==== */
-    cy.get(':nth-child(1) > :nth-child(2) > [data-cy="input-name"]').click();
-    /* ==== End Cypress Studio ==== */
+    cy.get("input").contains("TestName").clear().type("EditName");
+    cy.getByAttr("save-btn").click();
+    cy.get("td").contains("EditName").should("exist");
   });
   it("can delete a food", () => {
     cy.get("td").contains("❗").should("exist");
