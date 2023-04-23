@@ -8,15 +8,9 @@ import {
   DateInput,
   RatingInput,
 } from "./FormElements";
-import { CancelButton, SaveButton } from "./Buttons";
+import { SaveButton } from "./Buttons";
 
-export default function InputRow({
-  item,
-  mode,
-  setMode,
-  dataTemplate,
-  handleAction,
-}) {
+export default function InputRow({ item, mode, dataTemplate, handleAction }) {
   const [tempItem, setTempItem] = useState({ ...item });
 
   function handleClickSave(event = null) {
@@ -25,7 +19,6 @@ export default function InputRow({
     } else {
       handleAction(tempItem);
     }
-    setMode("view");
   }
 
   function changeValue(e, key) {
@@ -124,9 +117,6 @@ export default function InputRow({
       {cells}
       <td>
         <SaveButton handleClickSave={handleClickSave} />
-      </td>
-      <td>
-        <CancelButton setMode={setMode} />
       </td>
     </tr>
   );

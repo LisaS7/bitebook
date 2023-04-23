@@ -15,6 +15,10 @@ export default function EditableTable({
   const [mode, setMode] = useState("view");
   const keyOrder = Object.keys(dataTemplate);
 
+  function toggleEditMode() {
+    mode === "view" ? setMode("edit") : setMode("view");
+  }
+
   let dataElements;
 
   switch (mode) {
@@ -35,7 +39,6 @@ export default function EditableTable({
           key={item.id}
           item={item}
           mode={mode}
-          setMode={setMode}
           dataTemplate={dataTemplate}
           handleAction={handleUpdate}
         />
@@ -54,9 +57,9 @@ export default function EditableTable({
         <LargeButton data-cy="edit-btn" setMode={setMode}>
           <span
             className="material-symbols-outlined"
-            onClick={() => setMode("edit")}
+            onClick={() => toggleEditMode()}
           >
-            edit
+            {mode === "view" ? "edit" : "edit_off"}
           </span>
         </LargeButton>
       </ButtonControls>
