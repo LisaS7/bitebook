@@ -1,8 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
 
-body {
+/* colours */
+:root{
+  --google-button: #4285f4;
+  --dark: #1b1a1e;
+  --green: #01696f;
+  --pink: #df577e;
+  --light: #f8f3f6;
+  --light2: #e6e6e6;
+  --platinum: #edeaea;
+}
+
+* {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  color: var(--dark);
+}
+
+#body {
   margin: 0;
-  background-color: var(--light);
+  background-color: var(--light2);
   color: var(--dark);
   font-family: 'Delius', cursive;
   -webkit-font-smoothing: antialiased;
