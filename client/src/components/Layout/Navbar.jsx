@@ -22,12 +22,14 @@ function UserActions({ user }) {
   }
   return (
     <Nav className="ms-auto">
+      <div className="nav-pad"> </div>
       <Nav.Link data-cy="nav-profile" as={Link} to="/profile">
         Profile
       </Nav.Link>
       <Nav.Link data-cy="nav-logout" onClick={() => logout()}>
         Logout
       </Nav.Link>
+      <div className="nav-pad"> </div>
     </Nav>
   );
 }
@@ -46,6 +48,7 @@ export default function CustomNavbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
+            <div className="nav-pad"> </div>
             <Nav.Link as={Link} to="/home">
               Home
             </Nav.Link>
@@ -58,6 +61,7 @@ export default function CustomNavbar() {
             <Nav.Link data-cy="dashboard-link" href="/dashboard">
               Dashboard
             </Nav.Link>
+            <div className="nav-pad"> </div>
           </Nav>
           <UserActions user={user} />
         </Navbar.Collapse>

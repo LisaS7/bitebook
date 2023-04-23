@@ -15,11 +15,6 @@
   color: var(--dark);
 }
 
-.nav-link {
-  color: var(--dark) !important;
-}
-
-
 .small-cell {
   text-align: center;
   width: 60px;
