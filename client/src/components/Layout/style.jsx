@@ -2,19 +2,25 @@ import styled from "styled-components";
 import Navbar from "react-bootstrap/Navbar";
 
 export const StyledNavbar = styled(Navbar)`
-  background-color: var(--platinum);
-  padding: 0;
-  padding-top: 1rem;
+  background-color: var(--green);
+  padding: 1rem;
+
+  & .navbar-brand {
+    border-radius: 100%;
+    padding: 1rem;
+    background-color: var(--platinum);
+    box-shadow: inset 0px -1px 26px 1px rgba(64, 27, 38, 1);
+  }
 
   & .nav-link,
   .nav-pad {
-    color: var(--dark);
+    color: var(--light);
     padding: 1rem 2rem !important;
-    border-bottom: 2px solid var(--green);
+    border-bottom: 2px solid var(--pink);
   }
 
   & .nav-link:hover {
-    border: 2px solid var(--green);
+    border: 2px solid var(--pink);
     border-bottom: none;
     box-shadow: -2px -5px 37px -6px rgba(0, 0, 0, 0.43);
   }
