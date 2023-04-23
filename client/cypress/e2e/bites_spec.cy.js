@@ -63,7 +63,7 @@ describe("Tests for bites route", () => {
           cy.getByAttr(`input-${key}`).select(value);
           break;
         case "rating":
-          cy.get('[data-cy="rating4"]').click();
+          cy.getByAttr("rating4").click();
           break;
       }
     }
@@ -78,20 +78,25 @@ describe("Tests for bites route", () => {
         banana = banana.next();
       } else {
         banana.should("have.text", value);
-
         banana = banana.next();
       }
     }
   });
-  it.skip("can edit a bite", () => {
+  it("can edit a bite", () => {
     cy.getByAttr("edit-btn").click();
-    cy.get("input").contains("TestName").clear().type("EditName");
-    cy.getByAttr("save-btn").click();
-    cy.get("td").contains("EditName").should("exist");
+
+    // not testing date change as Cypress doesn't recognise date widget
+
+    cy.getByAttr("input-food").first().select("Strawberry");
+    cy.getByAttr("rating3").first().click();
+    cy.getByAttr("input-notes").first().clear().type("EditBite");
+    cy.getByAttr("save-btn").first().click();
+    cy.get("td").contains("Strawberry").should("exist");
+    cy.get("td").contains("EditBite").should("exist");
   });
-  it.skip("can delete a bite", () => {
-    cy.get("td").contains("TestBite").should("exist");
-    cy.getByAttr(`delete-undefined`).click();
-    cy.get("td").contains("TestBite").should("not.exist");
+  it("can delete a bite", () => {
+    cy.get("td").contains("Orange").should("exist");
+    cy.getByAttr(`delete-btn`).first().click();
+    cy.get("td").contains("Orange").should("not.exist");
   });
 });

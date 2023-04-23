@@ -27,7 +27,7 @@ export const testFood = {
 
 export const testBite = {
   date: formattedDate,
-  food: "Banana",
+  food: "Tomato",
   rating: 5,
   notes: "TestBite",
 };
