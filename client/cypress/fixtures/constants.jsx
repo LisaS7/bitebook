@@ -1,4 +1,6 @@
 export const testUserUid = "UMFv48MMnlhjZODF64847U9nxzO2";
+const today = new Date();
+export const formattedDate = today.toISOString().split("T")[0];
 
 export const userRegistrationDetails = {
   name: "tester",
@@ -24,7 +26,7 @@ export const testFood = {
 };
 
 export const testBite = {
-  date: "2023-01-01",
+  date: formattedDate,
   food: "Banana",
   rating: 5,
   notes: "TestBite",

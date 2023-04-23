@@ -1,4 +1,8 @@
-import { userLoginDetails, testBite } from "../fixtures/constants";
+import {
+  userLoginDetails,
+  testBite,
+  formattedDate,
+} from "../fixtures/constants";
 
 describe("Tests for bites route", () => {
   before(() => {
@@ -7,9 +11,15 @@ describe("Tests for bites route", () => {
     cy.visit("/bites");
     cy.wait(1000);
     // delete any residual records
-    if (cy.get("tr").its("length") > 1) {
-      cy.getByAttr("delete-btn").should("be.visible").click({ multiple: true });
-    }
+    cy.get("tr")
+      .its("length")
+      .then((length) => {
+        if (length > 1) {
+          cy.getByAttr("delete-btn")
+            .should("be.visible")
+            .click({ multiple: true });
+        }
+      });
     cy.get("tr").its("length").should("eq", 1); // header row
     // post test data
     cy.fixture("test_bites")
@@ -46,9 +56,6 @@ describe("Tests for bites route", () => {
     cy.getByAttr("add-btn").click();
     for (const [key, value] of Object.entries(testBite)) {
       switch (key) {
-        case "date":
-          cy.getByAttr("input-date").click();
-          break;
         case "notes":
           cy.getByAttr(`input-${key}`).type(value);
           break;
@@ -63,11 +70,15 @@ describe("Tests for bites route", () => {
     cy.getByAttr("save-btn").click();
     cy.get("td").contains("TestBite").should("exist");
   });
-  it.skip("displays the properties for a bite", () => {
-    let banana = cy.get("td").contains("❗");
-    for (const [key, value] of Object.entries(testFood)) {
-      if (key) {
+  it("displays the properties for a bite", () => {
+    let banana = cy.get("td").contains(formattedDate);
+    for (const [key, value] of Object.entries(testBite)) {
+      if (key === "rating") {
+        banana.should("have.text", "🟢🟢🟢🟢🟢");
+        banana = banana.next();
+      } else {
         banana.should("have.text", value);
+
         banana = banana.next();
       }
     }
