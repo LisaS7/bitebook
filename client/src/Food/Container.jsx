@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { editFood, removeFood, addFood } from "../state/slice";
 import EditableTable from "../components/EditableTable";
+import Summary from "./Summary";
 import GetDataTemplate from "./dataTemplate";
 import { deleteRecord, updateRecord, postRecord } from "../Service";
 
@@ -31,6 +32,7 @@ export default function FoodContainer() {
   return (
     <>
       <EditableTable
+        summary={<Summary foods={foods} />}
         data={foods}
         dataTemplate={dataTemplate}
         handleDelete={handleDelete}

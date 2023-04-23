@@ -1,11 +1,11 @@
 import { useState } from "react";
 import Row from "./Row";
 import InputRow from "./InputRow";
-import { StyledTable } from "./style";
-import { LargeButton, ButtonControls } from "../Layout/style";
+import { StyledTable, ButtonControls, LargeButton } from "./style";
 import TableHead from "./Head";
 
 export default function EditableTable({
+  summary,
   data,
   dataTemplate,
   handleDelete,
@@ -51,17 +51,20 @@ export default function EditableTable({
   return (
     <div>
       <ButtonControls>
-        <LargeButton data-cy="add-btn" onClick={() => setMode("add")}>
-          <span className="material-symbols-outlined">add_circle</span>
-        </LargeButton>
-        <LargeButton data-cy="edit-btn" setMode={setMode}>
-          <span
-            className="material-symbols-outlined"
-            onClick={() => toggleEditMode()}
-          >
-            {mode === "view" ? "edit" : "edit_off"}
-          </span>
-        </LargeButton>
+        {summary}
+        <div>
+          <LargeButton data-cy="add-btn" onClick={() => setMode("add")}>
+            <span className="material-symbols-outlined">add_circle</span>
+          </LargeButton>
+          <LargeButton data-cy="edit-btn" setMode={setMode}>
+            <span
+              className="material-symbols-outlined"
+              onClick={() => toggleEditMode()}
+            >
+              {mode === "view" ? "edit" : "edit_off"}
+            </span>
+          </LargeButton>
+        </div>
       </ButtonControls>
       <StyledTable data-cy="table" responsive hover>
         <TableHead template={dataTemplate} />

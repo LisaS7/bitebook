@@ -2,7 +2,22 @@ import Form from "react-bootstrap/Form";
 import Table from "react-bootstrap/Table";
 import styled from "styled-components";
 
+export const ButtonControls = styled.section`
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+`;
+
+export const LargeButton = styled.button`
+  background-color: transparent;
+
+  & span {
+    font-size: 2rem;
+  }
+`;
+
 export const StyledTable = styled(Table)`
+  background-color: var(--light);
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
   & td {

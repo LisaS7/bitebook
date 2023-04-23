@@ -31,19 +31,3 @@ export const MainContainer = styled.main`
   margin: auto;
   padding: 3rem;
 `;
-
-// ============  GLOBAL BUTTON STYLES  ============
-
-export const ButtonControls = styled.section`
-  display: flex;
-  justify-content: flex-end;
-  padding: 1rem 2rem;
-`;
-
-export const LargeButton = styled.button`
-  background-color: transparent;
-
-  & span {
-    font-size: 2rem;
-  }
-`;
