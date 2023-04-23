@@ -49,7 +49,7 @@ export default function EditableTable({
   }
 
   return (
-    <section>
+    <div>
       <ButtonControls>
         <LargeButton data-cy="add-btn" onClick={() => setMode("add")}>
           <span className="material-symbols-outlined">add_circle</span>
@@ -63,7 +63,7 @@ export default function EditableTable({
           </span>
         </LargeButton>
       </ButtonControls>
-      <StyledTable data-cy="table" responsive>
+      <StyledTable data-cy="table" responsive hover>
         <TableHead template={dataTemplate} />
         <tbody>
           {mode === "add" && (
@@ -78,6 +78,6 @@ export default function EditableTable({
           {dataElements}
         </tbody>
       </StyledTable>
-    </section>
+    </div>
   );
 }

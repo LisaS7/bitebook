@@ -16,4 +16,8 @@ export const HeadingContent = styled.div`
   }
 `;
 
-export const StyledHead = styled.thead``;
+export const StyledHead = styled.thead`
+  & tr > th {
+    padding: 1rem 0;
+  }
+`;
