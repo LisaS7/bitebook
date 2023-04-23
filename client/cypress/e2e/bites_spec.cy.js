@@ -4,6 +4,14 @@ describe("Tests for bites route", () => {
   before(() => {
     cy.logout();
     cy.login({ email: userLoginDetails.email, pw: userLoginDetails.pw });
+    cy.visit("/bites");
+    cy.wait(1000);
+    // delete any residual records
+    if (cy.get("tr").its("length") > 1) {
+      cy.getByAttr("delete-btn").should("be.visible").click({ multiple: true });
+    }
+    cy.get("tr").its("length").should("eq", 1); // header row
+    // post test data
     cy.fixture("test_bites")
       .as("testData")
       .each((item) =>
@@ -23,35 +31,37 @@ describe("Tests for bites route", () => {
     cy.url().should("contain", "/bites");
     cy.wait(1000);
   });
-  it("displays bites list", () => {
-    // cy.get("tr").its("length").should("eq", 3);
+  after(() => {
+    cy.visit("/bites");
+    cy.wait(1000);
+    cy.getByAttr("delete-btn").should("be.visible").click({ multiple: true });
+    cy.get("tr").its("length").should("eq", 1); // header row
   });
-  it.skip("can add a new bite", () => {
-    cy.get("td").contains("❗").should("not.exist");
+
+  it("displays bites list", () => {
+    cy.get("tr").its("length").should("eq", 4); // 3 dummy entries + header row
+  });
+  it("can add a new bite", () => {
+    cy.get("td").contains("TestBite").should("not.exist");
     cy.getByAttr("add-btn").click();
-    for (const [key, value] of Object.entries(testFood)) {
+    for (const [key, value] of Object.entries(testBite)) {
       switch (key) {
-        case "icon":
-          cy.getByAttr("toggle-icon").click();
-          cy.get(".epr-icn-symbols").click();
-          cy.get('[data-unified="2757"] > .__EmojiPicker__').click();
-          cy.getByAttr("toggle-icon").click();
+        case "date":
+          cy.getByAttr("input-date").click();
           break;
-        case "name":
-        case "colour":
-        case "flavour":
-        case "texture":
         case "notes":
           cy.getByAttr(`input-${key}`).type(value);
           break;
-        case "category":
-        case "grouping":
+        case "food":
           cy.getByAttr(`input-${key}`).select(value);
+          break;
+        case "rating":
+          cy.get('[data-cy="rating4"]').click();
           break;
       }
     }
     cy.getByAttr("save-btn").click();
-    cy.get("td").contains("❗").should("exist");
+    cy.get("td").contains("TestBite").should("exist");
   });
   it.skip("displays the properties for a bite", () => {
     let banana = cy.get("td").contains("❗");
@@ -69,7 +79,8 @@ describe("Tests for bites route", () => {
     cy.get("td").contains("EditName").should("exist");
   });
   it.skip("can delete a bite", () => {
-    cy.get("td").contains("❗").should("exist");
-    cy.getByAttr(`delete-${testFood.name}`).click();
+    cy.get("td").contains("TestBite").should("exist");
+    cy.getByAttr(`delete-undefined`).click();
+    cy.get("td").contains("TestBite").should("not.exist");
   });
 });

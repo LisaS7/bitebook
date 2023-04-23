@@ -1,6 +1,6 @@
 export function DeleteButton({ handleDelete, id }) {
   return (
-    <button>
+    <button data-cy="delete-btn">
       <span
         className="material-symbols-outlined"
         onClick={() => handleDelete(id)}

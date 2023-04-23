@@ -113,7 +113,7 @@ export function DateInput({ keyName, fieldValue, changeValue }) {
 
 export function RatingInput({ keyName, value, options, itemId, changeValue }) {
   const elements = options.map((option, index) => (
-    <Form.Label key={keyName + index}>
+    <Form.Label data-cy={"rating" + index} key={keyName + index}>
       {option <= value ? "🟢" : "⚪"}{" "}
       <RatingRadioButtons
         inline

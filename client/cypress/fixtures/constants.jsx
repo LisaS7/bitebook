@@ -27,5 +27,5 @@ export const testBite = {
   date: "2023-01-01",
   food: "Banana",
   rating: 5,
-  notes: "TestNote",
+  notes: "TestBite",
 };
