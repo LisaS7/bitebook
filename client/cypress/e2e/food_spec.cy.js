@@ -58,5 +58,6 @@ describe("Tests for foods route", () => {
   it("can delete a food", () => {
     cy.get("td").contains("❗").should("exist");
     cy.getByAttr(`delete-${testFood.name}`).click();
+    cy.get("td").contains("❗").should("not.exist");
   });
 });
