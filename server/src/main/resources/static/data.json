@@ -328,5 +328,16 @@
     "texture": "Soft, Crunchy",
     "icon": "🍟",
     "notes": ""
+  },
+  {
+    "userId": "",
+    "name": "Bread",
+    "grouping": "Carbohydrate",
+    "category": "",
+    "colour": "Beige",
+    "flavour": "Yeasty, Bland",
+    "texture": "Dry, Soft",
+    "icon": "\uD83C\uDF5E",
+    "notes": ""
   }
 ]

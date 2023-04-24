@@ -6,6 +6,7 @@ import org.junit.jupiter.api.TestInstance;
 import uk.co.lisasteven.bitebook.bite.Bite;
 import uk.co.lisasteven.bitebook.food.enums.Category;
 import uk.co.lisasteven.bitebook.food.Food;
+import uk.co.lisasteven.bitebook.food.enums.Group;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -22,7 +23,7 @@ public class FoodTest {
     @BeforeEach
     public void setup() {
         food = new Food(
-                1L, "ABC", "banana", Category.FRUIT.getFormattedName(), Category.YES.getFormattedName(), "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
+                1L, "ABC", "banana", Group.FRUIT.getFormattedName(), Category.YES.getFormattedName(), "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
         );
 
         Bite bite1 = new Bite(
@@ -47,7 +48,7 @@ public class FoodTest {
 
     @Test
     public void hasCategory(){
-        assertEquals(Category.FRUIT, food.getCategory());
+        assertEquals(Group.FRUIT, food.getCategory());
     }
 
     @Test
