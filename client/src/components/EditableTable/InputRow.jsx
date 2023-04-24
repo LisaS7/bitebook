@@ -15,9 +15,9 @@ export default function InputRow({ item, mode, dataTemplate, handleAction }) {
 
   function handleClickSave(event = null) {
     if (mode === "add") {
-      handleAction(event, tempItem);
+      handleAction(event, { ...tempItem });
     } else {
-      handleAction(tempItem);
+      handleAction({ ...tempItem });
     }
   }
 
