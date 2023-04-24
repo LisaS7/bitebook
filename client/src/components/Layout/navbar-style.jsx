@@ -26,9 +26,3 @@ export const StyledNavbar = styled(Navbar)`
     box-shadow: -2px -5px 37px -6px rgba(0, 0, 0, 0.43);
   }
 `;
-
-export const MainContainer = styled.main`
-  max-width: 1420px;
-  margin: auto;
-  padding: 3rem;
-`;

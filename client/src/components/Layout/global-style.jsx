@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const MainContainer = styled.main`
+  max-width: 1520px;
+  margin: auto;
+  padding: 3rem;
+`;
+
 export const PinkCard = styled.div`
   background-color: var(--pink);
   color: var(--light);
