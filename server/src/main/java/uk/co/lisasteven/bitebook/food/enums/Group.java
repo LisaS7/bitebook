@@ -8,7 +8,8 @@ public enum Group {
     CARBOHYDRATE("Carbohydrate"),
     PROTEIN("Protein"),
     FAT("Fat"),
-    CONDIMENT("Condiment");
+    CONDIMENT("Condiment"),
+    OTHER("Other");
 
     private final String formattedName;
 

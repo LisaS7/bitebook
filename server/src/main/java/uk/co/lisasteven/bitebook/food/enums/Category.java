@@ -3,10 +3,10 @@ package uk.co.lisasteven.bitebook.food.enums;
 import java.util.ArrayList;
 
 public enum Category {
+    NONE("None"),
     YES("Yes"),
     NO("No"),
-    MAYBE("Maybe"),
-    NONE("None");
+    MAYBE("Maybe");
 
     private final String formattedName;
 
