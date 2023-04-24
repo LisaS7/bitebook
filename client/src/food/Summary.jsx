@@ -1,5 +1,12 @@
-import { Card } from "../components/Layout/global-style";
+import { PinkCard } from "../components/Layout/global-style";
+import { SummarySection } from "./style";
+import CategoryPie from "./Charts";
 
 export default function Summary({ foods }) {
-  return <Card>{foods.length} foods</Card>;
+  return (
+    <SummarySection>
+      <PinkCard>{foods.length} foods</PinkCard>
+      <CategoryPie />
+    </SummarySection>
+  );
 }

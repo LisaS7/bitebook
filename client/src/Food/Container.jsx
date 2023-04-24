@@ -31,8 +31,8 @@ export default function FoodContainer() {
 
   return (
     <>
+      <Summary foods={foods} />
       <EditableTable
-        summary={<Summary foods={foods} />}
         data={foods}
         dataTemplate={dataTemplate}
         handleDelete={handleDelete}
