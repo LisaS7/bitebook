@@ -1,4 +1,3 @@
-import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
@@ -41,31 +40,29 @@ export default function CustomNavbar() {
 
   return (
     <StyledNavbar expand="lg">
-      <Container>
-        <Navbar.Brand as={Link} to="/home">
-          <img src="/logo.png" width="30" alt="BiteBook logo" />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav>
-            <div className="nav-pad"> </div>
-            <Nav.Link as={Link} to="/home">
-              Home
-            </Nav.Link>
-            <Nav.Link data-cy="foods-link" href="/foods">
-              Food
-            </Nav.Link>
-            <Nav.Link data-cy="bites-link" href="/bites">
-              Bites
-            </Nav.Link>
-            <Nav.Link data-cy="dashboard-link" href="/dashboard">
-              Dashboard
-            </Nav.Link>
-            <div className="nav-pad"> </div>
-          </Nav>
-          <UserActions user={user} />
-        </Navbar.Collapse>
-      </Container>
+      <Navbar.Brand as={Link} to="/home">
+        <img src="/logo.png" width="30" alt="BiteBook logo" />
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav>
+          <div className="nav-pad"> </div>
+          <Nav.Link as={Link} to="/home">
+            Home
+          </Nav.Link>
+          <Nav.Link data-cy="foods-link" href="/foods">
+            Food
+          </Nav.Link>
+          <Nav.Link data-cy="bites-link" href="/bites">
+            Bites
+          </Nav.Link>
+          <Nav.Link data-cy="dashboard-link" href="/dashboard">
+            Dashboard
+          </Nav.Link>
+          <div className="nav-pad"> </div>
+        </Nav>
+        <UserActions user={user} />
+      </Navbar.Collapse>
     </StyledNavbar>
   );
 }
