@@ -19,7 +19,7 @@ export default function Row({ item, handleDelete, keyOrder }) {
       );
     } else {
       cells.push(
-        <td data-cy={field} key={field}>
+        <td data-cy={field} className={field} key={field}>
           {item[field]}
         </td>
       );

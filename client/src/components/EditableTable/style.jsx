@@ -25,6 +25,10 @@ export const StyledTable = styled(Table)`
     padding: 10px 10px;
   }
 
+  & .icon {
+    font-size: 2rem;
+  }
+
   .EmojiPickerReact {
     --epr-emoji-size: 1.5rem;
   }
@@ -33,6 +37,12 @@ export const StyledTable = styled(Table)`
 export const EmojiPickerContainer = styled.td`
   position: relative;
   height: 2rem;
+
+  & #toggle-emoji {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    font-size: 2rem;
+  }
 `;
 
 export const AbsolutePicker = styled.div`
