@@ -21,11 +21,16 @@ export function EmojiInput({ value, changeIcon }) {
         id="toggle-emoji"
         onClick={toggleEmojiPicker}
       >
-        {value}
+        {value || "🍽"}
       </button>
       <AbsolutePicker>
         {showEmojiPicker && (
-          <EmojiPicker onEmojiClick={(emoji) => changeIcon(emoji.emoji)} />
+          <EmojiPicker
+            onEmojiClick={(emoji) => {
+              changeIcon(emoji.emoji);
+              setShowEmojiPicker(false);
+            }}
+          />
         )}
       </AbsolutePicker>
     </EmojiPickerContainer>
