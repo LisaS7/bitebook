@@ -9,8 +9,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import uk.co.lisasteven.bitebook.food.enums.Group;
-import uk.co.lisasteven.bitebook.food.enums.Category;
 import uk.co.lisasteven.bitebook.food.Food;
 import uk.co.lisasteven.bitebook.food.FoodController;
 import uk.co.lisasteven.bitebook.food.FoodService;

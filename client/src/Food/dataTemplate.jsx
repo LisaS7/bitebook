@@ -6,16 +6,16 @@ export default function GetDataTemplate() {
   return {
     icon: { heading: "", type: "emoji", sortable: false },
     name: { heading: "Name", type: "text", sortable: true },
-    category: {
-      heading: "Category",
-      type: "select",
-      options: categories,
-      sortable: true,
-    },
     grouping: {
       heading: "Group",
       type: "select",
       options: groups,
+      sortable: true,
+    },
+    category: {
+      heading: "Category",
+      type: "select",
+      options: categories,
       sortable: true,
     },
     colour: { heading: "Colour", type: "text", sortable: true },

@@ -3,18 +3,14 @@ package uk.co.lisasteven.bitebook.food.enums;
 import java.util.ArrayList;
 
 public enum Category {
-    FRUIT("Fruit"),
-    VEGETABLE("Vegetable"),
-    CARBOHYDRATE("Carbohydrate"),
-    PROTEIN("Protein"),
-    FAT("Fat"),
-    CONDIMENT("Condiment");
+    YES("Yes"),
+    NO("No"),
+    MAYBE("Maybe"),
+    NONE("None");
 
     private final String formattedName;
 
-    Category(String formattedName) {
-        this.formattedName = formattedName;
-    }
+    Category(String formattedName) {this.formattedName = formattedName;}
 
     public String getFormattedName() {
         return formattedName;
@@ -27,4 +23,5 @@ public enum Category {
         }
         return formattedNames;
     }
-}
+
+    }
