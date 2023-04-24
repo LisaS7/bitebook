@@ -10,15 +10,17 @@ import {
 } from "./FormElements";
 import { SaveButton } from "./Buttons";
 
-export default function InputRow({ item, mode, dataTemplate, handleAction }) {
+export default function InputRow({
+  item,
+  setEditRow,
+  dataTemplate,
+  handleAction,
+}) {
   const [tempItem, setTempItem] = useState({ ...item });
 
   function handleClickSave(event = null) {
-    if (mode === "add") {
-      handleAction(event, { ...tempItem });
-    } else {
-      handleAction({ ...tempItem });
-    }
+    handleAction(event, { ...tempItem });
+    setEditRow(null);
   }
 
   function changeValue(e, key) {

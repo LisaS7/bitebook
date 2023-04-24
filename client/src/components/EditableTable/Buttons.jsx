@@ -11,6 +11,19 @@ export function DeleteButton({ handleDelete, id }) {
   );
 }
 
+export function EditButton({ itemId, toggleEdit }) {
+  return (
+    <button data-cy="edit-btn">
+      <span
+        className="material-symbols-outlined"
+        onClick={() => toggleEdit(itemId)}
+      >
+        edit
+      </span>
+    </button>
+  );
+}
+
 export function SaveButton({ handleClickSave }) {
   return (
     <button data-cy="save-btn">
@@ -19,19 +32,6 @@ export function SaveButton({ handleClickSave }) {
         onClick={(event) => handleClickSave(event)}
       >
         done
-      </span>
-    </button>
-  );
-}
-
-export function CancelButton({ setMode }) {
-  return (
-    <button>
-      <span
-        className="material-symbols-outlined"
-        onClick={() => setMode("view")}
-      >
-        close
       </span>
     </button>
   );

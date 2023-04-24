@@ -1,10 +1,10 @@
 import { DisplayRating } from "./utils";
-import { DeleteButton } from "./Buttons";
+import { DeleteButton, EditButton } from "./Buttons";
 import maybe from "../../svg/category_maybe.svg";
 import yes from "../../svg/category_yes.svg";
 import no from "../../svg/category_no.svg";
 
-export default function Row({ item, handleDelete, keyOrder }) {
+export default function Row({ item, toggleEdit, handleDelete, keyOrder }) {
   let cells = [];
 
   keyOrder.forEach((field) => {
@@ -62,7 +62,10 @@ export default function Row({ item, handleDelete, keyOrder }) {
   return (
     <tr>
       {cells}
-      <td data-cy={`delete-${item.name}`} key="delete">
+      <td data-cy={`edit-${item.name}`} key={`edit-${item.name}`}>
+        <EditButton itemId={item.id} toggleEdit={toggleEdit} />
+      </td>
+      <td data-cy={`delete-${item.name}`} key={`delete-${item.name}`}>
         <DeleteButton handleDelete={handleDelete} id={item.id} />
       </td>
     </tr>

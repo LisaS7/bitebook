@@ -20,7 +20,8 @@ export default function BiteContainer() {
     dispatch(removeBite(id));
   }
 
-  function handleUpdate(bite) {
+  function handleUpdate(event, bite) {
+    event.preventDefault();
     setFoodId(bite);
     const newBite = replaceNullWithDefaults(bite);
     updateRecord(newBite, "bites");

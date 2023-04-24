@@ -50,14 +50,12 @@ describe("Tests for foods route", () => {
     }
   });
   it("can edit a food", () => {
-    cy.getByAttr("edit-btn").click();
+    cy.getByAttr(`edit-${testFood.name}`).click();
     const row = cy.get("input[value='TestName']").parents("tr");
     row.within(() => {
       cy.getByAttr("input-name").clear().type("EditName");
     });
     cy.getByAttr("save-btn").last().click();
-    cy.getByAttr("edit-btn").click();
-    // cy.get("input[value='EditName']").parents("tr").get("td").last().click();
     cy.contains("td", "EditName").should("exist");
     cy.contains("td", "TestName").should("not.exist");
   });

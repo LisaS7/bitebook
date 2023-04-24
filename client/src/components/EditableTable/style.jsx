@@ -2,7 +2,7 @@ import Form from "react-bootstrap/Form";
 import Table from "react-bootstrap/Table";
 import styled from "styled-components";
 
-export const ButtonControls = styled.section`
+export const ButtonContainer = styled.section`
   display: flex;
   justify-content: flex-end;
   align-items: center;

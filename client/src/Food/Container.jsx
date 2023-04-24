@@ -17,7 +17,8 @@ export default function FoodContainer() {
     dispatch(removeFood(id));
   }
 
-  function handleUpdate(food) {
+  function handleUpdate(event, food) {
+    event.preventDefault();
     const newFood = replaceNullWithDefaults(food);
     updateRecord(newFood, "foods");
     dispatch(editFood(newFood));
