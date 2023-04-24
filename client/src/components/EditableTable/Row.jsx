@@ -44,7 +44,7 @@ export default function Row({ item, handleDelete, keyOrder }) {
 
       cells.push(
         <td data-cy={field} className={field} key={field}>
-          <div className={`${field}-${value}`}>
+          <div>
             {symbol}
             {" " + item[field]}
           </div>
