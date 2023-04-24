@@ -83,14 +83,15 @@ describe("Tests for bites route", () => {
     }
   });
   it("can edit a bite", () => {
-    cy.getByAttr("edit-btn").click();
+    cy.get(
+      '[data-cy="edit-2023-01-02"] > [data-cy="edit-btn"] > .material-symbols-outlined'
+    ).click();
 
     // not testing date change as Cypress doesn't recognise date widget
-
-    cy.getByAttr("input-food").first().select("Strawberry");
-    cy.getByAttr("rating3").first().click();
-    cy.getByAttr("input-notes").first().clear().type("EditBite");
-    cy.getByAttr("save-btn").first().click();
+    cy.getByAttr("input-food").select("Strawberry");
+    cy.getByAttr("rating3").click();
+    cy.getByAttr("input-notes").clear().type("EditBite");
+    cy.getByAttr("save-btn").click();
     cy.get("td").contains("Strawberry").should("exist");
     cy.get("td").contains("EditBite").should("exist");
   });

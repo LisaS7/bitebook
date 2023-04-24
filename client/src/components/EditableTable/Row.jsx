@@ -62,7 +62,7 @@ export default function Row({ item, toggleEdit, handleDelete, keyOrder }) {
   return (
     <tr>
       {cells}
-      <td data-cy={`edit-${item.name}`} key={`edit-${item.name}`}>
+      <td data-cy={`edit-${item.name || item.date}`} key={`edit-${item.name}`}>
         <EditButton itemId={item.id} toggleEdit={toggleEdit} />
       </td>
       <td data-cy={`delete-${item.name}`} key={`delete-${item.name}`}>
