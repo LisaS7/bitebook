@@ -3,13 +3,14 @@ import Navbar from "react-bootstrap/Navbar";
 
 export const StyledNavbar = styled(Navbar)`
   background-color: var(--green);
-  padding: 1rem;
+  padding: 1rem 4rem;
+  font-size: 1.2rem;
 
   & .navbar-brand {
     border-radius: 100%;
     padding: 1rem;
     background-color: var(--platinum);
-    box-shadow: inset 0px -1px 26px 1px rgba(64, 27, 38, 1);
+    box-shadow: 0px 0px 26px 1px rgba(64, 27, 38, 1);
   }
 
   & .nav-link,
