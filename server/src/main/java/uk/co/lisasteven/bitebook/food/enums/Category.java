@@ -6,7 +6,10 @@ public enum Category {
     NONE("None"),
     YES("Yes"),
     NO("No"),
-    MAYBE("Maybe");
+    MAYBE("Maybe"),
+    RARELY("Rarely"),
+    UNTESTED("Untested"),
+    ALLERGY("Allergy");
 
     private final String formattedName;
 
