@@ -1,5 +1,32 @@
 import { useSelector } from "react-redux";
 
+export const defaultItem = {
+  date: FormatDate_HTMLInput(new Date()),
+  food: {
+    id: 1,
+  },
+  rating: null,
+  notes: "",
+};
+
+export function setFoodId(bite) {
+  if (typeof bite.food !== "object") {
+    bite.food = { id: bite.food };
+  }
+}
+
+export function replaceNullWithDefaults(item) {
+  const tempItem = { ...item };
+
+  for (const [key, value] of Object.entries(tempItem)) {
+    if (!value) {
+      tempItem[key] = defaultItem[key];
+    }
+  }
+
+  return tempItem;
+}
+
 export function FormatDate_HTMLInput(date) {
   return (
     date.getFullYear() +
@@ -10,7 +37,7 @@ export function FormatDate_HTMLInput(date) {
   );
 }
 
-export default function GetDataTemplate() {
+export function GetDataTemplate() {
   const { foods } = useSelector((state) => state);
   const dateToday = FormatDate_HTMLInput(new Date());
 

@@ -2,7 +2,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { removeBite, editBite, addBite } from "../state/slice";
 import EditableTable from "../components/EditableTable";
-import GetDataTemplate from "./dataTemplate";
+import {
+  GetDataTemplate,
+  setFoodId,
+  replaceNullWithDefaults,
+} from "./dataTemplate";
 import { deleteRecord, updateRecord, postRecord } from "../Service";
 
 export default function BiteContainer() {
@@ -17,22 +21,18 @@ export default function BiteContainer() {
   }
 
   function handleUpdate(bite) {
-    if (typeof bite.food !== "object") {
-      bite.food = { id: bite.food };
-    }
-    updateRecord(bite, "bites");
-    dispatch(editBite(bite));
+    setFoodId(bite);
+    const newBite = replaceNullWithDefaults(bite);
+    updateRecord(newBite, "bites");
+    dispatch(editBite(newBite));
   }
 
   function handleNew(event, data) {
     event.preventDefault();
-
-    if (data.food) {
-      data.food = { id: data.food };
-    }
-
-    postRecord(data, "bites");
-    dispatch(addBite(data));
+    setFoodId(data);
+    const newBite = replaceNullWithDefaults(data);
+    postRecord(newBite, "bites");
+    dispatch(addBite(newBite));
     navigate("/bites");
   }
 

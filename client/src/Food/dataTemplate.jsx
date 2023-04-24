@@ -1,6 +1,29 @@
 import { useSelector } from "react-redux";
 
-export default function GetDataTemplate() {
+export const defaultItem = {
+  icon: "🍽️",
+  name: "Default",
+  grouping: "Fruit",
+  category: "None",
+  colour: "Unspecified",
+  flavour: "Unspecified",
+  texture: "Unspecified",
+  notes: "",
+};
+
+export function replaceNullWithDefaults(item) {
+  const tempItem = { ...item };
+
+  for (const [key, value] of Object.entries(tempItem)) {
+    if (!value) {
+      tempItem[key] = defaultItem[key];
+    }
+  }
+
+  return tempItem;
+}
+
+export function GetDataTemplate() {
   const { categories, groups } = useSelector((state) => state);
 
   return {
