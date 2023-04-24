@@ -21,8 +21,6 @@ export default function GroupPie() {
     }
   });
 
-  console.log("DATA    ", data);
-
   return (
     <PieChart width={300} height={200}>
       <Pie
