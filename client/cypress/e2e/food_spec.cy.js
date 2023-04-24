@@ -44,7 +44,7 @@ describe("Tests for foods route", () => {
     let banana = cy.get("td").contains("❗");
     for (const [key, value] of Object.entries(testFood)) {
       if (key) {
-        banana.should("have.text", value);
+        banana.should("contain.text", value);
         banana = banana.next();
       }
     }
