@@ -29,15 +29,6 @@ export const StyledTable = styled(Table)`
     font-size: 2rem;
   }
 
-  & .category-no {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.2rem 0;
-    border: 1px solid red;
-    border-radius: 15%;
-  }
-
   .EmojiPickerReact {
     --epr-emoji-size: 1.5rem;
   }
