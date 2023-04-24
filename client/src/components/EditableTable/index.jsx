@@ -5,7 +5,6 @@ import { StyledTable, ButtonControls, LargeButton } from "./style";
 import TableHead from "./Head";
 
 export default function EditableTable({
-  summary,
   data,
   dataTemplate,
   handleDelete,
@@ -51,7 +50,6 @@ export default function EditableTable({
   return (
     <div>
       <ButtonControls>
-        {summary}
         <div>
           <LargeButton data-cy="add-btn" onClick={() => setMode("add")}>
             <span className="material-symbols-outlined">add_circle</span>
