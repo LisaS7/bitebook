@@ -18,6 +18,8 @@ import { deleteRecord } from "../../Service";
 
 export default function Profile() {
   const [user, loading] = useAuthState(auth);
+  // ignore warning for unused variable
+  // eslint-disable-next-line
   const [deleteUser, loadingDelete, errorDelete] = useDeleteUser(auth);
   const [editName, setEditName] = useState("");
   const [editEmail, setEditEmail] = useState("");

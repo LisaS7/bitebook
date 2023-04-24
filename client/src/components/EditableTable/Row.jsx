@@ -1,11 +1,24 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCircleCheck,
+  faCircleXmark,
+  faCircleQuestion,
+  faChevronCircleDown,
+  faMinus,
+} from "@fortawesome/free-solid-svg-icons";
 import { DisplayRating } from "./utils";
 import { DeleteButton, EditButton } from "./Buttons";
-import maybe from "../../svg/category_maybe.svg";
-import yes from "../../svg/category_yes.svg";
-import no from "../../svg/category_no.svg";
 
 export default function Row({ item, toggleEdit, handleDelete, keyOrder }) {
   let cells = [];
+
+  const categorySymbols = {
+    yes: [faCircleCheck, "green"],
+    no: [faCircleXmark, "red"],
+    maybe: [faCircleQuestion, "darkorange"],
+    rarely: [faChevronCircleDown, "darkturquoise"],
+    untested: [faMinus, "lightslategrey"],
+  };
 
   keyOrder.forEach((field) => {
     // food dropdown
@@ -26,26 +39,18 @@ export default function Row({ item, toggleEdit, handleDelete, keyOrder }) {
     } else if (field === "category") {
       const value = item[field].toLowerCase();
 
-      let symbol;
-      switch (value) {
-        case "yes":
-          symbol = <img src={yes} alt="category" />;
-          break;
-        case "no":
-          symbol = <img src={no} alt="category" />;
-          break;
-        case "maybe":
-          symbol = <img src={maybe} alt="category" />;
-          break;
-        default:
-          symbol = "";
-          break;
-      }
+      const symbol = value && (
+        <FontAwesomeIcon
+          icon={categorySymbols[value][0]}
+          color={categorySymbols[value][1]}
+          size="xl"
+        />
+      );
 
       cells.push(
         <td data-cy={field} className={field} key={field}>
           <div>
-            {symbol}
+            {value && symbol}
             {" " + item[field]}
           </div>
         </td>
