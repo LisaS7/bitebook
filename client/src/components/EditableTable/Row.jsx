@@ -1,66 +1,58 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCircleCheck,
-  faCircleXmark,
-  faCircleQuestion,
-  faChevronCircleDown,
-  faMinus,
-} from "@fortawesome/free-solid-svg-icons";
+import { categorySymbols } from "../../food/category_symbols";
 import { DisplayRating } from "./utils";
 import { DeleteButton, EditButton } from "./Buttons";
 
 export default function Row({ item, toggleEdit, handleDelete, keyOrder }) {
   let cells = [];
 
-  const categorySymbols = {
-    yes: [faCircleCheck, "green"],
-    no: [faCircleXmark, "red"],
-    maybe: [faCircleQuestion, "darkorange"],
-    rarely: [faChevronCircleDown, "darkturquoise"],
-    untested: [faMinus, "lightslategrey"],
-  };
-
   keyOrder.forEach((field) => {
-    // food dropdown
-    if (typeof item[field] === "object" && field !== null) {
-      cells.push(
-        <td data-cy={field} key={field}>
-          {item[field]?.name}
-        </td>
-      );
-      // rating buttons
-    } else if (field === "rating") {
-      cells.push(
-        <td data-cy={field} key={field}>
-          {DisplayRating(item[field])}
-        </td>
-      );
-      // category
-    } else if (field === "category") {
-      const value = item[field].toLowerCase();
+    switch (field) {
+      case "food":
+        if (typeof item[field] === "object" && field !== null) {
+          cells.push(
+            <td data-cy={field} key={field}>
+              {item[field]?.name}
+            </td>
+          );
+        }
+        break;
+      case "rating":
+        cells.push(
+          <td data-cy={field} key={field}>
+            {DisplayRating(item[field])}
+          </td>
+        );
+        break;
+      case "category":
+        const value = item[field].toLowerCase();
+        let symbol;
+        if (value && value !== "none") {
+          symbol = (
+            <FontAwesomeIcon
+              icon={categorySymbols[value][0]}
+              color={categorySymbols[value][1]}
+              size="xl"
+            />
+          );
+        }
 
-      const symbol = value && (
-        <FontAwesomeIcon
-          icon={categorySymbols[value][0]}
-          color={categorySymbols[value][1]}
-          size="xl"
-        />
-      );
-
-      cells.push(
-        <td data-cy={field} className={field} key={field}>
-          <div>
-            {value && symbol}
-            {" " + item[field]}
-          </div>
-        </td>
-      );
-    } else {
-      cells.push(
-        <td data-cy={field} className={field} key={field}>
-          {item[field]}
-        </td>
-      );
+        cells.push(
+          <td data-cy={field} className={field} key={field}>
+            <div>
+              {value && symbol}
+              {" " + item[field]}
+            </div>
+          </td>
+        );
+        break;
+      default:
+        cells.push(
+          <td data-cy={field} className={field} key={field}>
+            {item[field]}
+          </td>
+        );
+        break;
     }
   });
 

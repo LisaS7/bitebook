@@ -51,7 +51,7 @@ export const slice = createSlice({
      * @param  {object} action a food object
      */
     addFood: (state, action) => {
-      state.foods.push(action.payload);
+      state.foods.unshift(action.payload);
     },
     /**
      * reorders the state foods list
@@ -100,7 +100,7 @@ export const slice = createSlice({
       const newBite = action.payload;
       const food = getItemById(current(state.foods), newBite.food.id);
       newBite.food = food;
-      state.bites.push(newBite);
+      state.bites.unshift(newBite);
     },
   },
 });

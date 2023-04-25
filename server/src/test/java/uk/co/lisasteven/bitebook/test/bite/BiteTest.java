@@ -21,7 +21,7 @@ public class BiteTest {
     @BeforeEach
     public void setup() {
         banana = new Food(
-                "ABC", "banana", Group.FRUIT.getFormattedName(), Category.YES.getFormattedName(), "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
+                "ABC", "banana", "", Group.FRUIT.getFormattedName(), Category.YES.getFormattedName(), "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
         );
 
         bite = new Bite(

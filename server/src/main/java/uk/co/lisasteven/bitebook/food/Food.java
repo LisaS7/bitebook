@@ -21,6 +21,8 @@ public class Food {
     @NotBlank(message = "Name is required")
     private String name;
 
+    private String detail;
+
     private String grouping;
     private String category;
 
@@ -33,9 +35,10 @@ public class Food {
 
     private String notes;
 
-    public Food(String user, String name, String grouping, String category, String colour, String flavour, String texture, String icon, String notes) {
+    public Food(String user, String name, String detail, String grouping, String category, String colour, String flavour, String texture, String icon, String notes) {
         this.userId = user;
         this.name = name;
+        this.detail = detail;
         this.grouping = grouping;
         this.category = category;
         this.colour = colour;

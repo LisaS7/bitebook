@@ -2,6 +2,7 @@
   {
     "userId": "",
     "name": "Banana",
+    "detail": "",
     "grouping": "Fruit",
     "category": "",
     "colour": "Yellow",
@@ -13,6 +14,7 @@
   {
     "userId": "",
     "name": "Apple",
+    "detail":  "",
     "grouping": "Fruit",
     "category": "",
     "colour": "Green",
@@ -24,6 +26,7 @@
   {
     "userId": "",
     "name": "Apple",
+    "detail":  "",
     "grouping": "Fruit",
     "category": "",
     "colour": "Red",
@@ -36,6 +39,7 @@
     "userId": "",
     "name": "Pear",
     "grouping": "Fruit",
+    "detail":  "",
     "category": "",
     "colour": "Green",
     "flavour": "Sweet",
@@ -46,6 +50,7 @@
   {
     "userId": "",
     "name": "Orange",
+    "detail":  "",
     "grouping": "Fruit",
     "category": "",
     "colour": "Orange",
@@ -57,6 +62,7 @@
   {
     "userId": "",
     "name": "Strawberry",
+    "detail":  "",
     "grouping": "Fruit",
     "category": "",
     "colour": "Red",
@@ -68,6 +74,7 @@
   {
     "userId": "",
     "name": "Grapes",
+    "detail":  "",
     "grouping": "Fruit",
     "category": "",
     "colour": "Purple, Green",
@@ -79,6 +86,7 @@
   {
     "userId": "",
     "name": "Pineapple",
+    "detail":  "",
     "grouping": "Fruit",
     "category": "",
     "colour": "Yellow",
@@ -90,6 +98,7 @@
   {
     "userId": "",
     "name": "Blueberries",
+    "detail":  "",
     "grouping": "Fruit",
     "category": "",
     "colour": "Blue",
@@ -101,6 +110,7 @@
   {
     "userId": "",
     "name": "Tomato",
+    "detail":  "",
     "grouping": "Fruit",
     "category": "",
     "colour": "Red",
@@ -112,6 +122,7 @@
   {
     "userId": "",
     "name": "Coconut",
+    "detail":  "",
     "grouping": "Fruit",
     "category": "",
     "colour": "White",
@@ -123,6 +134,7 @@
   {
     "userId": "",
     "name": "Avocado",
+    "detail":  "",
     "grouping": "Fruit",
     "category": "",
     "colour": "Green",
@@ -134,6 +146,7 @@
   {
     "userId": "",
     "name": "Potato",
+    "detail":  "",
     "grouping": "Vegetable",
     "category": "",
     "colour": "White, Beige",
@@ -145,6 +158,7 @@
   {
     "userId": "",
     "name": "Carrot",
+    "detail":  "",
     "grouping": "Vegetable",
     "category": "",
     "colour": "Orange",
@@ -156,6 +170,7 @@
   {
     "userId": "",
     "name": "Sweetcorn",
+    "detail":  "",
     "grouping": "Vegetable",
     "category": "",
     "colour": "Yellow",
@@ -167,6 +182,7 @@
   {
     "userId": "",
     "name": "Bell Pepper",
+    "detail":  "",
     "grouping": "Vegetable",
     "category": "",
     "colour": "Red, Green, Yellow, Orange",
@@ -178,6 +194,7 @@
   {
     "userId": "",
     "name": "Cucumber",
+    "detail":  "",
     "grouping": "Vegetable",
     "category": "",
     "colour": "Green",
@@ -189,6 +206,7 @@
   {
     "userId": "",
     "name": "Lettuce",
+    "detail":  "",
     "grouping": "Vegetable",
     "category": "",
     "colour": "Green",
@@ -200,6 +218,7 @@
   {
     "userId": "",
     "name": "Broccoli (cooked)",
+    "detail":  "",
     "grouping": "Vegetable",
     "category": "",
     "colour": "Green",
@@ -211,6 +230,7 @@
   {
     "userId": "",
     "name": "Peas (cooked)",
+    "detail":  "",
     "grouping": "Vegetable",
     "category": "",
     "colour": "Green",
@@ -222,6 +242,7 @@
   {
     "userId": "",
     "name": "Onion (cooked)",
+    "detail":  "",
     "grouping": "Vegetable",
     "category": "",
     "colour": "White",
@@ -233,6 +254,7 @@
   {
     "userId": "",
     "name": "Mushroom (cooked)",
+    "detail":  "",
     "grouping": "Vegetable",
     "category": "",
     "colour": "White, Beige, Brown",
@@ -245,6 +267,7 @@
     "userId": "",
     "name": "Nuts",
     "grouping": "Fruit",
+    "detail":  "",
     "category": "",
     "colour": "Beige, Brown",
     "flavour": "Earthy, Nutty",
@@ -255,6 +278,7 @@
   {
     "userId": "",
     "name": "Cheese (cheddar)",
+    "detail":  "",
     "grouping": "Dairy",
     "category": "",
     "colour": "Beige, Yellow, Orange",
@@ -266,6 +290,7 @@
   {
     "userId": "",
     "name": "Beef (stewed)",
+    "detail":  "",
     "grouping": "Protein",
     "category": "",
     "colour": "Brown",
@@ -277,6 +302,7 @@
   {
     "userId": "",
     "name": "Chicken (roast)",
+    "detail":  "",
     "grouping": "Protein",
     "category": "",
     "colour": "White, Beige",
@@ -288,6 +314,7 @@
   {
     "userId": "",
     "name": "Egg (boiled)",
+    "detail":  "",
     "grouping": "Protein",
     "category": "",
     "colour": "White, Yellow",
@@ -300,6 +327,7 @@
     "userId": "",
     "name": "Rice",
     "grouping": "Carbohydrate",
+    "detail":  "",
     "category": "",
     "colour": "White",
     "flavour": "Bland",
@@ -310,6 +338,7 @@
   {
     "userId": "",
     "name": "Spaghetti",
+    "detail":  "",
     "grouping": "Carbohydrate",
     "category": "",
     "colour": "Beige",
@@ -321,6 +350,7 @@
   {
     "userId": "",
     "name": "Chips",
+    "detail":  "",
     "grouping": "Carbohydrate",
     "category": "",
     "colour": "Beige",
@@ -332,6 +362,7 @@
   {
     "userId": "",
     "name": "Bread",
+    "detail":  "",
     "grouping": "Carbohydrate",
     "category": "",
     "colour": "Beige",

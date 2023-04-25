@@ -3,11 +3,12 @@ import { useSelector } from "react-redux";
 export const defaultItem = {
   icon: "🍽️",
   name: "Default",
-  grouping: "Fruit",
+  detail: "",
+  grouping: "Other",
   category: "None",
-  colour: "Unspecified",
-  flavour: "Unspecified",
-  texture: "Unspecified",
+  colour: "",
+  flavour: "",
+  texture: "",
   notes: "",
 };
 
@@ -29,6 +30,7 @@ export function GetDataTemplate() {
   return {
     icon: { heading: "", type: "emoji", sortable: false },
     name: { heading: "Name", type: "text", sortable: true },
+    detail: { heading: "Detail", type: "text", sortable: true },
     grouping: {
       heading: "Group",
       type: "select",
