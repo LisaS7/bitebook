@@ -9,7 +9,7 @@ export default function TableHead({ template }) {
     dispatch(sortFoods({ key: heading, direction: event.target.id }));
   }
 
-  const ttt = Object.keys(template).map((key, index) => (
+  const headingElements = Object.keys(template).map((key, index) => (
     <th key={index}>
       <HeadingContent>
         {template[key].heading}
@@ -23,24 +23,10 @@ export default function TableHead({ template }) {
     </th>
   ));
 
-  const headingElements = Object.values(template).map((obj, index) => (
-    <th key={index}>
-      <HeadingContent>
-        {obj.heading}
-        {obj.sortable && (
-          <div>
-            <SortAscending heading={obj.heading} handleSort={handleSort} />
-            <SortDescending heading={obj.heading} handleSort={handleSort} />
-          </div>
-        )}
-      </HeadingContent>
-    </th>
-  ));
-
   return (
     <StyledHead>
       <tr id="table-head-tr">
-        {ttt}
+        {headingElements}
         <th key="button1"></th>
         <th key="button2"></th>
       </tr>
