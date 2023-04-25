@@ -1,9 +1,20 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { categorySymbols } from "../../food/category_symbols";
+import { useDispatch } from "react-redux";
+import { deleteRecord } from "../Service";
+import { removeBite } from "../state/slice";
+import { GetDataTemplate } from "./data_template";
 import { DisplayRating } from "./utils";
-import { DeleteButton, EditButton } from "./Buttons";
+import { DeleteButton, EditButton } from "../components/Table/Buttons";
 
-export default function Row({ item, toggleEdit, handleDelete, keyOrder }) {
+export default function TableRow({ item, toggleEdit }) {
+  const dispatch = useDispatch();
+  const dataTemplate = GetDataTemplate();
+  const keyOrder = Object.keys(dataTemplate);
+
+  function handleDelete(id) {
+    deleteRecord(id, "bites");
+    dispatch(removeBite(id));
+  }
+
   let cells = [];
 
   keyOrder.forEach((field) => {
@@ -21,35 +32,6 @@ export default function Row({ item, toggleEdit, handleDelete, keyOrder }) {
         cells.push(
           <td data-cy={field} key={field}>
             {DisplayRating(item[field])}
-          </td>
-        );
-        break;
-      case "category":
-        const value = item[field].toLowerCase();
-        let symbol;
-        if (value && value !== "none") {
-          symbol = (
-            <FontAwesomeIcon
-              icon={categorySymbols[value][0]}
-              color={categorySymbols[value][1]}
-              size="xl"
-            />
-          );
-        }
-
-        cells.push(
-          <td data-cy={field} className={field} key={field}>
-            <div>
-              {value && symbol}
-              {" " + item[field]}
-            </div>
-          </td>
-        );
-        break;
-      case "bites":
-        cells.push(
-          <td data-cy={field} className={field} key={field}>
-            {item[field].length}
           </td>
         );
         break;

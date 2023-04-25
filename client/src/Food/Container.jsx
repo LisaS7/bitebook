@@ -1,21 +1,17 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { editFood, removeFood, addFood } from "../state/slice";
-import EditableTable from "../components/EditableTable";
-import Summary from "./Summary";
+import { editFood, addFood } from "../state/slice";
+import EditableTable from "../components/Table";
+import Summary from "./TableSummary";
 import { GetDataTemplate, replaceNullWithDefaults } from "./data_template";
-import { deleteRecord, updateRecord, postRecord } from "../Service";
+import { updateRecord, postRecord } from "../Service";
+import TableRow from "./TableRow";
 
 export default function FoodContainer() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { foods } = useSelector((state) => state);
   const dataTemplate = GetDataTemplate();
-
-  function handleDelete(id) {
-    deleteRecord(id, "foods");
-    dispatch(removeFood(id));
-  }
 
   function handleUpdate(event, food) {
     event.preventDefault();
@@ -37,8 +33,8 @@ export default function FoodContainer() {
       <Summary foods={foods} />
       <EditableTable
         data={foods}
+        TableRow={TableRow}
         dataTemplate={dataTemplate}
-        handleDelete={handleDelete}
         handleUpdate={handleUpdate}
         handleNew={handleNew}
       />
