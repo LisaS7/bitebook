@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { auth, logout } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useEffect } from "react";
-import { StyledNavbar } from "./navbar-style";
+import { StyledNavbar } from "./navbar.style";
 
 function UserActions({ user }) {
   if (!user) {

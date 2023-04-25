@@ -6,7 +6,7 @@ import {
   GetDataTemplate,
   setFoodId,
   replaceNullWithDefaults,
-} from "./dataTemplate";
+} from "./data_template";
 import { deleteRecord, updateRecord, postRecord } from "../Service";
 
 export default function BiteContainer() {

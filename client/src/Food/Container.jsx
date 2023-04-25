@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { editFood, removeFood, addFood } from "../state/slice";
 import EditableTable from "../components/EditableTable";
 import Summary from "./Summary";
-import { GetDataTemplate, replaceNullWithDefaults } from "./dataTemplate";
+import { GetDataTemplate, replaceNullWithDefaults } from "./data_template";
 import { deleteRecord, updateRecord, postRecord } from "../Service";
 
 export default function FoodContainer() {

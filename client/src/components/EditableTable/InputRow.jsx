@@ -7,7 +7,7 @@ import {
   EmojiInput,
   DateInput,
   RatingInput,
-} from "./FormElements";
+} from "./form_elements";
 import { SaveButton } from "./Buttons";
 
 export default function InputRow({

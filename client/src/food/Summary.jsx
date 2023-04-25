@@ -1,6 +1,6 @@
-import { PinkCard } from "../components/Layout/global-style";
+import { PinkCard } from "../components/Layout/global.style";
 import { SummarySection } from "./style";
-import CategoryPie from "./Charts";
+import CategoryPie from "./charts";
 
 export default function Summary({ foods }) {
   return (
