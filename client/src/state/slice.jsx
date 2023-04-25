@@ -84,13 +84,13 @@ export const slice = createSlice({
       } else {
         if (direction === "asc") {
           state.foods = [...current(state.foods)].sort((a, b) =>
-            a[key].localeCompare(b[key].toString(), "en", { numeric: true })
+            a[key]?.localeCompare(b[key]?.toString(), "en", { numeric: true })
           );
         }
 
         if (direction === "desc") {
           state.foods = [...current(state.foods)].sort((a, b) =>
-            b[key].localeCompare(a[key].toString(), "en", { numeric: true })
+            b[key]?.localeCompare(a[key]?.toString(), "en", { numeric: true })
           );
         }
       }

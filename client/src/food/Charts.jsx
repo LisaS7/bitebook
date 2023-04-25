@@ -22,13 +22,13 @@ export default function GroupPie() {
   });
 
   return (
-    <PieChart width={300} height={200}>
+    <PieChart width={350} height={300}>
       <Pie
         data={data}
         dataKey="value"
         cx="50%"
         cy="50%"
-        outerRadius={60}
+        outerRadius={80}
         fill="#8884d8"
         labelLine={false}
         label={renderLabel}
