@@ -61,16 +61,38 @@ export const slice = createSlice({
       const key = action.payload.key.toLowerCase();
       const direction = action.payload.direction;
 
-      if (direction === "asc") {
-        state.foods = [...current(state.foods)].sort((a, b) =>
-          a[key]?.localeCompare(b[key]?.toString(), "en", { numeric: true })
-        );
-      }
+      if (key === "bites") {
+        if (direction === "asc") {
+          state.foods.sort((a, b) =>
+            a.bites.length < b.bites.length
+              ? -1
+              : b.bites.length < a.bites.length
+              ? 1
+              : 0
+          );
+        }
 
-      if (direction === "desc") {
-        state.foods = [...current(state.foods)].sort((a, b) =>
-          b[key]?.localeCompare(a[key]?.toString(), "en", { numeric: true })
-        );
+        if (direction === "desc") {
+          state.foods.sort((a, b) =>
+            a.bites.length < b.bites.length
+              ? 1
+              : b.bites.length < a.bites.length
+              ? -1
+              : 0
+          );
+        }
+      } else {
+        if (direction === "asc") {
+          state.foods = [...current(state.foods)].sort((a, b) =>
+            a[key].localeCompare(b[key].toString(), "en", { numeric: true })
+          );
+        }
+
+        if (direction === "desc") {
+          state.foods = [...current(state.foods)].sort((a, b) =>
+            b[key].localeCompare(a[key].toString(), "en", { numeric: true })
+          );
+        }
       }
     },
     // ============  BITES  ============
