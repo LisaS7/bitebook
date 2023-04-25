@@ -1,5 +1,6 @@
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 import { auth, logout } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -50,13 +51,18 @@ export default function CustomNavbar() {
           <Nav.Link as={Link} to="/home">
             Home
           </Nav.Link>
-          <Nav.Link data-cy="foods-link" href="/foods">
-            Food
-          </Nav.Link>
-          <Nav.Link data-cy="bites-link" href="/bites">
+          <NavDropdown title="Food" id="basic-nav-dropdown">
+            <NavDropdown.Item as={Link} to="/foods">
+              Foods
+            </NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/foods/report">
+              Report
+            </NavDropdown.Item>
+          </NavDropdown>
+          <Nav.Link as={Link} to="/bites" data-cy="bites-link">
             Bites
           </Nav.Link>
-          <Nav.Link data-cy="dashboard-link" href="/dashboard">
+          <Nav.Link as={Link} to="/dashboard" data-cy="dashboard-link">
             Dashboard
           </Nav.Link>
           <div className="nav-pad"> </div>
