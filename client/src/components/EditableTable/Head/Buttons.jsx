@@ -1,6 +1,6 @@
-export function SortAscending({ heading, handleSort }) {
+export function SortAscending({ field, handleSort }) {
   return (
-    <button onClick={(e) => handleSort(e, heading)}>
+    <button onClick={(e) => handleSort(e, field)}>
       <span id="asc" className="material-symbols-outlined">
         arrow_drop_up
       </span>
@@ -8,9 +8,9 @@ export function SortAscending({ heading, handleSort }) {
   );
 }
 
-export function SortDescending({ heading, handleSort }) {
+export function SortDescending({ field, handleSort }) {
   return (
-    <button onClick={(e) => handleSort(e, heading)}>
+    <button onClick={(e) => handleSort(e, field)}>
       <span id="desc" className="material-symbols-outlined">
         arrow_drop_down
       </span>

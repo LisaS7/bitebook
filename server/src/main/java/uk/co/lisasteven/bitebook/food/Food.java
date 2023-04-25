@@ -1,10 +1,13 @@
 package uk.co.lisasteven.bitebook.food;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import uk.co.lisasteven.bitebook.bite.Bite;
+
+import java.util.List;
 
 @NoArgsConstructor @AllArgsConstructor @ToString @Getter @Setter
 @Entity
@@ -34,6 +37,11 @@ public class Food {
     private String icon;
 
     private String notes;
+
+    @JsonIgnoreProperties({"food"})
+    @OneToMany(mappedBy = "food")
+    @ToString.Exclude
+    private List<Bite> bites;
 
     public Food(String user, String name, String detail, String grouping, String category, String colour, String flavour, String texture, String icon, String notes) {
         this.userId = user;

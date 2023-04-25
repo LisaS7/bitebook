@@ -46,6 +46,7 @@ export function GetDataTemplate() {
     colour: { heading: "Colour", type: "text", sortable: true },
     flavour: { heading: "Flavour", type: "text", sortable: true },
     texture: { heading: "Texture", type: "text", sortable: true },
+    bites: { heading: "Bites Logged", type: "bites", sortable: true },
     notes: { heading: "Notes", type: "textarea", sortable: true },
   };
 }

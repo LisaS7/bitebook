@@ -46,6 +46,13 @@ export default function Row({ item, toggleEdit, handleDelete, keyOrder }) {
           </td>
         );
         break;
+      case "bites":
+        cells.push(
+          <td data-cy={field} className={field} key={field}>
+            {item[field].length}
+          </td>
+        );
+        break;
       default:
         cells.push(
           <td data-cy={field} className={field} key={field}>

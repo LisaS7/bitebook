@@ -1,5 +1,6 @@
 package uk.co.lisasteven.bitebook.bite;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -26,6 +27,7 @@ public class Bite {
 
     @ManyToOne
     @JoinColumn(name="food_id", nullable = false)
+    @JsonIgnoreProperties({"bites"})
     @NotNull(message = "Food is required")
     private Food food;
 
