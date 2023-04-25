@@ -39,7 +39,7 @@ export default function CustomNavbar() {
   useEffect(() => {}, [user, loading]);
 
   return (
-    <StyledNavbar expand="lg">
+    <StyledNavbar className="noPrint" expand="lg">
       <Navbar.Brand as={Link} to="/home">
         <img src="/logo.png" width="30" alt="BiteBook logo" />
       </Navbar.Brand>
