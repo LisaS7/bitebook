@@ -8,8 +8,6 @@ export default function EditableTable({
   InputRow,
   TableRow,
   dataTemplate,
-  handleUpdate,
-  handleNew,
 }) {
   const [editRow, setEditRow] = useState(null);
   const [tableRows, setTableRows] = useState([]);
@@ -20,12 +18,7 @@ export default function EditableTable({
 
   function addRow() {
     const newRow = (
-      <InputRow
-        item={{}}
-        setEditRow={setEditRow}
-        dataTemplate={dataTemplate}
-        handleAction={handleNew}
-      />
+      <InputRow action="create" item={{}} setEditRow={setEditRow} />
     );
     setTableRows([newRow, ...tableRows]);
   }
@@ -36,11 +29,10 @@ export default function EditableTable({
       if (item.id === editRow) {
         tempRows.push(
           <InputRow
+            action="update"
             key={item.id}
             item={item}
             setEditRow={setEditRow}
-            dataTemplate={dataTemplate}
-            handleAction={handleUpdate}
           />
         );
       } else {
