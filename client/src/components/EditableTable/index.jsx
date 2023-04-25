@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import Row from "./Row";
 import InputRow from "./InputRow";
 import { StyledTable } from "./style";
-import { LargeButton, ButtonContainer } from "./style";
 import TableHead from "./Head";
+import { ButtonSection } from "./ButtonSection";
 
 export default function EditableTable({
   data,
@@ -64,12 +64,7 @@ export default function EditableTable({
 
   return (
     <div>
-      <ButtonContainer>
-        <LargeButton data-cy="add-btn" onClick={() => addRow()}>
-          <span className="material-symbols-outlined">add_circle</span>
-        </LargeButton>
-      </ButtonContainer>
-
+      <ButtonSection addRow={addRow} />
       <StyledTable data-cy="table" responsive hover>
         <TableHead template={dataTemplate} />
         <tbody>{tableRows}</tbody>
