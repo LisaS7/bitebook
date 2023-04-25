@@ -6,7 +6,8 @@ import { Column, ReportHead, ReportBody, ReportContainer } from "./style";
 function FoodRecord({ food }) {
   return (
     <p>
-      {food.icon} {food.name}
+      {food.icon} {food.name}{" "}
+      {food.detail && <span className="small-text">({food.detail})</span>}
     </p>
   );
 }

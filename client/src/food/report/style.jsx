@@ -32,6 +32,10 @@ export const ReportBody = styled.section`
   display: flex;
   justify-content: space-evenly;
   gap: 2rem;
+
+  & .small-text {
+    color: darkslategray;
+  }
 `;
 
 export const Column = styled.div`
