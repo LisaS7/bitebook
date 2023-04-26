@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="100%" height="100%" viewBox="248.703 14.173 568.304 609.252" preserveAspectRatio="xMinYMin meet" xmlns="http://www.w3.org/2000/svg">
+  <defs id="drawsvgConstraints"/>
+  <rect id="svgEditorBackground" x="0" y="0" width="1380" height="810" style="fill: none; stroke: none;"/>
+  <g id="e22_g" transform="matrix(1, 0, 0, 1, -526.625732, -318.645844)">
+    <rect x="846.818000" y="387.089000" style="fill:none;stroke:#01696F;stroke-width:30px" id="e1_rectangle" width="423.907000" height="500.528000" rx="69.3087" ry="69.3087"/>
+  </g>
+  <path d="M447.788934,136.32686c3.483,80.602,-14.181,137.82,55.6,128.117c66.795,12.19,57.839,-47.515,56.844,-127.122" style="fill:none;stroke:#01696F;stroke-width:20px;stroke-linecap:round" id="e5_arc3"/>
+  <path d="M505.503278,139.311946v279.619" style="fill:#01696f;stroke:#01696f;stroke-width:20;stroke-linecap:round" id="e7_pathV"/>
+  <rect x="622.925000" y="128.366000" style="fill:none;stroke:#01696f;stroke-width:20" id="e10_rectangle" width="50.000000" height="177.123000" rx="26" ry="30"/>
+  <path d="M672.677666,260.712344v154.239" style="fill:none;stroke:#01696f;stroke-width:20px;stroke-linecap:round" id="e14_pathV"/>
+  <rect x="326.3882063882" y="485" style="fill:none;stroke:#01696f;stroke-width:20px" id="e16_rectangle" width="400.0245700246" height="70" rx="50" ry="50"/>
+  <line id="e17_line" x1="390.076000" y1="76.621900" x2="393.056000" y2="478.637000" style="stroke:#01696f;fill:none;stroke-width:20px"/>
+  <path d="M386.093,520.43h336.339" style="fill:#01696f;stroke:#01696f;stroke-width:15px;stroke-linecap:round" id="e21_pathH"/>
+</svg>
