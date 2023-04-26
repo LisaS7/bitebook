@@ -17,7 +17,11 @@ export function FoodReport() {
 
   let columns = [];
   categories.forEach((category) => {
-    const categoryFoods = foods.filter((food) => food.category === category);
+    const categoryFoods = foods
+      .filter((food) => food.category === category)
+      .sort((a, b) =>
+        a.grouping < b.grouping ? -1 : b.grouping < a.grouping ? 1 : 0
+      );
     if (categoryFoods.length) {
       const foodRows = categoryFoods.map((food, index) => (
         <FoodRecord key={index} food={food} />
@@ -33,11 +37,10 @@ export function FoodReport() {
 
   return (
     <ReportContainer>
-      <ReportHead>
+      <ReportHead className="noPrint">
         <h1>Food Report</h1>
         <button
           id="pink-button"
-          className="noPrint"
           onClick={() => {
             window.print();
             return false;
