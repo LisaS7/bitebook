@@ -17,7 +17,6 @@ export default function InputRow({ action, item, setEditRow }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [tempItem, setTempItem] = useState({ ...item });
-  console.log("temp   ", tempItem);
 
   function handleClickSave(event) {
     event.preventDefault();
@@ -26,7 +25,6 @@ export default function InputRow({ action, item, setEditRow }) {
     replaceNullWithDefaults(item);
 
     if (action === "create") {
-      console.log("item   ", item);
       postRecord(item, "foods");
       dispatch(addFood(item));
       navigate("/foods");
@@ -94,7 +92,7 @@ export default function InputRow({ action, item, setEditRow }) {
         );
         break;
       default:
-        break;
+        cells.push(<td key={key}></td>);
     }
   }
 
