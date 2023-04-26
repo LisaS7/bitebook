@@ -17,6 +17,7 @@ export const userLoginDetails = {
 export const testFood = {
   icon: "❗",
   name: "TestName",
+  detail: "",
   grouping: "Protein",
   category: "Maybe",
   colour: "TestColour",

@@ -1,25 +1,40 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { editFood, addFood } from "../state/slice";
+import { updateRecord, postRecord } from "../Service";
 import {
   Input,
   Dropdown,
-  ObjectDropdown,
   TextArea,
   EmojiInput,
-  DateInput,
-  RatingInput,
-} from "./form_elements";
-import { SaveButton } from "./Buttons";
+} from "../components/Table/form_elements";
+import { SaveButton } from "../components/Table/Buttons";
+import { GetDataTemplate, replaceNullWithDefaults } from "./data_template";
 
-export default function InputRow({
-  item,
-  setEditRow,
-  dataTemplate,
-  handleAction,
-}) {
+export default function InputRow({ action, item, setEditRow }) {
+  const dataTemplate = GetDataTemplate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [tempItem, setTempItem] = useState({ ...item });
 
-  function handleClickSave(event = null) {
-    handleAction(event, { ...tempItem });
+  function handleClickSave(event) {
+    event.preventDefault();
+
+    const item = { ...tempItem };
+    replaceNullWithDefaults(item);
+
+    if (action === "create") {
+      postRecord(item, "foods");
+      dispatch(addFood(item));
+      navigate("/foods");
+    }
+
+    if (action === "update") {
+      updateRecord(item, "foods");
+      dispatch(editFood(item));
+    }
+
     setEditRow(null);
   }
 
@@ -61,17 +76,6 @@ export default function InputRow({
           />
         );
         break;
-      case "select_object":
-        cells.push(
-          <ObjectDropdown
-            key={key}
-            keyName={key}
-            items={value.options}
-            fieldValue={fieldValue}
-            changeValue={changeValue}
-          />
-        );
-        break;
       case "textarea":
         cells.push(
           <TextArea
@@ -82,31 +86,9 @@ export default function InputRow({
           />
         );
         break;
-      case "date":
-        cells.push(
-          <DateInput
-            key={key}
-            keyName={key}
-            fieldValue={fieldValue}
-            changeValue={changeValue}
-          />
-        );
-        break;
       case "emoji":
         cells.push(
           <EmojiInput key={key} value={fieldValue} changeIcon={changeIcon} />
-        );
-        break;
-      case "radio":
-        cells.push(
-          <RatingInput
-            key={key}
-            keyName={key}
-            value={fieldValue}
-            options={value.options}
-            itemId={item.id}
-            changeValue={changeValue}
-          />
         );
         break;
       default:

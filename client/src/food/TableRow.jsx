@@ -22,7 +22,7 @@ export default function TableRow({ item, toggleEdit }) {
     switch (field) {
       case "category":
         const value = item[field].toLowerCase();
-        let symbol;
+        let symbol = null;
         if (value && value !== "none") {
           symbol = (
             <FontAwesomeIcon

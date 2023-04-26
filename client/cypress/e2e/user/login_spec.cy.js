@@ -63,8 +63,7 @@ describe("Test logged out", () => {
   });
 
   it("redirects to login page when user is not logged in", () => {
+    cy.getByAttr("home-link").click();
     cy.url().should("not.contain", "/home");
-    cy.getByAttr("foods-link").click();
-    cy.url().should("not.contain", "/foods");
   });
 });

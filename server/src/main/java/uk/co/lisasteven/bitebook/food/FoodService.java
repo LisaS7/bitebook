@@ -51,6 +51,7 @@ public class FoodService {
 
         existingFood.setName(food.getName());
         existingFood.setDetail(food.getDetail());
+        existingFood.setGrouping(food.getGrouping());
         existingFood.setCategory(food.getCategory());
         existingFood.setColour(food.getColour());
         existingFood.setFlavour(food.getFlavour());
