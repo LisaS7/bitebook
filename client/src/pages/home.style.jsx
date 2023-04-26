@@ -2,11 +2,17 @@ import styled from "styled-components";
 import Card from "react-bootstrap/Card";
 
 export const HomeContainer = styled.div`
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
-  width: 75%;
-  margin: auto;
+  gap: 3rem; */
+`;
+
+export const PinkShape = styled.div`
+  padding: 1rem;
+  shape-outside: polygon(90% 0, 100% 0, 10% 100%, 0 100%);
+  transform: skew(30deg);
+  float: left;
+  background-color: var(--pink);
 `;
 
 export const StyledCard = styled(Card)`
