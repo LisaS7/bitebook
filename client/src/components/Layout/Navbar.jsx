@@ -47,7 +47,6 @@ export default function CustomNavbar() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav>
-          <div className="nav-pad"> </div>
           <Nav.Link as={Link} to="/home">
             Home
           </Nav.Link>
@@ -65,7 +64,6 @@ export default function CustomNavbar() {
           <Nav.Link as={Link} to="/dashboard" data-cy="dashboard-link">
             Dashboard
           </Nav.Link>
-          <div className="nav-pad"> </div>
         </Nav>
         <UserActions user={user} />
       </Navbar.Collapse>
