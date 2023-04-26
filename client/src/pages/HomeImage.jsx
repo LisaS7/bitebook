@@ -1,24 +1,21 @@
 import { motion } from "framer-motion";
 
 const draw = {
-  hidden: { pathLength: 0, pathSpacing: 0, opacity: 0, fill: 0 },
+  hidden: { pathLength: 0, pathSpacing: 0, opacity: 0 },
   visible: (i) => {
-    const pathDelay = 2 + i * 0.5;
-    const fillDelay = pathDelay + 2;
+    const delay = 2 + i * 0.5;
     return {
       pathLength: 1,
       pathSpacing: 100,
       opacity: 1,
-      fill: 1,
       transition: {
         pathLength: {
-          delay: pathDelay,
+          delay,
           type: "spring",
           duration: 1.5,
           bounce: 0,
         },
-        opacity: { delay: pathDelay, duration: 1.5 },
-        fill: { delay: fillDelay, duration: 5 },
+        opacity: { delay, duration: 1.5 },
       },
     };
   },

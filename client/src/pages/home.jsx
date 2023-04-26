@@ -1,11 +1,6 @@
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
-import {
-  ButtonGroup,
-  HomeContainer,
-  StyledCard,
-  PinkShape,
-} from "./home.style";
+import { HomeContainer } from "./home.style";
 import { HomeImage } from "./HomeImage";
 
 export default function Home() {
