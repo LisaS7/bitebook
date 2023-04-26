@@ -71,7 +71,7 @@ export function HomeImage() {
         rx="48.735"
         ry="42.643"
         variants={draw}
-        custom={1}
+        custom={0}
       />
       <motion.text
         style={{
