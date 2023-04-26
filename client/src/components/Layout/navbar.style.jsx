@@ -4,7 +4,8 @@ import Navbar from "react-bootstrap/Navbar";
 export const StyledNavbar = styled(Navbar)`
   background-color: var(--green);
   padding: 1rem 4rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 800;
 
   & .navbar-brand {
     border-radius: 100%;
