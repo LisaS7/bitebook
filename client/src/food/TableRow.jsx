@@ -1,9 +1,8 @@
 import { useDispatch } from "react-redux";
 import { deleteRecord } from "../Service";
 import { removeFood } from "../state/slice";
-import { GetDataTemplate } from "./data_template";
+import { GetDataTemplate, categorySymbols } from "./data_template";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { categorySymbols } from "./category_symbols";
 import { DeleteButton, EditButton } from "../components/Table/Buttons";
 
 export default function TableRow({ item, toggleEdit }) {
