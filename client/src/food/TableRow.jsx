@@ -44,7 +44,7 @@ export default function TableRow({ item, toggleEdit }) {
       case "bites":
         cells.push(
           <td data-cy={field} className={field} key={field}>
-            {item[field].length}
+            {item[field]?.length}
           </td>
         );
         break;

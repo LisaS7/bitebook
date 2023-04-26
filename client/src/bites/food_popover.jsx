@@ -1,6 +1,5 @@
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
-import Button from "react-bootstrap/Button";
 
 export function PopoverTrigger({ food }) {
   const foodPopover = (
@@ -37,7 +36,6 @@ export function PopoverTrigger({ food }) {
       </Popover.Body>
     </Popover>
   );
-  console.log(food);
   return (
     <OverlayTrigger
       rootClose
@@ -45,7 +43,9 @@ export function PopoverTrigger({ food }) {
       placement="top"
       overlay={foodPopover}
     >
-      <button className="btn-outline-pink">{food.name}</button>
+      <button className="btn-outline-pink">
+        {food.name} {food.detail && "(" + food.detail + ")"}
+      </button>
     </OverlayTrigger>
   );
 }
