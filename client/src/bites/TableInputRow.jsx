@@ -1,34 +1,51 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { editBite, addBite } from "../state/slice";
+import { updateRecord, postRecord } from "../Service";
 import {
   Input,
-  Dropdown,
   ObjectDropdown,
   TextArea,
-  EmojiInput,
   DateInput,
   RatingInput,
-} from "./form_elements";
-import { SaveButton } from "./Buttons";
+} from "../components/Table/form_elements";
+import { SaveButton } from "../components/Table/Buttons";
+import {
+  GetDataTemplate,
+  replaceNullWithDefaults,
+  setFoodId,
+} from "./data_template";
 
-export default function InputRow({
-  item,
-  setEditRow,
-  dataTemplate,
-  handleAction,
-}) {
+export default function InputRow({ action, item, setEditRow }) {
+  const dataTemplate = GetDataTemplate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [tempItem, setTempItem] = useState({ ...item });
 
-  function handleClickSave(event = null) {
-    handleAction(event, { ...tempItem });
+  function handleClickSave(event) {
+    event.preventDefault();
+
+    const item = { ...tempItem };
+    setFoodId(item);
+    replaceNullWithDefaults(item);
+
+    if (action === "create") {
+      postRecord(item, "bites");
+      dispatch(addBite(item));
+      navigate("/bites");
+    }
+
+    if (action === "update") {
+      updateRecord(item, "bites");
+      dispatch(editBite(item));
+    }
+    // handleAction({ ...tempItem });
     setEditRow(null);
   }
 
   function changeValue(e, key) {
     setTempItem({ ...tempItem, [key]: e.target.value });
-  }
-
-  function changeIcon(icon) {
-    setTempItem({ ...tempItem, icon });
   }
 
   let cells = [];
@@ -45,17 +62,6 @@ export default function InputRow({
           <Input
             key={key}
             keyName={key}
-            fieldValue={fieldValue}
-            changeValue={changeValue}
-          />
-        );
-        break;
-      case "select":
-        cells.push(
-          <Dropdown
-            key={key}
-            keyName={key}
-            items={value.options}
             fieldValue={fieldValue}
             changeValue={changeValue}
           />
@@ -90,11 +96,6 @@ export default function InputRow({
             fieldValue={fieldValue}
             changeValue={changeValue}
           />
-        );
-        break;
-      case "emoji":
-        cells.push(
-          <EmojiInput key={key} value={fieldValue} changeIcon={changeIcon} />
         );
         break;
       case "radio":

@@ -41,8 +41,8 @@ export default function CustomNavbar() {
 
   return (
     <StyledNavbar className="noPrint" expand="lg">
-      <Navbar.Brand as={Link} to="/home">
-        <img src="/logo.png" width="30" alt="BiteBook logo" />
+      <Navbar.Brand data-cy="home-link" as={Link} to="/home">
+        <img src="/logo.svg" width="60" alt="BiteBook logo" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

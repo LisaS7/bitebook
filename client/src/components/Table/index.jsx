@@ -1,20 +1,16 @@
 import { useState, useEffect } from "react";
-import Row from "./Row";
-import InputRow from "./InputRow";
 import { StyledTable } from "./style";
 import TableHead from "./Head";
 import { ButtonSection } from "./ButtonSection";
 
 export default function EditableTable({
   data,
+  InputRow,
+  TableRow,
   dataTemplate,
-  handleDelete,
-  handleUpdate,
-  handleNew,
 }) {
   const [editRow, setEditRow] = useState(null);
   const [tableRows, setTableRows] = useState([]);
-  const keyOrder = Object.keys(dataTemplate);
 
   function toggleEdit(itemId) {
     setEditRow(itemId);
@@ -22,12 +18,7 @@ export default function EditableTable({
 
   function addRow() {
     const newRow = (
-      <InputRow
-        item={{}}
-        setEditRow={setEditRow}
-        dataTemplate={dataTemplate}
-        handleAction={handleNew}
-      />
+      <InputRow action="create" item={{}} setEditRow={setEditRow} />
     );
     setTableRows([newRow, ...tableRows]);
   }
@@ -38,22 +29,15 @@ export default function EditableTable({
       if (item.id === editRow) {
         tempRows.push(
           <InputRow
+            action="update"
             key={item.id}
             item={item}
             setEditRow={setEditRow}
-            dataTemplate={dataTemplate}
-            handleAction={handleUpdate}
           />
         );
       } else {
         tempRows.push(
-          <Row
-            key={item.id}
-            item={item}
-            toggleEdit={toggleEdit}
-            handleDelete={handleDelete}
-            keyOrder={keyOrder}
-          />
+          <TableRow key={item.id} item={item} toggleEdit={toggleEdit} />
         );
       }
     });

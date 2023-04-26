@@ -16,15 +16,12 @@ export function setFoodId(bite) {
 }
 
 export function replaceNullWithDefaults(item) {
-  const tempItem = { ...item };
-
-  for (const [key, value] of Object.entries(tempItem)) {
+  for (const [key, value] of Object.entries(item)) {
     if (!value) {
-      tempItem[key] = defaultItem[key];
+      item[key] = defaultItem[key];
     }
   }
-
-  return tempItem;
+  return item;
 }
 
 export function FormatDate_HTMLInput(date) {
