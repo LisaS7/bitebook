@@ -24,6 +24,21 @@ button {
   border-radius: 10px;
 }
 
+.btn-outline-pink {
+  color: var(--dark-pink);
+  background-color: transparent;
+  border: 1px solid var(--pink);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.btn-outline-pink:hover {
+  color: var(--light);
+  background-color: var(--pink);
+  border: none;
+  border-radius: 10px;
+}
+
 
 /* default inputs */
 input {

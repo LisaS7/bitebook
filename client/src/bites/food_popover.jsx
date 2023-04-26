@@ -45,7 +45,7 @@ export function PopoverTrigger({ food }) {
       placement="top"
       overlay={foodPopover}
     >
-      <Button variant="outline-dark">{food.name}</Button>
+      <button className="btn-outline-pink">{food.name}</button>
     </OverlayTrigger>
   );
 }
