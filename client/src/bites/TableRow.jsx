@@ -4,6 +4,7 @@ import { removeBite } from "../state/slice";
 import { GetDataTemplate } from "./data_template";
 import { DisplayRating } from "./utils";
 import { DeleteButton, EditButton } from "../components/Table/Buttons";
+import { PopoverTrigger } from "./food_popover";
 
 export default function TableRow({ item, toggleEdit }) {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ export default function TableRow({ item, toggleEdit }) {
         if (typeof item[field] === "object" && field !== null) {
           cells.push(
             <td data-cy={field} key={field}>
-              {item[field]?.name}
+              <PopoverTrigger food={item["food"]} />
             </td>
           );
         }

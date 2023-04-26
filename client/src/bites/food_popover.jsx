@@ -1,22 +1,51 @@
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
+import Button from "react-bootstrap/Button";
 
-export function foodPopover() {
-  return (
+export function PopoverTrigger({ food }) {
+  const foodPopover = (
     <Popover id="popover-basic">
-      <Popover.Header as="h3">Popover right</Popover.Header>
+      <Popover.Header as="h3">
+        {food.icon + " " + food.name}
+        {food.detail && " - " + food.detail}
+      </Popover.Header>
       <Popover.Body>
-        And here's some <strong>amazing</strong> content. It's very engaging.
-        right?
+        <table>
+          <tbody>
+            <tr>
+              <td>Group:</td>
+              <td>{food.grouping}</td>
+            </tr>
+            <tr>
+              <td>Category:</td>
+              <td>{food.category}</td>
+            </tr>
+            <tr>
+              <td>Colour:</td>
+              <td>{food.colour}</td>
+            </tr>
+            <tr>
+              <td>Flavour:</td>
+              <td>{food.flavour}</td>
+            </tr>
+            <tr>
+              <td>Texture:</td>
+              <td>{food.texture}</td>
+            </tr>
+          </tbody>
+        </table>
       </Popover.Body>
     </Popover>
   );
-}
-
-export function PopoverTrigger() {
+  console.log(food);
   return (
-    <OverlayTrigger trigger="click" placement="right" overlay={foodPopover}>
-      <Button variant="success">Click me to see</Button>
+    <OverlayTrigger
+      rootClose
+      trigger="click"
+      placement="top"
+      overlay={foodPopover}
+    >
+      <Button variant="outline-dark">{food.name}</Button>
     </OverlayTrigger>
   );
 }
