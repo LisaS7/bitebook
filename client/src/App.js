@@ -17,7 +17,7 @@ import FoodContainer from "./food/Container";
 import BiteContainer from "./bites/Container";
 import Dashboard from "./pages/Dashboard";
 
-import { auth } from "./firebase";
+import { auth } from "./lib/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { FoodReport } from "./food/report/food_report";
 

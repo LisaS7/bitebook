@@ -2,7 +2,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
-import { auth, logout } from "../../firebase";
+import { auth, logout } from "../../lib/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useEffect } from "react";
 import { StyledNavbar } from "./navbar.style";
@@ -47,9 +47,6 @@ export default function CustomNavbar() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav>
-          <Nav.Link as={Link} to="/home">
-            Home
-          </Nav.Link>
           <NavDropdown title="Food" id="basic-nav-dropdown">
             <NavDropdown.Item as={Link} to="/foods">
               Foods

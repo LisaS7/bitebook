@@ -7,7 +7,7 @@ import {
   logout,
   sendPasswordReset,
   updateUserProfile,
-} from "../../firebase";
+} from "../../lib/firebase";
 import { useAuthState, useDeleteUser } from "react-firebase-hooks/auth";
 import { query, getDocs, collection, where } from "firebase/firestore";
 import { useSelector } from "react-redux";
