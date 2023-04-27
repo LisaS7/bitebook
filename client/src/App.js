@@ -15,7 +15,7 @@ import Profile from "./components/User/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import FoodContainer from "./food/Container";
 import BiteContainer from "./bites/Container";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 import { auth } from "./lib/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";

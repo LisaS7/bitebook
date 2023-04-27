@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.main`
-  max-width: 1820px;
+  max-width: 90%;
   margin: auto;
   padding: 3rem;
 `;
@@ -12,4 +12,11 @@ export const PinkCard = styled.div`
   font-size: 1.5rem;
   padding: 1rem;
   border-radius: 10px;
+`;
+
+export const Card = styled.div`
+  border: 1px solid var(--dark);
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 1rem;
 `;
