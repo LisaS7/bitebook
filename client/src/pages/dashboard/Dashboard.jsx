@@ -1,26 +1,25 @@
+import SmallBarChart from "./charts/SmallBarChart";
 import {
   Container,
-  LargeBarChart,
-  LargeLineChart,
-  LineChartControls,
-  PieChart,
-  SmallBarChart,
-  TextBox,
-  TopRatings,
+  CardLargeBarChart,
+  CardLargeLineChart,
+  CardLineChartControls,
+  CardSmallBarChart,
+  CardTopRatings,
 } from "./style";
 
 export default function Dashboard() {
   return (
     <Container>
       {/* ======== ROW 1 ======== */}
-      <TextBox>textbox</TextBox>
-      <SmallBarChart>small bar chart</SmallBarChart>
-      <PieChart>pie chart</PieChart>
-      <LargeLineChart>large line chart</LargeLineChart>
-      <LineChartControls>line chart controls</LineChartControls>
+      <CardSmallBarChart>
+        <SmallBarChart />
+      </CardSmallBarChart>
+      <CardLargeLineChart>large line chart</CardLargeLineChart>
+      <CardLineChartControls>line chart controls</CardLineChartControls>
       {/* ======== ROW 2 ======== */}
-      <LargeBarChart>large bar chart</LargeBarChart>
-      <TopRatings>top ratings</TopRatings>
+      <CardLargeBarChart>large bar chart</CardLargeBarChart>
+      <CardTopRatings>top ratings</CardTopRatings>
     </Container>
   );
 }
