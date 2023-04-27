@@ -49,7 +49,7 @@ const fadeIn = {
   },
 };
 
-export function HomeImage() {
+export function Animation() {
   return (
     <motion.svg
       viewBox="0 0 1000.333 356.266"

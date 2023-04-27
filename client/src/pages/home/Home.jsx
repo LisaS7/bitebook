@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
-import { HomeContainer } from "./home.style";
-import { HomeImage } from "./HomeImage";
+import { HomeContainer } from "./style";
+import { Animation } from "./Animation";
 
 export default function Home() {
   return (
     <HomeContainer>
-      {/* <Row><img src="/logo.svg" width="60" alt="BiteBook logo" /></Row> */}
-      {/* <img src="/home_steps.svg" width="2000" alt="BiteBook logo" /> */}
-      <HomeImage />
+      <Animation />
       {/* <StyledCard>
         <Card.Title>Foods</Card.Title>
         <ButtonGroup>

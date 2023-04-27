@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setDataState } from "./state/slice";
 import { getData } from "./Service";
-import Home from "./pages/Home";
+import Home from "./pages/home/Home";
 import Error404 from "./pages/Error";
 import Layout from "./components/Layout/Layout";
 import Login from "./components/User/Login";
