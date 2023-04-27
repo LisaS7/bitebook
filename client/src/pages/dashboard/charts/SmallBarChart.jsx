@@ -8,28 +8,48 @@ import {
   ResponsiveContainer,
   LabelList,
 } from "recharts";
+import { useSelector } from "react-redux";
+import { aggFoodBites, getAverage } from "../utils";
 
-// x : foods, agg by name
 // y : avg rating
 
-// import foods
-
-// foods -> concat bites for foods with same name
 // for each food -> sum all ratings and divide by arr length
 // https://stackoverflow.com/questions/55375935/how-to-calculate-the-average-in-javascript-of-the-given-properties-in-the-array
+// https://stackoverflow.com/questions/33850412/merge-javascript-objects-in-array-with-same-key
 
 const testData = [
-  { food: "potato", avgRating: 3.5 },
-  { food: "cheese", avgRating: 2 },
-  { food: "orange", avgRating: 4.7 },
-  { food: "strawberry", avgRating: 4.3 },
+  { name: "potato", bites: [{ rating: 5 }, { rating: 5 }] },
+  { name: "potato", bites: [{ rating: 1 }, { rating: 1 }] },
+  { name: "cheese", bites: [{ rating: 1 }, { rating: 2 }, { rating: 2 }] },
+  { name: "orange", bites: [{ rating: 5 }, { rating: 4 }] },
+  { name: "strawberry", bites: [{ rating: 4 }, { rating: 4 }] },
 ];
 
+// const newData = aggFoodBites(testData);
+
+// const avgList = newData.map((food) => ({
+//   name: food.name,
+//   avgRating: getAverage(food.bites, "rating"),
+// }));
+
+// console.log("OUTPUT ======= ", avgList);
+
 export default function SmallBarChart() {
+  const { foods } = useSelector((state) => state);
+
+  const aggData = aggFoodBites(foods);
+
+  const avgList = aggData.map((food) => ({
+    name: food.name,
+    avgRating: getAverage(food.bites, "rating"),
+  }));
+
+  console.log("OUTPUT ======= ", avgList);
+
   return (
     <ResponsiveContainer width="100%" height="100%">
       <BarChart
-        data={testData}
+        data={avgList}
         margin={{
           top: 10,
           right: 30,
