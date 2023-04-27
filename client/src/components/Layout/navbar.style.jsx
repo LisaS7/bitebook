@@ -24,6 +24,7 @@ export const StyledNavbar = styled(Navbar)`
   & .nav-link:hover {
     border: 2px solid var(--pink);
     border-bottom: none;
+    border-radius: 5px;
     box-shadow: 6px -3px 7px -1px #444444;
   }
 `;
