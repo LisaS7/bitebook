@@ -7,15 +7,14 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
+  Label,
   LabelList,
 } from "recharts";
-import { useSelector } from "react-redux";
+
 import { aggFoodBites, getAverage } from "../utils";
 import { colours } from "../style";
 
-export default function SmallBarChart() {
-  const { foods } = useSelector((state) => state);
-
+export default function SmallBarChart({ foods }) {
   // limit to 20 results
   const aggData = aggFoodBites(foods).slice(0, 20);
 
@@ -32,7 +31,7 @@ export default function SmallBarChart() {
           top: 10,
           right: 30,
           left: 10,
-          bottom: 0,
+          bottom: 10,
         }}
       >
         <XAxis tick={false} height={5} />
@@ -41,14 +40,19 @@ export default function SmallBarChart() {
             value: "Average Rating",
             angle: -90,
           }}
-          domain={[0, 5]}
+          domain={[0, 6]}
           ticks={[0, 1, 2, 3, 4, 5]}
         />
-        <Tooltip />
-        <Bar dataKey="avgRating" fill="#8884d8">
-          <LabelList dataKey="name" fill="white" angle={-90} />
+        <Bar dataKey="avgRating">
+          <LabelList dataKey="name" fontSize={15} fill="black" position="top" />
           {avgList.map((food, index) => (
-            <Cell fill={colours[Math.round(food.avgRating) - 1]} />
+            <>
+              <Cell
+                fill={colours[Math.round(food.avgRating) - 1]}
+                key={index}
+              />
+              <Label />
+            </>
           ))}
         </Bar>
       </BarChart>
