@@ -5,9 +5,7 @@ import {
   Cell,
   XAxis,
   YAxis,
-  Tooltip,
   ResponsiveContainer,
-  Label,
   LabelList,
 } from "recharts";
 
@@ -44,15 +42,9 @@ export default function SmallBarChart({ foods }) {
           ticks={[0, 1, 2, 3, 4, 5]}
         />
         <Bar dataKey="avgRating">
-          <LabelList dataKey="name" fontSize={15} fill="black" position="top" />
+          <LabelList dataKey="name" fontSize={10} fill="black" position="top" />
           {avgList.map((food, index) => (
-            <>
-              <Cell
-                fill={colours[Math.round(food.avgRating) - 1]}
-                key={index}
-              />
-              <Label />
-            </>
+            <Cell fill={colours[Math.round(food.avgRating) - 1]} key={index} />
           ))}
         </Bar>
       </BarChart>
