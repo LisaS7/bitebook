@@ -30,9 +30,15 @@ export function Controls({ options }) {
     dispatch(filterFoods({ category, selected }));
   }
 
+  function handleReset() {
+    dispatch(resetFilters());
+    document
+      .querySelectorAll(".form-select")
+      .forEach((item) => (item.value = null));
+  }
+
   return (
     <>
-      <button onClick={() => dispatch(resetFilters())}>Reset</button>
       <div>
         <Form.Label>Colour</Form.Label>
         <Form.Select
@@ -69,6 +75,9 @@ export function Controls({ options }) {
           {textureOptions}
         </Form.Select>
       </div>
+      <button id="dark-button" onClick={() => handleReset()}>
+        Reset
+      </button>
     </>
   );
 }
