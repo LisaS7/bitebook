@@ -12,7 +12,14 @@
 button {
   padding: 0.5rem;
   font-size: 1rem;
+  font-weight: 700;
   border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#dark-button {
+ color: var(--light);
+  background-color: darkslategray;
 }
 
 .google-button {
