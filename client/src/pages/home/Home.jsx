@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-import Card from "react-bootstrap/Card";
 import { HomeContainer } from "./style";
 import { Animation } from "./Animation";
 
