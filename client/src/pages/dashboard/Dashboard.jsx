@@ -5,7 +5,7 @@ import {
   Container,
   CardLargeBarChart,
   CardLargeLineChart,
-  CardLineChartControls,
+  CardChartControls,
   CardSmallBarChart,
   CardTopRatings,
 } from "./style";
@@ -24,18 +24,19 @@ export default function Dashboard() {
   return (
     <Container>
       {/* ======== Top ======== */}
+      <CardChartControls>
+        <Controls options={filterOptions} />
+      </CardChartControls>
+      <CardTopRatings>top ratings</CardTopRatings>
       <CardSmallBarChart>
         <SmallBarChart foods={filteredFoods} />
       </CardSmallBarChart>
+
+      {/* ======== Bottom ======== */}
+      <CardLargeBarChart>large bar chart</CardLargeBarChart>
       <CardLargeLineChart>
         <LargeLineChart bites={bites} />
       </CardLargeLineChart>
-      <CardLineChartControls>
-        <Controls options={filterOptions} />
-      </CardLineChartControls>
-      {/* ======== Bottom ======== */}
-      <CardLargeBarChart>large bar chart</CardLargeBarChart>
-      <CardTopRatings>top ratings</CardTopRatings>
     </Container>
   );
 }

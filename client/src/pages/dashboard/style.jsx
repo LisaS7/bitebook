@@ -10,10 +10,10 @@ export const Container = styled.div`
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(4, 1fr);
   grid-template-areas:
-    "sm-bar-chart sm-bar-chart sm-bar-chart lg-line-chart lg-line-chart lg-line-chart line-chart-controls"
-    "lg-bar-chart lg-bar-chart lg-bar-chart lg-line-chart lg-line-chart lg-line-chart line-chart-controls"
-    "lg-bar-chart lg-bar-chart lg-bar-chart top-ratings top-ratings top-ratings top-ratings"
-    "lg-bar-chart lg-bar-chart lg-bar-chart top-ratings top-ratings top-ratings top-ratings";
+    "chart-controls  chart-controls chart-controls top-ratings top-ratings sm-bar-chart sm-bar-chart"
+    "lg-bar-chart lg-bar-chart lg-bar-chart top-ratings top-ratings sm-bar-chart sm-bar-chart"
+    "lg-bar-chart lg-bar-chart lg-bar-chart lg-line-chart lg-line-chart lg-line-chart lg-line-chart"
+    "lg-bar-chart lg-bar-chart lg-bar-chart lg-line-chart lg-line-chart lg-line-chart lg-line-chart";
 `;
 
 export const CardSmallBarChart = styled(Card)`
@@ -24,11 +24,11 @@ export const CardLargeLineChart = styled(Card)`
   grid-area: lg-line-chart;
 `;
 
-export const CardLineChartControls = styled(Card)`
-  grid-area: line-chart-controls;
+export const CardChartControls = styled(Card)`
+  grid-area: chart-controls;
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+  gap: 3rem;
 `;
 
 export const CardLargeBarChart = styled(Card)`
