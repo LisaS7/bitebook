@@ -27,8 +27,17 @@ export const CardLargeLineChart = styled(Card)`
 export const CardChartControls = styled(Card)`
   grid-area: chart-controls;
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
+
+  & > div {
+    width: 33%;
+  }
+
+  & .form-select {
+    min-width: 100px;
+  }
 `;
 
 export const CardLargeBarChart = styled(Card)`
