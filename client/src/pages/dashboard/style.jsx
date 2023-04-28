@@ -16,16 +16,8 @@ export const Container = styled.div`
     "lg-bar-chart lg-bar-chart lg-bar-chart top-ratings top-ratings top-ratings top-ratings";
 `;
 
-export const CardTextBox = styled(Card)`
-  grid-area: textbox;
-`;
-
 export const CardSmallBarChart = styled(Card)`
   grid-area: sm-bar-chart;
-`;
-
-export const CardPieChart = styled(Card)`
-  grid-area: pie-chart;
 `;
 
 export const CardLargeLineChart = styled(Card)`
@@ -34,6 +26,9 @@ export const CardLargeLineChart = styled(Card)`
 
 export const CardLineChartControls = styled(Card)`
   grid-area: line-chart-controls;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;
 
 export const CardLargeBarChart = styled(Card)`
