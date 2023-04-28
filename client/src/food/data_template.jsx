@@ -19,7 +19,7 @@ export const defaultItem = {
   icon: "🍽️",
   name: "Default",
   detail: "",
-  grouping: "Other",
+  grouping: "Fruit",
   category: "None",
   colour: "",
   flavour: "",
