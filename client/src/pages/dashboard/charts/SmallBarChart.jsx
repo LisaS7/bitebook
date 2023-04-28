@@ -13,8 +13,8 @@ import { aggFoodBites, getAverage } from "../utils";
 import { colours } from "../style";
 
 export default function SmallBarChart({ foods }) {
-  // limit to 20 results
-  const aggData = aggFoodBites(foods).slice(0, 20);
+  // limit to 10 results
+  const aggData = aggFoodBites(foods).slice(0, 10);
 
   const avgList = aggData.map((food) => ({
     name: food.name,
@@ -27,8 +27,8 @@ export default function SmallBarChart({ foods }) {
         data={avgList}
         margin={{
           top: 10,
-          right: 30,
-          left: 10,
+          right: 20,
+          left: 0,
           bottom: 10,
         }}
       >
@@ -42,7 +42,7 @@ export default function SmallBarChart({ foods }) {
           ticks={[0, 1, 2, 3, 4, 5]}
         />
         <Bar dataKey="avgRating">
-          <LabelList dataKey="name" fontSize={10} fill="black" position="top" />
+          <LabelList dataKey="name" fontSize={13} fill="black" position="top" />
           {avgList.map((food, index) => (
             <Cell fill={colours[Math.round(food.avgRating) - 1]} key={index} />
           ))}
