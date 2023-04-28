@@ -57,7 +57,7 @@ export default function LargeLineChart() {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="date" />
-        <YAxis />
+        <YAxis domain={[0, 5.5]} ticks={[0, 1, 2, 3, 4, 5]} />
         <Tooltip />
         <Legend />
         <Line

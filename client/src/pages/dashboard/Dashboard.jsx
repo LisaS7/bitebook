@@ -9,21 +9,31 @@ import {
   CardSmallBarChart,
   CardTopRatings,
 } from "./style";
+import { Controls } from "./charts/Controls";
+import { getDistinctValues } from "./utils";
 
 export default function Dashboard() {
-  const { foods, bites } = useSelector((state) => state);
+  const { foods, filteredFoods, bites } = useSelector((state) => state);
+
+  const filterOptions = {
+    flavour: getDistinctValues(foods, "flavour"),
+    texture: getDistinctValues(foods, "texture"),
+    colour: getDistinctValues(foods, "colour"),
+  };
 
   return (
     <Container>
-      {/* ======== ROW 1 ======== */}
+      {/* ======== Top ======== */}
       <CardSmallBarChart>
-        <SmallBarChart foods={foods} />
+        <SmallBarChart foods={filteredFoods} />
       </CardSmallBarChart>
       <CardLargeLineChart>
         <LargeLineChart bites={bites} />
       </CardLargeLineChart>
-      <CardLineChartControls>line chart controls</CardLineChartControls>
-      {/* ======== ROW 2 ======== */}
+      <CardLineChartControls>
+        <Controls options={filterOptions} />
+      </CardLineChartControls>
+      {/* ======== Bottom ======== */}
       <CardLargeBarChart>large bar chart</CardLargeBarChart>
       <CardTopRatings>top ratings</CardTopRatings>
     </Container>

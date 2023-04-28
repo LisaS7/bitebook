@@ -5,6 +5,8 @@ const initialState = {
   bites: [],
   categories: [],
   groups: [],
+  activeFilters: { colour: [], flavour: [], texture: [] },
+  filteredFoods: [],
 };
 
 function getItemById(stateArray, id) {
@@ -25,6 +27,7 @@ export const slice = createSlice({
      */
     setDataState: (state, action) => {
       state.foods = action.payload.foods;
+      state.filteredFoods = state.foods; // initalise with all foods for dashboard charts
       state.bites = action.payload.bites;
       state.categories = action.payload.categories;
       state.groups = action.payload.groups;
@@ -53,6 +56,36 @@ export const slice = createSlice({
     addFood: (state, action) => {
       state.foods.unshift(action.payload);
     },
+    // ============  BITES  ============
+    /**
+     * updates the given bite in state
+     * @param  {object} action a bite object, which must contain a food object
+     */
+    editBite: (state, action) => {
+      const biteId = action.payload.id;
+      const foodId = action.payload.food.id;
+      const biteIndex = getIndexById(current(state.bites), biteId);
+      const food = getItemById(current(state.foods), foodId);
+      state.bites[biteIndex] = { ...action.payload, food };
+    },
+    /**
+     * removes a bite from state by id
+     * @param  {int} action the id of the bite to be removed
+     */
+    removeBite: (state, action) => {
+      state.bites = state.bites.filter((item) => item.id !== action.payload);
+    },
+    /**
+     * adds a bite to state
+     * @param  {object} action a bite object. The "food" property of the bite must contain the food id, e.g. food: {id: 2}
+     */
+    addBite: (state, action) => {
+      const newBite = action.payload;
+      const food = getItemById(current(state.foods), newBite.food.id);
+      newBite.food = food;
+      state.bites.unshift(newBite);
+    },
+    // ============  SORT & FILTER  ============
     /**
      * reorders the state foods list
      * @param  {string} action the key to sort the objects by
@@ -95,48 +128,43 @@ export const slice = createSlice({
         }
       }
     },
-    // ============  BITES  ============
     /**
-     * updates the given bite in state
-     * @param  {object} action a bite object, which must contain a food object
+     * Used in dashboard view to filter charts
+     * Filters the full food list using the colour/flavour/texture options
+     * @param  {string} action the value to filter on
      */
-    editBite: (state, action) => {
-      const biteId = action.payload.id;
-      const foodId = action.payload.food.id;
-      const biteIndex = getIndexById(current(state.bites), biteId);
-      const food = getItemById(current(state.foods), foodId);
-      state.bites[biteIndex] = { ...action.payload, food };
+    filterFoods: (state, action) => {
+      state.filteredFoods = state.foods; // reset foods list
+
+      const category = action.payload.category;
+      const values = action.payload.selected;
+      state.activeFilters[category] = values;
+
+      for (const [key, value] of Object.entries(state.activeFilters)) {
+        if (value.length) {
+          state.filteredFoods = state.filteredFoods.filter((food) =>
+            value.some((v) => food[key].toLowerCase().includes(v))
+          );
+        }
+      }
     },
-    /**
-     * removes a bite from state by id
-     * @param  {int} action the id of the bite to be removed
-     */
-    removeBite: (state, action) => {
-      state.bites = state.bites.filter((item) => item.id !== action.payload);
-    },
-    /**
-     * adds a bite to state
-     * @param  {object} action a bite object. The "food" property of the bite must contain the food id, e.g. food: {id: 2}
-     */
-    addBite: (state, action) => {
-      const newBite = action.payload;
-      const food = getItemById(current(state.foods), newBite.food.id);
-      newBite.food = food;
-      state.bites.unshift(newBite);
+    resetFilters: (state) => {
+      state.filteredFoods = state.foods;
     },
   },
 });
 
 export const {
-  setUser,
   setDataState,
   editFood,
   removeFood,
   addFood,
-  sortFoods,
   editBite,
   removeBite,
   addBite,
+  sortFoods,
+  filterFoods,
+  resetFilters,
 } = slice.actions;
 
 export default slice.reducer;
