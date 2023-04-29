@@ -6,7 +6,7 @@ import Loading from "../../Layout/Loading";
 import Buttons from "./Buttons";
 import UserDetails from "./UserDetails";
 import People from "./People";
-import { ProfileContainer } from "./style";
+import { PeopleContainer, UserContainer, Container } from "./style";
 
 export default function Profile() {
   const [user, loading] = useAuthState(auth);
@@ -17,12 +17,14 @@ export default function Profile() {
   }
 
   return (
-    <ProfileContainer>
-      <section>
+    <Container>
+      <UserContainer>
         <UserDetails user={user} />
+        <Buttons user={user} auth={auth} />
+      </UserContainer>
+      <PeopleContainer>
         <People people={people} />
-      </section>
-      <Buttons user={user} auth={auth} />
-    </ProfileContainer>
+      </PeopleContainer>
+    </Container>
   );
 }

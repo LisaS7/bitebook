@@ -95,7 +95,7 @@ export const slice = createSlice({
     editPerson: (state, action) => {
       const personId = action.payload.id;
       const index = getIndexById(current(state.people), personId);
-      state.person[index] = action.payload;
+      state.people[index] = action.payload;
     },
     /**
      * removes a person from state by id
