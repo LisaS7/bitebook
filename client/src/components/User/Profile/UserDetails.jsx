@@ -3,6 +3,7 @@ import { db, updateUserProfile } from "../../../lib/firebase";
 import { query, getDocs, collection, where } from "firebase/firestore";
 import React, { useState, useEffect } from "react";
 import { StyledForm } from "../style";
+import Buttons from "./Buttons";
 
 export default function UserDetails({ user }) {
   const [editName, setEditName] = useState("");
@@ -65,7 +66,7 @@ export default function UserDetails({ user }) {
             onChange={(e) => changeValue(e, setEditEmail)}
           />
         </Form.Group>
-        <button data-cy="save-changes">Save changes</button>
+        <button data-cy="save-changes">Save</button>
       </StyledForm>
     </div>
   );
