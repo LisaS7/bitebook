@@ -2,6 +2,7 @@ import Form from "react-bootstrap/Form";
 import { db, updateUserProfile } from "../../../lib/firebase";
 import { query, getDocs, collection, where } from "firebase/firestore";
 import React, { useState, useEffect } from "react";
+import { StyledForm } from "../style";
 
 export default function UserDetails({ user }) {
   const [editName, setEditName] = useState("");
@@ -43,27 +44,29 @@ export default function UserDetails({ user }) {
   }, [user]);
 
   return (
-    <Form onSubmit={(e) => handleUpdate(e)}>
-      <h4>User Details</h4>
-      <Form.Group controlId="formUserName">
-        <Form.Label>Name</Form.Label>
-        <Form.Control
-          type="text"
-          value={editName}
-          data-cy="name"
-          onChange={(e) => changeValue(e, setEditName)}
-        />
-      </Form.Group>
-      <Form.Group controlId="formEmail">
-        <Form.Label>Email</Form.Label>
-        <Form.Control
-          type="email"
-          value={editEmail}
-          data-cy="email"
-          onChange={(e) => changeValue(e, setEditEmail)}
-        />
-      </Form.Group>
-      <button data-cy="save-changes">Save changes</button>
-    </Form>
+    <div>
+      <StyledForm onSubmit={(e) => handleUpdate(e)}>
+        <h4>User Details</h4>
+        <Form.Group controlId="formUserName">
+          <Form.Label>Name</Form.Label>
+          <Form.Control
+            type="text"
+            value={editName}
+            data-cy="name"
+            onChange={(e) => changeValue(e, setEditName)}
+          />
+        </Form.Group>
+        <Form.Group controlId="formEmail">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="email"
+            value={editEmail}
+            data-cy="email"
+            onChange={(e) => changeValue(e, setEditEmail)}
+          />
+        </Form.Group>
+        <button data-cy="save-changes">Save changes</button>
+      </StyledForm>
+    </div>
   );
 }
