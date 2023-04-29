@@ -7,5 +7,5 @@ import java.util.List;
 
 @Repository
 public interface PersonRepository extends JpaRepository<Person, Long> {
-    List<Person> findByAccountUid(String uid);
+    List<Person> findByUserId(String uid);
 }

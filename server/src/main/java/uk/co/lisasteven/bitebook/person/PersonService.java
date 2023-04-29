@@ -18,7 +18,7 @@ public class PersonService {
     BiteRepository biteRepository;
 
     public List<Person> getPeopleForAccount(String uid) {
-        return personRepository.findByAccountUid(uid);
+        return personRepository.findByUserId(uid);
     }
 
     public Person addNewPerson(Person person) {

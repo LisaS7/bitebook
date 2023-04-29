@@ -18,16 +18,16 @@ public class Person {
 
     private String name;
     private String colour;
-    private String accountUid;
+    private String userId;
 
     @OneToMany
     @JsonIgnoreProperties({"person"})
     @ToString.Exclude
     private List<Bite> bites;
 
-    public Person(String name, String colour, String accountUid) {
+    public Person(String name, String colour, String uid) {
         this.name = name;
         this.colour = colour;
-        this.accountUid = accountUid;
+        this.userId = uid;
     }
 }
