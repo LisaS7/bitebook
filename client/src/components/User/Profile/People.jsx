@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteRecord, updateRecord } from "../../../Service";
-import { editPerson, removePerson } from "../../../state/slice";
+import { addPerson, editPerson, removePerson } from "../../../state/slice";
 import Form from "react-bootstrap/Form";
+import { postRecord } from "../../../Service";
 
-function Person({ person }) {
+function Person({ person, isNew }) {
+  const dispatch = useDispatch();
+
+  if (!person) {
+    person = { name: "", colour: "#bdbdbd" };
+  }
+
   const [name, setName] = useState(person.name);
   const [colour, setColour] = useState(person.colour);
-  const dispatch = useDispatch();
 
   function handleChange(e, setValue) {
     setValue(e.target.value);
@@ -16,6 +22,17 @@ function Person({ person }) {
   function handleDelete() {
     deleteRecord(person.id, "people");
     dispatch(removePerson(person.id));
+  }
+
+  function handleCreate() {
+    const changedPerson = { ...person };
+    changedPerson.name = name;
+    changedPerson.colour = colour;
+    setName("");
+    setColour("#bdbdbd");
+    postRecord(changedPerson, "people");
+    dispatch(addPerson(changedPerson));
+    window.location.reload();
   }
 
   function handleSave() {
@@ -31,20 +48,19 @@ function Person({ person }) {
     }
   }
 
-  return (
-    <Form className="person">
-      <Form.Control
-        id="colour"
-        type="color"
-        defaultValue={colour}
-        onChange={(e) => handleChange(e, setColour)}
-      />
-      <Form.Control
-        id="name"
-        type="text"
-        value={name}
-        onChange={(e) => handleChange(e, setName)}
-      />
+  const createPersonButtons = (
+    <>
+      <span
+        className="material-symbols-outlined"
+        onClick={() => handleCreate()}
+      >
+        done
+      </span>
+    </>
+  );
+
+  const updatePersonButtons = (
+    <>
       <span className="material-symbols-outlined" onClick={() => handleSave()}>
         done
       </span>
@@ -54,18 +70,37 @@ function Person({ person }) {
       >
         cancel
       </span>
+    </>
+  );
+
+  return (
+    <Form className="person">
+      <Form.Control
+        id="colour"
+        type="color"
+        value={colour}
+        onChange={(e) => handleChange(e, setColour)}
+      />
+      <Form.Control
+        id="name"
+        type="text"
+        value={name}
+        onChange={(e) => handleChange(e, setName)}
+      />
+      {isNew ? createPersonButtons : updatePersonButtons}
     </Form>
   );
 }
 
 export default function People({ people }) {
   const peopleElements = people.map((person) => (
-    <Person key={person.id} person={person} />
+    <Person key={person.id} person={person} isNew={false} />
   ));
   return (
     <>
       <h4>People</h4>
       {peopleElements}
+      <Person key="new" isNew={true} />
     </>
   );
 }
