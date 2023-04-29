@@ -39,7 +39,7 @@ public class FoodService {
     }
 
     @Transactional
-    public void updateFood(Long id, Food food) {
+    public Food updateFood(Long id, Food food) {
         Food existingFood = foodRepository.findById(id)
                 .orElseThrow(()-> new IllegalStateException(
                         "Food with ID " + id + " does not exist"
@@ -56,6 +56,7 @@ public class FoodService {
         existingFood.setNotes(food.getNotes());
 
         foodRepository.save(existingFood);
+        return existingFood;
 
     }
 

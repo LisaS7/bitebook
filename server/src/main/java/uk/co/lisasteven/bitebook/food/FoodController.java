@@ -35,8 +35,7 @@ public class FoodController {
             @PathVariable("foodId") Long id,
             @Valid @RequestBody Food food
     ) {
-        foodService.updateFood(id, food);
-        return food;
+        return foodService.updateFood(id, food);
     }
 
     @GetMapping(path="/seed-new-user/{userId}")

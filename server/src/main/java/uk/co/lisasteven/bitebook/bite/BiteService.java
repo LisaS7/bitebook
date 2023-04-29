@@ -39,7 +39,7 @@ public class BiteService {
     }
 
     @Transactional
-    public void updateBite(Long id, Bite bite) {
+    public Bite updateBite(Long id, Bite bite) {
         Bite existingBite = biteRepository.findById(id)
                 .orElseThrow(() -> new IllegalStateException(
                         "Bite with ID " + id + " does not exist"
@@ -51,5 +51,6 @@ public class BiteService {
         existingBite.setNotes(bite.getNotes());
 
         biteRepository.save(existingBite);
+        return existingBite;
     }
 }

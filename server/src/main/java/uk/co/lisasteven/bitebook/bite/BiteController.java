@@ -31,8 +31,7 @@ public class BiteController {
             @PathVariable("biteId") Long id,
             @Valid @RequestBody Bite bite
     ) {
-        biteService.updateBite(id, bite);
-        return bite;
+        return biteService.updateBite(id, bite);
     }
 
 
