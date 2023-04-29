@@ -7,6 +7,7 @@ import uk.co.lisasteven.bitebook.bite.Bite;
 import uk.co.lisasteven.bitebook.food.enums.Category;
 import uk.co.lisasteven.bitebook.food.Food;
 import uk.co.lisasteven.bitebook.food.enums.Group;
+import uk.co.lisasteven.bitebook.person.Person;
 
 import java.time.LocalDate;
 
@@ -17,16 +18,24 @@ public class BiteTest {
 
     private Bite bite;
     private Food banana;
+    private Person person;
 
     @BeforeEach
     public void setup() {
+        person = new Person("Bob", "ABC");
+
         banana = new Food(
                 "ABC", "banana", "", Group.FRUIT.getFormattedName(), Category.YES.getFormattedName(), "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
         );
 
         bite = new Bite(
-                "ABC", LocalDate.of(2020, 07, 15), banana, 4, "This is a note."
+                "ABC", person, LocalDate.of(2020, 07, 15), banana, 4, "This is a note."
         );
+    }
+
+    @Test
+    public void hasPerson() {
+        assertEquals(person, bite.getPerson());
     }
 
     @Test

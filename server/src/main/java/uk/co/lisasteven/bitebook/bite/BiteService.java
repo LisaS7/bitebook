@@ -11,12 +11,8 @@ import java.util.Objects;
 @Service
 public class BiteService {
 
-    private final BiteRepository biteRepository;
-
     @Autowired
-    public BiteService(BiteRepository biteRepository) {
-        this.biteRepository = biteRepository;
-    }
+    BiteRepository biteRepository;
 
     public List<Bite> getBites(String uid) {
         List<Bite> allBites = biteRepository.findAll();

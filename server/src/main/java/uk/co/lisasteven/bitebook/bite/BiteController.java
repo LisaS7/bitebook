@@ -11,12 +11,8 @@ import java.util.List;
 @RequestMapping(path = "api/bites")
 public class BiteController {
 
-    private final BiteService biteService;
-
     @Autowired
-    public BiteController(BiteService biteService) {
-        this.biteService = biteService;
-    }
+    BiteService biteService;
 
     @GetMapping
     public List<Bite> getBites(@RequestParam String uid) {

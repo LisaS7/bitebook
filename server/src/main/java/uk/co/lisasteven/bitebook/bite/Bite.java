@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import uk.co.lisasteven.bitebook.food.Food;
+import uk.co.lisasteven.bitebook.person.Person;
 
 import java.time.LocalDate;
 
@@ -21,6 +22,11 @@ public class Bite {
     private Long id;
 
     private String userId;
+
+    @ManyToOne
+    @JoinColumn(name = "person_id")
+    @JsonIgnoreProperties({"bites"})
+    private Person person;
 
     @NotNull
     private LocalDate date;
@@ -37,8 +43,9 @@ public class Bite {
 
     private String notes;
 
-    public Bite(String user, LocalDate date, Food food, Integer rating, String notes) {
+    public Bite(String user, Person person, LocalDate date, Food food, Integer rating, String notes) {
         this.userId = user;
+        this.person = person;
         this.date = date;
         this.food = food;
         this.rating = rating;

@@ -11,12 +11,8 @@ import java.util.Objects;
 @Service
 public class FoodService {
 
-    private final FoodRepository foodRepository;
-
     @Autowired
-    public FoodService(FoodRepository foodRepository) {
-        this.foodRepository = foodRepository;
-    }
+    FoodRepository foodRepository;
 
     public List<Food> getFoods(String uid) {
         List<Food> allFoods = foodRepository.findAll();
