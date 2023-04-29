@@ -87,6 +87,30 @@ export const slice = createSlice({
       newBite.food = food;
       state.bites.unshift(newBite);
     },
+    // ============  PEOPLE  ============
+    /**
+     * updates the given person in state
+     * @param  {object} action a food object
+     */
+    editPerson: (state, action) => {
+      const personId = action.payload.id;
+      const index = getIndexById(current(state.people), personId);
+      state.person[index] = action.payload;
+    },
+    /**
+     * removes a person from state by id
+     * @param  {int} action the id of the person to be removed
+     */
+    removePerson: (state, action) => {
+      state.people = state.people.filter((item) => item.id !== action.payload);
+    },
+    /**
+     * adds a person to state
+     * @param  {object} action a person object
+     */
+    addPerson: (state, action) => {
+      state.people.unshift(action.payload);
+    },
     // ============  SORT & FILTER  ============
     /**
      * reorders the state foods list
@@ -164,6 +188,9 @@ export const {
   editBite,
   removeBite,
   addBite,
+  editPerson,
+  removePerson,
+  addPerson,
   sortFoods,
   filterFoods,
   resetFilters,
