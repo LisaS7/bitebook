@@ -1,7 +1,7 @@
 import { sendPasswordReset, logout } from "../../../lib/firebase";
 import { useDeleteUser } from "react-firebase-hooks/auth";
 import { infoStyle } from "../../../console_css";
-import { deleteRecord } from "../../../Service";
+// import { deleteRecord } from "../../../Service";
 import Button from "react-bootstrap/Button";
 
 export default function Buttons({ user, auth }) {
@@ -28,7 +28,7 @@ export default function Buttons({ user, auth }) {
   }
 
   return (
-    <section>
+    <div className="button-section">
       <button data-cy="reset-pwd" onClick={() => sendPasswordReset(user.email)}>
         Reset Password
       </button>
@@ -38,6 +38,6 @@ export default function Buttons({ user, auth }) {
       <Button data-cy="delete-user" variant="danger" onClick={handleDelete}>
         Delete Account
       </Button>
-    </section>
+    </div>
   );
 }

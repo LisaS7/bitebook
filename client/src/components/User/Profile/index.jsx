@@ -3,10 +3,10 @@ import { auth } from "../../../lib/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useSelector } from "react-redux";
 import Loading from "../../Layout/Loading";
-import { ProfileContainer } from "./style";
 import Buttons from "./Buttons";
 import UserDetails from "./UserDetails";
 import People from "./People";
+import { ProfileContainer } from "./style";
 
 export default function Profile() {
   const [user, loading] = useAuthState(auth);
@@ -18,8 +18,10 @@ export default function Profile() {
 
   return (
     <ProfileContainer>
-      <UserDetails user={user} />
-      <People people={people} />
+      <section>
+        <UserDetails user={user} />
+        <People people={people} />
+      </section>
       <Buttons user={user} auth={auth} />
     </ProfileContainer>
   );
