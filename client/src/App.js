@@ -24,6 +24,7 @@ import { FoodReport } from "./food/report/food_report";
 function App() {
   const [foods, setFoods] = useState([]);
   const [bites, setBites] = useState([]);
+  const [people, setPeople] = useState([]);
   const [categories, setCategories] = useState([]);
   const [groups, setGroups] = useState([]);
   const dispatch = useDispatch();
@@ -37,12 +38,13 @@ function App() {
       getData("/groups", setGroups);
       trackPromise(getData("/foods", setFoods));
       trackPromise(getData("/bites", setBites));
+      getData("/people/" + user.uid, setPeople);
     }
   }, [user]);
 
   useEffect(() => {
-    dispatch(setDataState({ foods, bites, categories, groups }));
-  }, [foods, bites, categories, groups, dispatch]);
+    dispatch(setDataState({ foods, bites, people, categories, groups }));
+  }, [foods, bites, people, categories, groups, dispatch]);
 
   return (
     <Router>

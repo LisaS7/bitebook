@@ -3,6 +3,7 @@ import { createSlice, current } from "@reduxjs/toolkit";
 const initialState = {
   foods: [],
   bites: [],
+  people: [],
   categories: [],
   groups: [],
   activeFilters: { colour: [], flavour: [], texture: [] },
@@ -29,6 +30,7 @@ export const slice = createSlice({
       state.foods = action.payload.foods;
       state.filteredFoods = state.foods; // initalise with all foods for dashboard charts
       state.bites = action.payload.bites;
+      state.people = action.payload.people;
       state.categories = action.payload.categories;
       state.groups = action.payload.groups;
     },
