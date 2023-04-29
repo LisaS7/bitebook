@@ -28,7 +28,7 @@ public class FoodTest {
                 "ABC", "banana", "", Group.FRUIT.getFormattedName(), Category.YES.getFormattedName(), "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
         );
 
-        person = new Person("Bob", "ABC");
+        person = new Person("Bob", "#000000", "ABC");
 
         Bite bite1 = new Bite(
                 "ABC", person, LocalDate.of(2020, 07, 15), food, 4, "This is the second bite."

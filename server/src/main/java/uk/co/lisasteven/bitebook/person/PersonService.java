@@ -37,13 +37,15 @@ public class PersonService {
     }
 
     @Transactional
-    public void updatePerson(Long id, Person person) {
+    public Person updatePerson(Long id, Person person) {
         Person existingPerson = personRepository.findById(id)
                 .orElseThrow(()-> new IllegalStateException(
                         "Person with ID " + id + " does not exist"
                 ));
 
         existingPerson.setName(person.getName());
+        existingPerson.setColour(person.getColour());
         personRepository.save(existingPerson);
+        return existingPerson;
     }
 }

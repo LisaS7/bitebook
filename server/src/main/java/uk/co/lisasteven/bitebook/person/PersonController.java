@@ -34,8 +34,7 @@ public class PersonController {
             @PathVariable("personId") Long id,
             @RequestBody Person person
     ) {
-        personService.updatePerson(id, person);
-        return person;
+        return personService.updatePerson(id, person);
     }
 
 }

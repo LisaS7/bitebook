@@ -17,6 +17,7 @@ public class Person {
     private Long id;
 
     private String name;
+    private String colour;
     private String accountUid;
 
     @OneToMany
@@ -24,8 +25,9 @@ public class Person {
     @ToString.Exclude
     private List<Bite> bites;
 
-    public Person(String name, String accountUid) {
+    public Person(String name, String colour, String accountUid) {
         this.name = name;
+        this.colour = colour;
         this.accountUid = accountUid;
     }
 }
