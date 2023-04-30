@@ -1,30 +1,17 @@
 package uk.co.lisasteven.bitebook.food.enums;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 
 public enum Category {
-    NONE("None"),
-    YES("Yes"),
-    NO("No"),
-    MAYBE("Maybe"),
-    RARELY("Rarely"),
-    UNTESTED("Untested"),
-    ALLERGY("Allergy");
+    @JsonProperty("None") NONE,
+    @JsonProperty("Yes") YES,
+    @JsonProperty("No") NO,
+    @JsonProperty("Maybe") MAYBE,
+    @JsonProperty("Rarely") RARELY,
+    @JsonProperty("Untested") UNTESTED,
+    @JsonProperty("Allergy") ALLERGY;
 
-    private final String formattedName;
-
-    Category(String formattedName) {this.formattedName = formattedName;}
-
-    public String getFormattedName() {
-        return formattedName;
-    }
-
-    public static ArrayList<String> getAllFormattedNames() {
-        ArrayList<String> formattedNames = new ArrayList<>();
-        for (Category category : Category.values()) {
-            formattedNames.add(category.getFormattedName());
-        }
-        return formattedNames;
-    }
 
     }

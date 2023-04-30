@@ -12,6 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import uk.co.lisasteven.bitebook.food.Food;
 import uk.co.lisasteven.bitebook.food.FoodController;
 import uk.co.lisasteven.bitebook.food.FoodService;
+import uk.co.lisasteven.bitebook.food.enums.Group;
 
 import java.util.List;
 
@@ -39,10 +40,10 @@ public class RouteTests {
     @BeforeAll
     public static void setup() {
         food1 = new Food(
-                "ABC", "banana", "", "Fruit", "Yes", "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
+                "ABC", "banana", "", Group.FRUIT, "yellow", "sweet", "soft", "\uD83C\uDF4C"
         );
         food2 = new Food(
-                "ABC","noodles", "", "Carbohydrate", "Maybe", "beige", "bland", "soft", "\uD83C\uDF5C", "Loves with sweet chilli sauce"
+                "ABC","noodles", "", Group.CARBOHYDRATE, "beige", "bland", "soft", "\uD83C\uDF5C"
         );
         service.addNewFood(food1);
         service.addNewFood(food2);
@@ -73,7 +74,7 @@ public class RouteTests {
     @Test
     public void whenCreateFood_thenReturn201AndCreatedObject() throws Exception {
         Food food3 = new Food(
-                "ABC", "tuna", "", "Carbohydrate", "No", "pink", "meaty", "flaky", "", "Mix thoroughly with mayo"
+                "ABC", "tuna", "", Group.PROTEIN, "pink", "meaty", "flaky", ""
         );
 
         String foodAsJson = new ObjectMapper().writeValueAsString(food3);
@@ -91,7 +92,7 @@ public class RouteTests {
     public void whenUpdateFood_thenReturn200AndUpdatedObject() throws Exception {
         String urlId = url + "/" + food2.getId();
         Food food2Updated = new Food(
-                "ABC", "noodles", "", "Carbohydrate", "Yes", "beige", "bland", "soft", "\uD83C\uDF5C", "Updated!"
+                "ABC", "noodles", "", Group.CARBOHYDRATE, "beige", "bland", "soft", "\uD83C\uDF5C"
         );
 
         String foodAsJson = new ObjectMapper().writeValueAsString(food2Updated);

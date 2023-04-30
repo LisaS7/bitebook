@@ -25,7 +25,7 @@ public class BiteTest {
         person = new Person("Bob", "#000000", "ABC");
 
         banana = new Food(
-                "ABC", "banana", "", Group.FRUIT.getFormattedName(), Category.YES.getFormattedName(), "yellow", "sweet", "soft", "\uD83C\uDF4C", "Must be mashed"
+                "ABC", "banana", "", Group.FRUIT, "yellow", "sweet", "soft", "\uD83C\uDF4C"
         );
 
         bite = new Bite(
