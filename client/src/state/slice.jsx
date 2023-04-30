@@ -2,6 +2,7 @@ import { createSlice, current } from "@reduxjs/toolkit";
 
 const initialState = {
   foods: [],
+  foodRecords: [],
   bites: [],
   people: [],
   categories: [],
@@ -28,11 +29,42 @@ export const slice = createSlice({
      */
     setDataState: (state, action) => {
       state.foods = action.payload.foods;
+      state.foodRecords = action.payload.foodRecords;
       state.filteredFoods = state.foods; // initalise with all foods for dashboard charts
       state.bites = action.payload.bites;
       state.people = action.payload.people;
       state.categories = action.payload.categories;
       state.groups = action.payload.groups;
+    },
+    // ============  ADD,EDIT,DELETE ACTIONS  ============
+    /**
+     * updates the given item in state
+     * @param  {object} action.payload.item an object
+     * @param {string} action.payload.stateList the list to update in state
+     */
+    editStateItem: (state, action) => {
+      console.log(action.payload);
+      // const id = action.payload.id;
+      // const index = getIndexById(current(state.foods), foodId);
+      // state.foods[index] = action.payload;
+    },
+    /**
+     * removes an item from state by id
+     * @param  {int} action.payload.id the id of the item to be removed
+     * @param {string} action.payload.stateList the state list to remove the item from
+     */
+    removeStateItem: (state, action) => {
+      const list = action.payload.list;
+      state[list] = state[list].filter((item) => item.id !== action.payload.id);
+    },
+    /**
+     * adds an item to state
+     * @param  {object} action.payload.item an object
+     * @param {string} action.payload.stateList the list to update in state
+     */
+    addStateItem: (state, action) => {
+      console.log(action.payload);
+      // state.foods.unshift(action.payload);
     },
     // ============  FOOD  ============
     /**
@@ -186,6 +218,9 @@ export const slice = createSlice({
 
 export const {
   setDataState,
+  editStateItem,
+  addStateItem,
+  removeStateItem,
   editFood,
   removeFood,
   addFood,
