@@ -10,7 +10,146 @@
     "flavour": "Milky, Sweet",
     "texture": "Firm, Chewy",
     "icon": "🥥",
-    "notes": ""
+    "notes": "",
+    "bites": []
+  },
+  {
+    "id": 1490,
+    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+    "name": "Beef",
+    "detail": "Mince",
+    "grouping": "Protein",
+    "category": "Yes",
+    "colour": "Brown",
+    "flavour": "Meaty, Umami",
+    "texture": "Chewy",
+    "icon": "🐄",
+    "notes": "",
+    "bites": [
+      {
+        "id": 381,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-25",
+        "rating": 4,
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "id": 1493,
+    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+    "name": "Meatballs",
+    "detail": "Beef",
+    "grouping": "Protein",
+    "category": "Maybe",
+    "colour": "Brown",
+    "flavour": "Meaty",
+    "texture": "Soft",
+    "icon": "🍝",
+    "notes": "",
+    "bites": [
+      {
+        "id": 386,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-27",
+        "rating": 1,
+        "notes": ""
+      }
+    ]
+  },
+  {
+    "id": 1495,
+    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+    "name": "Haggis",
+    "detail": "",
+    "grouping": "Protein",
+    "category": "Maybe",
+    "colour": "Brown",
+    "flavour": "Meaty, Spicy",
+    "texture": "Soft",
+    "icon": "🥩",
+    "notes": "",
+    "bites": [
+      {
+        "id": 393,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-28",
+        "rating": 2,
+        "notes": "With ketchup"
+      }
+    ]
+  },
+  {
+    "id": 1494,
+    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+    "name": "Raspberry",
+    "detail": "",
+    "grouping": "Fruit",
+    "category": "Yes",
+    "colour": "Red",
+    "flavour": "Sweet",
+    "texture": "Soft, juicy",
+    "icon": "🍓",
+    "notes": "",
+    "bites": [
+      {
+        "id": 390,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-27",
+        "rating": 5,
+        "notes": ""
+      },
+      {
+        "id": 391,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-29",
+        "rating": 5,
+        "notes": ""
+      },
+      {
+        "id": 416,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-30",
+        "rating": 4,
+        "notes": ""
+      }
+    ]
   },
   {
     "id": 1428,
@@ -23,7 +162,8 @@
     "flavour": "Nutty",
     "texture": "Creamy",
     "icon": "🥑",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1429,
@@ -36,7 +176,8 @@
     "flavour": "Mild, Earthy",
     "texture": "Soft",
     "icon": "🥔",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1430,
@@ -49,7 +190,22 @@
     "flavour": "Sweet",
     "texture": "Crunchy",
     "icon": "🥕",
-    "notes": ""
+    "notes": "",
+    "bites": [
+      {
+        "id": 384,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-26",
+        "rating": 2,
+        "notes": ""
+      }
+    ]
   },
   {
     "id": 1432,
@@ -62,7 +218,8 @@
     "flavour": "Sweet",
     "texture": "Crunchy",
     "icon": "🫑",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1433,
@@ -75,7 +232,8 @@
     "flavour": "Mild",
     "texture": "Crunchy, Juicy",
     "icon": "🥒",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1434,
@@ -88,7 +246,8 @@
     "flavour": "Mild, Bitter",
     "texture": "Soft",
     "icon": "🥬",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1439,
@@ -101,7 +260,8 @@
     "flavour": "Earthy, Nutty",
     "texture": "Firm, Oily",
     "icon": "🥜",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1447,
@@ -114,7 +274,22 @@
     "flavour": "Yeasty, Bland",
     "texture": "Dry, Soft",
     "icon": "🍞",
-    "notes": ""
+    "notes": "",
+    "bites": [
+      {
+        "id": 392,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-29",
+        "rating": 4,
+        "notes": ""
+      }
+    ]
   },
   {
     "id": 1417,
@@ -127,7 +302,8 @@
     "flavour": "Sweet",
     "texture": "Soft",
     "icon": "🍌",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1454,
@@ -140,7 +316,22 @@
     "flavour": "Mild, Earthy",
     "texture": "Soft",
     "icon": "🟩",
-    "notes": ""
+    "notes": "",
+    "bites": [
+      {
+        "id": 375,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-24",
+        "rating": 5,
+        "notes": "With bbq sauce"
+      }
+    ]
   },
   {
     "id": 1431,
@@ -153,7 +344,61 @@
     "flavour": "Sweet",
     "texture": "Crunchy",
     "icon": "🌽",
-    "notes": ""
+    "notes": "",
+    "bites": [
+      {
+        "id": 394,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-28",
+        "rating": 3,
+        "notes": ""
+      },
+      {
+        "id": 387,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-27",
+        "rating": 2,
+        "notes": ""
+      },
+      {
+        "id": 376,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-25",
+        "rating": 4,
+        "notes": "With gravy"
+      },
+      {
+        "id": 312,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-23",
+        "rating": 5,
+        "notes": "With gravy"
+      }
+    ]
   },
   {
     "id": 1443,
@@ -166,7 +411,8 @@
     "flavour": "Rich, Umami",
     "texture": "Soft, Rubbery",
     "icon": "🥚",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1444,
@@ -179,7 +425,22 @@
     "flavour": "Bland",
     "texture": "Soft, Starchy",
     "icon": "🍚",
-    "notes": ""
+    "notes": "",
+    "bites": [
+      {
+        "id": 385,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-26",
+        "rating": 4,
+        "notes": ""
+      }
+    ]
   },
   {
     "id": 1437,
@@ -192,7 +453,8 @@
     "flavour": "Sweet",
     "texture": "Soft",
     "icon": "🧅",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1445,
@@ -205,7 +467,22 @@
     "flavour": "Bland",
     "texture": "Soft, Starchy",
     "icon": "🍝",
-    "notes": ""
+    "notes": "",
+    "bites": [
+      {
+        "id": 389,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-27",
+        "rating": 1,
+        "notes": ""
+      }
+    ]
   },
   {
     "id": 1440,
@@ -218,7 +495,8 @@
     "flavour": "Milky, Salty, Umami",
     "texture": "Firm",
     "icon": "🧀",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1438,
@@ -231,7 +509,8 @@
     "flavour": "Earthy, Mild, Umami",
     "texture": "Soft",
     "icon": "🍄",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1446,
@@ -244,7 +523,8 @@
     "flavour": "Salty",
     "texture": "Soft, Crunchy",
     "icon": "🍟",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1418,
@@ -257,7 +537,8 @@
     "flavour": "Tart",
     "texture": "Crunchy",
     "icon": "🍏",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1419,
@@ -270,7 +551,8 @@
     "flavour": "Sweet",
     "texture": "Crunchy",
     "icon": "🍎",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1420,
@@ -283,7 +565,8 @@
     "flavour": "Sweet",
     "texture": "Grainy",
     "icon": "🍐",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1421,
@@ -296,7 +579,22 @@
     "flavour": "Sweet, Acidic",
     "texture": "Juicy",
     "icon": "🍊",
-    "notes": ""
+    "notes": "",
+    "bites": [
+      {
+        "id": 374,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-24",
+        "rating": 3,
+        "notes": ""
+      }
+    ]
   },
   {
     "id": 1422,
@@ -309,7 +607,8 @@
     "flavour": "Sweet, Tart",
     "texture": "Soft",
     "icon": "🍓",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1423,
@@ -322,7 +621,8 @@
     "flavour": "Sweet",
     "texture": "Crunchy, Soft",
     "icon": "🍇",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1441,
@@ -335,7 +635,8 @@
     "flavour": "Meaty, Umami",
     "texture": "Soft, Chewy",
     "icon": "🥩",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1435,
@@ -348,7 +649,8 @@
     "flavour": "Mild, Bitter",
     "texture": "Soft",
     "icon": "🥦",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1424,
@@ -361,7 +663,22 @@
     "flavour": "Sweet, Acidic",
     "texture": "Juicy",
     "icon": "🍍",
-    "notes": ""
+    "notes": "",
+    "bites": [
+      {
+        "id": 311,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-23",
+        "rating": 2,
+        "notes": ""
+      }
+    ]
   },
   {
     "id": 1425,
@@ -374,7 +691,8 @@
     "flavour": "Sweet",
     "texture": "Soft",
     "icon": "🫐",
-    "notes": ""
+    "notes": "",
+    "bites": []
   },
   {
     "id": 1426,
@@ -387,7 +705,22 @@
     "flavour": "Sweet, Tangy",
     "texture": "Grainy, Soft",
     "icon": "🍅",
-    "notes": ""
+    "notes": "",
+    "bites": [
+      {
+        "id": 388,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-27",
+        "rating": 1,
+        "notes": ""
+      }
+    ]
   },
   {
     "id": 1455,
@@ -400,7 +733,22 @@
     "flavour": "Meaty, Salty",
     "texture": "Soft, Chewy",
     "icon": "🌭",
-    "notes": ""
+    "notes": "",
+    "bites": [
+      {
+        "id": 382,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-26",
+        "rating": 5,
+        "notes": "Paella"
+      }
+    ]
   },
   {
     "id": 1436,
@@ -413,7 +761,22 @@
     "flavour": "Sweet",
     "texture": "Soft",
     "icon": "🫛",
-    "notes": ""
+    "notes": "",
+    "bites": [
+      {
+        "id": 383,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-26",
+        "rating": 4,
+        "notes": ""
+      }
+    ]
   },
   {
     "id": 1442,
@@ -426,6 +789,21 @@
     "flavour": "Mild, Umami",
     "texture": "Soft",
     "icon": "🍗",
-    "notes": ""
+    "notes": "",
+    "bites": [
+      {
+        "id": 313,
+        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "person": {
+          "id": 46,
+          "name": "Alec",
+          "colour": "#9e4ae3",
+          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+        },
+        "date": "2023-04-23",
+        "rating": 5,
+        "notes": "With gravy"
+      }
+    ]
   }
 ]
