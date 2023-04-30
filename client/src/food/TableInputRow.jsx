@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { editFood, addFood } from "../state/slice";
+import { editStateItem, addStateItem } from "../state/slice";
 import { updateRecord, postRecord } from "../Service";
 import {
   Input,
@@ -26,13 +26,13 @@ export default function InputRow({ action, item, setEditRow }) {
 
     if (action === "create") {
       postRecord(item, "foods");
-      dispatch(addFood(item));
+      dispatch(addStateItem({ item, list: "foods" }));
       navigate("/foods");
     }
 
     if (action === "update") {
       updateRecord(item, "foods");
-      dispatch(editFood(item));
+      dispatch(editStateItem({ item, list: "foods" }));
     }
 
     setEditRow(null);

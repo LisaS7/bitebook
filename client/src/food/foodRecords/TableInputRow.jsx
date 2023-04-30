@@ -9,7 +9,11 @@ import {
   TextArea,
 } from "../../components/Table/form_elements";
 import { SaveButton } from "../../components/Table/Buttons";
-import { GetDataTemplate, replaceNullWithDefaults } from "./data_template";
+import {
+  GetDataTemplate,
+  replaceNullWithDefaults,
+  setObjectId,
+} from "./data_template";
 
 export default function InputRow({ action, item, setEditRow }) {
   const dataTemplate = GetDataTemplate();
@@ -17,22 +21,22 @@ export default function InputRow({ action, item, setEditRow }) {
   const navigate = useNavigate();
   const [tempItem, setTempItem] = useState({ ...item });
 
-  console.log(tempItem);
-
   function handleClickSave(event) {
     event.preventDefault();
 
     const item = { ...tempItem };
+    setObjectId(item, "food");
+    setObjectId(item, "person");
     replaceNullWithDefaults(item);
 
     if (action === "create") {
-      postRecord(item, "foods");
-      // dispatch(addFood(item));
-      navigate("/foods");
+      postRecord(item, "foodlists");
+      dispatch(addStateItem({ item, list: "foodRecords" }));
+      navigate("/foods/categories");
     }
 
     if (action === "update") {
-      updateRecord(item, "foods");
+      // updateRecord(item, "foodslists");
       // dispatch(editFood(item));
     }
 
@@ -45,27 +49,20 @@ export default function InputRow({ action, item, setEditRow }) {
 
   let cells = [];
   for (const [key, value] of Object.entries(dataTemplate)) {
-    console.log(key, tempItem[key]);
     if (!tempItem[key]) {
       tempItem[key] = value.default || "";
     }
 
     const fieldValue = tempItem[key];
-    console.log("field value ", fieldValue);
 
     switch (value.type) {
       case "select":
-        console.log(
-          fieldValue[0].toUpperCase() + fieldValue.slice(1).toLowerCase()
-        );
         cells.push(
           <Dropdown
             key={key}
             keyName={key}
             items={value.options}
-            fieldValue={
-              fieldValue[0].toUpperCase() + fieldValue.slice(1).toLowerCase()
-            }
+            fieldValue={fieldValue}
             changeValue={changeValue}
           />
         );

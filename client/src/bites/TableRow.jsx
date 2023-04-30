@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { deleteRecord } from "../Service";
-import { removeBite } from "../state/slice";
+import { removeStateItem } from "../state/slice";
 import { GetDataTemplate } from "./data_template";
 import { DisplayRating } from "./utils";
 import { DeleteButton, EditButton } from "../components/Table/Buttons";
@@ -23,7 +23,7 @@ export default function TableRow({ item, toggleEdit }) {
 
   function handleDelete(id) {
     deleteRecord(id, "bites");
-    dispatch(removeBite(id));
+    dispatch(removeStateItem({ id, list: "bites" }));
   }
 
   function PersonCircle() {

@@ -43,7 +43,7 @@ export default function TableRow({ item, toggleEdit }) {
         }
         break;
       case "category":
-        const value = item[field].toLowerCase();
+        const value = item[field]?.toLowerCase();
         let symbol = null;
         if (value && value !== "none") {
           symbol = (

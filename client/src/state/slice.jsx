@@ -43,10 +43,21 @@ export const slice = createSlice({
      * @param {string} action.payload.stateList the list to update in state
      */
     editStateItem: (state, action) => {
-      console.log(action.payload);
-      // const id = action.payload.id;
-      // const index = getIndexById(current(state.foods), foodId);
-      // state.foods[index] = action.payload;
+      const list = action.payload.list;
+      const item = { ...action.payload.item };
+
+      if (item.food) {
+        const food = getItemById(current(state.foods), item.id);
+        item.food = food;
+      }
+
+      if (item.person) {
+        const person = getItemById(current(state.people), item.person.id);
+        item.person = person;
+      }
+
+      const index = getIndexById(current(state[list]), item.id);
+      state[list][index] = item;
     },
     /**
      * removes an item from state by id
@@ -63,65 +74,17 @@ export const slice = createSlice({
      * @param {string} action.payload.stateList the list to update in state
      */
     addStateItem: (state, action) => {
-      console.log(action.payload);
-      // state.foods.unshift(action.payload);
-    },
-    // ============  FOOD  ============
-    /**
-     * updates the given food in state
-     * @param  {object} action a food object
-     */
-    editFood: (state, action) => {
-      const foodId = action.payload.id;
-      const index = getIndexById(current(state.foods), foodId);
-      state.foods[index] = action.payload;
-    },
-    /**
-     * removes a food from state by id
-     * @param  {int} action the id of the food to be removed
-     */
-    removeFood: (state, action) => {
-      state.foods = state.foods.filter((item) => item.id !== action.payload);
-    },
-    /**
-     * adds a food to state
-     * @param  {object} action a food object
-     */
-    addFood: (state, action) => {
-      state.foods.unshift(action.payload);
-    },
-    // ============  BITES  ============
-    /**
-     * updates the given bite in state
-     * @param  {object} action a bite object, which must contain a food object
-     */
-    editBite: (state, action) => {
-      const biteIndex = getIndexById(current(state.bites), action.payload.id);
-      const food = getItemById(current(state.foods), action.payload.food.id);
-      const person = getItemById(
-        current(state.people),
-        action.payload.person.id
-      );
-      state.bites[biteIndex] = { ...action.payload, food, person };
-    },
-    /**
-     * removes a bite from state by id
-     * @param  {int} action the id of the bite to be removed
-     */
-    removeBite: (state, action) => {
-      state.bites = state.bites.filter((item) => item.id !== action.payload);
-    },
-    /**
-     * adds a bite to state
-     * @param  {object} action a bite object. The "food" property of the bite must contain the food id, e.g. food: {id: 2}
-     */
-    addBite: (state, action) => {
-      const newBite = action.payload;
-      const food = getItemById(current(state.foods), newBite.food.id);
-      const person = getItemById(current(state.people), newBite.person.id);
-      newBite.food = food;
-      newBite.person = person;
-      state.bites.unshift(newBite);
+      const list = action.payload.list;
+      const item = { ...action.payload.item };
+      if (item.food) {
+        const food = getItemById(current(state.foods), item.food.id);
+        item.food = food;
+      }
+      if (item.person) {
+        const person = getItemById(current(state.people), item.person.id);
+        item.person = person;
+      }
+      state[list].unshift(item);
     },
     // ============  PEOPLE  ============
     /**
@@ -221,12 +184,6 @@ export const {
   editStateItem,
   addStateItem,
   removeStateItem,
-  editFood,
-  removeFood,
-  addFood,
-  editBite,
-  removeBite,
-  addBite,
   editPerson,
   removePerson,
   addPerson,

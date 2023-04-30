@@ -15,6 +15,12 @@ export const categorySymbols = {
   untested: [faMinus, "lightslategrey"],
 };
 
+export function setObjectId(bite, key) {
+  if (typeof bite[key] !== "object") {
+    bite[key] = { id: bite[key] };
+  }
+}
+
 export const defaultItem = {
   food: "",
   person: "",
@@ -39,18 +45,21 @@ export function GetDataTemplate() {
     food: {
       heading: "Food",
       type: "select_object",
+      default: foods[0]?.id.toString(),
       options: foods,
       sortable: true,
     },
     person: {
       heading: "Person",
       type: "select_object",
+      default: people[0]?.id.toString(),
       options: people,
       sortable: true,
     },
     category: {
       heading: "Category",
       type: "select",
+      default: "None",
       options: categories,
       sortable: true,
     },

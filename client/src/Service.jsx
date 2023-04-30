@@ -33,7 +33,6 @@ export async function postRecord(item, endpoint) {
   const uid = localStorage.getItem("uid");
   const url = `${baseURL}/${endpoint}`;
   item.userId = uid;
-
   const data = await fetch(url, {
     method: "POST",
     body: JSON.stringify(item),
