@@ -30,3 +30,9 @@ export const SummarySection = styled.section`
     font-size: 1.2rem;
   }
 `;
+
+export const FoodCell = styled.td`
+  display: inline-flex;
+  align-items: center;
+  gap: 2rem;
+`;

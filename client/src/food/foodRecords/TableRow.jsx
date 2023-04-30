@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DeleteButton, EditButton } from "../../components/Table/Buttons";
 import { PopoverTrigger } from "../food_popover";
 import { Circle } from "../../components/Table/style";
+import { FoodCell } from "./style";
 
 export default function TableRow({ item, toggleEdit }) {
   const dispatch = useDispatch();
@@ -24,10 +25,10 @@ export default function TableRow({ item, toggleEdit }) {
       case "food":
         if (typeof item[field] === "object" && field !== null) {
           cells.push(
-            <td data-cy={field} key={field}>
+            <FoodCell data-cy={field} key={field}>
               {item["food"].icon}
               <PopoverTrigger food={item["food"]} />
-            </td>
+            </FoodCell>
           );
         }
         break;
