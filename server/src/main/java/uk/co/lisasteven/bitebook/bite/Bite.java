@@ -25,7 +25,7 @@ public class Bite {
 
     @ManyToOne
     @JoinColumn(name = "person_id")
-    @JsonIgnoreProperties({"bites"})
+    @JsonIgnoreProperties(value={"bites"}, allowSetters = true)
     private Person person;
 
     @NotNull
@@ -33,7 +33,7 @@ public class Bite {
 
     @ManyToOne
     @JoinColumn(name="food_id", nullable = false)
-    @JsonIgnoreProperties({"bites"})
+    @JsonIgnoreProperties(value = {"bites"}, allowSetters = true)
     @NotNull(message = "Food is required")
     private Food food;
 
