@@ -13,18 +13,22 @@ function FoodRecord({ food }) {
 }
 
 export function FoodReport() {
-  const { foods, categories } = useSelector((state) => state);
+  const { foodRecords, categories } = useSelector((state) => state);
 
   let columns = [];
   categories.forEach((category) => {
-    const categoryFoods = foods
-      .filter((food) => food.category === category)
+    const categoryFoods = foodRecords
+      .filter((record) => record.category === category)
       .sort((a, b) =>
-        a.grouping < b.grouping ? -1 : b.grouping < a.grouping ? 1 : 0
+        a.food.grouping < b.food.grouping
+          ? -1
+          : b.food.grouping < a.food.grouping
+          ? 1
+          : 0
       );
     if (categoryFoods.length) {
-      const foodRows = categoryFoods.map((food, index) => (
-        <FoodRecord key={index} food={food} />
+      const foodRows = categoryFoods.map((record, index) => (
+        <FoodRecord key={index} food={record.food} />
       ));
       columns.push(
         <Column key={category}>
