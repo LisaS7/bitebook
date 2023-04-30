@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { editBite, addBite } from "../state/slice";
 import { updateRecord, postRecord } from "../Service";
 import {
@@ -14,7 +14,7 @@ import { SaveButton } from "../components/Table/Buttons";
 import {
   GetDataTemplate,
   replaceNullWithDefaults,
-  setFoodId,
+  setObjectId,
 } from "./data_template";
 
 export default function InputRow({ action, item, setEditRow }) {
@@ -27,7 +27,8 @@ export default function InputRow({ action, item, setEditRow }) {
     event.preventDefault();
 
     const item = { ...tempItem };
-    setFoodId(item);
+    setObjectId(item, "food");
+    setObjectId(item, "person");
     replaceNullWithDefaults(item);
 
     if (action === "create") {
@@ -40,7 +41,6 @@ export default function InputRow({ action, item, setEditRow }) {
       updateRecord(item, "bites");
       dispatch(editBite(item));
     }
-    // handleAction({ ...tempItem });
     setEditRow(null);
   }
 
@@ -118,7 +118,7 @@ export default function InputRow({ action, item, setEditRow }) {
   return (
     <tr>
       {cells}
-      <td>
+      <td key="save-button">
         <SaveButton handleClickSave={handleClickSave} />
       </td>
     </tr>

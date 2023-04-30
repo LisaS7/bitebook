@@ -59,6 +59,7 @@ describe("Tests for bites route", () => {
         case "notes":
           cy.getByAttr(`input-${key}`).type(value);
           break;
+        case "person":
         case "food":
           cy.getByAttr(`input-${key}`).select(value);
           break;
@@ -77,7 +78,7 @@ describe("Tests for bites route", () => {
         banana.should("have.text", "🟢🟢🟢🟢🟢");
         banana = banana.next();
       } else {
-        banana.should("have.text", value);
+        banana.should("contain.text", value);
         banana = banana.next();
       }
     }

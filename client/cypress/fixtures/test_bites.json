@@ -14,6 +14,7 @@
       "icon": "🍌",
       "notes": ""
     },
+    "person": { "id": "47" },
     "rating": 1,
     "notes": "Dummy data"
   },
@@ -32,6 +33,7 @@
       "icon": "🍊",
       "notes": ""
     },
+    "person": { "id": "47" },
     "rating": 2,
     "notes": "Dummy data"
   },
@@ -50,6 +52,7 @@
       "icon": "🥒",
       "notes": ""
     },
+    "person": { "id": "47" },
     "rating": 3,
     "notes": "Dummy data"
   }

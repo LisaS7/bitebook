@@ -20,6 +20,13 @@ export default function TableRow({ item, toggleEdit }) {
 
   keyOrder.forEach((field) => {
     switch (field) {
+      case "person":
+        cells.push(
+          <td data-cy={field} className={field} key={field}>
+            {item[field]?.name}
+          </td>
+        );
+        break;
       case "food":
         if (typeof item[field] === "object" && field !== null) {
           cells.push(

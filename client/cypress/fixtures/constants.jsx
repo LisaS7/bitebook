@@ -28,6 +28,7 @@ export const testFood = {
 
 export const testBite = {
   date: formattedDate,
+  person: "TestPerson",
   food: "Tomato",
   rating: 5,
   notes: "TestBite",

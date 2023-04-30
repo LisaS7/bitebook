@@ -64,11 +64,13 @@ export const slice = createSlice({
      * @param  {object} action a bite object, which must contain a food object
      */
     editBite: (state, action) => {
-      const biteId = action.payload.id;
-      const foodId = action.payload.food.id;
-      const biteIndex = getIndexById(current(state.bites), biteId);
-      const food = getItemById(current(state.foods), foodId);
-      state.bites[biteIndex] = { ...action.payload, food };
+      const biteIndex = getIndexById(current(state.bites), action.payload.id);
+      const food = getItemById(current(state.foods), action.payload.food.id);
+      const person = getItemById(
+        current(state.people),
+        action.payload.person.id
+      );
+      state.bites[biteIndex] = { ...action.payload, food, person };
     },
     /**
      * removes a bite from state by id
@@ -84,7 +86,9 @@ export const slice = createSlice({
     addBite: (state, action) => {
       const newBite = action.payload;
       const food = getItemById(current(state.foods), newBite.food.id);
+      const person = getItemById(current(state.people), newBite.person.id);
       newBite.food = food;
+      newBite.person = person;
       state.bites.unshift(newBite);
     },
     // ============  PEOPLE  ============

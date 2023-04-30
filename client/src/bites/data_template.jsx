@@ -9,9 +9,9 @@ export const defaultItem = {
   notes: "",
 };
 
-export function setFoodId(bite) {
-  if (typeof bite.food !== "object") {
-    bite.food = { id: bite.food };
+export function setObjectId(bite, key) {
+  if (typeof bite[key] !== "object") {
+    bite[key] = { id: bite[key] };
   }
 }
 
@@ -35,11 +35,18 @@ export function FormatDate_HTMLInput(date) {
 }
 
 export function GetDataTemplate() {
-  const { foods } = useSelector((state) => state);
+  const { foods, people } = useSelector((state) => state);
   const dateToday = FormatDate_HTMLInput(new Date());
 
   return {
     date: { heading: "Date", type: "date", default: dateToday, sortable: true },
+    person: {
+      heading: "Person",
+      type: "select_object",
+      options: people,
+      default: people[0]?.id.toString(),
+      sortable: true,
+    },
     food: {
       heading: "Food",
       type: "select_object",
