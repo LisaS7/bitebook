@@ -15,14 +15,14 @@ public class FoodService {
     FoodRepository foodRepository;
 
     public List<Food> getFoods(String uid) {
-        List<Food> allFoods = foodRepository.findAll();
-        ArrayList<Food> userFoods = new ArrayList<>();
-        for (Food food : allFoods) {
-            if (Objects.equals(food.getUserId(), uid)) {
-                userFoods.add(food);
-            }
-        }
-        return userFoods;
+//        List<Food> allFoods = foodRepository.findAll();
+//        ArrayList<Food> userFoods = new ArrayList<>();
+//        for (Food food : allFoods) {
+//            if (Objects.equals(food.getUserId(), uid)) {
+//                userFoods.add(food);
+//            }
+//        }
+        return foodRepository.findByUserId(uid);
     }
 
     public Food addNewFood(Food food) {
@@ -48,12 +48,10 @@ public class FoodService {
         existingFood.setName(food.getName());
         existingFood.setDetail(food.getDetail());
         existingFood.setGrouping(food.getGrouping());
-        existingFood.setCategory(food.getCategory());
         existingFood.setColour(food.getColour());
         existingFood.setFlavour(food.getFlavour());
         existingFood.setTexture(food.getTexture());
         existingFood.setIcon(food.getIcon());
-        existingFood.setNotes(food.getNotes());
 
         foodRepository.save(existingFood);
         return existingFood;
