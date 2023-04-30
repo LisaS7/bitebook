@@ -5,6 +5,16 @@ import { GetDataTemplate } from "./data_template";
 import { DisplayRating } from "./utils";
 import { DeleteButton, EditButton } from "../components/Table/Buttons";
 import { PopoverTrigger } from "./food_popover";
+import styled from "styled-components";
+
+const Circle = styled.span`
+  display: inline-flex;
+  background-color: ${(props) => props.colour};
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  margin-right: 20px;
+`;
 
 export default function TableRow({ item, toggleEdit }) {
   const dispatch = useDispatch();
@@ -16,6 +26,10 @@ export default function TableRow({ item, toggleEdit }) {
     dispatch(removeBite(id));
   }
 
+  function PersonCircle() {
+    return <Circle colour={item.person.colour} />;
+  }
+
   let cells = [];
 
   keyOrder.forEach((field) => {
@@ -23,6 +37,7 @@ export default function TableRow({ item, toggleEdit }) {
       case "person":
         cells.push(
           <td data-cy={field} className={field} key={field}>
+            <PersonCircle />
             {item[field]?.name}
           </td>
         );
