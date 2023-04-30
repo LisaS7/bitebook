@@ -2,8 +2,6 @@ package uk.co.lisasteven.bitebook.food.enums;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.ArrayList;
-
 public enum Category {
     @JsonProperty("None") NONE,
     @JsonProperty("Yes") YES,

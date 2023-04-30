@@ -6,6 +6,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import uk.co.lisasteven.bitebook.bite.Bite;
+import uk.co.lisasteven.bitebook.food.enums.Group;
+import uk.co.lisasteven.bitebook.foodrecord.FoodRecord;
 
 import java.util.List;
 
@@ -26,9 +28,8 @@ public class Food {
 
     private String detail;
 
-    private String grouping;
-    private String category;
-
+    @Enumerated(EnumType.STRING)
+    private Group grouping;
     private String colour;
     private String flavour;
     private String texture;
@@ -36,24 +37,26 @@ public class Food {
     @Size(max=4)
     private String icon;
 
-    private String notes;
-
     @JsonIgnoreProperties({"food"})
     @OneToMany(mappedBy = "food")
     @ToString.Exclude
     private List<Bite> bites;
 
-    public Food(String user, String name, String detail, String grouping, String category, String colour, String flavour, String texture, String icon, String notes) {
+    @JsonIgnoreProperties({"food"})
+    @OneToMany(mappedBy = "food")
+    @ToString.Exclude
+    private List<FoodRecord> foodRecords;
+
+
+
+    public Food(String user, String name, String detail, Group grouping, String colour, String flavour, String texture, String icon) {
         this.userId = user;
         this.name = name;
         this.detail = detail;
         this.grouping = grouping;
-        this.category = category;
         this.colour = colour;
         this.flavour = flavour;
         this.texture = texture;
         this.icon = icon;
-        this.notes = notes;
     }
-
 }

@@ -7,6 +7,7 @@ public enum Group {
     @JsonProperty("Vegetable") VEGETABLE,
     @JsonProperty("Carbohydrate") CARBOHYDRATE,
     @JsonProperty("Protein") PROTEIN,
+    @JsonProperty("Dairy") DAIRY,
     @JsonProperty("Fat") FAT,
     @JsonProperty("Condiment") CONDIMENT,
     @JsonProperty("Other") OTHER;
