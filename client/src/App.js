@@ -14,6 +14,7 @@ import Reset from "./components/User/Reset";
 import Profile from "./components/User/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import FoodContainer from "./food/Container";
+import FoodRecords from "./food/foodRecords/Container";
 import BiteContainer from "./bites/Container";
 import Dashboard from "./pages/dashboard/Dashboard";
 
@@ -23,6 +24,7 @@ import { FoodReport } from "./food/report/food_report";
 
 function App() {
   const [foods, setFoods] = useState([]);
+  const [foodRecords, setFoodRecords] = useState([]);
   const [bites, setBites] = useState([]);
   const [people, setPeople] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -37,14 +39,17 @@ function App() {
       getData("/categories", setCategories);
       getData("/groups", setGroups);
       trackPromise(getData("/foods", setFoods));
+      trackPromise(getData("/foodlists", setFoodRecords));
       trackPromise(getData("/bites", setBites));
       getData("/people/" + user.uid, setPeople);
     }
   }, [user]);
 
   useEffect(() => {
-    dispatch(setDataState({ foods, bites, people, categories, groups }));
-  }, [foods, bites, people, categories, groups, dispatch]);
+    dispatch(
+      setDataState({ foods, foodRecords, bites, people, categories, groups })
+    );
+  }, [foods, foodRecords, bites, people, categories, groups, dispatch]);
 
   return (
     <Router>
@@ -60,6 +65,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/foods" element={<FoodContainer />} />
+            <Route path="/foods/categories" element={<FoodRecords />} />
             <Route path="/foods/report" element={<FoodReport />} />
             <Route path="/bites" element={<BiteContainer />} />
             <Route path="/dashboard" element={<Dashboard />} />
