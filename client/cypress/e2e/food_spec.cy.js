@@ -28,10 +28,8 @@ describe("Tests for foods route", () => {
         case "colour":
         case "flavour":
         case "texture":
-        case "notes":
           cy.getByAttr(`input-${key}`).type(value);
           break;
-        case "category":
         case "grouping":
           cy.getByAttr(`input-${key}`).select(value);
           break;

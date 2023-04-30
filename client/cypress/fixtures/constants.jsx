@@ -19,11 +19,9 @@ export const testFood = {
   name: "TestName",
   detail: "",
   grouping: "Protein",
-  category: "Maybe",
   colour: "TestColour",
   flavour: "TestFlavour",
   texture: "TestTexture",
-  notes: "TestNote",
 };
 
 export const testBite = {
