@@ -51,6 +51,9 @@ export default function CustomNavbar() {
             <NavDropdown.Item as={Link} to="/foods">
               Foods
             </NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/foods/categories">
+              Categories
+            </NavDropdown.Item>
             <NavDropdown.Item as={Link} to="/foods/report">
               Report
             </NavDropdown.Item>
