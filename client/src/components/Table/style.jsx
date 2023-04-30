@@ -55,3 +55,12 @@ export const RatingRadioButtons = styled(Form.Check)`
     display: none;
   }
 `;
+
+export const Circle = styled.span`
+  display: inline-flex;
+  background-color: ${(props) => props.colour};
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  margin-right: 20px;
+`;
