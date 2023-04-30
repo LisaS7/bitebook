@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
-import uk.co.lisasteven.bitebook.bite.Bite;
 import uk.co.lisasteven.bitebook.food.enums.Group;
 import uk.co.lisasteven.bitebook.foodrecord.FoodRecord;
 
@@ -36,11 +35,6 @@ public class Food {
 
     @Size(max=4)
     private String icon;
-
-    @JsonIgnoreProperties({"food"})
-    @OneToMany(mappedBy = "food")
-    @ToString.Exclude
-    private List<Bite> bites;
 
     @JsonIgnoreProperties({"food"})
     @OneToMany(mappedBy = "food")

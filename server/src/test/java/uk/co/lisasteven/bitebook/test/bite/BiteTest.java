@@ -7,6 +7,7 @@ import uk.co.lisasteven.bitebook.bite.Bite;
 import uk.co.lisasteven.bitebook.food.enums.Category;
 import uk.co.lisasteven.bitebook.food.Food;
 import uk.co.lisasteven.bitebook.food.enums.Group;
+import uk.co.lisasteven.bitebook.foodrecord.FoodRecord;
 import uk.co.lisasteven.bitebook.person.Person;
 
 import java.time.LocalDate;
@@ -17,32 +18,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class BiteTest {
 
     private Bite bite;
-    private Food banana;
-    private Person person;
 
     @BeforeEach
     public void setup() {
-        person = new Person("Bob", "#000000", "ABC");
+        Person person = new Person("Bob", "#000000", "ABC");
 
-        banana = new Food(
+        Food banana = new Food(
                 "ABC", "banana", "", Group.FRUIT, "yellow", "sweet", "soft", "\uD83C\uDF4C"
         );
 
+        FoodRecord foodRecord = new FoodRecord(banana, person, Category.NO, "this is a note", "ABC");
+
         bite = new Bite(
-                "ABC", person, LocalDate.of(2020, 07, 15), banana, 4, "This is a note."
+                "ABC", LocalDate.of(2020, 07, 15), foodRecord, 4, "This is a note."
         );
     }
 
-    @Test
-    public void hasPerson() {
-        assertEquals(person, bite.getPerson());
-    }
 
     @Test
     public void hasDate(){ assertEquals(LocalDate.of(2020, 07, 15), bite.getDate());}
-
-    @Test
-    public void hasFood(){ assertEquals(banana, bite.getFood()); }
 
     @Test
     public void hasRating(){ assertEquals(4, bite.getRating()); }

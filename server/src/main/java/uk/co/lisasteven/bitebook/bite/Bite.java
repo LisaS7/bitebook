@@ -6,8 +6,7 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import uk.co.lisasteven.bitebook.food.Food;
-import uk.co.lisasteven.bitebook.person.Person;
+import uk.co.lisasteven.bitebook.foodrecord.FoodRecord;
 
 import java.time.LocalDate;
 
@@ -23,19 +22,13 @@ public class Bite {
 
     private String userId;
 
-    @ManyToOne
-    @JoinColumn(name = "person_id")
-    @JsonIgnoreProperties(value={"bites"}, allowSetters = true)
-    private Person person;
-
     @NotNull
     private LocalDate date;
 
     @ManyToOne
-    @JoinColumn(name="food_id", nullable = false)
-    @JsonIgnoreProperties(value = {"bites"}, allowSetters = true)
-    @NotNull(message = "Food is required")
-    private Food food;
+    @JoinColumn(name = "food_record_id")
+    @JsonIgnoreProperties({"bites"})
+    private FoodRecord foodRecord;
 
     @Min(1)
     @Max(5)
@@ -43,11 +36,10 @@ public class Bite {
 
     private String notes;
 
-    public Bite(String user, Person person, LocalDate date, Food food, Integer rating, String notes) {
+    public Bite(String user, LocalDate date, FoodRecord foodRecord, Integer rating, String notes) {
         this.userId = user;
-        this.person = person;
         this.date = date;
-        this.food = food;
+        this.foodRecord = foodRecord;
         this.rating = rating;
         this.notes = notes;
     }

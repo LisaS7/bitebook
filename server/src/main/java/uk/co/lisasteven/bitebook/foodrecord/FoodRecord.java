@@ -3,9 +3,12 @@ package uk.co.lisasteven.bitebook.foodrecord;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
+import uk.co.lisasteven.bitebook.bite.Bite;
 import uk.co.lisasteven.bitebook.food.Food;
 import uk.co.lisasteven.bitebook.food.enums.Category;
 import uk.co.lisasteven.bitebook.person.Person;
+
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,6 +32,11 @@ public class FoodRecord {
     @JoinColumn(name = "person_id")
     @JsonIgnoreProperties({"foodLists"})
     private Person person;
+
+    @OneToMany
+    @JsonIgnoreProperties({"foodLists"})
+    @ToString.Exclude
+    private List<Bite> bites;
 
     private Category category;
 

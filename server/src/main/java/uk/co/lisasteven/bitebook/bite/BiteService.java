@@ -46,8 +46,7 @@ public class BiteService {
         ));
 
         existingBite.setDate(bite.getDate());
-        existingBite.setPerson(bite.getPerson());
-        existingBite.setFood(bite.getFood());
+        existingBite.setFoodRecord(bite.getFoodRecord());
         existingBite.setRating(bite.getRating());
         existingBite.setNotes(bite.getNotes());
 

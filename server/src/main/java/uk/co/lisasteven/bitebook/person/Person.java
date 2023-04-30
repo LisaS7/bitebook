@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import uk.co.lisasteven.bitebook.bite.Bite;
 import uk.co.lisasteven.bitebook.foodrecord.FoodRecord;
 
 import java.util.List;
@@ -26,11 +25,6 @@ public class Person {
     private String name;
     private String colour;
     private String userId;
-
-    @OneToMany
-    @JsonIgnoreProperties({"person"})
-    @ToString.Exclude
-    private List<Bite> bites;
 
     @OneToMany
     @JsonIgnoreProperties({"person"})

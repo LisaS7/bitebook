@@ -32,8 +32,6 @@ public class PersonService {
         } else {
             throw new IllegalStateException("Person with ID " + id + " does not exist");
         }
-        List<Bite> bites = biteRepository.findByPersonId(id);
-        biteRepository.deleteAll(bites);
     }
 
     @Transactional

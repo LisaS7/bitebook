@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import uk.co.lisasteven.bitebook.bite.Bite;
 import uk.co.lisasteven.bitebook.food.Food;
+import uk.co.lisasteven.bitebook.food.enums.Category;
 import uk.co.lisasteven.bitebook.food.enums.Group;
+import uk.co.lisasteven.bitebook.foodrecord.FoodRecord;
 import uk.co.lisasteven.bitebook.person.Person;
 import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -21,17 +23,6 @@ public class FoodTest {
         food = new Food(
                 "ABC", "banana", "", Group.FRUIT, "yellow", "sweet", "soft", "\uD83C\uDF4C"
         );
-
-        person = new Person("Bob", "#000000", "ABC");
-
-        Bite bite1 = new Bite(
-                "ABC", person, LocalDate.of(2020, 07, 15), food, 4, "This is the second bite."
-        );
-
-        Bite bite2 = new Bite(
-               "ABC", person, LocalDate.of(2020, 07, 10), food, 3, "This is the first bite."
-        );
-
     }
 
     @Test
