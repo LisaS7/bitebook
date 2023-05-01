@@ -20,7 +20,7 @@ export default function TableRow({ item, toggleEdit }) {
   }
 
   function PersonCircle() {
-    return <Circle colour={item.person.colour} />;
+    return <Circle colour={item.foodRecord.person.colour} />;
   }
 
   let cells = [];
@@ -31,15 +31,15 @@ export default function TableRow({ item, toggleEdit }) {
         cells.push(
           <td data-cy={field} className={field} key={field}>
             <PersonCircle />
-            {item[field]?.name}
+            {item.foodRecord.person.name}
           </td>
         );
         break;
       case "food":
-        if (typeof item[field] === "object" && field !== null) {
+        if (typeof item.foodRecord.food === "object" && field !== null) {
           cells.push(
             <td data-cy={field} key={field}>
-              <PopoverTrigger food={item["food"]} />
+              <PopoverTrigger food={item.foodRecord.food} />
             </td>
           );
         }

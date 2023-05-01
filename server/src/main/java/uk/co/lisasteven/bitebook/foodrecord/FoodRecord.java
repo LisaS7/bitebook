@@ -56,4 +56,8 @@ public class FoodRecord {
     public void addBite(Bite bite) {
         this.bites.add(bite);
     }
+
+    public void removeBite(Bite bite) {
+        this.bites.remove(bite);
+    }
 }

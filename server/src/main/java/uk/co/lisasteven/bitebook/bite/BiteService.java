@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class BiteService {
@@ -23,6 +24,10 @@ public class BiteService {
             }
         }
         return userBites;
+    }
+
+    public Optional<Bite> getBiteById(Long id) {
+        return biteRepository.findById(id);
     }
 
     public Bite addNewBite(Bite bite) {

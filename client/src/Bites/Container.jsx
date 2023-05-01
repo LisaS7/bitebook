@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import EditableTable from "../components/Table";
 import { GetDataTemplate } from "./data_template";
@@ -6,8 +6,8 @@ import TableRow from "./TableRow";
 import InputRow from "./TableInputRow";
 
 export default function BiteContainer() {
-  const { foodRecords, people } = useSelector((state) => state);
-  const [selectedPerson, setSelectedPerson] = useState(people[0]?.id);
+  const { foodRecords, people, bites } = useSelector((state) => state);
+  const [selectedPerson, setSelectedPerson] = useState(null);
   const dataTemplate = GetDataTemplate();
 
   let uniquePeople = [];
@@ -27,18 +27,13 @@ export default function BiteContainer() {
     return <div>{buttons}</div>;
   }
 
-  let personData = [];
-  foodRecords.forEach((record) => {
-    // only include records which a. have bites and b. match the selected person
-    if (record.bites.length && record.person.id === selectedPerson) {
-      record.bites.forEach((bite) => {
-        const newBite = { ...bite };
-        newBite.person = record.person;
-        newBite.food = record.food;
-        personData.push(newBite);
-      });
-    }
-  });
+  let personData = bites.filter(
+    (bite) => bite.foodRecord.person.id === selectedPerson
+  );
+
+  useEffect(() => {
+    setSelectedPerson(people[0]?.id);
+  }, [people, foodRecords]);
 
   return (
     <>

@@ -28,6 +28,9 @@ export default function InputRow({ action, item, setEditRow }) {
     event.preventDefault();
 
     const item = { ...tempItem };
+    setObjectId(item, "food");
+    setObjectId(item, "person");
+
     const existingFoodRecord = foodRecords.filter(
       (record) =>
         record.food.id === item.food.id && record.person.id === item.person.id
@@ -41,16 +44,15 @@ export default function InputRow({ action, item, setEditRow }) {
         category: "None",
         notes: "",
       };
-      setObjectId(newFoodRecord, "food");
-      setObjectId(newFoodRecord, "person");
+
       item.foodRecord = newFoodRecord;
     }
     replaceNullWithDefaults(item);
 
     if (action === "create") {
-      console.log("post item", item);
       postRecord(item, "bites");
-      dispatch(addStateItem({ item, list: "bites" }));
+      dispatch(addStateItem({ item: { ...item }, list: "bites" }));
+      console.log("food records", foodRecords);
       navigate("/bites");
     }
 

@@ -53,13 +53,16 @@ public class BiteController {
            FoodRecord newRecord = foodRecordService.addNewFoodList(newFoodRecord);
            bite.setFoodRecord(newRecord);
            newRecord.addBite(bite);
-        System.out.println("NEW RECORD      " + newRecord);
        });
-        System.out.println("FOOD RECORD     " + foodRecord);
         return biteService.addNewBite(bite);}
 
     @DeleteMapping(path="{biteId}")
-    public void deleteBite(@PathVariable("biteId") Long id) {biteService.deleteBite(id);}
+    public void deleteBite(@PathVariable("biteId") Long id) {
+       biteService.getBiteById(id).ifPresent(obj -> {
+           obj.getFoodRecord().removeBite(obj);
+           biteService.deleteBite(id);
+       });
+    }
 
     @PutMapping(path="{biteId}")
     public Bite updateBite(
