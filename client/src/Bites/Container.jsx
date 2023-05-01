@@ -10,8 +10,6 @@ export default function BiteContainer() {
   const [selectedPerson, setSelectedPerson] = useState(null);
   const dataTemplate = GetDataTemplate();
 
-  console.log("bites", bites);
-
   let uniquePeople = [];
   people.forEach((person) => {
     // if no person id already in the array matches the current person, then add person
