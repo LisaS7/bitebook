@@ -3,10 +3,10 @@ package uk.co.lisasteven.bitebook.person;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uk.co.lisasteven.bitebook.bite.Bite;
 import uk.co.lisasteven.bitebook.bite.BiteRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PersonService {
@@ -19,6 +19,10 @@ public class PersonService {
 
     public List<Person> getPeopleForAccount(String uid) {
         return personRepository.findByUserId(uid);
+    }
+
+    public Optional<Person> getPersonById(Long id) {
+        return personRepository.findById(id);
     }
 
     public Person addNewPerson(Person person) {

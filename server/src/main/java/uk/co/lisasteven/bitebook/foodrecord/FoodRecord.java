@@ -8,6 +8,7 @@ import uk.co.lisasteven.bitebook.food.Food;
 import uk.co.lisasteven.bitebook.food.enums.Category;
 import uk.co.lisasteven.bitebook.person.Person;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -25,18 +26,18 @@ public class FoodRecord {
 
     @ManyToOne
     @JoinColumn(name = "food_id")
-    @JsonIgnoreProperties({"foodLists"})
+    @JsonIgnoreProperties({"foodRecords"})
     private Food food;
 
     @ManyToOne
     @JoinColumn(name = "person_id")
-    @JsonIgnoreProperties({"foodLists"})
+    @JsonIgnoreProperties({"foodRecords"})
     private Person person;
 
     @OneToMany
-    @JsonIgnoreProperties({"foodLists"})
+    @JsonIgnoreProperties({"foodRecord"})
     @ToString.Exclude
-    private List<Bite> bites;
+    private List<Bite> bites = new ArrayList<>();
 
     private Category category;
 
@@ -50,5 +51,9 @@ public class FoodRecord {
         this.category = category;
         this.notes = notes;
         this.userId = userId;
+    }
+
+    public void addBite(Bite bite) {
+        this.bites.add(bite);
     }
 }

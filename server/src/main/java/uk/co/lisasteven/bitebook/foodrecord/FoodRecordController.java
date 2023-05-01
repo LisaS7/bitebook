@@ -20,7 +20,10 @@ public class FoodRecordController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public FoodRecord addFoodList(@RequestBody FoodRecord foodRecord) {return foodRecordService.addNewFoodList(foodRecord);}
+    public FoodRecord addFoodList(@RequestBody FoodRecord foodRecord) {
+        return foodRecordService.addNewFoodList(foodRecord);
+
+    }
 
     @DeleteMapping(path="{id}")
     public void deleteFoodList(@PathVariable("id") Long id) {

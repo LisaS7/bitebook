@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FoodRecordService {
@@ -13,6 +14,10 @@ public class FoodRecordService {
 
     public List<FoodRecord> getFoodlistsByUserId(String uid) {
         return foodRecordRepository.findByUserId(uid);
+    }
+
+    public Optional<FoodRecord> getRecordByFoodIdAndPersonId(Long foodId, Long personId) {
+        return foodRecordRepository.findFirstByFoodIdAndPersonId(foodId, personId);
     }
 
     public FoodRecord addNewFoodList(FoodRecord foodRecord) {
