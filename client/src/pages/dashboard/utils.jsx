@@ -28,3 +28,17 @@ export function aggFoodBites(foods) {
   });
   return aggData;
 }
+
+export function aggBitesByDate(bites, category) {
+  const aggData = [];
+  bites.forEach((bite) => {
+    const index = aggData.findIndex((b) => b.date === bite.date);
+    if (index < 0) {
+      // set new date object with total rating and count of ratings
+      // ??? {date: "date", yellow: 3.5, juicy: 2.4, etc}
+      aggData.push({ date: bite.date });
+    } else {
+      // add to existing rating and count of ratings
+    }
+  });
+}

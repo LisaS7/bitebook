@@ -5,7 +5,7 @@ export const colours = ["#e63946", "#edae49", "#3376bd", "#00798c", "#52489c"];
 
 export const Container = styled.div`
   display: grid;
-  gap: 2rem;
+  gap: 1rem;
   height: 75vh;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(4, 1fr);

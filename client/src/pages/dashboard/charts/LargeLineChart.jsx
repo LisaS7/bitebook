@@ -9,9 +9,20 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import { aggBitesByDate } from "../utils";
 
-export default function LargeLineChart() {
-  const [filteredFoods, setFilteredFoods] = useState([]);
+export default function LargeLineChart({ bites }) {
+  const [category, setCategory] = useState("colour");
+  // collect a list of bites by date
+  // if date already in new list of objects then
+  // if category already exists then add rating to list
+  // {date: "2023-03-29", flavours: {brown: 3.5}}
+
+  //  add route to backend to group bites by date?
+
+  console.log(aggBitesByDate(bites, category));
 
   const testData = [
     {
@@ -45,31 +56,38 @@ export default function LargeLineChart() {
   ];
 
   return (
-    <ResponsiveContainer width="100%" height="100%">
-      <LineChart
-        data={testData}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 0,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="date" />
-        <YAxis domain={[0, 5.5]} ticks={[0, 1, 2, 3, 4, 5]} />
-        <Tooltip />
-        <Legend />
-        <Line
-          type="monotone"
-          dataKey="yellow"
-          stroke="#dbd219"
-          activeDot={{ r: 8 }}
-        />
-        <Line type="monotone" dataKey="blue" stroke="#4031df" />
-        <Line type="monotone" dataKey="green" stroke="#009d3c" />
-        <Line type="monotone" dataKey="brown" stroke="#785532" />
-      </LineChart>
-    </ResponsiveContainer>
+    <>
+      <ButtonGroup>
+        <Button onClick={() => setCategory("colour")}>Colour</Button>
+        <Button onClick={() => setCategory("flavour")}>Flavour</Button>
+        <Button onClick={() => setCategory("texture")}>Texture</Button>
+      </ButtonGroup>
+      <ResponsiveContainer width="100%" height="90%">
+        <LineChart
+          data={testData}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 0,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="date" />
+          <YAxis domain={[0, 5.1]} ticks={[0, 1, 2, 3, 4, 5]} />
+          <Tooltip />
+          <Legend verticalAlign="top" />
+          <Line
+            type="monotone"
+            dataKey="yellow"
+            stroke="#dbd219"
+            activeDot={{ r: 8 }}
+          />
+          <Line type="monotone" dataKey="blue" stroke="#4031df" />
+          <Line type="monotone" dataKey="green" stroke="#009d3c" />
+          <Line type="monotone" dataKey="brown" stroke="#785532" />
+        </LineChart>
+      </ResponsiveContainer>
+    </>
   );
 }
