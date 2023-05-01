@@ -38,7 +38,8 @@ export async function postRecord(item, endpoint) {
     body: JSON.stringify(item),
     headers: { "Content-Type": "application/json" },
   });
-  return await data.json();
+  const response = await data.json();
+  return response;
 }
 
 export async function seedNewAccount() {
