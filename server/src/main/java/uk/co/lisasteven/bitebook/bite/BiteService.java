@@ -3,6 +3,11 @@ package uk.co.lisasteven.bitebook.bite;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import uk.co.lisasteven.bitebook.food.FoodRepository;
+import uk.co.lisasteven.bitebook.food.enums.Category;
+import uk.co.lisasteven.bitebook.foodrecord.FoodRecord;
+import uk.co.lisasteven.bitebook.foodrecord.FoodRecordRepository;
+import uk.co.lisasteven.bitebook.person.PersonRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +19,15 @@ public class BiteService {
 
     @Autowired
     BiteRepository biteRepository;
+
+    @Autowired
+    FoodRecordRepository foodRecordRepository;
+
+    @Autowired
+    PersonRepository personRepository;
+
+    @Autowired
+    FoodRepository foodRepository;
 
     public List<Bite> getBites(String uid) {
         List<Bite> allBites = biteRepository.findAll();
@@ -31,6 +45,25 @@ public class BiteService {
     }
 
     public Bite addNewBite(Bite bite) {
+
+        Long foodId = bite.getFoodRecord().getFood().getId();
+        Long personId = bite.getFoodRecord().getPerson().getId();
+        Optional<FoodRecord> foodRecord = foodRecordRepository.findFirstByFoodIdAndPersonId(foodId, personId);
+
+        foodRecord.ifPresentOrElse((record) -> {
+            bite.setFoodRecord(record);
+            record.addBite(bite);
+        }, () -> {
+            FoodRecord newFoodRecord = new FoodRecord();
+            foodRepository.findById(foodId).ifPresent(newFoodRecord::setFood);
+            personRepository.findById(personId).ifPresent(newFoodRecord::setPerson);
+            newFoodRecord.setCategory(Category.NONE);
+            newFoodRecord.setUserId(bite.getUserId());
+            FoodRecord newRecord = foodRecordRepository.save(newFoodRecord);
+            bite.setFoodRecord(newRecord);
+            newRecord.addBite(bite);
+        });
+
         return biteRepository.save(bite);
     }
 

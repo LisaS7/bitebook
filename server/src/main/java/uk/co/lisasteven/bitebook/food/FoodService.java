@@ -4,7 +4,6 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
@@ -15,10 +14,6 @@ public class FoodService {
 
     public List<Food> getFoods(String uid) {
         return foodRepository.findByUserId(uid);
-    }
-
-    public Optional<Food> getFoodById(Long id) {
-        return foodRepository.findById(id);
     }
 
     public Food addNewFood(Food food) {

@@ -5,13 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import uk.co.lisasteven.bitebook.food.FoodService;
-import uk.co.lisasteven.bitebook.food.enums.Category;
-import uk.co.lisasteven.bitebook.foodrecord.FoodRecord;
+//import uk.co.lisasteven.bitebook.food.enums.Category;
+//import uk.co.lisasteven.bitebook.foodrecord.FoodRecord;
 import uk.co.lisasteven.bitebook.foodrecord.FoodRecordService;
 import uk.co.lisasteven.bitebook.person.PersonService;
 
 import java.util.List;
-import java.util.Optional;
+//import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "api/bites")
@@ -20,14 +20,14 @@ public class BiteController {
     @Autowired
     BiteService biteService;
 
-    @Autowired
-    FoodRecordService foodRecordService;
-
-    @Autowired
-    FoodService foodService;
-
-    @Autowired
-    PersonService personService;
+//    @Autowired
+//    FoodRecordService foodRecordService;
+//
+//    @Autowired
+//    FoodService foodService;
+//
+//    @Autowired
+//    PersonService personService;
 
     @GetMapping
     public List<Bite> getBites(@RequestParam String uid) {
@@ -37,23 +37,23 @@ public class BiteController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Bite addBite(@Valid @RequestBody Bite bite) {
-        Long foodId = bite.getFoodRecord().getFood().getId();
-        Long personId = bite.getFoodRecord().getPerson().getId();
-        Optional<FoodRecord> foodRecord = foodRecordService.getRecordByFoodIdAndPersonId(foodId, personId);
-
-       foodRecord.ifPresentOrElse((record) -> {
-           bite.setFoodRecord(record);
-           record.addBite(bite);
-       }, () -> {
-           FoodRecord newFoodRecord = new FoodRecord();
-           foodService.getFoodById(foodId).ifPresent(newFoodRecord::setFood);
-           personService.getPersonById(personId).ifPresent(newFoodRecord::setPerson);
-           newFoodRecord.setCategory(Category.NONE);
-           newFoodRecord.setUserId(bite.getUserId());
-           FoodRecord newRecord = foodRecordService.addNewFoodList(newFoodRecord);
-           bite.setFoodRecord(newRecord);
-           newRecord.addBite(bite);
-       });
+//        Long foodId = bite.getFoodRecord().getFood().getId();
+//        Long personId = bite.getFoodRecord().getPerson().getId();
+//        Optional<FoodRecord> foodRecord = foodRecordService.getRecordByFoodIdAndPersonId(foodId, personId);
+//
+//       foodRecord.ifPresentOrElse((record) -> {
+//           bite.setFoodRecord(record);
+//           record.addBite(bite);
+//       }, () -> {
+//           FoodRecord newFoodRecord = new FoodRecord();
+//           foodService.getFoodById(foodId).ifPresent(newFoodRecord::setFood);
+//           personService.getPersonById(personId).ifPresent(newFoodRecord::setPerson);
+//           newFoodRecord.setCategory(Category.NONE);
+//           newFoodRecord.setUserId(bite.getUserId());
+//           FoodRecord newRecord = foodRecordService.addNewFoodList(newFoodRecord);
+//           bite.setFoodRecord(newRecord);
+//           newRecord.addBite(bite);
+//       });
         return biteService.addNewBite(bite);}
 
     @DeleteMapping(path="{biteId}")
