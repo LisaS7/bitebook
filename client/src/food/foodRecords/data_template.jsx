@@ -64,5 +64,6 @@ export function GetDataTemplate() {
       sortable: true,
     },
     notes: { heading: "Notes", type: "textarea", sortable: true },
+    bites: { heading: "Bites", type: "manual" },
   };
 }
