@@ -3,11 +3,9 @@ package uk.co.lisasteven.bitebook.bite;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uk.co.lisasteven.bitebook.food.FoodRepository;
-import uk.co.lisasteven.bitebook.food.enums.Category;
 import uk.co.lisasteven.bitebook.foodrecord.FoodRecord;
 import uk.co.lisasteven.bitebook.foodrecord.FoodRecordRepository;
-import uk.co.lisasteven.bitebook.person.PersonRepository;
+import uk.co.lisasteven.bitebook.foodrecord.FoodRecordService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +22,7 @@ public class BiteService {
     FoodRecordRepository foodRecordRepository;
 
     @Autowired
-    PersonRepository personRepository;
-
-    @Autowired
-    FoodRepository foodRepository;
+    FoodRecordService foodRecordService;
 
     public List<Bite> getBites(String uid) {
         List<Bite> allBites = biteRepository.findAll();
@@ -48,18 +43,13 @@ public class BiteService {
 
         Long foodId = bite.getFoodRecord().getFood().getId();
         Long personId = bite.getFoodRecord().getPerson().getId();
-        Optional<FoodRecord> foodRecord = foodRecordRepository.findFirstByFoodIdAndPersonId(foodId, personId);
+        Optional<FoodRecord> foodRecord = foodRecordRepository.findByFoodIdAndPersonId(foodId, personId);
 
         foodRecord.ifPresentOrElse((record) -> {
             bite.setFoodRecord(record);
             record.addBite(bite);
         }, () -> {
-            FoodRecord newFoodRecord = new FoodRecord();
-            foodRepository.findById(foodId).ifPresent(newFoodRecord::setFood);
-            personRepository.findById(personId).ifPresent(newFoodRecord::setPerson);
-            newFoodRecord.setCategory(Category.NONE);
-            newFoodRecord.setUserId(bite.getUserId());
-            FoodRecord newRecord = foodRecordRepository.save(newFoodRecord);
+            FoodRecord newRecord = foodRecordService.createFromFoodAndPerson(foodId, personId);
             bite.setFoodRecord(newRecord);
             newRecord.addBite(bite);
         });
@@ -82,6 +72,20 @@ public class BiteService {
                 .orElseThrow(() -> new IllegalStateException(
                         "Bite with ID " + id + " does not exist"
         ));
+
+        Long foodId = bite.getFoodRecord().getFood().getId();
+        Long personId = bite.getFoodRecord().getPerson().getId();
+
+        Optional<FoodRecord> foodRecord = foodRecordRepository.findByFoodIdAndPersonId(foodId, personId);
+
+        foodRecord.ifPresentOrElse((record) -> {
+            bite.setFoodRecord(record);
+            record.addBite(bite);
+        }, () -> {
+            FoodRecord newRecord = foodRecordService.createFromFoodAndPerson(foodId, personId);
+            bite.setFoodRecord(newRecord);
+            newRecord.addBite(bite);
+        });
 
         existingBite.setDate(bite.getDate());
         existingBite.setFoodRecord(bite.getFoodRecord());

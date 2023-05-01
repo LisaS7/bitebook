@@ -10,6 +10,6 @@ public enum Group {
     @JsonProperty("Dairy") DAIRY,
     @JsonProperty("Fat") FAT,
     @JsonProperty("Condiment") CONDIMENT,
-    @JsonProperty("Other") OTHER;
+    @JsonProperty("Other") OTHER
 
 }

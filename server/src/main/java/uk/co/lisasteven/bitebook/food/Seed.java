@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Seed {
-    List<Food> foods;
+    final List<Food> foods;
 
     public Seed(String uid) {
         foods = parseSeedData();
@@ -31,7 +31,7 @@ public class Seed {
 
         URL path = getClass().getClassLoader().getResource("static/data.json");
 
-        JsonNode node = null;
+        JsonNode node;
         try {
             node = mapper.readTree(new File(Objects.requireNonNull(path).getFile()));
         } catch (IOException e) {

@@ -9,7 +9,7 @@ public enum Category {
     @JsonProperty("Maybe") MAYBE,
     @JsonProperty("Rarely") RARELY,
     @JsonProperty("Untested") UNTESTED,
-    @JsonProperty("Allergy") ALLERGY;
+    @JsonProperty("Allergy") ALLERGY
 
 
     }
