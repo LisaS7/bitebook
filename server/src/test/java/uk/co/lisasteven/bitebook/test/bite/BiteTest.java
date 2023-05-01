@@ -30,13 +30,13 @@ public class BiteTest {
         FoodRecord foodRecord = new FoodRecord(banana, person, Category.NO, "this is a note", "ABC");
 
         bite = new Bite(
-                "ABC", LocalDate.of(2020, 07, 15), foodRecord, 4, "This is a note."
+                "ABC", LocalDate.of(2020, 7, 15), foodRecord, 4, "This is a note."
         );
     }
 
 
     @Test
-    public void hasDate(){ assertEquals(LocalDate.of(2020, 07, 15), bite.getDate());}
+    public void hasDate(){ assertEquals(LocalDate.of(2020, 7, 15), bite.getDate());}
 
     @Test
     public void hasRating(){ assertEquals(4, bite.getRating()); }

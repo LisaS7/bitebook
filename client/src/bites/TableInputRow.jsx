@@ -52,11 +52,11 @@ export default function InputRow({ action, item, setEditRow }) {
     if (action === "create") {
       const createdBite = await postRecord(item, "bites");
       dispatch(addStateItem({ item: createdBite, list: "bites" }));
-      console.log("food records", foodRecords);
       navigate("/bites");
     }
 
     if (action === "update") {
+      console.log("\nUPDATE ITEM", item);
       updateRecord(item, "bites");
       dispatch(editStateItem({ item, list: "bites" }));
     }
@@ -73,7 +73,7 @@ export default function InputRow({ action, item, setEditRow }) {
       tempItem[key] = value.default || "";
     }
 
-    const fieldValue = tempItem[key];
+    let fieldValue = tempItem[key];
 
     switch (value.type) {
       case "text":
@@ -87,6 +87,9 @@ export default function InputRow({ action, item, setEditRow }) {
         );
         break;
       case "select_object":
+        if (action === "update") {
+          fieldValue = tempItem.foodRecord[key];
+        }
         cells.push(
           <ObjectDropdown
             key={key}
