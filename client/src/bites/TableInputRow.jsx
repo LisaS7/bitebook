@@ -24,7 +24,7 @@ export default function InputRow({ action, item, setEditRow }) {
   const { foodRecords } = useSelector((state) => state);
   const [tempItem, setTempItem] = useState({ ...item });
 
-  function handleClickSave(event) {
+  async function handleClickSave(event) {
     event.preventDefault();
 
     const item = { ...tempItem };
@@ -50,8 +50,8 @@ export default function InputRow({ action, item, setEditRow }) {
     replaceNullWithDefaults(item);
 
     if (action === "create") {
-      postRecord(item, "bites");
-      dispatch(addStateItem({ item: { ...item }, list: "bites" }));
+      const createdBite = await postRecord(item, "bites");
+      dispatch(addStateItem({ item: createdBite, list: "bites" }));
       console.log("food records", foodRecords);
       navigate("/bites");
     }

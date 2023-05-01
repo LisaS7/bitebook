@@ -12,8 +12,6 @@ export default function TableRow({ item, toggleEdit }) {
   const dataTemplate = GetDataTemplate();
   const keyOrder = Object.keys(dataTemplate);
 
-  console.log("item", item);
-
   function handleDelete(id) {
     deleteRecord(id, "bites");
     dispatch(removeStateItem({ id, list: "bites" }));

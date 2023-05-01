@@ -6,9 +6,11 @@ import TableRow from "./TableRow";
 import InputRow from "./TableInputRow";
 
 export default function BiteContainer() {
-  const { foodRecords, people, bites } = useSelector((state) => state);
+  const { people, bites } = useSelector((state) => state);
   const [selectedPerson, setSelectedPerson] = useState(null);
   const dataTemplate = GetDataTemplate();
+
+  console.log("bites", bites);
 
   let uniquePeople = [];
   people.forEach((person) => {
@@ -33,7 +35,7 @@ export default function BiteContainer() {
 
   useEffect(() => {
     setSelectedPerson(people[0]?.id);
-  }, [people, foodRecords]);
+  }, [people, bites]);
 
   return (
     <>

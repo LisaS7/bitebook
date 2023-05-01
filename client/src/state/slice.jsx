@@ -84,9 +84,6 @@ export const slice = createSlice({
         const person = getItemById(current(state.people), item.person.id);
         item.person = person;
       }
-      if (list === "bites") {
-        state.bites.unshift(item);
-      }
       state[list].unshift(item);
     },
     // ============  PEOPLE  ============
