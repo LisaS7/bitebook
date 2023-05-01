@@ -65,11 +65,10 @@ export default function TableRow({ item, toggleEdit }) {
           </td>
         );
         break;
-      // TODO: add bites list to food record view
       case "bites":
         cells.push(
-          <td data-cy={field} className={field} key={field}>
-            {item[field]?.length}
+          <td data-cy={field} key={field}>
+            {item.bites.length}
           </td>
         );
         break;

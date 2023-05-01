@@ -5,21 +5,14 @@ import { GetDataTemplate } from "./data_template";
 import { DisplayRating } from "./utils";
 import { DeleteButton, EditButton } from "../components/Table/Buttons";
 import { PopoverTrigger } from "../food/food_popover";
-import styled from "styled-components";
-
-const Circle = styled.span`
-  display: inline-flex;
-  background-color: ${(props) => props.colour};
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-  margin-right: 20px;
-`;
+import { Circle } from "../components/Table/style";
 
 export default function TableRow({ item, toggleEdit }) {
   const dispatch = useDispatch();
   const dataTemplate = GetDataTemplate();
   const keyOrder = Object.keys(dataTemplate);
+
+  console.log("item", item);
 
   function handleDelete(id) {
     deleteRecord(id, "bites");

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { editStateItem, addStateItem } from "../state/slice";
 import { updateRecord, postRecord } from "../Service";
 import {
@@ -21,17 +21,34 @@ export default function InputRow({ action, item, setEditRow }) {
   const dataTemplate = GetDataTemplate();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { foodRecords } = useSelector((state) => state);
   const [tempItem, setTempItem] = useState({ ...item });
 
   function handleClickSave(event) {
     event.preventDefault();
 
     const item = { ...tempItem };
-    setObjectId(item, "food");
-    setObjectId(item, "person");
+    const existingFoodRecord = foodRecords.filter(
+      (record) =>
+        record.food.id === item.food.id && record.person.id === item.person.id
+    );
+    if (existingFoodRecord.length) {
+      item.foodRecord = existingFoodRecord;
+    } else {
+      const newFoodRecord = {
+        food: item.food,
+        person: item.person,
+        category: "None",
+        notes: "",
+      };
+      setObjectId(newFoodRecord, "food");
+      setObjectId(newFoodRecord, "person");
+      item.foodRecord = newFoodRecord;
+    }
     replaceNullWithDefaults(item);
 
     if (action === "create") {
+      console.log("post item", item);
       postRecord(item, "bites");
       dispatch(addStateItem({ item, list: "bites" }));
       navigate("/bites");
