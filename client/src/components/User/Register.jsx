@@ -71,6 +71,8 @@ export default function Register() {
         <button data-cy="submit-reg" onClick={registerUser}>
           Register
         </button>
+      </StyledForm>
+      <section className="bottom-section">
         <button
           data-cy="google-reg"
           className="google-button"
@@ -81,7 +83,7 @@ export default function Register() {
         <div data-cy="sign-in-link" className="bottom-link">
           Already have an account? <Link to="/">Sign In</Link>
         </div>
-      </StyledForm>
+      </section>
     </StyledContainer>
   );
 }

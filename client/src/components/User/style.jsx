@@ -8,10 +8,16 @@ export const StyledContainer = styled.div`
   margin: auto;
   width: 30%;
 
+  .bottom-section {
+    display: flex;
+    flex-direction: column;
+  }
+
   .bottom-link {
     margin-top: 15px;
     display: flex;
     justify-content: center;
+    gap: 1rem;
   }
 
   @media only screen and (max-width: 600px) {
@@ -24,9 +30,4 @@ export const StyledForm = styled(Form)`
   flex-direction: column;
   gap: 2rem;
   text-align: center;
-
-  & > div {
-    display: flex;
-    gap: 1rem;
-  }
 `;

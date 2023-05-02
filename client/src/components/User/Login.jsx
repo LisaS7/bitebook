@@ -46,6 +46,8 @@ export default function Login() {
         >
           Sign In
         </button>
+      </StyledForm>
+      <section className="bottom-section">
         <button className="google-button" onClick={signInWithGoogle}>
           Sign In with Google
         </button>
@@ -55,7 +57,7 @@ export default function Login() {
         <div className="bottom-link">
           New user? <Link to="/register">Sign up here</Link>
         </div>
-      </StyledForm>
+      </section>
     </StyledContainer>
   );
 }
