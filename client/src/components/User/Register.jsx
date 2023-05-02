@@ -6,19 +6,26 @@ import {
   signInWithGoogle,
 } from "../../lib/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { StyledContainer } from "./style";
+import { StyledContainer, StyledForm } from "./style";
+import Form from "react-bootstrap/Form";
 import Loading from "../Layout/Loading";
 
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [name, setName] = useState("");
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
   function registerUser() {
-    if (!name) alert("Please enter name");
-    registerWithEmailAndPassword(name, email, password);
+    if (!name) {
+      alert("Please enter name");
+    } else if (password !== confirmPassword) {
+      alert("Passwords do not match");
+    } else {
+      registerWithEmailAndPassword(name, email, password);
+    }
   }
 
   useEffect(() => {
@@ -32,27 +39,34 @@ export default function Register() {
 
   return (
     <StyledContainer>
-      <section>
-        <input
+      <StyledForm>
+        <Form.Control
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Name"
           data-cy="name"
         />
-        <input
+        <Form.Control
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email address"
           data-cy="email"
         />
-        <input
+        <Form.Control
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
           data-cy="pw"
+        />{" "}
+        <Form.Control
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          placeholder="Confirm Password"
+          data-cy="pw2"
         />
         <button data-cy="submit-reg" onClick={registerUser}>
           Register
@@ -67,7 +81,7 @@ export default function Register() {
         <div data-cy="sign-in-link" className="bottom-link">
           Already have an account? <Link to="/">Sign In</Link>
         </div>
-      </section>
+      </StyledForm>
     </StyledContainer>
   );
 }

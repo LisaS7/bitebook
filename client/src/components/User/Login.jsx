@@ -6,7 +6,8 @@ import {
   signInWithGoogle,
 } from "../../lib/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { StyledContainer } from "./style";
+import { StyledContainer, StyledForm } from "./style";
+import Form from "react-bootstrap/Form";
 import Loading from "../Layout/Loading";
 
 export default function Login() {
@@ -24,15 +25,15 @@ export default function Login() {
   }
   return (
     <StyledContainer>
-      <section>
-        <input
+      <StyledForm>
+        <Form.Control
           data-cy="email-input"
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email address"
         />
-        <input
+        <Form.Control
           data-cy="password-input"
           type="password"
           value={password}
@@ -54,7 +55,7 @@ export default function Login() {
         <div className="bottom-link">
           New user? <Link to="/register">Sign up here</Link>
         </div>
-      </section>
+      </StyledForm>
     </StyledContainer>
   );
 }
