@@ -20,7 +20,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 
 import { auth } from "./lib/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { FoodReport } from "./food/report/food_report";
+import { FoodReport } from "./food/report/index";
 
 function App() {
   const [foods, setFoods] = useState([]);
