@@ -8,18 +8,17 @@ import {
   ResponsiveContainer,
   LabelList,
 } from "recharts";
-
-import { aggFoodBites, getAverage } from "../utils";
+import { getAverage } from "../utils";
 import { colours } from "../style";
 
-export default function SmallBarChart({ foods }) {
-  // limit to 10 results
-  const aggData = aggFoodBites(foods).slice(0, 10);
-
-  const avgList = aggData.map((food) => ({
-    name: food.name,
-    avgRating: getAverage(food.bites, "rating"),
-  }));
+export default function SmallBarChart({ foodRecords }) {
+  // TODO: limit to 10ish foods
+  const avgList = foodRecords
+    .filter((record) => record.bites.length)
+    .map((record) => ({
+      name: record.food.name,
+      avgRating: getAverage(record.bites, "rating"),
+    }));
 
   return (
     <ResponsiveContainer width="100%" height="100%">

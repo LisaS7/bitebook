@@ -13,22 +13,6 @@ export function getAverage(listOfObjects, key) {
   return sum / values.length;
 }
 
-export function aggFoodBites(foods) {
-  const aggData = [];
-  foods.forEach((food) => {
-    if (!food.bites.length) {
-      return;
-    }
-    const index = aggData.findIndex((f) => f.name === food.name);
-    if (index < 0) {
-      aggData.push(food);
-    } else {
-      aggData[index].bites.push(...food.bites);
-    }
-  });
-  return aggData;
-}
-
 export function aggBitesByDate(bites, category) {
   const aggData = [];
   bites.forEach((bite) => {

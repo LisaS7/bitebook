@@ -13,7 +13,16 @@ import { Controls } from "./charts/Controls";
 import { getDistinctValues } from "./utils";
 
 export default function Dashboard() {
-  const { foods, filteredFoods, bites } = useSelector((state) => state);
+  const { foodRecords, foods, filteredFoods, bites, activePerson } =
+    useSelector((state) => state);
+
+  const personBites = bites.filter(
+    (bite) => bite.foodRecord.person.id === activePerson.id
+  );
+
+  const personFoodRecords = foodRecords.filter(
+    (record) => record.person.id === activePerson.id
+  );
 
   const filterOptions = {
     flavour: getDistinctValues(foods, "flavour"),
@@ -29,13 +38,13 @@ export default function Dashboard() {
       </CardChartControls>
       <CardTopRatings>top ratings</CardTopRatings>
       <CardSmallBarChart>
-        <SmallBarChart foods={filteredFoods} />
+        <SmallBarChart foodRecords={personFoodRecords} />
       </CardSmallBarChart>
 
       {/* ======== Bottom ======== */}
       <CardLargeBarChart>large bar chart</CardLargeBarChart>
       <CardLargeLineChart>
-        <LargeLineChart bites={bites} />
+        <LargeLineChart bites={personBites} />
       </CardLargeLineChart>
     </Container>
   );
