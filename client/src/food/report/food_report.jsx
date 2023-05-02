@@ -1,7 +1,9 @@
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPrint } from "@fortawesome/free-solid-svg-icons";
 import { Column, ReportHead, ReportBody, ReportContainer } from "./style";
+import { getBitePropertyAverages } from "./utils";
 
 function FoodRecord({ food }) {
   return (
@@ -13,11 +15,26 @@ function FoodRecord({ food }) {
 }
 
 export function FoodReport() {
-  const { foodRecords, categories } = useSelector((state) => state);
+  const { foodRecords, categories, bites, activePerson } = useSelector(
+    (state) => state
+  );
+  const personFoodRecords = foodRecords.filter(
+    (record) => record.person.id === activePerson.id
+  );
+  const personBites = bites.filter(
+    (bite) => bite.foodRecord.person.id === activePerson.id
+  );
+
+  const bitePropertyAverages = getBitePropertyAverages(personBites);
+
+  console.log("\nfinal", bitePropertyAverages);
+
+  // avg ratings for each list
+  // return hashmap with word: rating
 
   let columns = [];
   categories.forEach((category) => {
-    const categoryFoods = foodRecords
+    const categoryFoods = personFoodRecords
       .filter((record) => record.category === category)
       .sort((a, b) =>
         a.food.grouping < b.food.grouping
