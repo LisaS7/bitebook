@@ -4,16 +4,19 @@ function getAverage(listOfObjects, key) {
   return sum / values.length;
 }
 
-export function getBitePropertyAverages(personBites) {
+export function calcFoodPropertyAverages(personBites) {
   function averageOfProperty(listOfValues, property) {
-    const bitesByProperty = {};
+    const bitesByProperty = [];
     listOfValues[property].forEach((item) => {
       const currentBites = personBites.filter((bite) =>
         bite.foodRecord.food[property].includes(item)
       );
-      bitesByProperty[item] = getAverage(currentBites, "rating");
+      bitesByProperty.push({
+        name: item,
+        rating: getAverage(currentBites, "rating"),
+      });
     });
-    return bitesByProperty;
+    return bitesByProperty.sort((a, b) => b.rating - a.rating);
   }
 
   const values = {
@@ -28,23 +31,11 @@ export function getBitePropertyAverages(personBites) {
     values.texture.add(...bite.foodRecord.food.texture.split(","));
   });
 
-  console.log("\nVALUES", values);
-
-  //   const bitesByColour = {};
-  //   values.colour.forEach((colour) => {
-  //     const currentColourBites = personBites.filter((bite) =>
-  //       bite.foodRecord.food.colour.includes(colour)
-  //     );
-  //     bitesByColour[colour] = getAverage(currentColourBites, "rating");
-  //   });
-
-  //   console.log("BITES BY COLOUR", bitesByColour);
-
-  const bitesAverages = {
+  const foodAverages = {
     colour: averageOfProperty(values, "colour"),
     flavour: averageOfProperty(values, "flavour"),
     texture: averageOfProperty(values, "texture"),
   };
 
-  return bitesAverages;
+  return foodAverages;
 }
