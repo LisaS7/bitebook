@@ -5,13 +5,17 @@ import TableRow from "./TableRow";
 import InputRow from "./TableInputRow";
 
 export default function FoodRecords() {
-  const { foodRecords } = useSelector((state) => state);
+  const { foodRecords, activePerson } = useSelector((state) => state);
   const dataTemplate = GetDataTemplate();
+
+  let personData = foodRecords.filter(
+    (record) => record.person.id === activePerson.id
+  );
 
   return (
     <>
       <EditableTable
-        data={foodRecords}
+        data={personData}
         InputRow={InputRow}
         TableRow={TableRow}
         dataTemplate={dataTemplate}

@@ -7,6 +7,7 @@ const initialState = {
   people: [],
   categories: [],
   groups: [],
+  activePerson: {},
   activeFilters: { colour: [], flavour: [], texture: [] },
   filteredFoods: [],
 };
@@ -110,6 +111,13 @@ export const slice = createSlice({
     addPerson: (state, action) => {
       state.people.unshift(action.payload);
     },
+    /**
+     * changes the active person to display data for through the app
+     * @param  {object} action a person object
+     */
+    setActivePerson: (state, action) => {
+      state.activePerson = action.payload;
+    },
     // ============  SORT & FILTER  ============
     /**
      * reorders the state foods list
@@ -187,6 +195,7 @@ export const {
   editPerson,
   removePerson,
   addPerson,
+  setActivePerson,
   sortFoods,
   filterFoods,
   resetFilters,

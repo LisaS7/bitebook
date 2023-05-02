@@ -6,6 +6,7 @@ import { auth, logout } from "../../lib/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useEffect } from "react";
 import { StyledNavbar } from "./navbar.style";
+import PersonSelector from "./PersonSelector";
 
 function UserActions({ user }) {
   if (!user) {
@@ -20,9 +21,10 @@ function UserActions({ user }) {
       </Nav>
     );
   }
+
   return (
     <Nav className="ms-auto">
-      <div className="nav-pad"> </div>
+      <PersonSelector />
       <Nav.Link data-cy="nav-profile" as={Link} to="/profile">
         Profile
       </Nav.Link>
