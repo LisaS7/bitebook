@@ -3,7 +3,7 @@ import { deleteRecord } from "../Service";
 import { removeStateItem } from "../state/slice";
 import { GetDataTemplate } from "./data_template";
 import { DisplayRating } from "./utils";
-import { DeleteButton, EditButton } from "../components/Table/Buttons";
+import { DeleteButton } from "../components/Table/Buttons";
 import { PopoverTrigger } from "../food/food_popover";
 import { Circle } from "../components/Table/style";
 
