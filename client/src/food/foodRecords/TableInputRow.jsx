@@ -36,8 +36,8 @@ export default function InputRow({ action, item, setEditRow }) {
     }
 
     if (action === "update") {
-      // updateRecord(item, "foodslists");
-      // dispatch(editFood(item));
+      updateRecord(item, "foodlists");
+      dispatch(editStateItem({ item, list: "foodRecords" }));
     }
 
     setEditRow(null);
