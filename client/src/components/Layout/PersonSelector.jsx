@@ -9,14 +9,15 @@ export default function PersonSelector() {
 
   function PersonButtons() {
     const buttons = people.map((person) => (
-      <NavDropdown.Item onClick={() => dispatch(setActivePerson(person))}>
+      <NavDropdown.Item
+        key={person.id}
+        onClick={() => dispatch(setActivePerson(person))}
+      >
         {person.name}
       </NavDropdown.Item>
     ));
     return <div>{buttons}</div>;
   }
-
-  console.log("active person", activePerson);
 
   const dropdownTitle = (
     <>
