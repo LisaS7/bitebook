@@ -63,7 +63,7 @@ export default function TableRow({ item, toggleEdit }) {
     <tr>
       {cells}
       <td data-cy={`edit-${item.name || item.date}`} key={`edit-${item.name}`}>
-        <EditButton itemId={item.id} toggleEdit={toggleEdit} />
+        {/* <EditButton itemId={item.id} toggleEdit={toggleEdit} /> */}
       </td>
       <td data-cy={`delete-${item.name}`} key={`delete-${item.name}`}>
         <DeleteButton handleDelete={handleDelete} id={item.id} />
