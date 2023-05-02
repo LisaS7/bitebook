@@ -1,809 +1,955 @@
 [
   {
-    "id": 1458,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Coconut",
-    "detail": "",
-    "grouping": "Fruit",
-    "category": "None",
-    "colour": "White",
-    "flavour": "Milky, Sweet",
-    "texture": "Firm, Chewy",
-    "icon": "🥥",
-    "notes": "",
-    "bites": []
-  },
-  {
-    "id": 1490,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Beef",
-    "detail": "Mince",
-    "grouping": "Protein",
-    "category": "Yes",
-    "colour": "Brown",
-    "flavour": "Meaty, Umami",
-    "texture": "Chewy",
-    "icon": "🐄",
-    "notes": "",
-    "bites": [
-      {
-        "id": 381,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-        "person": {
-          "id": 46,
-          "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
-        },
-        "date": "2023-04-25",
-        "rating": 4,
-        "notes": ""
-      }
-    ]
-  },
-  {
-    "id": 1493,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Meatballs",
-    "detail": "Beef",
-    "grouping": "Protein",
-    "category": "Maybe",
-    "colour": "Brown",
-    "flavour": "Meaty",
-    "texture": "Soft",
-    "icon": "🍝",
-    "notes": "",
-    "bites": [
-      {
-        "id": 386,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-        "person": {
-          "id": 46,
-          "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
-        },
-        "date": "2023-04-27",
-        "rating": 1,
-        "notes": ""
-      }
-    ]
-  },
-  {
-    "id": 1495,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Haggis",
-    "detail": "",
-    "grouping": "Protein",
-    "category": "Maybe",
-    "colour": "Brown",
-    "flavour": "Meaty, Spicy",
-    "texture": "Soft",
-    "icon": "🥩",
-    "notes": "",
-    "bites": [
-      {
-        "id": 393,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-        "person": {
-          "id": 46,
-          "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
-        },
-        "date": "2023-04-28",
-        "rating": 2,
-        "notes": "With ketchup"
-      }
-    ]
-  },
-  {
-    "id": 1494,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Raspberry",
-    "detail": "",
-    "grouping": "Fruit",
-    "category": "Yes",
-    "colour": "Red",
-    "flavour": "Sweet",
-    "texture": "Soft, juicy",
-    "icon": "🍓",
-    "notes": "",
-    "bites": [
-      {
-        "id": 390,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-        "person": {
-          "id": 46,
-          "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
-        },
-        "date": "2023-04-27",
-        "rating": 5,
-        "notes": ""
-      },
-      {
-        "id": 391,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-        "person": {
-          "id": 46,
-          "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
-        },
-        "date": "2023-04-29",
-        "rating": 5,
-        "notes": ""
-      },
-      {
-        "id": 416,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-        "person": {
-          "id": 46,
-          "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
-        },
-        "date": "2023-04-30",
-        "rating": 4,
-        "notes": ""
-      }
-    ]
-  },
-  {
-    "id": 1428,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Avocado",
-    "detail": null,
-    "grouping": "Fruit",
-    "category": "",
-    "colour": "Green",
-    "flavour": "Nutty",
-    "texture": "Creamy",
-    "icon": "🥑",
-    "notes": "",
-    "bites": []
-  },
-  {
-    "id": 1429,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Potato",
-    "detail": null,
-    "grouping": "Vegetable",
-    "category": "",
-    "colour": "White, Beige",
-    "flavour": "Mild, Earthy",
-    "texture": "Soft",
-    "icon": "🥔",
-    "notes": "",
-    "bites": []
-  },
-  {
-    "id": 1430,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Carrot",
-    "detail": null,
-    "grouping": "Vegetable",
-    "category": "",
-    "colour": "Orange",
-    "flavour": "Sweet",
-    "texture": "Crunchy",
-    "icon": "🥕",
-    "notes": "",
-    "bites": [
-      {
-        "id": 384,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-        "person": {
-          "id": 46,
-          "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
-        },
-        "date": "2023-04-26",
-        "rating": 2,
-        "notes": ""
-      }
-    ]
-  },
-  {
-    "id": 1432,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Bell Pepper",
-    "detail": null,
-    "grouping": "Vegetable",
-    "category": "",
-    "colour": "Red, Green, Yellow, Orange",
-    "flavour": "Sweet",
-    "texture": "Crunchy",
-    "icon": "🫑",
-    "notes": "",
-    "bites": []
-  },
-  {
-    "id": 1433,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Cucumber",
-    "detail": null,
-    "grouping": "Vegetable",
-    "category": "",
-    "colour": "Green",
-    "flavour": "Mild",
-    "texture": "Crunchy, Juicy",
-    "icon": "🥒",
-    "notes": "",
-    "bites": []
-  },
-  {
-    "id": 1434,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Lettuce",
-    "detail": null,
-    "grouping": "Vegetable",
-    "category": "",
-    "colour": "Green",
-    "flavour": "Mild, Bitter",
-    "texture": "Soft",
-    "icon": "🥬",
-    "notes": "",
-    "bites": []
-  },
-  {
-    "id": 1439,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Nuts",
-    "detail": null,
-    "grouping": "Fruit",
-    "category": "",
-    "colour": "Beige, Brown",
-    "flavour": "Earthy, Nutty",
-    "texture": "Firm, Oily",
-    "icon": "🥜",
-    "notes": "",
-    "bites": []
-  },
-  {
-    "id": 1447,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Bread",
-    "detail": null,
-    "grouping": "Carbohydrate",
-    "category": "No",
-    "colour": "Beige",
-    "flavour": "Yeasty, Bland",
-    "texture": "Dry, Soft",
-    "icon": "🍞",
-    "notes": "",
-    "bites": [
-      {
-        "id": 392,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-        "person": {
-          "id": 46,
-          "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
-        },
-        "date": "2023-04-29",
-        "rating": 4,
-        "notes": ""
-      }
-    ]
-  },
-  {
-    "id": 1417,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+    "id": 1,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
     "name": "Banana",
-    "detail": null,
+    "detail": "",
     "grouping": "Fruit",
-    "category": "Yes",
     "colour": "Yellow",
     "flavour": "Sweet",
     "texture": "Soft",
     "icon": "🍌",
-    "notes": "",
-    "bites": []
-  },
-  {
-    "id": 1454,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Green Beans",
-    "detail": "Tinned",
-    "grouping": "Vegetable",
-    "category": "Yes",
-    "colour": "Green",
-    "flavour": "Mild, Earthy",
-    "texture": "Soft",
-    "icon": "🟩",
-    "notes": "",
-    "bites": [
+    "foodRecords": [
       {
-        "id": 375,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "id": 1,
         "person": {
-          "id": 46,
+          "id": 1,
           "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
         },
-        "date": "2023-04-24",
-        "rating": 5,
-        "notes": "With bbq sauce"
+        "bites": [
+          {
+            "id": 37,
+            "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+            "date": "2023-04-26",
+            "rating": 2,
+            "notes": ""
+          }
+        ],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
       }
     ]
   },
   {
-    "id": 1431,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Sweetcorn",
-    "detail": null,
-    "grouping": "Vegetable",
-    "category": "",
-    "colour": "Yellow",
-    "flavour": "Sweet",
-    "texture": "Crunchy",
-    "icon": "🌽",
-    "notes": "",
-    "bites": [
-      {
-        "id": 394,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-        "person": {
-          "id": 46,
-          "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
-        },
-        "date": "2023-04-28",
-        "rating": 3,
-        "notes": ""
-      },
-      {
-        "id": 387,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-        "person": {
-          "id": 46,
-          "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
-        },
-        "date": "2023-04-27",
-        "rating": 2,
-        "notes": ""
-      },
-      {
-        "id": 376,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-        "person": {
-          "id": 46,
-          "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
-        },
-        "date": "2023-04-25",
-        "rating": 4,
-        "notes": "With gravy"
-      },
-      {
-        "id": 312,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-        "person": {
-          "id": 46,
-          "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
-        },
-        "date": "2023-04-23",
-        "rating": 5,
-        "notes": "With gravy"
-      }
-    ]
-  },
-  {
-    "id": 1443,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Egg",
-    "detail": "Boiled",
-    "grouping": "Protein",
-    "category": "Untested",
-    "colour": "White, Yellow",
-    "flavour": "Rich, Umami",
-    "texture": "Soft, Rubbery",
-    "icon": "🥚",
-    "notes": "",
-    "bites": []
-  },
-  {
-    "id": 1444,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Rice",
-    "detail": null,
-    "grouping": "Carbohydrate",
-    "category": "Yes",
-    "colour": "White",
-    "flavour": "Bland",
-    "texture": "Soft, Starchy",
-    "icon": "🍚",
-    "notes": "",
-    "bites": [
-      {
-        "id": 385,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-        "person": {
-          "id": 46,
-          "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
-        },
-        "date": "2023-04-26",
-        "rating": 4,
-        "notes": ""
-      }
-    ]
-  },
-  {
-    "id": 1437,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Onion",
-    "detail": "Cooked",
-    "grouping": "Vegetable",
-    "category": "None",
-    "colour": "White",
-    "flavour": "Sweet",
-    "texture": "Soft",
-    "icon": "🧅",
-    "notes": "",
-    "bites": []
-  },
-  {
-    "id": 1445,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Spaghetti",
-    "detail": null,
-    "grouping": "Carbohydrate",
-    "category": "Yes",
-    "colour": "Beige",
-    "flavour": "Bland",
-    "texture": "Soft, Starchy",
-    "icon": "🍝",
-    "notes": "",
-    "bites": [
-      {
-        "id": 389,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-        "person": {
-          "id": 46,
-          "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
-        },
-        "date": "2023-04-27",
-        "rating": 1,
-        "notes": ""
-      }
-    ]
-  },
-  {
-    "id": 1440,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Cheese",
-    "detail": "Cheddar",
-    "grouping": "Dairy",
-    "category": "None",
-    "colour": "Beige, Yellow, Orange",
-    "flavour": "Milky, Salty, Umami",
-    "texture": "Firm",
-    "icon": "🧀",
-    "notes": "",
-    "bites": []
-  },
-  {
-    "id": 1438,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Mushroom",
-    "detail": "Cooked",
-    "grouping": "Vegetable",
-    "category": "None",
-    "colour": "White, Beige, Brown",
-    "flavour": "Earthy, Mild, Umami",
-    "texture": "Soft",
-    "icon": "🍄",
-    "notes": "",
-    "bites": []
-  },
-  {
-    "id": 1446,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Chips",
-    "detail": null,
-    "grouping": "Carbohydrate",
-    "category": "Maybe",
-    "colour": "Beige",
-    "flavour": "Salty",
-    "texture": "Soft, Crunchy",
-    "icon": "🍟",
-    "notes": "",
-    "bites": []
-  },
-  {
-    "id": 1418,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+    "id": 2,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
     "name": "Apple",
-    "detail": null,
+    "detail": "",
     "grouping": "Fruit",
-    "category": "Rarely",
     "colour": "Green",
     "flavour": "Tart",
     "texture": "Crunchy",
     "icon": "🍏",
-    "notes": "",
-    "bites": []
+    "foodRecords": [
+      {
+        "id": 2,
+        "person": {
+          "id": 1,
+          "name": "Alec",
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+        },
+        "bites": [],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+      }
+    ]
   },
   {
-    "id": 1419,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+    "id": 3,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
     "name": "Apple",
-    "detail": null,
+    "detail": "",
     "grouping": "Fruit",
-    "category": "Rarely",
     "colour": "Red",
     "flavour": "Sweet",
     "texture": "Crunchy",
     "icon": "🍎",
-    "notes": "",
-    "bites": []
+    "foodRecords": []
   },
   {
-    "id": 1420,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+    "id": 4,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
     "name": "Pear",
-    "detail": null,
+    "detail": "",
     "grouping": "Fruit",
-    "category": "Rarely",
     "colour": "Green",
     "flavour": "Sweet",
     "texture": "Grainy",
     "icon": "🍐",
-    "notes": "",
-    "bites": []
+    "foodRecords": []
   },
   {
-    "id": 1421,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+    "id": 5,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
     "name": "Orange",
-    "detail": null,
+    "detail": "",
     "grouping": "Fruit",
-    "category": "Yes",
     "colour": "Orange",
     "flavour": "Sweet, Acidic",
     "texture": "Juicy",
     "icon": "🍊",
-    "notes": "",
-    "bites": [
+    "foodRecords": [
       {
-        "id": 374,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "id": 3,
         "person": {
-          "id": 46,
+          "id": 1,
           "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
         },
-        "date": "2023-04-24",
-        "rating": 3,
-        "notes": ""
+        "bites": [
+          {
+            "id": 31,
+            "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+            "date": "2023-04-24",
+            "rating": 3,
+            "notes": ""
+          }
+        ],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
       }
     ]
   },
   {
-    "id": 1422,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+    "id": 6,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
     "name": "Strawberry",
-    "detail": null,
+    "detail": "",
     "grouping": "Fruit",
-    "category": "Maybe",
     "colour": "Red",
     "flavour": "Sweet, Tart",
     "texture": "Soft",
     "icon": "🍓",
-    "notes": "",
-    "bites": []
+    "foodRecords": [
+      {
+        "id": 4,
+        "person": {
+          "id": 1,
+          "name": "Alec",
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+        },
+        "bites": [],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+      }
+    ]
   },
   {
-    "id": 1423,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+    "id": 7,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
     "name": "Grapes",
-    "detail": null,
+    "detail": "",
     "grouping": "Fruit",
-    "category": "Yes",
     "colour": "Purple, Green",
     "flavour": "Sweet",
     "texture": "Crunchy, Soft",
     "icon": "🍇",
-    "notes": "",
-    "bites": []
+    "foodRecords": []
   },
   {
-    "id": 1441,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Beef ",
-    "detail": "Stewed",
-    "grouping": "Protein",
-    "category": "Yes",
-    "colour": "Brown",
-    "flavour": "Meaty, Umami",
-    "texture": "Soft, Chewy",
-    "icon": "🥩",
-    "notes": "",
-    "bites": []
-  },
-  {
-    "id": 1435,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Broccoli",
-    "detail": null,
-    "grouping": "Vegetable",
-    "category": "None",
-    "colour": "Green",
-    "flavour": "Mild, Bitter",
-    "texture": "Soft",
-    "icon": "🥦",
-    "notes": "",
-    "bites": []
-  },
-  {
-    "id": 1424,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+    "id": 8,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
     "name": "Pineapple",
-    "detail": null,
+    "detail": "",
     "grouping": "Fruit",
-    "category": "Yes",
     "colour": "Yellow",
     "flavour": "Sweet, Acidic",
     "texture": "Juicy",
     "icon": "🍍",
-    "notes": "",
-    "bites": [
+    "foodRecords": [
       {
-        "id": 311,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "id": 5,
         "person": {
-          "id": 46,
+          "id": 1,
           "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
         },
-        "date": "2023-04-23",
-        "rating": 2,
-        "notes": ""
+        "bites": [
+          {
+            "id": 28,
+            "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+            "date": "2023-04-23",
+            "rating": 2,
+            "notes": ""
+          }
+        ],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
       }
     ]
   },
   {
-    "id": 1425,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+    "id": 9,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
     "name": "Blueberries",
-    "detail": null,
+    "detail": "",
     "grouping": "Fruit",
-    "category": "Yes",
     "colour": "Blue",
     "flavour": "Sweet",
     "texture": "Soft",
     "icon": "🫐",
-    "notes": "",
-    "bites": []
+    "foodRecords": [
+      {
+        "id": 7,
+        "person": {
+          "id": 1,
+          "name": "Alec",
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+        },
+        "bites": [],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+      }
+    ]
   },
   {
-    "id": 1426,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+    "id": 10,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
     "name": "Tomato",
-    "detail": null,
+    "detail": "",
     "grouping": "Fruit",
-    "category": "No",
     "colour": "Red",
     "flavour": "Sweet, Tangy",
     "texture": "Grainy, Soft",
     "icon": "🍅",
-    "notes": "",
-    "bites": [
+    "foodRecords": [
       {
-        "id": 388,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "id": 11,
         "person": {
-          "id": 46,
+          "id": 1,
           "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
         },
-        "date": "2023-04-27",
-        "rating": 1,
-        "notes": ""
+        "bites": [
+          {
+            "id": 40,
+            "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+            "date": "2023-04-27",
+            "rating": 1,
+            "notes": ""
+          }
+        ],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
       }
     ]
   },
   {
-    "id": 1455,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Sausage",
-    "detail": null,
-    "grouping": "Protein",
-    "category": "Yes",
-    "colour": "Brown",
-    "flavour": "Meaty, Salty",
-    "texture": "Soft, Chewy",
-    "icon": "🌭",
-    "notes": "",
-    "bites": [
+    "id": 11,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Coconut",
+    "detail": "",
+    "grouping": "Fruit",
+    "colour": "White",
+    "flavour": "Milky, Sweet",
+    "texture": "Firm, Chewy",
+    "icon": "🥥",
+    "foodRecords": [
       {
-        "id": 382,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "id": 6,
         "person": {
-          "id": 46,
+          "id": 1,
           "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
         },
-        "date": "2023-04-26",
-        "rating": 5,
-        "notes": "Paella"
+        "bites": [],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
       }
     ]
   },
   {
-    "id": 1436,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
-    "name": "Peas",
-    "detail": null,
+    "id": 12,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Avocado",
+    "detail": "",
+    "grouping": "Fruit",
+    "colour": "Green",
+    "flavour": "Nutty",
+    "texture": "Creamy",
+    "icon": "🥑",
+    "foodRecords": [
+      {
+        "id": 8,
+        "person": {
+          "id": 1,
+          "name": "Alec",
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+        },
+        "bites": [],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Potato",
+    "detail": "Boiled",
     "grouping": "Vegetable",
-    "category": "None",
+    "colour": "White, Beige",
+    "flavour": "Mild, Earthy",
+    "texture": "Soft",
+    "icon": "🥔",
+    "foodRecords": [
+      {
+        "id": 14,
+        "person": {
+          "id": 1,
+          "name": "Alec",
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+        },
+        "bites": [],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Carrot",
+    "detail": "Raw",
+    "grouping": "Vegetable",
+    "colour": "Orange",
+    "flavour": "Sweet",
+    "texture": "Crunchy",
+    "icon": "🥕",
+    "foodRecords": [
+      {
+        "id": 13,
+        "person": {
+          "id": 1,
+          "name": "Alec",
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+        },
+        "bites": [],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Sweetcorn",
+    "detail": "",
+    "grouping": "Vegetable",
+    "colour": "Yellow",
+    "flavour": "Sweet",
+    "texture": "Crunchy",
+    "icon": "🌽",
+    "foodRecords": [
+      {
+        "id": 10,
+        "person": {
+          "id": 1,
+          "name": "Alec",
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+        },
+        "bites": [
+          {
+            "id": 29,
+            "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+            "date": "2023-04-23",
+            "rating": 5,
+            "notes": ""
+          },
+          {
+            "id": 33,
+            "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+            "date": "2023-04-25",
+            "rating": 4,
+            "notes": ""
+          },
+          {
+            "id": 39,
+            "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+            "date": "2023-04-27",
+            "rating": 2,
+            "notes": ""
+          },
+          {
+            "id": 46,
+            "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+            "date": "2023-04-28",
+            "rating": 3,
+            "notes": ""
+          }
+        ],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Bell Pepper",
+    "detail": "",
+    "grouping": "Vegetable",
+    "colour": "Red, Green, Yellow, Orange",
+    "flavour": "Sweet",
+    "texture": "Crunchy",
+    "icon": "🫑",
+    "foodRecords": []
+  },
+  {
+    "id": 17,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Cucumber",
+    "detail": "",
+    "grouping": "Vegetable",
+    "colour": "Green",
+    "flavour": "Mild",
+    "texture": "Crunchy, Juicy",
+    "icon": "🥒",
+    "foodRecords": [
+      {
+        "id": 15,
+        "person": {
+          "id": 1,
+          "name": "Alec",
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+        },
+        "bites": [],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Lettuce",
+    "detail": "",
+    "grouping": "Vegetable",
+    "colour": "Green",
+    "flavour": "Mild, Bitter",
+    "texture": "Soft",
+    "icon": "🥬",
+    "foodRecords": [
+      {
+        "id": 17,
+        "person": {
+          "id": 1,
+          "name": "Alec",
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+        },
+        "bites": [],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Broccoli",
+    "detail": "Cooked",
+    "grouping": "Vegetable",
+    "colour": "Green",
+    "flavour": "Mild, Bitter",
+    "texture": "Soft",
+    "icon": "🥦",
+    "foodRecords": [
+      {
+        "id": 12,
+        "person": {
+          "id": 1,
+          "name": "Alec",
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+        },
+        "bites": [],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Peas",
+    "detail": "Cooked",
+    "grouping": "Vegetable",
     "colour": "Green",
     "flavour": "Sweet",
     "texture": "Soft",
     "icon": "🫛",
-    "notes": "",
-    "bites": [
+    "foodRecords": [
       {
-        "id": 383,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "id": 9,
         "person": {
-          "id": 46,
+          "id": 1,
           "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
         },
-        "date": "2023-04-26",
-        "rating": 4,
-        "notes": ""
+        "bites": [
+          {
+            "id": 36,
+            "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+            "date": "2023-04-26",
+            "rating": 4,
+            "notes": ""
+          }
+        ],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
       }
     ]
   },
   {
-    "id": 1442,
-    "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+    "id": 21,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Onion",
+    "detail": "Cooked",
+    "grouping": "Vegetable",
+    "colour": "White",
+    "flavour": "Sweet",
+    "texture": "Soft",
+    "icon": "🧅",
+    "foodRecords": [
+      {
+        "id": 16,
+        "person": {
+          "id": 1,
+          "name": "Alec",
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+        },
+        "bites": [],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Mushroom",
+    "detail": "Cooked",
+    "grouping": "Vegetable",
+    "colour": "White, Beige, Brown",
+    "flavour": "Earthy, Mild, Umami",
+    "texture": "Soft",
+    "icon": "🍄",
+    "foodRecords": []
+  },
+  {
+    "id": 23,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Nuts",
+    "detail": "",
+    "grouping": "Fruit",
+    "colour": "Beige, Brown",
+    "flavour": "Earthy, Nutty",
+    "texture": "Firm, Oily",
+    "icon": "🥜",
+    "foodRecords": []
+  },
+  {
+    "id": 24,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Cheese",
+    "detail": "Cheddar",
+    "grouping": "Dairy",
+    "colour": "Beige, Yellow, Orange",
+    "flavour": "Milky, Salty, Umami",
+    "texture": "Firm",
+    "icon": "🧀",
+    "foodRecords": []
+  },
+  {
+    "id": 25,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Beef",
+    "detail": "Stewed",
+    "grouping": "Protein",
+    "colour": "Brown",
+    "flavour": "Meaty, Umami",
+    "texture": "Soft, Chewy",
+    "icon": "🥩",
+    "foodRecords": []
+  },
+  {
+    "id": 26,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
     "name": "Chicken",
     "detail": "Roast",
     "grouping": "Protein",
-    "category": "Yes",
     "colour": "White, Beige",
     "flavour": "Mild, Umami",
     "texture": "Soft",
     "icon": "🍗",
-    "notes": "",
-    "bites": [
+    "foodRecords": [
       {
-        "id": 313,
-        "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2",
+        "id": 18,
         "person": {
-          "id": 46,
+          "id": 1,
           "name": "Alec",
-          "colour": "#9e4ae3",
-          "userId": "IgxWA7lmVWgF595oZzTiEMICXtI2"
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
         },
-        "date": "2023-04-23",
-        "rating": 5,
-        "notes": "With gravy"
+        "bites": [
+          {
+            "id": 30,
+            "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+            "date": "2023-04-23",
+            "rating": 5,
+            "notes": ""
+          }
+        ],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
       }
     ]
+  },
+  {
+    "id": 27,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Egg",
+    "detail": "Boiled",
+    "grouping": "Protein",
+    "colour": "White, Yellow",
+    "flavour": "Rich, Umami",
+    "texture": "Soft, Rubbery",
+    "icon": "🥚",
+    "foodRecords": []
+  },
+  {
+    "id": 28,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Rice",
+    "detail": "",
+    "grouping": "Carbohydrate",
+    "colour": "White",
+    "flavour": "Bland",
+    "texture": "Soft, Starchy",
+    "icon": "🍚",
+    "foodRecords": [
+      {
+        "id": 22,
+        "person": {
+          "id": 1,
+          "name": "Alec",
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+        },
+        "bites": [
+          {
+            "id": 38,
+            "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+            "date": "2023-04-26",
+            "rating": 4,
+            "notes": ""
+          }
+        ],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Spaghetti",
+    "detail": "",
+    "grouping": "Carbohydrate",
+    "colour": "Beige",
+    "flavour": "Bland",
+    "texture": "Soft, Starchy",
+    "icon": "🍝",
+    "foodRecords": [
+      {
+        "id": 23,
+        "person": {
+          "id": 1,
+          "name": "Alec",
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+        },
+        "bites": [
+          {
+            "id": 41,
+            "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+            "date": "2023-04-27",
+            "rating": 1,
+            "notes": ""
+          }
+        ],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Chips",
+    "detail": "",
+    "grouping": "Carbohydrate",
+    "colour": "Beige",
+    "flavour": "Salty",
+    "texture": "Soft, Crunchy",
+    "icon": "🍟",
+    "foodRecords": []
+  },
+  {
+    "id": 31,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Bread",
+    "detail": "",
+    "grouping": "Carbohydrate",
+    "colour": "Beige",
+    "flavour": "Yeasty, Bland",
+    "texture": "Dry, Soft",
+    "icon": "🍞",
+    "foodRecords": [
+      {
+        "id": 25,
+        "person": {
+          "id": 1,
+          "name": "Alec",
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+        },
+        "bites": [
+          {
+            "id": 44,
+            "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+            "date": "2023-04-29",
+            "rating": 4,
+            "notes": ""
+          }
+        ],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Green Beans",
+    "detail": "Tinned",
+    "grouping": "Vegetable",
+    "colour": "Green",
+    "flavour": "Mild",
+    "texture": "Soft",
+    "icon": "🟩",
+    "foodRecords": [
+      {
+        "id": 19,
+        "person": {
+          "id": 1,
+          "name": "Alec",
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+        },
+        "bites": [
+          {
+            "id": 32,
+            "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+            "date": "2023-04-24",
+            "rating": 5,
+            "notes": ""
+          }
+        ],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Beef",
+    "detail": "Mince",
+    "grouping": "Protein",
+    "colour": "Brown",
+    "flavour": "Meaty, Rich",
+    "texture": "Soft, Chewy",
+    "icon": "🐄",
+    "foodRecords": [
+      {
+        "id": 20,
+        "person": {
+          "id": 1,
+          "name": "Alec",
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+        },
+        "bites": [
+          {
+            "id": 34,
+            "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+            "date": "2023-04-25",
+            "rating": 4,
+            "notes": ""
+          }
+        ],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Sausage",
+    "detail": "",
+    "grouping": "Protein",
+    "colour": "Brown",
+    "flavour": "Meaty, Salty",
+    "texture": "Soft, Chewy",
+    "icon": "🌭",
+    "foodRecords": [
+      {
+        "id": 21,
+        "person": {
+          "id": 1,
+          "name": "Alec",
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+        },
+        "bites": [
+          {
+            "id": 35,
+            "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+            "date": "2023-04-26",
+            "rating": 5,
+            "notes": ""
+          }
+        ],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Carrot",
+    "detail": "Cooked",
+    "grouping": "Vegetable",
+    "colour": "Orange",
+    "flavour": "Sweet, Earthy",
+    "texture": "Soft",
+    "icon": "🥕",
+    "foodRecords": []
+  },
+  {
+    "id": 36,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Beef",
+    "detail": "Meatballs",
+    "grouping": "Protein",
+    "colour": "Brown",
+    "flavour": "Meaty",
+    "texture": "Soft",
+    "icon": "🧆",
+    "foodRecords": [
+      {
+        "id": 24,
+        "person": {
+          "id": 1,
+          "name": "Alec",
+          "colour": "#af3afd",
+          "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+        },
+        "bites": [
+          {
+            "id": 42,
+            "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+            "date": "2023-04-27",
+            "rating": 4,
+            "notes": ""
+          },
+          {
+            "id": 43,
+            "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+            "date": "2023-04-29",
+            "rating": 5,
+            "notes": ""
+          },
+          {
+            "id": 45,
+            "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+            "date": "2023-04-29",
+            "rating": 2,
+            "notes": ""
+          }
+        ],
+        "category": "None",
+        "notes": null,
+        "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Raspberry",
+    "detail": "",
+    "grouping": "Fruit",
+    "colour": "Red",
+    "flavour": "Sweet",
+    "texture": "Soft, Juicy",
+    "icon": "🍓",
+    "foodRecords": []
+  },
+  {
+    "id": 38,
+    "userId": "ORQxfQfam2ep5QgB0i0lsZZitu52",
+    "name": "Haggis",
+    "detail": "",
+    "grouping": "Protein",
+    "colour": "Brown",
+    "flavour": "Meaty, Salty, Spicy",
+    "texture": "Soft, Grainy",
+    "icon": "🐄",
+    "foodRecords": []
   }
 ]
