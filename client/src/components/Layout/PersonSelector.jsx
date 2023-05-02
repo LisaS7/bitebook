@@ -16,10 +16,12 @@ export default function PersonSelector() {
     return <div>{buttons}</div>;
   }
 
+  console.log("active person", activePerson);
+
   const dropdownTitle = (
     <>
       <Circle colour={activePerson.colour} />{" "}
-      <span>{activePerson ? activePerson.name : "Select Person"}</span>
+      <span>{activePerson.name ? activePerson.name : "Select Person"}</span>
     </>
   );
 
