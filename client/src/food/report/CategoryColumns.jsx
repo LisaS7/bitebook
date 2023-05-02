@@ -2,7 +2,7 @@ import { Column } from "./style";
 
 function FoodRecord({ food }) {
   return (
-    <p>
+    <p className="food">
       {food.icon} {food.name}{" "}
       {food.detail && <span className="small-text">({food.detail})</span>}
     </p>

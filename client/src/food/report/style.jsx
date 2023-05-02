@@ -33,8 +33,18 @@ export const ReportSection = styled.section`
   justify-content: space-evenly;
   gap: 2rem;
 
-  & .small-text {
+  .small-text {
     color: darkslategray;
+  }
+
+  .rating {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+
+    & span:first-child {
+      text-align: right;
+    }
   }
 `;
 
@@ -45,5 +55,10 @@ export const Column = styled.div`
     font-size: 1.4rem !important;
     padding: 1rem;
     border-bottom: 1px solid var(--pink);
+    text-align: center;
+  }
+
+  .food {
+    margin-left: 4rem;
   }
 `;
