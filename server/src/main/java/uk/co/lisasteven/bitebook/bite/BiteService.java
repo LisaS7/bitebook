@@ -25,7 +25,7 @@ public class BiteService {
     FoodRecordService foodRecordService;
 
     public List<Bite> getBites(String uid) {
-        List<Bite> allBites = biteRepository.findAll();
+        List<Bite> allBites = biteRepository.findAllByOrderByDateDesc();
         ArrayList<Bite> userBites = new ArrayList<>();
         for (Bite bite : allBites) {
             if (Objects.equals(bite.getUserId(), uid)) {

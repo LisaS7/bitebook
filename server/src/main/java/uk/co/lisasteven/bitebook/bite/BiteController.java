@@ -32,13 +32,14 @@ public class BiteController {
        });
     }
 
-    @PutMapping(path="{biteId}")
-    public Bite updateBite(
-            @PathVariable("biteId") Long id,
-            @Valid @RequestBody Bite bite
-    ) {
-        return biteService.updateBite(id, bite);
-    }
+    // TBC - needs to add function to update Food Record if food or person is changed
+//    @PutMapping(path="{biteId}")
+//    public Bite updateBite(
+//            @PathVariable("biteId") Long id,
+//            @Valid @RequestBody Bite bite
+//    ) {
+//        return biteService.updateBite(id, bite);
+//    }
 
 
 }
