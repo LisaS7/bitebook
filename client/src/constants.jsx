@@ -1,4 +1,4 @@
-export const fillColours = {
+export const namedColours = {
   Beige: "#E8DED1",
   Black: "#000",
   Blue: "#0492c2",
@@ -10,3 +10,12 @@ export const fillColours = {
   White: "#fff",
   Yellow: "#ffe302",
 };
+
+export const randomColours = [
+  "#0492c2",
+  "#3cB043",
+  "#FFAC1C",
+  "#9B59B6",
+  "#E74C3C",
+  "#ffe302",
+];
