@@ -51,7 +51,7 @@ export function GetDataTemplate() {
       heading: "Food",
       type: "select_object",
       options: foods,
-      default: foods.at(-1).id ? foods.at(-1).id.toString() : "1",
+      default: foods.at(-1) ? foods.at(-1).id.toString() : "1",
       sortable: true,
     },
     rating: {
