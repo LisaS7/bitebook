@@ -6,19 +6,19 @@ export default function PropertyDetails({ personBites }) {
   const averages = calcFoodPropertyAverages(personBites);
 
   const displayColours = averages.colour.map((colour) => (
-    <div>
+    <div key={colour.name}>
       {colour.name} {DisplayRating(colour.rating)}
     </div>
   ));
 
   const displayFlavours = averages.flavour.map((flavour) => (
-    <div>
+    <div key={flavour.name}>
       {flavour.name} {DisplayRating(flavour.rating)}
     </div>
   ));
 
   const displayTextures = averages.texture.map((texture) => (
-    <div>
+    <div key={texture.name}>
       {texture.name} {DisplayRating(texture.rating)}
     </div>
   ));
