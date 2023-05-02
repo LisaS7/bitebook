@@ -92,3 +92,20 @@ textarea {
     font-size: 0.7rem;
   }
  }
+
+ /* dropdowns */
+
+ .dropdown-menu {
+  background-color: var(--light-green);
+}
+
+.dropdown-item {
+  padding-top: 1rem;
+  color: var(--light);
+  font-size: 1rem;
+}
+
+.dropdown-item:hover {
+  color: var(--green);
+  font-size: 1rem;
+}
