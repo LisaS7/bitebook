@@ -28,7 +28,7 @@ export const ReportHead = styled.section`
   }
 `;
 
-export const ReportBody = styled.section`
+export const ReportSection = styled.section`
   display: flex;
   justify-content: space-evenly;
   gap: 2rem;

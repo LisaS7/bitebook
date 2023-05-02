@@ -25,7 +25,6 @@ export const defaultItem = {
   food: "",
   person: "",
   category: "None",
-  // add number of bites logged
   notes: "",
 };
 
