@@ -64,7 +64,7 @@ export default function SmallBarChart({ foodRecords }) {
               value: "Average Rating",
               angle: -90,
             }}
-            domain={[0, 6]}
+            domain={[0, 5]}
             ticks={[0, 1, 2, 3, 4, 5]}
           />
           <Bar dataKey="avgRating">
