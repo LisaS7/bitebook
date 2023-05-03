@@ -13,7 +13,7 @@ export function calcFoodPropertyAverages(personBites) {
       );
       bitesByProperty.push({
         name: item,
-        rating: getAverage(currentBites, "rating"),
+        rating: Math.round(getAverage(currentBites, "rating")),
       });
     });
     return bitesByProperty.sort((a, b) => b.rating - a.rating);
