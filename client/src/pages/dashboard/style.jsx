@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { Card } from "../../components/Layout/global.style";
 
-export const colours = ["#e63946", "#edae49", "#3376bd", "#00798c", "#52489c"];
-
 export const Container = styled.div`
   display: grid;
   gap: 1rem;

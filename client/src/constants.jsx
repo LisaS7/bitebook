@@ -12,10 +12,13 @@ export const namedColours = {
 };
 
 export const randomColours = [
-  "#0492c2",
-  "#3cB043",
-  "#FFAC1C",
-  "#9B59B6",
   "#E74C3C",
-  "#ffe302",
+  "#ff6ab4",
+  "#FFAC1C",
+  "#ffd700",
+  "#01c37f",
+  "#00926c",
+  "#6ec2c5",
+  "#0492c2",
+  "#9B59B6",
 ];

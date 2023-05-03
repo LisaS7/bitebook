@@ -11,7 +11,7 @@ import {
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
 import { getAverage } from "../utils";
-import { colours } from "../style";
+import { randomColours } from "../../../constants";
 
 export default function SmallBarChart({ foodRecords }) {
   const [selection, setSelection] = useState("top");
@@ -75,9 +75,9 @@ export default function SmallBarChart({ foodRecords }) {
               position="inside"
               angle={-90}
             />
-            {avgList.map((food, index) => (
+            {selectedFoods.map((food, index) => (
               <Cell
-                fill={colours[Math.round(food.avgRating) - 1]}
+                fill={randomColours[Math.round((food.avgRating - 1) * 2)]}
                 key={index}
               />
             ))}
