@@ -29,15 +29,15 @@ export default function PropertyDetails({ personBites }) {
   return (
     <>
       <Column>
-        <h3>Colours</h3>
+        <h3 id="print-heading">Colours</h3>
         {displayColours}
       </Column>
       <Column>
-        <h3>Flavours</h3>
+        <h3 id="print-heading">Flavours</h3>
         {displayFlavours}
       </Column>
       <Column>
-        <h3>Textures</h3>
+        <h3 id="print-heading">Textures</h3>
         {displayTextures}
       </Column>
     </>

@@ -27,7 +27,7 @@ export function CategoryColumns({ categories, personFoodRecords }) {
       ));
       columns.push(
         <Column key={category}>
-          <h3>{category}</h3>
+          <h3 id="print-heading">{category}</h3>
           {foodRows}
         </Column>
       );
