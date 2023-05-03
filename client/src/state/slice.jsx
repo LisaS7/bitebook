@@ -89,29 +89,6 @@ export const slice = createSlice({
     },
     // ============  PEOPLE  ============
     /**
-     * updates the given person in state
-     * @param  {object} action a food object
-     */
-    editPerson: (state, action) => {
-      const personId = action.payload.id;
-      const index = getIndexById(current(state.people), personId);
-      state.people[index] = action.payload;
-    },
-    /**
-     * removes a person from state by id
-     * @param  {int} action the id of the person to be removed
-     */
-    removePerson: (state, action) => {
-      state.people = state.people.filter((item) => item.id !== action.payload);
-    },
-    /**
-     * adds a person to state
-     * @param  {object} action a person object
-     */
-    addPerson: (state, action) => {
-      state.people.unshift(action.payload);
-    },
-    /**
      * changes the active person to display data for through the app
      * @param  {object} action a person object
      */
@@ -193,9 +170,6 @@ export const {
   editStateItem,
   addStateItem,
   removeStateItem,
-  editPerson,
-  removePerson,
-  addPerson,
   setActivePerson,
   sortFoods,
   filterRecords,

@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteRecord, updateRecord } from "../../../Service";
-import { addPerson, editPerson, removePerson } from "../../../state/slice";
+import {
+  addStateItem,
+  editStateItem,
+  removeStateItem,
+} from "../../../state/slice";
 import Form from "react-bootstrap/Form";
 import { postRecord } from "../../../Service";
 
@@ -21,7 +25,7 @@ function Person({ person, isNew }) {
 
   function handleDelete() {
     deleteRecord(person.id, "people");
-    dispatch(removePerson(person.id));
+    dispatch(removeStateItem({ id: person.id, list: "people" }));
   }
 
   function handleCreate() {
@@ -31,7 +35,7 @@ function Person({ person, isNew }) {
     setName("");
     setColour("#bdbdbd");
     postRecord(changedPerson, "people");
-    dispatch(addPerson(changedPerson));
+    dispatch(addStateItem({ item: changedPerson, list: "people" }));
     window.location.reload();
   }
 
@@ -41,7 +45,7 @@ function Person({ person, isNew }) {
     changedPerson.colour = colour;
     try {
       updateRecord(changedPerson, "people");
-      dispatch(editPerson(changedPerson));
+      dispatch(editStateItem({ item: changedPerson, list: "peeople" }));
       alert("Person updated!");
     } catch (err) {
       alert("Error updating person\n" + err);
