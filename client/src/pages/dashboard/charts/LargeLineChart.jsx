@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import {
   LineChart,
   Line,
@@ -11,11 +12,12 @@ import {
 } from "recharts";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
-import { getDistinctValues } from "../utils";
+import { getDistinctValues, isValueInSelectedFilter } from "../utils";
 import { namedColours, randomColours } from "../../../constants";
 // import { lgLineChartTestData } from "./test_data";
 
 export default function LargeLineChart({ bites, filterOptions }) {
+  const { activeFilters } = useSelector((state) => state);
   const [category, setCategory] = useState("colour");
   let colours = category === "colour" ? namedColours : randomColours;
 
@@ -49,7 +51,11 @@ export default function LargeLineChart({ bites, filterOptions }) {
         record[key] =
           ratings.reduce((total, curr) => total + curr, 0) / ratings.length;
       }
-      if (!ratings.length) {
+
+      if (
+        !ratings.length ||
+        isValueInSelectedFilter(activeFilters, key, category)
+      ) {
         delete record[key];
       }
     }
@@ -66,6 +72,7 @@ export default function LargeLineChart({ bites, filterOptions }) {
         type="monotone"
         dataKey={key}
         stroke={colours[key[0].toUpperCase() + key.slice(1)] || colours[index]}
+        strokeWidth={2}
         connectNulls
       />
     );
@@ -82,7 +89,7 @@ export default function LargeLineChart({ bites, filterOptions }) {
         <LineChart
           data={bitesByDate}
           margin={{
-            top: 5,
+            top: 10,
             right: 30,
             left: 0,
             bottom: 5,
@@ -90,9 +97,9 @@ export default function LargeLineChart({ bites, filterOptions }) {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />
-          <YAxis domain={[0, 5.1]} ticks={[0, 1, 2, 3, 4, 5]} />
+          <YAxis domain={[0, 5.5]} ticks={[0, 1, 2, 3, 4, 5]} />
           <Tooltip />
-          <Legend verticalAlign="top" />
+          <Legend verticalAlign="top" iconType="circle" />
           {lines}
         </LineChart>
       </ResponsiveContainer>
