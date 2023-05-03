@@ -9,7 +9,7 @@ const initialState = {
   groups: [],
   activePerson: {},
   activeFilters: { colour: [], flavour: [], texture: [] },
-  filteredFoods: [],
+  filteredRecords: [],
 };
 
 function getItemById(stateArray, id) {
@@ -31,7 +31,7 @@ export const slice = createSlice({
     setDataState: (state, action) => {
       state.foods = action.payload.foods;
       state.foodRecords = action.payload.foodRecords;
-      state.filteredFoods = state.foods; // initalise with all foods for dashboard charts
+      state.filteredRecords = state.foodRecords; // initalise with all records for dashboard charts
       state.bites = action.payload.bites;
       state.people = action.payload.people;
       state.categories = action.payload.categories;
@@ -162,12 +162,11 @@ export const slice = createSlice({
       }
     },
     /**
-     * Used in dashboard view to filter charts
-     * Filters the full food list using the colour/flavour/texture options
+     * Used in dashboard view to filter charts with the colour/flavour/texture options
      * @param  {string} action the value to filter on
      */
-    filterFoods: (state, action) => {
-      state.filteredFoods = state.foods; // reset foods list
+    filterRecords: (state, action) => {
+      state.filteredRecords = state.foodRecords; // reset list
 
       const category = action.payload.category;
       const values = action.payload.selected;
@@ -175,14 +174,16 @@ export const slice = createSlice({
 
       for (const [key, value] of Object.entries(state.activeFilters)) {
         if (value.length) {
-          state.filteredFoods = state.filteredFoods.filter((food) =>
-            value.some((v) => food[key].toLowerCase().includes(v))
-          );
+          state.filteredRecords = state.filteredRecords.filter((record) => {
+            return value.some((v) =>
+              record.food[key].toLowerCase().includes(v)
+            );
+          });
         }
       }
     },
     resetFilters: (state) => {
-      state.filteredFoods = state.foods;
+      state.filteredRecords = state.foodRecords;
     },
   },
 });
@@ -197,7 +198,7 @@ export const {
   addPerson,
   setActivePerson,
   sortFoods,
-  filterFoods,
+  filterRecords,
   resetFilters,
 } = slice.actions;
 

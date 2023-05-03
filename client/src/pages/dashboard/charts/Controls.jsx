@@ -1,7 +1,7 @@
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { filterFoods, resetFilters } from "../../../state/slice";
+import { filterRecords, resetFilters } from "../../../state/slice";
 
 export function Controls({ options }) {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ export function Controls({ options }) {
     const selected = [...event.target.selectedOptions].map(
       (item) => item.value
     );
-    dispatch(filterFoods({ category, selected }));
+    dispatch(filterRecords({ category, selected }));
   }
 
   function handleReset() {

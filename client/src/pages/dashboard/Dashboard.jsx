@@ -13,15 +13,12 @@ import { Controls } from "./charts/Controls";
 import { getDistinctValues } from "./utils";
 
 export default function Dashboard() {
-  const { foodRecords, foods, filteredFoods, bites, activePerson } =
-    useSelector((state) => state);
+  const { foods, filteredRecords, bites, activePerson } = useSelector(
+    (state) => state
+  );
 
   const personBites = bites.filter(
     (bite) => bite.foodRecord.person.id === activePerson.id
-  );
-
-  const personFoodRecords = foodRecords.filter(
-    (record) => record.person.id === activePerson.id
   );
 
   const filterOptions = {
@@ -29,6 +26,10 @@ export default function Dashboard() {
     texture: getDistinctValues(foods, "texture"),
     colour: getDistinctValues(foods, "colour"),
   };
+
+  const personFoodRecords = filteredRecords.filter((record) => {
+    return record.person.id === activePerson.id;
+  });
 
   return (
     <Container>
