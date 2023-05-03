@@ -17,15 +17,15 @@ export default function Dashboard() {
     (state) => state
   );
 
-  const personBites = bites.filter(
-    (bite) => bite.foodRecord.person.id === activePerson.id
-  );
-
   const filterOptions = {
     flavour: getDistinctValues(foods, "flavour"),
     texture: getDistinctValues(foods, "texture"),
     colour: getDistinctValues(foods, "colour"),
   };
+
+  const personBites = bites.filter(
+    (bite) => bite.foodRecord.person.id === activePerson.id
+  );
 
   const personFoodRecords = filteredRecords.filter((record) => {
     return record.person.id === activePerson.id;
@@ -45,7 +45,7 @@ export default function Dashboard() {
       {/* ======== Bottom ======== */}
       <CardLargeBarChart>large bar chart</CardLargeBarChart>
       <CardLargeLineChart>
-        <LargeLineChart bites={personBites} />
+        <LargeLineChart bites={personBites} filterOptions={filterOptions} />
       </CardLargeLineChart>
     </Container>
   );

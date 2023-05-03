@@ -11,49 +11,64 @@ import {
 } from "recharts";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
-import { aggBitesByDate } from "../utils";
+import { getDistinctValues } from "../utils";
+import { namedColours, randomColours } from "../../../constants";
+// import { lgLineChartTestData } from "./test_data";
 
-export default function LargeLineChart({ bites }) {
+export default function LargeLineChart({ bites, filterOptions }) {
   const [category, setCategory] = useState("colour");
-  // collect a list of bites by date
-  // if date already in new list of objects then
-  // if category already exists then add rating to list
-  // {date: "2023-03-29", flavours: {brown: 3.5}}
+  let colours = category === "colour" ? namedColours : randomColours;
 
-  //  add route to backend to group bites by date?
+  const bitesByDate = [];
+  const keys = filterOptions[category];
+  bites.forEach((bite) => {
+    let index = bitesByDate.findIndex((obj) => obj.date === bite.date);
 
-  console.log(aggBitesByDate(bites, category));
+    // returns a formatted list of the properties for the given category
+    const properties = getDistinctValues([bite.foodRecord.food], category);
 
-  const testData = [
-    {
-      date: "2023-04-10",
-      yellow: 3.5,
-      blue: 1.3,
-      green: 3.7,
-      brown: 4.8,
-    },
-    {
-      date: "2023-04-11",
-      yellow: 3,
-      blue: 1.7,
-      green: 3.2,
-      brown: 4.1,
-    },
-    {
-      date: "2023-04-12",
-      yellow: 2.4,
-      blue: 1.7,
-      green: 3.5,
-      brown: 3.7,
-    },
-    {
-      date: "2023-04-13",
-      yellow: 3.2,
-      blue: 2.4,
-      green: 3.7,
-      brown: 3.9,
-    },
-  ];
+    // if there's currently no record for date then make a new one
+    // and populate with all potential properties
+    if (index < 0) {
+      const newEntry = { date: bite.date };
+      keys.forEach((key) => (newEntry[key] = []));
+      bitesByDate.unshift(newEntry);
+      index = 0;
+    }
+
+    // for each property, add the current rating
+    properties.forEach((property) => {
+      bitesByDate[index][property].push(bite.rating);
+    });
+  });
+
+  bitesByDate.forEach((record) => {
+    for (const [key, ratings] of Object.entries(record)) {
+      if (key !== "date") {
+        // calculate average rating for property on the given date
+        record[key] =
+          ratings.reduce((total, curr) => total + curr, 0) / ratings.length;
+      }
+      if (!ratings.length) {
+        delete record[key];
+      }
+    }
+  });
+
+  const chartKeys = [
+    ...new Set(bitesByDate.map((obj) => Object.keys(obj)).flat()),
+  ].filter((key) => key !== "date");
+
+  const lines = chartKeys.map((key, index) => {
+    return (
+      <Line
+        key={index}
+        type="monotone"
+        dataKey={key}
+        stroke={colours[key[0].toUpperCase() + key.slice(1)] || colours[index]}
+      />
+    );
+  });
 
   return (
     <>
@@ -64,7 +79,7 @@ export default function LargeLineChart({ bites }) {
       </ButtonGroup>
       <ResponsiveContainer width="100%" height="90%">
         <LineChart
-          data={testData}
+          data={bitesByDate}
           margin={{
             top: 5,
             right: 30,
@@ -77,15 +92,7 @@ export default function LargeLineChart({ bites }) {
           <YAxis domain={[0, 5.1]} ticks={[0, 1, 2, 3, 4, 5]} />
           <Tooltip />
           <Legend verticalAlign="top" />
-          <Line
-            type="monotone"
-            dataKey="yellow"
-            stroke="#dbd219"
-            activeDot={{ r: 8 }}
-          />
-          <Line type="monotone" dataKey="blue" stroke="#4031df" />
-          <Line type="monotone" dataKey="green" stroke="#009d3c" />
-          <Line type="monotone" dataKey="brown" stroke="#785532" />
+          {lines}
         </LineChart>
       </ResponsiveContainer>
     </>
