@@ -50,13 +50,17 @@ export default function CustomNavbar() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav>
           <NavDropdown title="Food" id="basic-nav-dropdown">
-            <NavDropdown.Item as={Link} to="/foods">
+            <NavDropdown.Item id="dropdown-item" as={Link} to="/foods">
               Detail
             </NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="/foods/categories">
+            <NavDropdown.Item
+              id="dropdown-item"
+              as={Link}
+              to="/foods/categories"
+            >
               Categories
             </NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="/foods/report">
+            <NavDropdown.Item id="dropdown-item" as={Link} to="/foods/report">
               Report
             </NavDropdown.Item>
           </NavDropdown>

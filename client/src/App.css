@@ -95,17 +95,17 @@ textarea {
 
  /* dropdowns */
 
- .dropdown-menu {
-  background-color: var(--light-green);
+.dropdown-menu {
+  background-color: var(--light-green) !important;
 }
 
-.dropdown-item {
+#dropdown-item {
   padding-top: 1rem;
   color: var(--light);
   font-size: 1rem;
 }
 
-.dropdown-item:hover {
+#dropdown-item:hover {
   color: var(--green);
   font-size: 1rem;
 }

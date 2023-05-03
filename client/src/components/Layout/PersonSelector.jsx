@@ -10,10 +10,11 @@ export default function PersonSelector() {
   function PersonButtons() {
     const buttons = people.map((person) => (
       <NavDropdown.Item
+        id="dropdown-item"
         key={person.id}
         onClick={() => dispatch(setActivePerson(person))}
       >
-        {person.name}
+        <Circle colour={person.colour} /> {person.name}
       </NavDropdown.Item>
     ));
     return <div>{buttons}</div>;
