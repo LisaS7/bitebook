@@ -97,7 +97,14 @@ export default function LargeLineChart({ bites, filterOptions }) {
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />
-          <YAxis domain={[0, 5.5]} ticks={[0, 1, 2, 3, 4, 5]} />
+          <YAxis
+            label={{
+              value: "Average Rating",
+              angle: -90,
+            }}
+            domain={[0, 5.5]}
+            ticks={[0, 1, 2, 3, 4, 5]}
+          />
           <Tooltip />
           <Legend verticalAlign="top" iconType="circle" />
           {lines}
