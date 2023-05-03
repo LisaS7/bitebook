@@ -1,5 +1,4 @@
 import Form from "react-bootstrap/Form";
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { filterRecords, resetFilters } from "../../../state/slice";
 
