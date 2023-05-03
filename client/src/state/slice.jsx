@@ -161,6 +161,7 @@ export const slice = createSlice({
     },
     resetFilters: (state) => {
       state.filteredRecords = state.foodRecords;
+      state.activeFilters = { colour: [], flavour: [], texture: [] };
     },
   },
 });
