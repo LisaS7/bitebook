@@ -66,6 +66,7 @@ export default function LargeLineChart({ bites, filterOptions }) {
         type="monotone"
         dataKey={key}
         stroke={colours[key[0].toUpperCase() + key.slice(1)] || colours[index]}
+        connectNulls
       />
     );
   });
