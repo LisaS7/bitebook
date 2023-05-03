@@ -56,7 +56,6 @@ export default function InputRow({ action, item, setEditRow }) {
     }
 
     if (action === "update") {
-      console.log("\nUPDATE ITEM", item);
       updateRecord(item, "bites");
       dispatch(editStateItem({ item, list: "bites" }));
     }
