@@ -31,7 +31,9 @@ export default function InputRow({ action, item, setEditRow }) {
     }
 
     if (action === "update") {
-      updateRecord(item, "foods");
+      const itemForUpdate = { ...item };
+      delete itemForUpdate["foodRecords"];
+      updateRecord(itemForUpdate, "foods");
       dispatch(editStateItem({ item, list: "foods" }));
     }
 
