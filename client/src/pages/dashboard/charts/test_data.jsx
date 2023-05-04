@@ -29,3 +29,19 @@ export const lgLineChartTestData = [
     brown: 3.9,
   },
 ];
+
+// large bar chart
+export const lgBarChartTestData = [
+  {
+    property: "Red",
+    yes: 15,
+    no: 20,
+    maybe: 65,
+  },
+  {
+    property: "Yellow",
+    yes: 40,
+    no: 25,
+    maybe: 35,
+  },
+];

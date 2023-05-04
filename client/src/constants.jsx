@@ -11,6 +11,15 @@ export const namedColours = {
   Yellow: "#ffe302",
 };
 
+export const categoryColours = {
+  Yes: "#01c37f",
+  No: "#E74C3C",
+  Maybe: "#ffd700",
+  Rarely: "#FFAC1C",
+  None: "#aaaaaa",
+  Allergy: "#000",
+};
+
 export const randomColours = [
   "#E74C3C",
   "#ff6ab4",

@@ -18,3 +18,7 @@ export function isValueInSelectedFilter(activeFilters, value, category) {
     activeFilters[category].length && !activeFilters[category].includes(value)
   );
 }
+
+export function capitalise(string) {
+  return string[0].toUpperCase() + string.slice(1);
+}
