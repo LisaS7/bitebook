@@ -47,7 +47,8 @@ export default function LargeBarChart({ foodRecords }) {
     // calculate percentages
     const newRecord = { property: capitalise(property) };
     for (const [key, value] of Object.entries(counts)) {
-      newRecord[key] = (value / records.length) * 100;
+      const perc = (value / records.length) * 100;
+      newRecord[key] = Math.round(perc * 100) / 100;
     }
 
     data.push(newRecord);
@@ -67,11 +68,17 @@ export default function LargeBarChart({ foodRecords }) {
             top: 30,
             right: 20,
             left: 0,
-            bottom: 40,
+            bottom: 30,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="property" />
+          <XAxis
+            dataKey="property"
+            interval={0}
+            angle={-45}
+            height={60}
+            textAnchor="end"
+          />
           <YAxis
             width={100}
             label={{

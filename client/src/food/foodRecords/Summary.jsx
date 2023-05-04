@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 import { NewFoodSummary } from "./style";
 
-export default function Summary() {
-  const { foods, foodRecords } = useSelector((state) => state);
+export default function Summary({ records }) {
+  const { foods } = useSelector((state) => state);
 
-  const foodsTried = foodRecords.map((record) => record.food);
+  const foodsTried = records.map((record) => record.food);
   const foodsNotTried = foods.filter(
     (food) => !foodsTried.find((obj) => obj.id === food.id)
   );

@@ -14,7 +14,7 @@ export const namedColours = {
 export const categoryColours = {
   Yes: "#01c37f",
   No: "#E74C3C",
-  Maybe: "#ffd700",
+  Maybe: "#6ec2c5",
   Rarely: "#FFAC1C",
   None: "#aaaaaa",
   Allergy: "#000",
