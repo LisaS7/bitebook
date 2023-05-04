@@ -36,3 +36,20 @@ export const FoodCell = styled.td`
   align-items: center;
   gap: 2rem;
 `;
+
+export const NewFoodSummary = styled(SummarySection)`
+  flex-direction: column;
+  gap: 2rem;
+
+  & .new-foods {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+  }
+
+  & .detail {
+    font-size: 0.7rem;
+    color: darkslategray;
+    margin-left: 5px;
+  }
+`;
