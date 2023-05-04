@@ -1,5 +1,5 @@
 export const namedColours = {
-  Beige: "#aba193",
+  Beige: "#c7baa7",
   Black: "#000",
   Blue: "#0492c2",
   Brown: "#65350F",
@@ -7,7 +7,7 @@ export const namedColours = {
   Orange: "#FFAC1C",
   Purple: "#9B59B6",
   Red: "#E74C3C",
-  White: "#aaaaaa",
+  White: "#d1d0d0",
   Yellow: "#ffe302",
 };
 

@@ -1,71 +1,64 @@
 import React from "react";
-import { PieChart, Pie } from "recharts";
+import { PieChart, Pie, ResponsiveContainer } from "recharts";
 import { useSelector } from "react-redux";
 import { namedColours, randomColours } from "../constants";
-
-// https://recharts.org/en-US/examples/PieChartWithCustomizedLabel
-//https://stackoverflow.com/questions/72056017/how-does-one-from-an-array-of-objects-collect-and-aggregate-the-merged-variant
+import { ChartTitle } from "./style";
 
 function renderLabel(entry) {
   return entry.name;
 }
 
-export function GroupPie() {
-  const { foods, groups } = useSelector((state) => state);
-
-  const data = [];
-  groups.forEach((group, index) => {
-    let aggFoods = foods.filter((item) => item.grouping === group);
-    if (aggFoods.length) {
-      data.push({
-        name: group,
-        value: aggFoods.length,
-        fill: randomColours[index],
-      });
-    }
-  });
-
-  return (
-    <PieChart width={350} height={300}>
-      <Pie
-        data={data}
-        dataKey="value"
-        cx="50%"
-        cy="50%"
-        outerRadius={80}
-        labelLine={false}
-        label={renderLabel}
-      />
-    </PieChart>
-  );
-}
-
-export function ColourPie() {
+export function PropertyPie({ property, title }) {
   const { foods } = useSelector((state) => state);
 
-  const colours = foods
-    .map((food) => food.colour.split(",").map((colour) => colour.trim()))
+  const properties = foods
+    .map((food) => food[property].split(",").map((item) => item.trim()))
     .flat();
-  const colourFrequency = colours.reduce((total, current) => {
+
+  const frequency = properties.reduce((total, current) => {
     return total[current] ? ++total[current] : (total[current] = 1), total;
   }, {});
 
   const data = [];
-  for (const [key, value] of Object.entries(colourFrequency)) {
-    data.push({ name: key, value, fill: namedColours[key] });
+  Object.keys(frequency).forEach((key) => {
+    data.push({
+      name: key,
+      value: frequency[key],
+    });
+  });
+
+  const sorted = data.sort((a, b) => b.value - a.value);
+  const coloured = sorted.map((obj, index) => ({
+    ...obj,
+    fill: property === "colour" ? namedColours[obj.name] : randomColours[index],
+  }));
+
+  let chartData;
+  if (coloured.length > 6) {
+    const others = {
+      name: "Other",
+      value: coloured.slice(6).reduce((total, curr) => total + curr.value, 0),
+      fill: "darkgray",
+    };
+    chartData = [...coloured.slice(0, 6), others];
+  } else {
+    chartData = coloured;
   }
 
   return (
-    <PieChart width={350} height={300}>
-      <Pie
-        data={data}
-        dataKey="value"
-        cx="50%"
-        cy="50%"
-        outerRadius={80}
-        labelLine={false}
-        label={renderLabel}
-      />
-    </PieChart>
+    <div>
+      <ChartTitle>{title}</ChartTitle>
+      <PieChart width={300} height={200}>
+        <Pie
+          data={chartData}
+          dataKey="value"
+          cx="50%"
+          cy="50%"
+          outerRadius={60}
+          labelLine={false}
+          label={renderLabel}
+        />
+      </PieChart>
+    </div>
   );
 }

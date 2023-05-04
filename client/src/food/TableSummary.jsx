@@ -1,11 +1,13 @@
 import { SummarySection } from "./style";
-import { GroupPie, ColourPie } from "./charts";
+import { PropertyPie } from "./charts";
 
 export default function Summary() {
   return (
     <SummarySection>
-      <GroupPie />
-      <ColourPie />
+      <PropertyPie property="grouping" title="Group" />
+      <PropertyPie property="colour" title="Colour" />
+      <PropertyPie property="flavour" title="Flavour" />
+      <PropertyPie property="texture" title="Texture" />
     </SummarySection>
   );
 }

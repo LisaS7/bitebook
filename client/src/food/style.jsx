@@ -30,3 +30,7 @@ export const SummarySection = styled.section`
     font-size: 1.2rem;
   }
 `;
+
+export const ChartTitle = styled.h5`
+  text-align: center;
+`;
