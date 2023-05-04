@@ -46,11 +46,19 @@ export default function LargeBarChart({ foodRecords }) {
 
     // calculate percentages
     const newRecord = { property: capitalise(property) };
+    let remainder = 100;
     for (const [key, value] of Object.entries(counts)) {
-      const perc = (value / records.length) * 100;
-      newRecord[key] = Math.round(perc * 100) / 100;
+      const perc = Math.round((value / records.length) * 100);
+      newRecord[key] = perc;
+      remainder -= perc;
     }
 
+    // add any remainder to the largest category
+    const max = Object.keys(newRecord).reduce(
+      (a, b) => (newRecord[a] > newRecord[b] ? a : b),
+      null
+    );
+    newRecord[max] += remainder;
     data.push(newRecord);
   });
 
