@@ -102,11 +102,11 @@ export default function LargeLineChart({ bites, filterOptions }) {
               value: "Average Rating",
               angle: -90,
             }}
-            domain={[0, 5.5]}
+            domain={[0, 5]}
             ticks={[0, 1, 2, 3, 4, 5]}
           />
           <Tooltip />
-          <Legend verticalAlign="top" iconType="circle" />
+          <Legend verticalAlign="top" iconType="circle" height={50} />
           {lines}
         </LineChart>
       </ResponsiveContainer>
