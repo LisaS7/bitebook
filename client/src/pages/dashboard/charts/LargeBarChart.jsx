@@ -88,6 +88,7 @@ export default function LargeBarChart({ foodRecords }) {
                 key={index}
                 dataKey={key}
                 stackId="a"
+                barSize={50}
                 fill={categoryColours[key]}
               />
             );
