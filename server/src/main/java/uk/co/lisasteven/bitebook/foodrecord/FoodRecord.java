@@ -34,7 +34,7 @@ public class FoodRecord {
     @JsonIgnoreProperties({"foodRecords"})
     private Person person;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties({"foodRecord"})
     @ToString.Exclude
     private List<Bite> bites = new ArrayList<>();

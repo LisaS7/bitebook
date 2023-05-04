@@ -26,7 +26,7 @@ public class Person {
     private String colour;
     private String userId;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties({"person"})
     @ToString.Exclude
     private List<FoodRecord> foodRecords;

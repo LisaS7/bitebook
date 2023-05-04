@@ -1,10 +1,13 @@
+import { useSelector } from "react-redux";
 import { sendPasswordReset, logout } from "../../../lib/firebase";
 import { useDeleteUser } from "react-firebase-hooks/auth";
 import { infoStyle } from "../../../console_css";
-// import { deleteRecord } from "../../../Service";
+import { deleteRecord } from "../../../Service";
 import Button from "react-bootstrap/Button";
 
 export default function Buttons({ user, auth }) {
+  const { foodRecords } = useSelector((state) => state);
+
   // ignore warning for unused variable
   // eslint-disable-next-line
   const [deleteUser, loadingDelete, errorDelete] = useDeleteUser(auth);
@@ -14,12 +17,9 @@ export default function Buttons({ user, auth }) {
 
     if (success) {
       console.info("%c Deleted user " + user?.uid, infoStyle);
-      //   foods.forEach((food) => {
-      //     deleteRecord(food.id, "foods");
-      //   });
-      //   bites.forEach((bite) => {
-      //     deleteRecord(bite.id, "bites");
-      //   });
+      foodRecords.forEach((record) => {
+        deleteRecord(record.id, "foodlists");
+      });
       alert("Account deleted");
       logout();
     } else {

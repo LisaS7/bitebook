@@ -37,7 +37,7 @@ public class Food {
     private String icon;
 
     @JsonIgnoreProperties({"food"})
-    @OneToMany(mappedBy = "food")
+    @OneToMany(mappedBy = "food", cascade = CascadeType.REMOVE)
     @ToString.Exclude
     private List<FoodRecord> foodRecords;
 
