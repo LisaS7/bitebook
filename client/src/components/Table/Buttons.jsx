@@ -36,3 +36,16 @@ export function SaveButton({ handleClickSave }) {
     </button>
   );
 }
+
+export function CreateButton({ addRow }) {
+  return (
+    <button
+      className="icon-btn"
+      data-cy="add-btn"
+      style={{ backgroundColor: "var(--light)" }}
+      onClick={() => addRow()}
+    >
+      <span className="icon-size2 material-symbols-outlined">add_circle</span>
+    </button>
+  );
+}

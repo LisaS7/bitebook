@@ -48,16 +48,8 @@ export default function EditableTable({
 
   return (
     <div>
-      <TipBar>
-        <h5>Add New</h5>
-        <button className="icon-btn" data-cy="add-btn" onClick={() => addRow()}>
-          <span className="icon-size2 material-symbols-outlined">
-            add_circle
-          </span>
-        </button>
-      </TipBar>
       <StyledTable data-cy="table" responsive hover>
-        <TableHead template={dataTemplate} />
+        <TableHead template={dataTemplate} addRow={addRow} />
         <tbody>{tableRows}</tbody>
       </StyledTable>
     </div>
