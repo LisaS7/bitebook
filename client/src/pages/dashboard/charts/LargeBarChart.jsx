@@ -14,6 +14,7 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { categoryColours } from "../../../constants";
 // import { lgBarChartTestData } from "./test_data";
 import { capitalise, getDistinctValues } from "../utils";
+import { ChartTitle } from "../style";
 
 export default function LargeBarChart({ foodRecords }) {
   const [category, setCategory] = useState("colour");
@@ -64,6 +65,7 @@ export default function LargeBarChart({ foodRecords }) {
 
   return (
     <>
+      <ChartTitle>Foods by Description</ChartTitle>
       <ButtonGroup>
         <Button onClick={() => setCategory("colour")}>Colour</Button>
         <Button onClick={() => setCategory("flavour")}>Flavour</Button>
@@ -76,7 +78,7 @@ export default function LargeBarChart({ foodRecords }) {
             top: 30,
             right: 20,
             left: 0,
-            bottom: 30,
+            bottom: 70,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />

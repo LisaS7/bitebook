@@ -14,6 +14,7 @@ import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { getDistinctValues, isValueInSelectedFilter } from "../utils";
 import { namedColours, randomColours } from "../../../constants";
+import { ChartTitle } from "../style";
 // import { lgLineChartTestData } from "./test_data";
 
 export default function LargeLineChart({ bites, filterOptions }) {
@@ -80,6 +81,7 @@ export default function LargeLineChart({ bites, filterOptions }) {
 
   return (
     <>
+      <ChartTitle>Average Ratings by Date</ChartTitle>
       <ButtonGroup>
         <Button onClick={() => setCategory("colour")}>Colour</Button>
         <Button onClick={() => setCategory("flavour")}>Flavour</Button>
@@ -92,7 +94,7 @@ export default function LargeLineChart({ bites, filterOptions }) {
             top: 10,
             right: 30,
             left: 0,
-            bottom: 5,
+            bottom: 30,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />

@@ -1,11 +1,39 @@
-import { PieChart, Pie, ResponsiveContainer } from "recharts";
+import { PieChart, Pie, ResponsiveContainer, Legend } from "recharts";
 import { randomColours } from "../../../constants";
 import { ChartTitle } from "../style";
 // import { bitesPieChartTestData } from "./test_data";
 
-function renderLabel(entry) {
-  return entry.name;
-}
+// function renderLabel(entry) {
+//   return entry.name;
+// }
+
+const RADIAN = Math.PI / 180;
+const renderLabel = ({
+  cx,
+  cy,
+  midAngle,
+  innerRadius,
+  outerRadius,
+  percent,
+}) => {
+  // constant controls how far out/in the labels are placed
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.6;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN); // left right position
+  const y = cy + radius * Math.sin(-midAngle * RADIAN); // up down position
+
+  return (
+    <text
+      x={x}
+      y={y}
+      fill="white"
+      fontWeight={800}
+      textAnchor="middle"
+      dominantBaseline="central"
+    >
+      {`${(percent * 100).toFixed(0)}%`}
+    </text>
+  );
+};
 
 export default function BitesPieChart({ bites }) {
   const groups = [
@@ -27,18 +55,19 @@ export default function BitesPieChart({ bites }) {
 
   return (
     <>
-      <ChartTitle>% of Bites by Food Group</ChartTitle>
+      <ChartTitle>Bites by Food Group</ChartTitle>
       <ResponsiveContainer>
-        <PieChart width={300} height={200}>
+        <PieChart>
           <Pie
             data={data}
             dataKey="value"
             cx="50%"
             cy="50%"
-            outerRadius={80}
+            outerRadius={90}
             labelLine={false}
             label={renderLabel}
           />
+          <Legend height={70} />
         </PieChart>
       </ResponsiveContainer>
     </>
