@@ -38,7 +38,7 @@ export function PropertyPie({ property, title }) {
     const others = {
       name: "Other",
       value: coloured.slice(6).reduce((total, curr) => total + curr.value, 0),
-      fill: "darkgray",
+      fill: "lightsteelblue",
     };
     chartData = [...coloured.slice(0, 6), others];
   } else {

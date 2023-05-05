@@ -6,6 +6,10 @@ import Loading from "../../components/Layout/Loading";
 import { updateRecord } from "../../Service";
 import { updateCategory } from "../../state/slice";
 import { CategoriesContainer } from "./style";
+import {
+  StyledColumnContainer,
+  TipBar,
+} from "../../components/Layout/global.style";
 
 export default function CategoriesDnd() {
   const { foodRecords, activePerson, categories } = useSelector(
@@ -61,8 +65,11 @@ export default function CategoriesDnd() {
   });
 
   return (
-    <DndContext onDragEnd={(e) => handleDragEnd(e)}>
-      <CategoriesContainer>{categoryDroppables}</CategoriesContainer>
-    </DndContext>
+    <StyledColumnContainer>
+      <TipBar>Drag and drop to change categories</TipBar>
+      <DndContext onDragEnd={(e) => handleDragEnd(e)}>
+        <CategoriesContainer>{categoryDroppables}</CategoriesContainer>
+      </DndContext>
+    </StyledColumnContainer>
   );
 }

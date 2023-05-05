@@ -4,6 +4,7 @@ import { GetDataTemplate } from "./data_template";
 import TableRow from "./TableRow";
 import InputRow from "./TableInputRow";
 import Summary from "./Summary";
+import { StyledColumnContainer } from "../components/Layout/global.style";
 
 export default function BiteContainer() {
   const { activePerson, bites, foodRecords } = useSelector((state) => state);
@@ -18,7 +19,7 @@ export default function BiteContainer() {
   );
 
   return (
-    <>
+    <StyledColumnContainer>
       <Summary records={personRecords} />
       <EditableTable
         data={personData}
@@ -26,6 +27,6 @@ export default function BiteContainer() {
         TableRow={TableRow}
         dataTemplate={dataTemplate}
       />
-    </>
+    </StyledColumnContainer>
   );
 }

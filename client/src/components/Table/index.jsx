@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { StyledTable } from "./style";
 import TableHead from "./Head";
-import { ButtonSection } from "./ButtonSection";
+import { TipBar } from "../Layout/global.style";
 
 export default function EditableTable({
   data,
@@ -48,7 +48,14 @@ export default function EditableTable({
 
   return (
     <div>
-      <ButtonSection addRow={addRow} />
+      <TipBar>
+        <h5>Add New</h5>
+        <button className="icon-btn" data-cy="add-btn" onClick={() => addRow()}>
+          <span className="icon-size2 material-symbols-outlined">
+            add_circle
+          </span>
+        </button>
+      </TipBar>
       <StyledTable data-cy="table" responsive hover>
         <TableHead template={dataTemplate} />
         <tbody>{tableRows}</tbody>

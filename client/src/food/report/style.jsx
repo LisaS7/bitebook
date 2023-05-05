@@ -1,10 +1,7 @@
 import styled from "styled-components";
+import { StyledColumnContainer } from "../../components/Layout/global.style";
 
-export const ReportContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 1rem;
+export const ReportContainer = styled(StyledColumnContainer)`
   background-color: var(--light);
 `;
 

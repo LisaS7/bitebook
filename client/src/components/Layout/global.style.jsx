@@ -6,12 +6,11 @@ export const MainContainer = styled.main`
   padding: 3rem;
 `;
 
-export const PinkCard = styled.div`
-  background-color: var(--contrast);
-  color: var(--light);
-  font-size: 1.5rem;
+export const StyledColumnContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   padding: 1rem;
-  border-radius: 10px;
 `;
 
 export const Card = styled.div`
@@ -20,4 +19,13 @@ export const Card = styled.div`
   border-radius: 5px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   padding: 0.5rem;
+`;
+
+export const TipBar = styled.p`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--light);
+  border-radius: 10px;
 `;
