@@ -45,6 +45,7 @@ export const slice = createSlice({
      */
     editStateItem: (state, action) => {
       const list = action.payload.list;
+
       const item = { ...action.payload.item };
 
       if (item.food) {
@@ -163,6 +164,11 @@ export const slice = createSlice({
       state.filteredRecords = state.foodRecords;
       state.activeFilters = { colour: [], flavour: [], texture: [] };
     },
+    // ============  CATEGORIES  ============
+    updateCategory: (state, action) => {
+      const { id, category } = action.payload;
+      state.foodRecords.find((obj) => obj.id === id).category = category;
+    },
   },
 });
 
@@ -175,6 +181,7 @@ export const {
   sortFoods,
   filterRecords,
   resetFilters,
+  updateCategory,
 } = slice.actions;
 
 export default slice.reducer;

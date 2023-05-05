@@ -4,8 +4,8 @@ import DraggableFood from "./DraggableFood";
 import DroppableCategory from "./DroppableCategory";
 import Loading from "../../components/Layout/Loading";
 import { updateRecord } from "../../Service";
-import { editStateItem } from "../../state/slice";
-import { UncategorisedContainer, CategoriesContainer } from "./style";
+import { updateCategory } from "../../state/slice";
+import { CategoriesContainer } from "./style";
 
 export default function CategoriesDnd() {
   const { foodRecords, activePerson, categories } = useSelector(
@@ -27,8 +27,15 @@ export default function CategoriesDnd() {
       ...personData.find((record) => record.id === e.active.id),
       category: newCategory,
     };
+
+    dispatch(
+      updateCategory({
+        id: existingRecord.id,
+        category: newCategory,
+        list: "foodRecords",
+      })
+    );
     updateRecord(existingRecord, "foodlists");
-    dispatch(editStateItem({ item: existingRecord, list: "foodRecords" }));
   }
 
   function foodDraggablesByCategory(category) {
