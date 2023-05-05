@@ -4,6 +4,8 @@ export const ReportContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  padding: 1rem;
+  background-color: var(--light);
 `;
 
 export const ReportHead = styled.section`

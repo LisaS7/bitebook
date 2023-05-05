@@ -17,6 +17,11 @@ button {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+.btn-primary {
+  background-color: var(--contrast) !important;
+  border: 1px solid var(--green) !important;
+}
+
 #dark-button {
  color: var(--light);
   background-color: darkslategray;
@@ -36,7 +41,7 @@ button {
   background-color: var(--google-button);
 }
 
-#pink-button {
+#contrast-button {
   background-color: var(--contrast);
   border-radius: 10px;
 }

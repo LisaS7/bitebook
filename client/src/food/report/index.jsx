@@ -22,7 +22,7 @@ export function FoodReport() {
       <ReportHead className="noPrint">
         <h1>Food Report</h1>
         <button
-          id="pink-button"
+          id="contrast-button"
           onClick={() => {
             window.print();
             return false;
