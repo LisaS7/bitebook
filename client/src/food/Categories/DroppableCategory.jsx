@@ -12,8 +12,8 @@ export default function DroppableCategory({ category, items }) {
 
   return (
     <DroppableContainer ref={setNodeRef} style={style}>
-      <h3>{category}</h3>
-      {items}
+      <h5>{category}</h5>
+      <div>{items}</div>
     </DroppableContainer>
   );
 }

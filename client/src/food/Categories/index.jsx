@@ -5,7 +5,7 @@ import DroppableCategory from "./DroppableCategory";
 import Loading from "../../components/Layout/Loading";
 import { updateRecord } from "../../Service";
 import { editStateItem } from "../../state/slice";
-import { UncategorisedContainer } from "./style";
+import { UncategorisedContainer, CategoriesContainer } from "./style";
 
 export default function CategoriesDnd() {
   const { foodRecords, activePerson, categories } = useSelector(
@@ -17,10 +17,14 @@ export default function CategoriesDnd() {
     return <Loading />;
   }
 
+  const personData = foodRecords.filter(
+    (record) => record.person.id === activePerson.id
+  );
+
   function handleDragEnd(e) {
     const newCategory = e.over?.id;
     const existingRecord = {
-      ...foodRecords.find((record) => record.id === e.active.id),
+      ...personData.find((record) => record.id === e.active.id),
       category: newCategory,
     };
     updateRecord(existingRecord, "foodlists");
@@ -28,7 +32,7 @@ export default function CategoriesDnd() {
   }
 
   function foodDraggablesByCategory(category) {
-    return foodRecords
+    return personData
       .filter((record) => record.category === category)
       .map((record) => <DraggableFood key={record.id} record={record} />);
   }
@@ -45,8 +49,11 @@ export default function CategoriesDnd() {
 
   return (
     <DndContext onDragEnd={(e) => handleDragEnd(e)}>
-      <UncategorisedContainer>{uncategorisedFoods}</UncategorisedContainer>
-      {categoryDroppables}
+      <UncategorisedContainer>
+        <h5>Uncategorised</h5>
+        <div>{uncategorisedFoods}</div>
+      </UncategorisedContainer>
+      <CategoriesContainer>{categoryDroppables}</CategoriesContainer>
     </DndContext>
   );
 }
