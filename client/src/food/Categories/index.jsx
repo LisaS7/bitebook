@@ -37,22 +37,24 @@ export default function CategoriesDnd() {
       .map((record) => <DraggableFood key={record.id} record={record} />);
   }
 
-  const uncategorisedFoods = foodDraggablesByCategory("None");
-
   const categoryDroppables = categories.map((cat) => {
     const draggables = foodDraggablesByCategory(cat);
-    if (cat !== "None") {
-      return <DroppableCategory key={cat} category={cat} items={draggables} />;
-    }
-    return null;
+    const uncategorisedFoods = [
+      ...foodDraggablesByCategory("None"),
+      ...foodDraggablesByCategory(null),
+    ];
+    return (
+      <DroppableCategory
+        key={cat}
+        category={cat}
+        items={draggables}
+        uncategorised={uncategorisedFoods}
+      />
+    );
   });
 
   return (
     <DndContext onDragEnd={(e) => handleDragEnd(e)}>
-      <UncategorisedContainer>
-        <h5>Uncategorised</h5>
-        <div>{uncategorisedFoods}</div>
-      </UncategorisedContainer>
       <CategoriesContainer>{categoryDroppables}</CategoriesContainer>
     </DndContext>
   );

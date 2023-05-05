@@ -1,7 +1,7 @@
 import { useDroppable } from "@dnd-kit/core";
 import { DroppableContainer } from "./style";
 
-export default function DroppableCategory({ category, items }) {
+export default function DroppableCategory({ category, items, uncategorised }) {
   const { isOver, setNodeRef } = useDroppable({
     id: category,
   });
@@ -10,9 +10,18 @@ export default function DroppableCategory({ category, items }) {
     border: isOver ? "3px solid black" : "1px solid black",
   };
 
+  if (category === "None") {
+    return (
+      <DroppableContainer ref={setNodeRef} style={style}>
+        <h5>Uncategorised</h5>
+        <div>{uncategorised}</div>
+      </DroppableContainer>
+    );
+  }
+
   return (
     <DroppableContainer ref={setNodeRef} style={style}>
-      <h5>{category}</h5>
+      <h5>{category === "None" ? "Uncategorised" : category}</h5>
       <div>{items}</div>
     </DroppableContainer>
   );
