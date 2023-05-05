@@ -21,6 +21,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import { auth } from "./lib/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { FoodReport } from "./food/report/index";
+import CategoriesDnd from "./food/Categories";
 
 function App() {
   const [foods, setFoods] = useState([]);
@@ -66,6 +67,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/foods" element={<FoodContainer />} />
             <Route path="/foods/categories" element={<FoodRecords />} />
+            <Route path="/foods/categories/test" element={<CategoriesDnd />} />
             <Route path="/foods/report" element={<FoodReport />} />
             <Route path="/bites" element={<BiteContainer />} />
             <Route path="/dashboard" element={<Dashboard />} />
