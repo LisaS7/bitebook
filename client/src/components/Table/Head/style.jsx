@@ -17,7 +17,7 @@ export const HeadingContent = styled.div`
   }
 
   & .material-symbols-outlined {
-    color: var(--pink);
+    color: var(--contrast);
   }
 `;
 

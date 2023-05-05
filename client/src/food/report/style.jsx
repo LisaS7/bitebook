@@ -54,7 +54,7 @@ export const Column = styled.div`
   & h3 {
     font-size: 1.4rem !important;
     padding: 1rem;
-    border-bottom: 1px solid var(--pink);
+    border-bottom: 1px solid var(--contrast);
     text-align: center;
   }
 

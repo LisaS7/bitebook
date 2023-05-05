@@ -1,11 +1,11 @@
-import { LargeButton, ButtonContainer } from "./style";
+import { ButtonContainer } from "./style";
 
 export function ButtonSection({ addRow }) {
   return (
     <ButtonContainer>
-      <LargeButton data-cy="add-btn" onClick={() => addRow()}>
-        <span className="material-symbols-outlined">add_circle</span>
-      </LargeButton>
+      <button className="icon-btn" data-cy="add-btn" onClick={() => addRow()}>
+        <span className="icon-size2 material-symbols-outlined">add_circle</span>
+      </button>
     </ButtonContainer>
   );
 }

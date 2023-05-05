@@ -1,8 +1,8 @@
 export function DeleteButton({ handleDelete, id }) {
   return (
-    <button data-cy="delete-btn">
+    <button className="icon-btn" data-cy="delete-btn">
       <span
-        className="material-symbols-outlined"
+        className="icon-size2 material-symbols-outlined"
         onClick={() => handleDelete(id)}
       >
         cancel
@@ -13,9 +13,9 @@ export function DeleteButton({ handleDelete, id }) {
 
 export function EditButton({ itemId, toggleEdit }) {
   return (
-    <button data-cy="edit-btn">
+    <button className="icon-btn" data-cy="edit-btn">
       <span
-        className="material-symbols-outlined"
+        className="icon-size2 material-symbols-outlined"
         onClick={() => toggleEdit(itemId)}
       >
         edit
@@ -26,9 +26,9 @@ export function EditButton({ itemId, toggleEdit }) {
 
 export function SaveButton({ handleClickSave }) {
   return (
-    <button data-cy="save-btn">
+    <button className="icon-btn" data-cy="save-btn">
       <span
-        className="material-symbols-outlined"
+        className="icon-size2 material-symbols-outlined"
         onClick={(event) => handleClickSave(event)}
       >
         done

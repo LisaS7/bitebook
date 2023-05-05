@@ -14,7 +14,7 @@ export const SummarySection = styled.section`
     text-align: center;
     letter-spacing: 0.2rem;
     padding-bottom: 1rem;
-    border-bottom: 3px solid var(--platinum);
+    border-bottom: 3px solid lightgray;
   }
 
   & p {

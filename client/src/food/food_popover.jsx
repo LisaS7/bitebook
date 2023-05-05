@@ -43,7 +43,7 @@ export function PopoverTrigger({ food }) {
       placement="top"
       overlay={foodPopover}
     >
-      <button className="btn-outline-pink">
+      <button className="btn-outline-contrast">
         {food.name} {food.detail && "(" + food.detail + ")"}
       </button>
     </OverlayTrigger>

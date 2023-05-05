@@ -7,7 +7,7 @@ export const MainContainer = styled.main`
 `;
 
 export const PinkCard = styled.div`
-  background-color: var(--pink);
+  background-color: var(--contrast);
   color: var(--light);
   font-size: 1.5rem;
   padding: 1rem;

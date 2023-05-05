@@ -12,12 +12,12 @@ export const PinkShape = styled.div`
   shape-outside: polygon(90% 0, 100% 0, 10% 100%, 0 100%);
   transform: skew(30deg);
   float: left;
-  background-color: var(--pink);
+  background-color: var(--contrast);
 `;
 
 export const StyledCard = styled(Card)`
   background-color: var(--light);
-  border: 1px solid var(--pink);
+  border: 1px solid var(--contrast);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   padding: 1rem;
   align-items: center;

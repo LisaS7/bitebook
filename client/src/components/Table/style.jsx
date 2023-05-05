@@ -9,14 +9,6 @@ export const ButtonContainer = styled.section`
   padding: 2rem;
 `;
 
-export const LargeButton = styled.button`
-  background-color: transparent;
-
-  & span {
-    font-size: 2rem;
-  }
-`;
-
 export const StyledTable = styled(Table)`
   background-color: var(--light);
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;

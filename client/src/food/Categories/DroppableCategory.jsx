@@ -7,7 +7,7 @@ export default function DroppableCategory({ category, items, uncategorised }) {
   });
 
   const style = {
-    border: isOver ? "3px solid black" : "1px solid black",
+    border: isOver && "2px solid var(--dark)",
   };
 
   if (category === "None") {

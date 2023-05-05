@@ -22,26 +22,36 @@ button {
   background-color: darkslategray;
 }
 
+.icon-btn {
+  border-radius: 40%;
+  text-align: center;
+}
+
+.icon-size2 {
+  vertical-align: middle;
+  font-size: 2rem;
+}
+
 .google-button {
   background-color: var(--google-button);
 }
 
 #pink-button {
-  background-color: var(--pink);
+  background-color: var(--contrast);
   border-radius: 10px;
 }
 
-.btn-outline-pink {
-  color: var(--dark-pink);
+.btn-outline-contrast {
+  color: var(--dark);
   background-color: transparent;
-  border: 1px solid var(--pink);
+  border: 1px solid var(--contrast);
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.btn-outline-pink:hover {
+.btn-outline-contrast:hover {
   color: var(--light);
-  background-color: var(--pink);
+  background-color: var(--contrast);
   border: none;
   border-radius: 10px;
 }
