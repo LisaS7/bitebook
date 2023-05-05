@@ -14,7 +14,6 @@ import Reset from "./components/User/Reset";
 import Profile from "./components/User/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import FoodContainer from "./food/Container";
-import FoodRecords from "./food/foodRecords/Container";
 import BiteContainer from "./bites/Container";
 import Dashboard from "./pages/dashboard/Dashboard";
 
@@ -66,7 +65,6 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/foods" element={<FoodContainer />} />
-            <Route path="/foods/categories" element={<FoodRecords />} />
             <Route path="/foods/categories/test" element={<CategoriesDnd />} />
             <Route path="/foods/report" element={<FoodReport />} />
             <Route path="/bites" element={<BiteContainer />} />
