@@ -5,6 +5,7 @@ import DroppableCategory from "./DroppableCategory";
 import Loading from "../../components/Layout/Loading";
 import { updateRecord } from "../../Service";
 import { editStateItem } from "../../state/slice";
+import { UncategorisedContainer } from "./style";
 
 export default function CategoriesDnd() {
   const { foodRecords, activePerson, categories } = useSelector(
@@ -12,30 +13,41 @@ export default function CategoriesDnd() {
   );
   const dispatch = useDispatch();
 
-  console.log("start record", foodRecords[0]);
+  if (!foodRecords.length) {
+    return <Loading />;
+  }
 
   function handleDragEnd(e) {
     const newCategory = e.over?.id;
     const existingRecord = {
       ...foodRecords.find((record) => record.id === e.active.id),
+      category: newCategory,
     };
-    existingRecord.category = newCategory;
-    updateRecord(existingRecord, "foodlists");
 
+    updateRecord(existingRecord, "foodlists");
     dispatch(editStateItem({ existingRecord, list: "foodRecords" }));
     console.log("record after update", existingRecord);
   }
 
-  const yesFoods = foodRecords.filter((record) => record.category === "Yes");
-
-  if (!foodRecords.length) {
-    return <Loading />;
+  function foodDraggablesByCategory(category) {
+    return foodRecords
+      .filter((record) => record.category === category)
+      .map((record) => <DraggableFood key={record.id} record={record} />);
   }
+
+  const uncategorisedFoods = foodDraggablesByCategory("None");
+
+  const categoryDroppables = categories.map((cat) => {
+    const draggables = foodDraggablesByCategory(cat);
+    if (cat !== "None") {
+      return <DroppableCategory key={cat} category={cat} items={draggables} />;
+    }
+  });
 
   return (
     <DndContext onDragEnd={(e) => handleDragEnd(e)}>
-      <DraggableFood record={foodRecords[0]} />
-      <DroppableCategory category={categories[1]} items={yesFoods} />
+      <UncategorisedContainer>{uncategorisedFoods}</UncategorisedContainer>
+      {categoryDroppables}
     </DndContext>
   );
 }

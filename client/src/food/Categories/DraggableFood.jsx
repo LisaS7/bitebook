@@ -13,12 +13,13 @@ export default function DraggableFood({ record }) {
 
   return (
     <DraggableContainer
+      key={record.id}
       {...attributes}
       {...listeners}
       ref={setNodeRef}
       style={style}
     >
-      {record.food.icon + " " + record.food.name}
+      {record.food.icon} {record.food.name}
     </DraggableContainer>
   );
 }
