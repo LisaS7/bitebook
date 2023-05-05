@@ -10,7 +10,7 @@ export default function Summary({ records }) {
   );
 
   const displayFoods = foodsNotTried.map((food) => (
-    <p>
+    <p key={food.id}>
       {food.icon} {food.name}
       <span className="detail">{food.detail && " (" + food.detail + ")"}</span>
     </p>
