@@ -12,6 +12,7 @@ import {
 import { Controls } from "./charts/Controls";
 import { getDistinctValues } from "./utils";
 import LargeBarChart from "./charts/LargeBarChart";
+import BitesPieChart from "./charts/PieChart";
 
 export default function Dashboard() {
   const { foods, filteredRecords, bites, activePerson } = useSelector(
@@ -38,7 +39,9 @@ export default function Dashboard() {
       <CardChartControls>
         <Controls options={filterOptions} />
       </CardChartControls>
-      <CardTopRatings>bite % by food group</CardTopRatings>
+      <CardTopRatings>
+        <BitesPieChart bites={personBites} />
+      </CardTopRatings>
       <CardSmallBarChart>
         <SmallBarChart foodRecords={personFoodRecords} />
       </CardSmallBarChart>

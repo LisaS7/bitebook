@@ -1,3 +1,11 @@
+// bites pie chart
+export const bitesPieChartTestData = [
+  { name: "Carbs", value: 30 },
+  { name: "Protein", value: 20 },
+  { name: "Fruit", value: 40 },
+  { name: "Dairy", value: 10 },
+];
+
 // large line chart
 export const lgLineChartTestData = [
   {

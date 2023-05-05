@@ -45,3 +45,7 @@ export const CardLargeBarChart = styled(Card)`
 export const CardTopRatings = styled(Card)`
   grid-area: top-ratings;
 `;
+
+export const ChartTitle = styled.h5`
+  text-align: center;
+`;
