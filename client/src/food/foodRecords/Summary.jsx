@@ -16,10 +16,14 @@ export default function Summary({ records }) {
     </p>
   ));
 
-  return (
-    <NewFoodSummary>
-      <h3>Try something new?</h3>
-      <div className="new-foods">{displayFoods}</div>
-    </NewFoodSummary>
-  );
+  if (foodsTried.length) {
+    return (
+      <NewFoodSummary>
+        <h3>Try something new?</h3>
+        <div className="new-foods">{displayFoods}</div>
+      </NewFoodSummary>
+    );
+  }
+
+  return <h2>Please select a person</h2>;
 }
