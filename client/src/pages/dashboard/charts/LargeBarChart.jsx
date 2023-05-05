@@ -113,7 +113,3 @@ export default function LargeBarChart({ foodRecords }) {
     </>
   );
 }
-
-// {keys.map((key, index) => {
-//     <Bar key={key} dataKey={key} stackId="a" fill={randomColours[index]} />
-//   })}

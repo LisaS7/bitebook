@@ -1,4 +1,4 @@
-import { PieChart, Pie, ResponsiveContainer, Text } from "recharts";
+import { PieChart, Pie, ResponsiveContainer } from "recharts";
 import { randomColours } from "../../../constants";
 import { ChartTitle } from "../style";
 // import { bitesPieChartTestData } from "./test_data";
@@ -21,7 +21,7 @@ export default function BitesPieChart({ bites }) {
     data.push({
       name: group,
       value: Math.round((count / totalBites) * 100),
-      fill: randomColours[index],
+      fill: randomColours[groups.length - index],
     });
   });
 
