@@ -99,49 +99,69 @@ export const slice = createSlice({
     // ============  SORT & FILTER  ============
     /**
      * reorders the state foods list
-     * @param  {string} action the key to sort the objects by
+     * @param  {string} key the key to sort the objects by
+     * @param  {string} direction ascending or descending sort order
      */
     sortFoods: (state, action) => {
       const key = action.payload.key.toLowerCase();
       const direction = action.payload.direction;
 
-      if (key === "bites") {
-        if (direction === "asc") {
-          state.foods.sort((a, b) =>
-            a.bites.length < b.bites.length
-              ? -1
-              : b.bites.length < a.bites.length
-              ? 1
-              : 0
-          );
-        }
+      switch (key) {
+        case "food":
+          if (direction === "asc") {
+            state.bites = state.bites.sort((a, b) =>
+              a.foodRecord.food.name?.localeCompare(
+                b.foodRecord.food.name?.toString(),
+                "en",
+                { numeric: true }
+              )
+            );
+          }
 
-        if (direction === "desc") {
-          state.foods.sort((a, b) =>
-            a.bites.length < b.bites.length
-              ? 1
-              : b.bites.length < a.bites.length
-              ? -1
-              : 0
-          );
-        }
-      } else {
-        if (direction === "asc") {
-          state.foods = [...current(state.foods)].sort((a, b) =>
-            a[key]?.localeCompare(b[key]?.toString(), "en", { numeric: true })
-          );
-        }
+          if (direction === "desc") {
+            state.bites = state.bites.sort((a, b) =>
+              b.foodRecord.food.name?.localeCompare(
+                a.foodRecord.food.name?.toString(),
+                "en",
+                { numeric: true }
+              )
+            );
+          }
+          break;
+        case "rating":
+          if (direction === "asc") {
+            state.bites = state.bites.sort((a, b) => b.rating - a.rating);
+          }
 
-        if (direction === "desc") {
-          state.foods = [...current(state.foods)].sort((a, b) =>
-            b[key]?.localeCompare(a[key]?.toString(), "en", { numeric: true })
-          );
-        }
+          if (direction === "desc") {
+            state.bites = state.bites.sort((a, b) => a.rating - b.rating);
+          }
+          break;
+        default:
+          if (direction === "asc") {
+            state.foods = state.foods.sort((a, b) =>
+              a[key]?.localeCompare(b[key]?.toString(), "en", { numeric: true })
+            );
+            state.bites = state.bites.sort((a, b) =>
+              a[key]?.localeCompare(b[key]?.toString(), "en", { numeric: true })
+            );
+          }
+
+          if (direction === "desc") {
+            state.foods = state.foods.sort((a, b) =>
+              b[key]?.localeCompare(a[key]?.toString(), "en", { numeric: true })
+            );
+            state.bites = state.bites.sort((a, b) =>
+              b[key]?.localeCompare(a[key]?.toString(), "en", { numeric: true })
+            );
+          }
+          break;
       }
     },
     /**
      * Used in dashboard view to filter charts with the colour/flavour/texture options
-     * @param  {string} action the value to filter on
+     * @param  {string} category category which is being filtered
+     * @param  {string} values the values to display
      */
     filterRecords: (state, action) => {
       state.filteredRecords = state.foodRecords; // reset list
@@ -165,6 +185,11 @@ export const slice = createSlice({
       state.activeFilters = { colour: [], flavour: [], texture: [] };
     },
     // ============  CATEGORIES  ============
+    /**
+     * Used in food categories view to change category in state when object is recategorised
+     * @param  {string} id The id of the record to change
+     * @param  {string} category The new category
+     */
     updateCategory: (state, action) => {
       const { id, category } = action.payload;
       state.foodRecords.find((obj) => obj.id === id).category = category;
