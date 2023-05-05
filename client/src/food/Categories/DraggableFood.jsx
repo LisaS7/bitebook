@@ -19,7 +19,8 @@ export default function DraggableFood({ record }) {
       ref={setNodeRef}
       style={style}
     >
-      {record.food.icon} {record.food.name}
+      {record.food.icon} {record.food.name}{" "}
+      {record.food.detail && "(" + record.food.detail + ")"}
     </DraggableContainer>
   );
 }
