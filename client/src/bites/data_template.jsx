@@ -40,13 +40,6 @@ export function GetDataTemplate() {
 
   return {
     date: { heading: "Date", type: "date", default: dateToday, sortable: true },
-    person: {
-      heading: "Person",
-      type: "select_object",
-      options: people,
-      default: people[0]?.id.toString(),
-      sortable: true,
-    },
     food: {
       heading: "Food",
       type: "select_object",
