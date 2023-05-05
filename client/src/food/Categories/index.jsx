@@ -23,10 +23,8 @@ export default function CategoriesDnd() {
       ...foodRecords.find((record) => record.id === e.active.id),
       category: newCategory,
     };
-
     updateRecord(existingRecord, "foodlists");
-    dispatch(editStateItem({ existingRecord, list: "foodRecords" }));
-    console.log("record after update", existingRecord);
+    dispatch(editStateItem({ item: existingRecord, list: "foodRecords" }));
   }
 
   function foodDraggablesByCategory(category) {
@@ -42,6 +40,7 @@ export default function CategoriesDnd() {
     if (cat !== "None") {
       return <DroppableCategory key={cat} category={cat} items={draggables} />;
     }
+    return null;
   });
 
   return (

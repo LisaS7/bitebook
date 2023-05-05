@@ -47,8 +47,6 @@ export const slice = createSlice({
       const list = action.payload.list;
       const item = { ...action.payload.item };
 
-      console.log("item received by slice", item);
-
       if (item.food) {
         const food = getItemById(current(state.foods), item.id);
         item.food = food;
