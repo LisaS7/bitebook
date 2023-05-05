@@ -96,7 +96,7 @@ textarea {
  /* dropdowns */
 
 .dropdown-menu {
-  background-color: var(--light-green) !important;
+  background-color: var(--green) !important;
 }
 
 #dropdown-item {
