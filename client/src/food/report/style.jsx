@@ -3,6 +3,10 @@ import { StyledColumnContainer } from "../../components/Layout/global.style";
 
 export const ReportContainer = styled(StyledColumnContainer)`
   background-color: var(--light);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 3rem;
+  z-index: 2;
+  position: relative;
 `;
 
 export const ReportHead = styled.section`
