@@ -34,7 +34,9 @@ export const CardSmallBarChart = styled.div`
 
   & .paper-bg {
     height: 100%;
-    background-image: url(${paper2});
+    background-image: url(${paper1});
+    background-size: 40rem 50rem;
+    background-position: -20px -60px;
     padding: 4rem 2rem 2rem 3rem;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   }
@@ -88,11 +90,12 @@ export const ControlsContainer = styled.div`
 
 export const CardLargeBarChart = styled.div`
   grid-area: lg-bar-chart;
+  position: relative;
 
   & .paper-bg {
     width: 100%;
     height: 100%;
-    background-image: url(${paper1});
+    background-image: url(${paper2});
     background-size: 60rem 50rem;
     background-position: -20px -60px;
     padding: 4rem 2rem 2rem 3rem;

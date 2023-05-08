@@ -43,8 +43,6 @@ export default function Dashboard() {
         </div>
       </CardTopRatings>
       <CardSmallBarChart>
-        <LongTopTape />
-        <LongBottomTape />
         <div className="paper-bg">
           <SmallBarChart foodRecords={activeData.filteredFoodRecords} />
         </div>
@@ -52,6 +50,8 @@ export default function Dashboard() {
 
       {/* ======== Bottom ======== */}
       <CardLargeBarChart>
+        <LongTopTape />
+        <LongBottomTape />
         <div className="paper-bg">
           <LargeBarChart foodRecords={activeData.filteredFoodRecords} />
         </div>
