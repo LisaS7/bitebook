@@ -19,7 +19,7 @@ import {
   doc,
 } from "firebase/firestore";
 import { seedNewAccount } from "../Service";
-import { infoStyle } from "../console_css";
+import { infoStyle } from "../constants";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCvDGNgCOc-THRKGNLFY4MWuDufM3fh4Dk",

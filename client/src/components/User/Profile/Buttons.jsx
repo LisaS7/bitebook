@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { sendPasswordReset, logout } from "../../../lib/firebase";
 import { useDeleteUser } from "react-firebase-hooks/auth";
-import { infoStyle } from "../../../console_css";
+import { infoStyle } from "../../../constants";
 import { deleteRecord } from "../../../Service";
 import Button from "react-bootstrap/Button";
 
