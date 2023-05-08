@@ -22,3 +22,9 @@ export const TapeTopRight = styled(Tape)`
   top: 0px;
   transform: translate(36px, 10px) rotate(45deg);
 `;
+
+export const TapeBottomRight = styled(Tape)`
+  right: 0px;
+  bottom: 0px;
+  transform: translate(26px, 0px) rotate(-45deg);
+`;

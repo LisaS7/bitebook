@@ -49,7 +49,7 @@ export default function BitesPieChart({ bites }) {
     data.push({
       name: group,
       value: Math.round((count / totalBites) * 100),
-      fill: randomColours[groups.length - index],
+      fill: randomColours[groups.length - index + 3],
     });
   });
 

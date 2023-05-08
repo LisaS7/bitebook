@@ -13,6 +13,7 @@ import { Controls } from "./charts/Controls";
 import { getDistinctValues } from "./utils";
 import LargeBarChart from "./charts/LargeBarChart";
 import BitesPieChart from "./charts/PieChart";
+import { TapeBottomRight, TapeTopLeft } from "../../components/Layout/Tape";
 
 export default function Dashboard() {
   const { foods, activeData } = useSelector((state) => state);
@@ -30,7 +31,9 @@ export default function Dashboard() {
         <Controls options={filterOptions} />
       </CardChartControls>
       <CardTopRatings>
-        <BitesPieChart bites={activeData.filteredBites} />
+        <div className="paper-bg">
+          <BitesPieChart bites={activeData.filteredBites} />
+        </div>
       </CardTopRatings>
       <CardSmallBarChart>
         <SmallBarChart foodRecords={activeData.filteredFoodRecords} />
@@ -43,10 +46,14 @@ export default function Dashboard() {
         </div>
       </CardLargeBarChart>
       <CardLargeLineChart>
-        <LargeLineChart
-          bites={activeData.filteredBites}
-          filterOptions={filterOptions}
-        />
+        <div className="paper-bg">
+          <TapeTopLeft />
+          <TapeBottomRight />
+          <LargeLineChart
+            bites={activeData.filteredBites}
+            filterOptions={filterOptions}
+          />
+        </div>
       </CardLargeLineChart>
     </Container>
   );

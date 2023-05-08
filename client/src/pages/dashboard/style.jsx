@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Card } from "../../components/Layout/global.style";
-import notepad from "./images/paper1.png";
+import paper1 from "./images/paper1.png";
+import paper2 from "./images/paper2.avif";
+import paper3 from "./images/paper3.png";
 
 export const Container = styled.div`
   display: grid;
@@ -29,8 +31,18 @@ export const CardSmallBarChart = styled(Card)`
   grid-area: sm-bar-chart;
 `;
 
-export const CardLargeLineChart = styled(Card)`
+export const CardLargeLineChart = styled.div`
   grid-area: lg-line-chart;
+  position: relative;
+
+  & .paper-bg {
+    width: 100%;
+    height: 100%;
+    background-image: url(${paper2});
+    background-size: 60rem 50rem;
+    background-position: -20px -60px;
+    padding: 4rem 2rem 2rem 3rem;
+  }
 `;
 
 export const CardChartControls = styled(Card)`
@@ -55,15 +67,24 @@ export const CardLargeBarChart = styled.div`
   & .paper-bg {
     width: 100%;
     height: 100%;
-    background-image: url(${notepad});
+    background-image: url(${paper1});
     background-size: 60rem 50rem;
     background-position: -20px -60px;
-    padding: 3rem 2rem 2rem 3rem;
+    padding: 4rem 2rem 2rem 3rem;
   }
 `;
 
-export const CardTopRatings = styled(Card)`
+export const CardTopRatings = styled.div`
   grid-area: top-ratings;
+
+  & .paper-bg {
+    width: 100%;
+    height: 100%;
+    background-image: url(${paper3});
+    background-size: 40rem 40rem;
+    background-position: 0px -10px;
+    padding: 5rem 2rem 2rem 3rem;
+  }
 `;
 
 export const ChartTitle = styled.h5`
