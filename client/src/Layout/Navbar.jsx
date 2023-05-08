@@ -56,7 +56,7 @@ export default function CustomNavbar() {
             <NavDropdown.Item
               id="dropdown-item"
               as={Link}
-              to="/foods/categories/test"
+              to="/foods/categories/"
             >
               Categories
             </NavDropdown.Item>
