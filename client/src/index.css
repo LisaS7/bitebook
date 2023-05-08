@@ -11,6 +11,8 @@
   --light: #f6f3f3;
   --light2: #e8e8e8;
   --light3: #aabdbe;
+  --tape-gray: #dbd8be;
+  --tape-edge-gray: #b7b49d;
 }
 
 * {
@@ -24,8 +26,9 @@ html {
 
 #body {
   margin: 0;
-  background: var(--light2);
-background: radial-gradient(circle, var(--light2) 60%, var(--light3) 100%);
+  /* background: var(--light2); */
+  background-image: url("components/Layout/bg.avif");
+/* background: radial-gradient(circle, var(--light2) 60%, var(--light3) 100%); */
   color: var(--dark);
   font-family: 'Courier Prime', monospace;
   -webkit-font-smoothing: antialiased;
