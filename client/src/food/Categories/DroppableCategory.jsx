@@ -13,16 +13,18 @@ export default function DroppableCategory({ category, items, uncategorised }) {
   if (category === "None") {
     return (
       <DroppableContainer ref={setNodeRef} style={style}>
+        <div className="margin-line"></div>
         <h5>Uncategorised</h5>
-        <div>{uncategorised}</div>
+        <div className="content">{uncategorised}</div>
       </DroppableContainer>
     );
   }
 
   return (
     <DroppableContainer ref={setNodeRef} style={style}>
+      <div className="margin-line"></div>
       <h5>{category}</h5>
-      <div>{items}</div>
+      <div className="content">{items}</div>
     </DroppableContainer>
   );
 }
