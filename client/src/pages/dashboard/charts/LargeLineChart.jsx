@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import {
   LineChart,
   Line,
@@ -12,13 +11,12 @@ import {
 } from "recharts";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
-import { getDistinctValues, isValueInSelectedFilter } from "../utils";
+import { getDistinctValues } from "../utils";
 import { namedColours, randomColours } from "../../../constants";
 import { ChartTitle } from "../style";
 // import { lgLineChartTestData } from "./test_data";
 
 export default function LargeLineChart({ bites, filterOptions }) {
-  const { activeFilters } = useSelector((state) => state);
   const [category, setCategory] = useState("colour");
   let colours = category === "colour" ? namedColours : randomColours;
 
@@ -53,10 +51,7 @@ export default function LargeLineChart({ bites, filterOptions }) {
           ratings.reduce((total, curr) => total + curr, 0) / ratings.length;
       }
 
-      if (
-        !ratings.length ||
-        isValueInSelectedFilter(activeFilters, key, category)
-      ) {
+      if (!ratings.length) {
         delete record[key];
       }
     }

@@ -36,6 +36,7 @@ const renderLabel = ({
 };
 
 export default function BitesPieChart({ bites }) {
+  console.log("BITES IN PIE", bites);
   const groups = [
     ...new Set(bites.map((bite) => bite.foodRecord.food.grouping)),
   ];

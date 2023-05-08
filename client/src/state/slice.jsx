@@ -8,9 +8,13 @@ const initialState = {
   categories: [],
   groups: [],
   activePerson: {},
-  activeData: { foodRecords: [], bites: [] },
+  activeData: {
+    foodRecords: [],
+    bites: [],
+    filteredFoodRecords: [],
+    filteredBites: [],
+  },
   activeFilters: { colour: [], flavour: [], texture: [] },
-  filteredRecords: [],
 };
 
 function getItemById(stateArray, id) {
@@ -32,7 +36,6 @@ export const slice = createSlice({
     setDataState: (state, action) => {
       state.foods = action.payload.foods;
       state.foodRecords = action.payload.foodRecords;
-      state.filteredRecords = state.foodRecords; // initalise with all records for dashboard charts
       state.bites = action.payload.bites;
       state.people = action.payload.people;
       state.categories = action.payload.categories;
@@ -101,9 +104,13 @@ export const slice = createSlice({
         (record) => record.person.id === state.activePerson.id
       );
 
+      state.activeData.filteredFoodRecords = state.activeData.foodRecords;
+
       state.activeData.bites = state.bites.filter(
         (bite) => bite.foodRecord.person.id === state.activePerson.id
       );
+
+      state.activeData.filteredBites = state.activeData.bites;
     },
     // ============  SORT & FILTER  ============
     /**
@@ -173,7 +180,9 @@ export const slice = createSlice({
      * @param  {string} values the values to display
      */
     filterRecords: (state, action) => {
-      state.filteredRecords = state.foodRecords; // reset list
+      // reset list
+      state.activeData.filteredFoodRecords = state.activeData.foodRecords;
+      state.activeData.filteredBites = state.activeData.bites;
 
       const category = action.payload.category;
       const values = action.payload.selected;
@@ -181,16 +190,24 @@ export const slice = createSlice({
 
       for (const [key, value] of Object.entries(state.activeFilters)) {
         if (value.length) {
-          state.filteredRecords = state.filteredRecords.filter((record) => {
-            return value.some((v) =>
-              record.food[key].toLowerCase().includes(v)
-            );
-          });
+          state.activeData.filteredFoodRecords =
+            state.activeData.filteredFoodRecords.filter((record) => {
+              return value.some((v) =>
+                record.food[key].toLowerCase().includes(v)
+              );
+            });
+          state.activeData.filteredBites =
+            state.activeData.filteredBites.filter((bite) => {
+              return value.some((v) =>
+                bite.foodRecord.food[key].toLowerCase().includes(v)
+              );
+            });
         }
       }
     },
     resetFilters: (state) => {
-      state.filteredRecords = state.foodRecords;
+      state.activeData.filteredFoodRecords = state.activeData.foodRecords;
+      state.activeData.filteredBites = state.activeData.bites;
       state.activeFilters = { colour: [], flavour: [], texture: [] };
     },
     // ============  CATEGORIES  ============
