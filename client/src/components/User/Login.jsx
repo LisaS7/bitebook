@@ -8,7 +8,7 @@ import {
 import { useAuthState } from "react-firebase-hooks/auth";
 import { StyledContainer, StyledForm } from "./style";
 import Form from "react-bootstrap/Form";
-import Loading from "../Layout/Loading";
+import Loading from "../../Layout/Loading";
 
 export default function Login() {
   const [email, setEmail] = useState("");

@@ -12,7 +12,7 @@ const textStyle = {
 
 const ellipseStyle = {
   stroke: "rgb(1, 105, 111)",
-  strokeWidth: "5px",
+  strokeWidth: "3px",
   fill: "rgb(223, 87, 126, 0.7)",
 };
 
@@ -27,7 +27,7 @@ const draw = {
         pathLength: {
           delay,
           type: "spring",
-          duration: 1.5,
+          duration: 2.5,
           bounce: 0,
         },
         opacity: { delay, duration: 1.5 },
@@ -74,6 +74,7 @@ export function Animation() {
     >
       <a style={{ textDecoration: "none" }} href="/foods">
         <motion.ellipse
+          filter="url(#noise1)"
           style={ellipseStyle}
           cx="99.761"
           cy="88.321"

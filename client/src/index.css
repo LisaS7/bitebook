@@ -27,7 +27,7 @@ html {
 #body {
   margin: 0;
   /* background: var(--light2); */
-  background-image: url("components/Layout/bg.avif");
+  background-image: url("Layout/bg.avif");
 /* background: radial-gradient(circle, var(--light2) 60%, var(--light3) 100%); */
   color: var(--dark);
   font-family: 'Courier Prime', monospace;

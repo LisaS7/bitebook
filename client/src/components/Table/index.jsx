@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { StyledTable } from "./style";
 import TableHead from "./Head";
-import { TipBar } from "../Layout/global.style";
+import { TipBar } from "../../Layout/global.style";
 
 export default function EditableTable({
   data,

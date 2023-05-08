@@ -18,7 +18,7 @@ import {
   LongTopTape,
   TapeBottomRight,
   TapeTopLeft,
-} from "../../components/Layout/Tape";
+} from "../../Layout/Tape";
 
 export default function Dashboard() {
   const { foods, activeData } = useSelector((state) => state);

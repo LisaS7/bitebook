@@ -4,7 +4,7 @@ import Summary from "./TableSummary";
 import { GetDataTemplate } from "./data_template";
 import TableRow from "./TableRow";
 import InputRow from "./TableInputRow";
-import { StyledColumnContainer } from "../components/Layout/global.style";
+import { StyledColumnContainer } from "../Layout/global.style";
 
 export default function FoodContainer() {
   const { foods } = useSelector((state) => state);

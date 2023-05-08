@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { NewFoodSummary } from "./style";
-import { TapeTopLeft, TapeTopRight } from "../components/Layout/Tape";
+import { TapeTopLeft, TapeTopRight } from "../Layout/Tape";
 
 export default function Summary({ records }) {
   const { foods } = useSelector((state) => state);

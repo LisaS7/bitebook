@@ -2,14 +2,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { DndContext } from "@dnd-kit/core";
 import DraggableFood from "./DraggableFood";
 import DroppableCategory from "./DroppableCategory";
-import Loading from "../../components/Layout/Loading";
+import Loading from "../../Layout/Loading";
 import { updateRecord } from "../../Service";
 import { updateCategory } from "../../state/slice";
 import { CategoriesContainer } from "./style";
-import {
-  StyledColumnContainer,
-  TipBar,
-} from "../../components/Layout/global.style";
+import { StyledColumnContainer, TipBar } from "../../Layout/global.style";
 
 export default function CategoriesDnd() {
   const { foodRecords, categories, activeData } = useSelector((state) => state);

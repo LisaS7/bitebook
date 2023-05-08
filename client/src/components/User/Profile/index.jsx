@@ -2,7 +2,7 @@ import React from "react";
 import { auth } from "../../../lib/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useSelector } from "react-redux";
-import Loading from "../../Layout/Loading";
+import Loading from "../../../Layout/Loading";
 import Buttons from "./Buttons";
 import UserDetails from "./UserDetails";
 import People from "./People";

@@ -1,7 +1,7 @@
-import { setActivePerson } from "../../state/slice";
+import { setActivePerson } from "../state/slice";
 import { useSelector, useDispatch } from "react-redux";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { Circle } from "../Table/style";
+import { Circle } from "../components/Table/style";
 
 export default function PersonSelector() {
   const { people, activePerson } = useSelector((state) => state);

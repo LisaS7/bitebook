@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { StyledColumnContainer } from "../../components/Layout/global.style";
+import { StyledColumnContainer } from "../../Layout/global.style";
 
 export const ReportContainer = styled(StyledColumnContainer)`
   background-color: var(--light);

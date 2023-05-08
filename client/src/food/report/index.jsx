@@ -5,9 +5,9 @@ import { ReportHead, ReportSection, ReportContainer } from "./style";
 
 import { CategoryColumns } from "./CategoryColumns";
 import PropertyDetails from "./PropertyDetails";
-import { PaperClip, PaperStack } from "../../components/Layout/Paper";
+import { PaperClip, PaperStack } from "../../Layout/Paper";
 
-import pclip from "../../components/Layout/paper-clip.png";
+import pclip from "../../Layout/paper-clip.png";
 
 export function FoodReport() {
   const { categories, activeData } = useSelector((state) => state);

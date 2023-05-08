@@ -7,7 +7,7 @@ import { setDataState } from "./state/slice";
 import { getData } from "./Service";
 import Home from "./pages/home/Home";
 import Error404 from "./pages/Error";
-import Layout from "./components/Layout/Layout";
+import Layout from "./Layout/Layout";
 import Login from "./components/User/Login";
 import Register from "./components/User/Register";
 import Reset from "./components/User/Reset";

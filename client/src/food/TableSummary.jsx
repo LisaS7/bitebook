@@ -1,6 +1,6 @@
 import { SummarySection } from "./style";
 import { PropertyPie } from "./charts";
-import { TapeTopLeft, TapeTopRight } from "../components/Layout/Tape";
+import { TapeTopLeft, TapeTopRight } from "../Layout/Tape";
 
 export default function Summary() {
   return (
