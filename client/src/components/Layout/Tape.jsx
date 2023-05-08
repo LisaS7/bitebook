@@ -11,6 +11,18 @@ const Tape = styled.div`
   border-left: 2px dotted var(--tape-edge-gray);
 `;
 
+export const LongTopTape = styled(Tape)`
+  width: 110%;
+  top: -10px;
+  left: -30px;
+`;
+
+export const LongBottomTape = styled(Tape)`
+  width: 110%;
+  bottom: -10px;
+  left: -30px;
+`;
+
 export const TapeTopLeft = styled(Tape)`
   left: 0px;
   top: 0px;

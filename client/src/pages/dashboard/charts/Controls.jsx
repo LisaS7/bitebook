@@ -1,6 +1,7 @@
 import Form from "react-bootstrap/Form";
 import { useDispatch } from "react-redux";
 import { filterRecords, resetFilters } from "../../../state/slice";
+import { ControlsContainer } from "../style";
 
 export function Controls({ options }) {
   const dispatch = useDispatch();
@@ -37,9 +38,11 @@ export function Controls({ options }) {
   }
 
   return (
-    <>
+    <ControlsContainer>
       <div>
-        <Form.Label>Colour</Form.Label>
+        <Form.Label>
+          <strong className="highlight-green">Colour</strong>
+        </Form.Label>
         <Form.Select
           id="colour"
           multiple
@@ -51,7 +54,9 @@ export function Controls({ options }) {
         </Form.Select>
       </div>
       <div>
-        <Form.Label>Flavour</Form.Label>
+        <Form.Label>
+          <strong className="highlight-blue">Flavour</strong>
+        </Form.Label>
         <Form.Select
           id="flavour"
           multiple
@@ -63,7 +68,10 @@ export function Controls({ options }) {
         </Form.Select>
       </div>
       <div>
-        <Form.Label>Texture</Form.Label>
+        <Form.Label>
+          {" "}
+          <strong className="highlight-yellow">Texture</strong>
+        </Form.Label>
         <Form.Select
           id="texture"
           multiple
@@ -77,6 +85,6 @@ export function Controls({ options }) {
       <button id="dark-button" onClick={() => handleReset()}>
         Reset
       </button>
-    </>
+    </ControlsContainer>
   );
 }
