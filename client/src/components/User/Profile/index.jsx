@@ -7,6 +7,7 @@ import Buttons from "./Buttons";
 import UserDetails from "./UserDetails";
 import People from "./People";
 import { PeopleContainer, UserContainer, Container } from "./style";
+import { NotepadBg } from "../../../Layout/NotepadBg";
 
 export default function Profile() {
   const [user, loading] = useAuthState(auth);
@@ -17,14 +18,16 @@ export default function Profile() {
   }
 
   return (
-    <Container>
-      <UserContainer>
-        <UserDetails user={user} />
-        <Buttons user={user} auth={auth} />
-      </UserContainer>
-      <PeopleContainer>
-        <People people={people} />
-      </PeopleContainer>
-    </Container>
+    <NotepadBg>
+      <Container>
+        <UserContainer>
+          <UserDetails user={user} />
+          <Buttons user={user} auth={auth} />
+        </UserContainer>
+        <PeopleContainer>
+          <People people={people} />
+        </PeopleContainer>
+      </Container>
+    </NotepadBg>
   );
 }

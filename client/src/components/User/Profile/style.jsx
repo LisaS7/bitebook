@@ -22,6 +22,7 @@ export const PeopleContainer = styled.section`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  align-items: center;
 
   & .person {
     display: grid;
