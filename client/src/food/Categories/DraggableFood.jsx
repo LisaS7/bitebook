@@ -20,7 +20,7 @@ export default function DraggableFood({ record }) {
       style={style}
     >
       {record.food.icon} {record.food.name}{" "}
-      {record.food.detail && "(" + record.food.detail + ")"}
+      {record.food.detail && <span>({record.food.detail})</span>}
     </DraggableContainer>
   );
 }

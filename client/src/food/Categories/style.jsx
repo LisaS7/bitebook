@@ -14,6 +14,14 @@ export const DraggableContainer = styled.div`
   border-radius: 10%;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  & span {
+    color: grey;
+    margin-left: 0.3rem;
+    font-size: 0.7rem;
+    line-height: 1.5rem;
+    vertical-align: middle;
+  }
 `;
 
 export const DroppableContainer = styled.div`
@@ -21,6 +29,7 @@ export const DroppableContainer = styled.div`
   background: white;
   box-shadow: 0px 0px 5px 0px #888;
   position: relative;
+  min-height: 20rem;
 
   /* red notebook margin line */
   & .margin-line {
