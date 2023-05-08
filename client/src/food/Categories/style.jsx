@@ -11,13 +11,13 @@ export const DraggableContainer = styled.div`
   margin: 0.2rem;
   padding: 0.5rem 1rem;
   border-radius: 10%;
-  background-color: var(--light);
-  box-shadow: -5px 5px 16px #bababa, 5px -5px 16px #ffffff;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
 
 export const DroppableContainer = styled.div`
   border-radius: 20px;
-  background: #e0e0e0;
+  background: var(--light);
   box-shadow: -5px 5px 3px #a1a1a1, 5px -5px 3px #ffffff;
 
   & h5 {
@@ -28,6 +28,9 @@ export const DroppableContainer = styled.div`
   }
 
   & > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
     padding: 1rem;
     min-height: 100px;
   }

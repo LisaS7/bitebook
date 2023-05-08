@@ -21,7 +21,7 @@ export default function DroppableCategory({ category, items, uncategorised }) {
 
   return (
     <DroppableContainer ref={setNodeRef} style={style}>
-      <h5>{category === "None" ? "Uncategorised" : category}</h5>
+      <h5>{category}</h5>
       <div>{items}</div>
     </DroppableContainer>
   );
