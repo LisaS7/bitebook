@@ -70,7 +70,7 @@ export default function SmallBarChart({ foodRecords }) {
           <Bar dataKey="avgRating">
             <LabelList
               dataKey="name"
-              fontSize={13}
+              fontSize={16}
               fill="white"
               position="inside"
               angle={-90}

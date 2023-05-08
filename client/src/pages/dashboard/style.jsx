@@ -12,6 +12,15 @@ export const Container = styled.div`
     "lg-bar-chart lg-bar-chart lg-bar-chart top-ratings top-ratings sm-bar-chart sm-bar-chart"
     "lg-bar-chart lg-bar-chart lg-bar-chart lg-line-chart lg-line-chart lg-line-chart lg-line-chart"
     "lg-bar-chart lg-bar-chart lg-bar-chart lg-line-chart lg-line-chart lg-line-chart lg-line-chart";
+
+  @media only screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+
+    .recharts-responsive-container {
+      max-height: 600px !important;
+    }
+  }
 `;
 
 export const CardSmallBarChart = styled(Card)`
