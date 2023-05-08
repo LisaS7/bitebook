@@ -13,21 +13,15 @@ import { Controls } from "./charts/Controls";
 import { getDistinctValues } from "./utils";
 import LargeBarChart from "./charts/LargeBarChart";
 import BitesPieChart from "./charts/PieChart";
-import Loading from "../../components/Layout/Loading";
 
 export default function Dashboard() {
   const { foods, activeData } = useSelector((state) => state);
-  console.log(activeData);
 
   const filterOptions = {
     flavour: getDistinctValues(foods, "flavour"),
     texture: getDistinctValues(foods, "texture"),
     colour: getDistinctValues(foods, "colour"),
   };
-
-  if (!activeData.filteredBites.length) {
-    return <Loading />;
-  }
 
   return (
     <Container>

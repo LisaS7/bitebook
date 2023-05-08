@@ -25,9 +25,6 @@ export default function LargeLineChart({ bites, filterOptions }) {
   bites.forEach((bite) => {
     let index = bitesByDate.findIndex((obj) => obj.date === bite.date);
 
-    // returns a formatted list of the properties for the given category
-    const properties = getDistinctValues([bite.foodRecord.food], category);
-
     // if there's currently no record for date then make a new one
     // and populate with all potential properties
     if (index < 0) {
@@ -36,6 +33,9 @@ export default function LargeLineChart({ bites, filterOptions }) {
       bitesByDate.unshift(newEntry);
       index = 0;
     }
+
+    // returns a formatted list of the properties for the given category
+    const properties = getDistinctValues([bite.foodRecord.food], category);
 
     // for each property, add the current rating
     properties.forEach((property) => {
