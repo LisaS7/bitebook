@@ -7,6 +7,36 @@
   font-size: 0.8rem;
 }
 
+/* highlight text */
+strong {
+  position: relative;
+  z-index: 100;
+  font-size: 1.2rem;
+}
+
+strong::before {
+  content: "";
+  position: absolute;
+  width: calc(100% + 6px);
+  height: 120%;
+  left: -4px;
+  bottom: 0;
+  z-index: -1;
+  transform: rotate(-4deg);
+}
+
+.highlight-green::before {
+  background-color: rgba(32, 216, 94, 0.5);
+}
+
+.highlight-blue::before {
+  background-color: rgba(26, 205, 241, 0.5);
+}
+
+.highlight-yellow::before {
+  background-color: rgba(223, 241, 26, 0.9);
+}
+
 
 /* default button */
 button {
