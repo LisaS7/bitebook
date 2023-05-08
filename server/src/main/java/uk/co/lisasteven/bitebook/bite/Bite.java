@@ -16,8 +16,7 @@ import java.time.LocalDate;
 public class Bite {
 
     @Id
-    @SequenceGenerator(name="bite_sequence", sequenceName = "bite_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "bite_sequence")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String userId;

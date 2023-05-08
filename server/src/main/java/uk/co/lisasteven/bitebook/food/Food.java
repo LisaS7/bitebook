@@ -16,8 +16,7 @@ import java.util.List;
 public class Food {
 
     @Id
-    @SequenceGenerator(name="food_sequence", sequenceName = "food_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "food_sequence")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String userId;
