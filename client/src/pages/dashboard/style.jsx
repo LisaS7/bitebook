@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { Card } from "../../components/Layout/global.style";
+import notepad from "./images/paper1.png";
 
 export const Container = styled.div`
   display: grid;
+  position: relative;
   gap: 1rem;
   height: 75vh;
   grid-template-columns: repeat(7, 1fr);
@@ -47,8 +49,17 @@ export const CardChartControls = styled(Card)`
   }
 `;
 
-export const CardLargeBarChart = styled(Card)`
+export const CardLargeBarChart = styled.div`
   grid-area: lg-bar-chart;
+
+  & .paper-bg {
+    width: 100%;
+    height: 100%;
+    background-image: url(${notepad});
+    background-size: 60rem 50rem;
+    background-position: -20px -60px;
+    padding: 3rem 2rem 2rem 3rem;
+  }
 `;
 
 export const CardTopRatings = styled(Card)`

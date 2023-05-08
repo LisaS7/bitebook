@@ -38,7 +38,9 @@ export default function Dashboard() {
 
       {/* ======== Bottom ======== */}
       <CardLargeBarChart>
-        <LargeBarChart foodRecords={activeData.filteredFoodRecords} />
+        <div className="paper-bg">
+          <LargeBarChart foodRecords={activeData.filteredFoodRecords} />
+        </div>
       </CardLargeBarChart>
       <CardLargeLineChart>
         <LargeLineChart
