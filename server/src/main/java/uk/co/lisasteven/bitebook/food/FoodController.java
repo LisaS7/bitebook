@@ -11,8 +11,12 @@ import java.util.List;
 @RequestMapping(path = "api/foods")
 public class FoodController {
 
+    private final FoodService foodService;
+
     @Autowired
-    FoodService foodService;
+    public FoodController(FoodService foodService) {
+        this.foodService = foodService;
+    }
 
     @GetMapping
     public List<Food> getFoods(@RequestParam String uid) {

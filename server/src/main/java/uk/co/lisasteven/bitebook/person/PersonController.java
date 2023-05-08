@@ -10,8 +10,12 @@ import java.util.List;
 @RequestMapping(path = "api/people")
 public class PersonController {
 
+    private final PersonService personService;
+
     @Autowired
-    PersonService personService;
+    public PersonController(PersonService personService) {
+        this.personService = personService;
+    }
 
     @GetMapping(path="{accountId}")
     public List<Person> getPeopleForAccount(@PathVariable("accountId") String uid) {

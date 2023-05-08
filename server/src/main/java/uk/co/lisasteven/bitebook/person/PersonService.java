@@ -9,8 +9,12 @@ import java.util.List;
 @Service
 public class PersonService {
 
+    private final PersonRepository personRepository;
+
     @Autowired
-    PersonRepository personRepository;
+    public PersonService(PersonRepository personRepository) {
+        this.personRepository = personRepository;
+    }
 
     public List<Person> getPeopleForAccount(String uid) {
         return personRepository.findByUserId(uid);

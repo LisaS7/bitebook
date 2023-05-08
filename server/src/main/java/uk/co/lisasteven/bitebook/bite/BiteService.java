@@ -15,14 +15,16 @@ import java.util.Optional;
 @Service
 public class BiteService {
 
-    @Autowired
-    BiteRepository biteRepository;
+    private final BiteRepository biteRepository;
+    private final FoodRecordRepository foodRecordRepository;
+    private final FoodRecordService foodRecordService;
 
     @Autowired
-    FoodRecordRepository foodRecordRepository;
-
-    @Autowired
-    FoodRecordService foodRecordService;
+    public BiteService(BiteRepository biteRepository, FoodRecordRepository foodRecordRepository, FoodRecordService foodRecordService) {
+        this.biteRepository = biteRepository;
+        this.foodRecordRepository = foodRecordRepository;
+        this.foodRecordService = foodRecordService;
+    }
 
     public List<Bite> getBites(String uid) {
         List<Bite> allBites = biteRepository.findAllByOrderByDateDesc();

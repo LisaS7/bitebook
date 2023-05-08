@@ -10,8 +10,12 @@ import java.util.List;
 @RequestMapping(path = "api/foodlists")
 public class FoodRecordController {
 
+    private final FoodRecordService foodRecordService;
+
     @Autowired
-    FoodRecordService foodRecordService;
+    public FoodRecordController(FoodRecordService foodRecordService) {
+        this.foodRecordService = foodRecordService;
+    }
 
     @GetMapping
     public List<FoodRecord> getFoodLists(@RequestParam String uid) {

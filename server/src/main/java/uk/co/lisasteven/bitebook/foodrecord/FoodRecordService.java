@@ -11,14 +11,17 @@ import java.util.List;
 @Service
 public class FoodRecordService {
 
-    @Autowired
-    FoodRecordRepository foodRecordRepository;
+
+    private final FoodRecordRepository foodRecordRepository;
+    private final FoodRepository foodRepository;
+    private final PersonRepository personRepository;
 
     @Autowired
-    FoodRepository foodRepository;
-
-    @Autowired
-    PersonRepository personRepository;
+    public FoodRecordService(FoodRecordRepository foodRecordRepository, FoodRepository foodRepository, PersonRepository personRepository) {
+        this.foodRecordRepository = foodRecordRepository;
+        this.foodRepository = foodRepository;
+        this.personRepository = personRepository;
+    }
 
     public List<FoodRecord> getFoodlistsByUserId(String uid) {
         return foodRecordRepository.findByUserId(uid);
