@@ -7,22 +7,14 @@ import Summary from "./Summary";
 import { StyledColumnContainer } from "../components/Layout/global.style";
 
 export default function BiteContainer() {
-  const { activePerson, bites, foodRecords } = useSelector((state) => state);
+  const { activeData } = useSelector((state) => state);
   const dataTemplate = GetDataTemplate();
-
-  let personData = bites.filter(
-    (bite) => bite.foodRecord.person.id === activePerson.id
-  );
-
-  const personRecords = foodRecords.filter(
-    (record) => record.person.id === activePerson.id
-  );
 
   return (
     <StyledColumnContainer>
-      <Summary records={personRecords} />
+      <Summary records={activeData.foodRecords} />
       <EditableTable
-        data={personData}
+        data={activeData.bites}
         InputRow={InputRow}
         TableRow={TableRow}
         dataTemplate={dataTemplate}

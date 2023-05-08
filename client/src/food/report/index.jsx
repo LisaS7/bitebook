@@ -7,15 +7,7 @@ import { CategoryColumns } from "./CategoryColumns";
 import PropertyDetails from "./PropertyDetails";
 
 export function FoodReport() {
-  const { foodRecords, categories, bites, activePerson } = useSelector(
-    (state) => state
-  );
-  const personFoodRecords = foodRecords.filter(
-    (record) => record.person.id === activePerson.id
-  );
-  const personBites = bites.filter(
-    (bite) => bite.foodRecord.person.id === activePerson.id
-  );
+  const { categories, activeData } = useSelector((state) => state);
 
   return (
     <ReportContainer>
@@ -33,12 +25,12 @@ export function FoodReport() {
         </button>
       </ReportHead>
       <ReportSection>
-        <PropertyDetails personBites={personBites} />
+        <PropertyDetails personBites={activeData.bites} />
       </ReportSection>
       <ReportSection>
         <CategoryColumns
           categories={categories}
-          personFoodRecords={personFoodRecords}
+          personFoodRecords={activeData.foodRecords}
         />
       </ReportSection>
     </ReportContainer>

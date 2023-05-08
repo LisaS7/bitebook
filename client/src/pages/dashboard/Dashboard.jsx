@@ -15,23 +15,13 @@ import LargeBarChart from "./charts/LargeBarChart";
 import BitesPieChart from "./charts/PieChart";
 
 export default function Dashboard() {
-  const { foods, filteredRecords, bites, activePerson } = useSelector(
-    (state) => state
-  );
+  const { foods, activeData } = useSelector((state) => state);
 
   const filterOptions = {
     flavour: getDistinctValues(foods, "flavour"),
     texture: getDistinctValues(foods, "texture"),
     colour: getDistinctValues(foods, "colour"),
   };
-
-  const personBites = bites.filter(
-    (bite) => bite.foodRecord.person.id === activePerson.id
-  );
-
-  const personFoodRecords = filteredRecords.filter((record) => {
-    return record.person.id === activePerson.id;
-  });
 
   return (
     <Container>
@@ -40,18 +30,21 @@ export default function Dashboard() {
         <Controls options={filterOptions} />
       </CardChartControls>
       <CardTopRatings>
-        <BitesPieChart bites={personBites} />
+        <BitesPieChart bites={activeData.bites} />
       </CardTopRatings>
       <CardSmallBarChart>
-        <SmallBarChart foodRecords={personFoodRecords} />
+        <SmallBarChart foodRecords={activeData.foodRecords} />
       </CardSmallBarChart>
 
       {/* ======== Bottom ======== */}
       <CardLargeBarChart>
-        <LargeBarChart foodRecords={personFoodRecords} />
+        <LargeBarChart foodRecords={activeData.foodRecords} />
       </CardLargeBarChart>
       <CardLargeLineChart>
-        <LargeLineChart bites={personBites} filterOptions={filterOptions} />
+        <LargeLineChart
+          bites={activeData.bites}
+          filterOptions={filterOptions}
+        />
       </CardLargeLineChart>
     </Container>
   );

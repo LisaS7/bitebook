@@ -8,6 +8,7 @@ const initialState = {
   categories: [],
   groups: [],
   activePerson: {},
+  activeData: { foodRecords: [], bites: [] },
   activeFilters: { colour: [], flavour: [], texture: [] },
   filteredRecords: [],
 };
@@ -95,6 +96,14 @@ export const slice = createSlice({
      */
     setActivePerson: (state, action) => {
       state.activePerson = action.payload;
+
+      state.activeData.foodRecords = state.foodRecords.filter(
+        (record) => record.person.id === state.activePerson.id
+      );
+
+      state.activeData.bites = state.bites.filter(
+        (bite) => bite.foodRecord.person.id === state.activePerson.id
+      );
     },
     // ============  SORT & FILTER  ============
     /**

@@ -12,23 +12,17 @@ import {
 } from "../../components/Layout/global.style";
 
 export default function CategoriesDnd() {
-  const { foodRecords, activePerson, categories } = useSelector(
-    (state) => state
-  );
+  const { foodRecords, categories, activeData } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   if (!foodRecords.length) {
     return <Loading />;
   }
 
-  const personData = foodRecords.filter(
-    (record) => record.person.id === activePerson.id
-  );
-
   function handleDragEnd(e) {
     const newCategory = e.over?.id;
     const existingRecord = {
-      ...personData.find((record) => record.id === e.active.id),
+      ...activeData.foodRecords.find((record) => record.id === e.active.id),
       category: newCategory,
     };
 
@@ -43,7 +37,7 @@ export default function CategoriesDnd() {
   }
 
   function foodDraggablesByCategory(category) {
-    return personData
+    return activeData.foodRecords
       .filter((record) => record.category === category)
       .map((record) => <DraggableFood key={record.id} record={record} />);
   }
