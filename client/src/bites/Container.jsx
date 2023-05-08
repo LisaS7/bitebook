@@ -13,12 +13,14 @@ export default function BiteContainer() {
   return (
     <StyledColumnContainer>
       <Summary records={activeData.foodRecords} />
-      <EditableTable
-        data={activeData.bites}
-        InputRow={InputRow}
-        TableRow={TableRow}
-        dataTemplate={dataTemplate}
-      />
+      <div style={{ width: "70%", margin: "auto" }}>
+        <EditableTable
+          data={activeData.bites}
+          InputRow={InputRow}
+          TableRow={TableRow}
+          dataTemplate={dataTemplate}
+        />
+      </div>
     </StyledColumnContainer>
   );
 }

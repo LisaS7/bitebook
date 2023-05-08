@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { NewFoodSummary } from "./style";
+import { TapeTopLeft, TapeTopRight } from "../components/Layout/Tape";
 
 export default function Summary({ records }) {
   const { foods } = useSelector((state) => state);
@@ -19,6 +20,8 @@ export default function Summary({ records }) {
   if (foodsTried.length) {
     return (
       <NewFoodSummary>
+        <TapeTopLeft />
+        <TapeTopRight />
         <h3>Try something new?</h3>
         <div className="new-foods">{displayFoods}</div>
       </NewFoodSummary>
