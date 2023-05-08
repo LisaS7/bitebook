@@ -18,7 +18,7 @@ export const DraggableContainer = styled.div`
 export const DroppableContainer = styled.div`
   border-radius: 20px;
   background: var(--light);
-  box-shadow: -5px 5px 3px #a1a1a1, 5px -5px 3px #ffffff;
+  box-shadow: -5px 5px 10px #a1a1a1, 5px -5px 10px #ffffff;
 
   & h5 {
     border-radius: 20px 20px 0px 0px;

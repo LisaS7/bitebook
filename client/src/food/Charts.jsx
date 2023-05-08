@@ -48,7 +48,7 @@ export function PropertyPie({ property, title }) {
   return (
     <div>
       <ChartTitle>{title}</ChartTitle>
-      <PieChart width={300} height={200}>
+      <PieChart width={350} height={200}>
         <Pie
           data={chartData}
           dataKey="value"
