@@ -1,4 +1,5 @@
 import { useState } from "react";
+import * as _ from "underscore";
 import Form from "react-bootstrap/Form";
 import EmojiPicker from "emoji-picker-react";
 import {
@@ -58,11 +59,17 @@ export function Dropdown({ items, keyName, fieldValue, changeValue }) {
 }
 
 export function ObjectDropdown({ keyName, items, fieldValue, changeValue }) {
-  const options = items.map((item) => (
-    <option key={item.id + fieldValue} value={item.id}>
-      {item.name} {item.detail && " - " + item.detail}
-    </option>
-  ));
+  const grouped = _.groupBy(items, "grouping");
+
+  const newOptions = [];
+  Object.keys(grouped).forEach((key) => {
+    const groupFoodOptions = grouped[key].map((food) => (
+      <option key={food.id} value={food.id}>
+        {food.name} {food.detail && " - " + food.detail}
+      </option>
+    ));
+    newOptions.push(<optgroup label={key}>{groupFoodOptions}</optgroup>);
+  });
 
   return (
     <td>
@@ -71,7 +78,7 @@ export function ObjectDropdown({ keyName, items, fieldValue, changeValue }) {
         defaultValue={fieldValue.id}
         onChange={(e) => changeValue(e, keyName)}
       >
-        {options}
+        {newOptions}
       </Form.Select>
     </td>
   );
