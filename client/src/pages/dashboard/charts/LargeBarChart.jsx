@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import _ from "underscore";
 import {
   BarChart,
   Bar,
@@ -37,13 +38,7 @@ export default function LargeBarChart({ foodRecords }) {
       record.food[category].toLowerCase().includes(property)
     );
 
-    // count occurences of each category
-    const counts = {};
-    records.forEach((record) => {
-      counts[record.category]
-        ? (counts[record.category] += 1)
-        : (counts[record.category] = 1);
-    });
+    const counts = _.countBy(records, (record) => record.category);
 
     // calculate percentages
     const newRecord = { property: capitalise(property) };

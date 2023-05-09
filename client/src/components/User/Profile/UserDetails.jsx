@@ -3,7 +3,6 @@ import { db, updateUserProfile } from "../../../lib/firebase";
 import { query, getDocs, collection, where } from "firebase/firestore";
 import React, { useState, useEffect } from "react";
 import { StyledForm } from "../style";
-import Buttons from "./Buttons";
 
 export default function UserDetails({ user }) {
   const [editName, setEditName] = useState("");
