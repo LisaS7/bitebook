@@ -14,6 +14,7 @@ export const DraggableContainer = styled.div`
   border-radius: 10%;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  z-index: 100;
 
   & span {
     color: grey;
