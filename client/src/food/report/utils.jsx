@@ -1,6 +1,8 @@
+import _ from "underscore";
+
 function getAverage(listOfObjects, key) {
-  const values = listOfObjects.map((obj) => obj[key]);
-  const sum = values.reduce((total, value) => total + value);
+  const values = _.pluck(listOfObjects, key);
+  const sum = values.reduce((total, value) => total + value, 0);
   return sum / values.length;
 }
 
@@ -16,7 +18,7 @@ export function calcFoodPropertyAverages(personBites) {
         rating: Math.round(getAverage(currentBites, "rating")),
       });
     });
-    return bitesByProperty.sort((a, b) => b.rating - a.rating);
+    return _.sortBy(bitesByProperty, "rating").reverse();
   }
 
   const values = {

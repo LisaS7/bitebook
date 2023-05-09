@@ -1,4 +1,5 @@
 import { createSlice, current } from "@reduxjs/toolkit";
+import _ from "underscore";
 
 const initialState = {
   foods: [],
@@ -106,13 +107,11 @@ export const slice = createSlice({
       state.activeData.foodRecords = state.foodRecords.filter(
         (record) => record.person.id === state.activePerson.id
       );
-
       state.activeData.filteredFoodRecords = state.activeData.foodRecords;
 
       state.activeData.bites = state.bites.filter(
         (bite) => bite.foodRecord.person.id === state.activePerson.id
       );
-
       state.activeData.filteredBites = state.activeData.bites;
     },
     // ============  SORT & FILTER  ============
@@ -128,51 +127,31 @@ export const slice = createSlice({
       switch (key) {
         case "food":
           if (direction === "asc") {
-            state.bites = state.bites.sort((a, b) =>
-              a.foodRecord.food.name?.localeCompare(
-                b.foodRecord.food.name?.toString(),
-                "en",
-                { numeric: true }
-              )
+            state.activeData.bites = _.sortBy(
+              state.activeData.bites,
+              (bite) => bite.foodRecord.food.name
             );
           }
 
           if (direction === "desc") {
-            state.bites = state.bites.sort((a, b) =>
-              b.foodRecord.food.name?.localeCompare(
-                a.foodRecord.food.name?.toString(),
-                "en",
-                { numeric: true }
-              )
-            );
-          }
-          break;
-        case "rating":
-          if (direction === "asc") {
-            state.bites = state.bites.sort((a, b) => b.rating - a.rating);
-          }
-
-          if (direction === "desc") {
-            state.bites = state.bites.sort((a, b) => a.rating - b.rating);
+            state.activeData.bites = _.sortBy(
+              state.activeData.bites,
+              (bite) => bite.foodRecord.food.name
+            ).reverse();
           }
           break;
         default:
           if (direction === "asc") {
-            state.foods = state.foods.sort((a, b) =>
-              a[key]?.localeCompare(b[key]?.toString(), "en", { numeric: true })
-            );
-            state.bites = state.bites.sort((a, b) =>
-              a[key]?.localeCompare(b[key]?.toString(), "en", { numeric: true })
-            );
+            state.foods = _.sortBy(state.foods, key);
+            state.activeData.bites = _.sortBy(state.activeData.bites, key);
           }
 
           if (direction === "desc") {
-            state.foods = state.foods.sort((a, b) =>
-              b[key]?.localeCompare(a[key]?.toString(), "en", { numeric: true })
-            );
-            state.bites = state.bites.sort((a, b) =>
-              b[key]?.localeCompare(a[key]?.toString(), "en", { numeric: true })
-            );
+            state.foods = _.sortBy(state.foods, key).reverse();
+            state.activeData.bites = _.sortBy(
+              state.activeData.bites,
+              key
+            ).reverse();
           }
           break;
       }
