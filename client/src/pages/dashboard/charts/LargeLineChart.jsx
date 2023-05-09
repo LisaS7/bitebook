@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import _ from "underscore";
 import {
   LineChart,
   Line,
@@ -16,49 +17,37 @@ import { namedColours, randomColours } from "../../../constants";
 import { ChartTitle } from "../style";
 // import { lgLineChartTestData } from "./test_data";
 
-export default function LargeLineChart({ bites, filterOptions }) {
+export default function LargeLineChart({ bites }) {
   const [category, setCategory] = useState("colour");
   let colours = category === "colour" ? namedColours : randomColours;
 
-  const bitesByDate = [];
-  const keys = filterOptions[category];
-  bites.forEach((bite) => {
-    let index = bitesByDate.findIndex((obj) => obj.date === bite.date);
+  const bitesByDate = _.groupBy(bites, "date");
+  const finalData = [];
 
-    // if there's currently no record for date then make a new one
-    // and populate with all potential properties
-    if (index < 0) {
-      const newEntry = { date: bite.date };
-      keys.forEach((key) => (newEntry[key] = []));
-      bitesByDate.unshift(newEntry);
-      index = 0;
-    }
+  _.keys(bitesByDate).forEach((date) => {
+    const agg = {};
+    bitesByDate[date].map((bite) => {
+      // split string properties into array of distinct values
+      const properties = getDistinctValues([bite.foodRecord.food], category);
 
-    // returns a formatted list of the properties for the given category
-    const properties = getDistinctValues([bite.foodRecord.food], category);
-
-    // for each property, add the current rating
-    properties.forEach((property) => {
-      bitesByDate[index][property].push(bite.rating);
+      // sum and count for each property value
+      properties.forEach((property) => {
+        if (agg[property]) {
+          agg[property].sum += bite.rating;
+          agg[property].count++;
+        } else {
+          agg[property] = { sum: bite.rating, count: 1 };
+        }
+      });
     });
-  });
 
-  bitesByDate.forEach((record) => {
-    for (const [key, ratings] of Object.entries(record)) {
-      if (key !== "date") {
-        // calculate average rating for property on the given date
-        record[key] =
-          ratings.reduce((total, curr) => total + curr, 0) / ratings.length;
-      }
-
-      if (!ratings.length) {
-        delete record[key];
-      }
-    }
+    const averages = _.mapObject(agg, (val) => val.sum / val.count);
+    const newRecord = { date, ...averages };
+    finalData.unshift(newRecord);
   });
 
   const chartKeys = [
-    ...new Set(bitesByDate.map((obj) => Object.keys(obj)).flat()),
+    ...new Set(finalData.map((obj) => Object.keys(obj)).flat()),
   ].filter((key) => key !== "date");
 
   const lines = chartKeys.map((key, index) => {
@@ -84,7 +73,7 @@ export default function LargeLineChart({ bites, filterOptions }) {
       </ButtonGroup>
       <ResponsiveContainer width="100%" height="90%">
         <LineChart
-          data={bitesByDate}
+          data={finalData}
           margin={{
             top: 10,
             right: 30,

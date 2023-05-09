@@ -19,6 +19,7 @@ import { ChartTitle } from "../style";
 
 export default function LargeBarChart({ foodRecords }) {
   const [category, setCategory] = useState("colour");
+  const categoryKeys = Object.keys(categoryColours);
 
   // get unique properties from food records
   const properties = [
@@ -28,8 +29,6 @@ export default function LargeBarChart({ foodRecords }) {
         .flat()
     ),
   ];
-
-  const categoryKeys = Object.keys(categoryColours);
 
   const data = [];
   properties.forEach((property) => {
