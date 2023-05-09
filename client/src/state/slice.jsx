@@ -91,6 +91,9 @@ export const slice = createSlice({
         item.person = person;
       }
       state[list].unshift(item);
+      if (list in state.activeData) {
+        state.activeData[list].unshift(item);
+      }
     },
     // ============  PEOPLE  ============
     /**
@@ -218,7 +221,8 @@ export const slice = createSlice({
      */
     updateCategory: (state, action) => {
       const { id, category } = action.payload;
-      state.foodRecords.find((obj) => obj.id === id).category = category;
+      state.activeData.foodRecords.find((obj) => obj.id === id).category =
+        category;
     },
   },
 });
