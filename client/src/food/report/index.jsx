@@ -1,12 +1,15 @@
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPrint } from "@fortawesome/free-solid-svg-icons";
-import { ReportHead, ReportSection, ReportContainer } from "./style";
-
+import {
+  ReportHead,
+  ReportSection,
+  ReportContainer,
+  PrintButton,
+} from "./style";
 import { CategoryColumns } from "./CategoryColumns";
 import PropertyDetails from "./PropertyDetails";
 import { PaperClip, PaperStack } from "../../Layout/Paper";
-
 import pclip from "../../Layout/paper-clip.png";
 
 export function FoodReport() {
@@ -14,20 +17,20 @@ export function FoodReport() {
 
   return (
     <PaperStack>
-      <PaperClip src={pclip} id="pclip" />
-      <ReportContainer>
-        <ReportHead className="noPrint">
-          <h1>Food Report</h1>
-          <button
-            id="contrast-button"
+      <PaperClip className="noPrint" src={pclip} id="pclip" />
+      <ReportContainer id="printable">
+        <ReportHead>
+          <h1 className="noPrint">Food Report</h1>
+          <PrintButton
+            className="noPrint"
             onClick={() => {
               window.print();
               return false;
             }}
           >
             <FontAwesomeIcon icon={faPrint} />
-            <span>Print</span>
-          </button>
+            Print
+          </PrintButton>
         </ReportHead>
         <ReportSection>
           <PropertyDetails personBites={activeData.bites} />

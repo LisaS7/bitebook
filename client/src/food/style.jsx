@@ -11,7 +11,8 @@ export const SummarySection = styled.section`
   position: relative;
 
   & h5 {
-    font-weight: 800;
+    font-family: "Gloria Hallelujah", cursive;
+    font-size: 1.5rem;
     text-align: center;
     letter-spacing: 0.2rem;
     padding-bottom: 1rem;

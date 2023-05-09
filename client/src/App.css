@@ -142,6 +142,7 @@ textarea {
 
 .dropdown-menu {
   background-color: var(--green) !important;
+  width: 100%;
 }
 
 #dropdown-item {

@@ -10,7 +10,7 @@ export const StyledNavbar = styled(Navbar)`
     rgba(83, 167, 171, 1) 50%,
     rgba(1, 105, 111, 1) 90%
   );
-  padding: 1rem 4rem;
+  padding: 0rem 4rem;
   font-size: 1.5rem;
   font-weight: 800;
 

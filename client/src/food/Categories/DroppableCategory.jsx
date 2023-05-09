@@ -14,7 +14,7 @@ export default function DroppableCategory({ category, items, uncategorised }) {
     return (
       <DroppableContainer ref={setNodeRef} style={style}>
         <div className="margin-line"></div>
-        <h4>Uncategorised</h4>
+        <h4 className="heading">Uncategorised</h4>
         <div className="content">{uncategorised}</div>
       </DroppableContainer>
     );
@@ -23,7 +23,7 @@ export default function DroppableCategory({ category, items, uncategorised }) {
   return (
     <DroppableContainer ref={setNodeRef} style={style}>
       <div className="margin-line"></div>
-      <h4>{category}</h4>
+      <h4 className="heading">{category}</h4>
       <div className="content">{items}</div>
     </DroppableContainer>
   );

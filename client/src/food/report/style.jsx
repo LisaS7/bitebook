@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { StyledColumnContainer } from "../../Layout/global.style";
+import pageMarker from "./pagemarker.png";
 
 export const ReportContainer = styled(StyledColumnContainer)`
   background-color: var(--light);
@@ -7,6 +8,25 @@ export const ReportContainer = styled(StyledColumnContainer)`
   padding: 3rem;
   z-index: 2;
   position: relative;
+`;
+
+export const PrintButton = styled.div`
+  position: absolute;
+  top: 0px;
+  right: -150px;
+  padding-top: 1.5rem;
+  padding-left: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  align-self: flex-end;
+  width: 18rem;
+  height: 6rem;
+  background-image: url(${pageMarker});
+  color: black;
+  font-size: 1.8rem;
+  font-family: "Gloria Hallelujah", cursive;
 `;
 
 export const ReportHead = styled.section`

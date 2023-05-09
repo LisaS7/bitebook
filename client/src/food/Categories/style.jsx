@@ -42,7 +42,8 @@ export const DroppableContainer = styled.div`
     background-color: rgba(255, 0, 0, 0.4);
   }
 
-  & h4 {
+  & .heading {
+    font-family: "Gloria Hallelujah", cursive;
     border-radius: 20px 20px 0px 0px;
     padding-top: 1rem;
     text-align: center;

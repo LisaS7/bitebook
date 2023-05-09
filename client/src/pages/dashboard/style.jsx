@@ -119,4 +119,6 @@ export const CardTopRatings = styled.div`
 
 export const ChartTitle = styled.h5`
   text-align: center;
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 1.5rem;
 `;
