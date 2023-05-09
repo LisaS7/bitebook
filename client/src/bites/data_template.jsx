@@ -35,7 +35,7 @@ export function FormatDate_HTMLInput(date) {
 }
 
 export function GetDataTemplate() {
-  const { foods, people } = useSelector((state) => state);
+  const { foods } = useSelector((state) => state);
   const dateToday = FormatDate_HTMLInput(new Date());
 
   return {
