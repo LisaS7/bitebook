@@ -5,8 +5,8 @@ import DroppableCategory from "./DroppableCategory";
 import Loading from "../../Layout/Loading";
 import { updateRecord } from "../../Service";
 import { updateCategory } from "../../state/slice";
-import { CategoriesContainer } from "./style";
-import { StyledColumnContainer, TipBar } from "../../Layout/global.style";
+import { CategoriesContainer, PostIt } from "./style";
+import { StyledColumnContainer } from "../../Layout/global.style";
 
 export default function CategoriesDnd() {
   const { foodRecords, categories, activeData } = useSelector((state) => state);
@@ -57,7 +57,9 @@ export default function CategoriesDnd() {
 
   return (
     <StyledColumnContainer>
-      <TipBar>Drag and drop to change categories</TipBar>
+      <PostIt>
+        <p>Drag and drop to change categories</p>
+      </PostIt>
       <DndContext onDragEnd={(e) => handleDragEnd(e)}>
         <CategoriesContainer>{categoryDroppables}</CategoriesContainer>
       </DndContext>

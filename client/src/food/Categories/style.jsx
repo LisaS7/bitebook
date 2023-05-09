@@ -1,9 +1,35 @@
 import styled from "styled-components";
+import postit from "./postit.png";
+
+export const PostIt = styled.div`
+  position: absolute;
+  left: -6rem;
+  top: 8rem;
+  background-image: url(${postit});
+  background-size: 30rem;
+  width: 30rem;
+  height: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transform: rotate(-20deg);
+
+  & p {
+    width: 12rem;
+    margin-left: 6rem;
+    transform: rotate(5deg);
+    font-family: "Gloria Hallelujah", cursive;
+    font-size: 1.5rem;
+  }
+`;
 
 export const CategoriesContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
+  width: 95%;
+  margin-left: auto;
 `;
 
 export const DraggableContainer = styled.div`
