@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import _ from "underscore";
 import {
   BarChart,
   Bar,
@@ -10,37 +11,25 @@ import {
 } from "recharts";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
-import { getAverage } from "../utils";
 import { randomColours } from "../../../constants";
 
 export default function SmallBarChart({ foodRecords }) {
   const [selection, setSelection] = useState("top");
 
-  const aggBitesByFoodName = [];
-  foodRecords.forEach((record) => {
-    if (record.bites.length) {
-      const index = aggBitesByFoodName.findIndex(
-        (obj) => obj.food.name === record.food.name
-      );
-      if (index < 0) {
-        aggBitesByFoodName.push({ ...record });
-      } else {
-        aggBitesByFoodName[index].bites = aggBitesByFoodName[
-          index
-        ].bites.concat(record.bites);
-      }
-    }
-  });
+  const aggByFood = _.groupBy(foodRecords, (record) => record.food.name);
 
-  const avgList = aggBitesByFoodName
-    .map((record) => ({
-      name: record.food.name,
-      avgRating: getAverage(record.bites, "rating"),
-    }))
-    .sort((a, b) => b.avgRating - a.avgRating);
+  const data = [];
+  for (const food in aggByFood) {
+    const bites = _.pluck(aggByFood[food], "bites").flat();
+    const rating = bites.reduce((total, current) => total + current.rating, 0);
+    const average = { name: food, avgRating: rating / bites.length };
+    data.push(average);
+  }
+
+  const sortedData = _.sortBy(data, "avgRating").reverse();
 
   const selectedFoods =
-    selection === "top" ? avgList.slice(0, 10) : avgList.slice(-10);
+    selection === "top" ? sortedData.slice(0, 10) : sortedData.slice(-10);
 
   return (
     <>
