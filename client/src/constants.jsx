@@ -7,7 +7,7 @@ export const namedColours = {
   Orange: "#FFAC1C",
   Purple: "#9B59B6",
   Red: "#E74C3C",
-  White: "#d1d0d0",
+  White: "#fff",
   Yellow: "#ffe302",
 };
 
