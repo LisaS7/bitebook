@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { editStateItem, addStateItem } from "../state/slice";
@@ -11,36 +11,34 @@ import {
   RatingInput,
 } from "../components/Table/form_elements";
 import { SaveButton } from "../components/Table/Buttons";
-import {
-  GetDataTemplate,
-  replaceNullWithDefaults,
-  setObjectId,
-} from "./data_template";
+import { GetDataTemplate, replaceNullWithDefaults } from "./data_template";
 
 export default function InputRow({ action, item, setEditRow }) {
   const dataTemplate = GetDataTemplate();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { foodRecords } = useSelector((state) => state);
+  const { activeData, activePerson } = useSelector((state) => state);
   const [tempItem, setTempItem] = useState({ ...item });
+
+  useEffect(() => {}, [tempItem]);
 
   async function handleClickSave(event) {
     event.preventDefault();
 
     const item = { ...tempItem };
-    setObjectId(item, "food");
-    setObjectId(item, "person");
 
-    const existingFoodRecord = foodRecords.filter(
-      (record) =>
-        record.food.id === item.food.id && record.person.id === item.person.id
+    const existingFoodRecord = activeData.foodRecords.find(
+      (record) => record.food.id === parseInt(item.food)
     );
-    if (existingFoodRecord.length) {
+
+    console.log(existingFoodRecord);
+
+    if (existingFoodRecord) {
       item.foodRecord = existingFoodRecord;
     } else {
       const newFoodRecord = {
-        food: item.food,
-        person: item.person,
+        food: { id: parseInt(item.food) },
+        person: { id: activePerson.id },
         category: "None",
         notes: "",
       };
@@ -50,6 +48,7 @@ export default function InputRow({ action, item, setEditRow }) {
     replaceNullWithDefaults(item);
 
     if (action === "create") {
+      console.log(item);
       const createdBite = await postRecord(item, "bites");
       dispatch(addStateItem({ item: createdBite, list: "bites" }));
       navigate("/bites");
@@ -137,7 +136,7 @@ export default function InputRow({ action, item, setEditRow }) {
   }
 
   return (
-    <tr>
+    <tr key="create">
       {cells}
       <td key="save-button">
         <SaveButton handleClickSave={handleClickSave} />
