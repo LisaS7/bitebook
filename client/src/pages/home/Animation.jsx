@@ -67,7 +67,7 @@ const fadeIn = {
 export function Animation() {
   return (
     <motion.svg
-      viewBox="0 0 1000.333 356.266"
+      viewBox="0 0 1000.333 220"
       xmlns="http://www.w3.org/2000/svg"
       initial="hidden"
       animate="visible"
