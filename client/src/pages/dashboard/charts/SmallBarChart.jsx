@@ -33,7 +33,7 @@ export default function SmallBarChart({ foodRecords }) {
 
   return (
     <>
-      <ButtonGroup>
+      <ButtonGroup style={{ marginBottom: "2rem" }}>
         <Button onClick={() => setSelection("top")}>Top 10</Button>
         <Button onClick={() => setSelection("bottom")}>Bottom 10</Button>
       </ButtonGroup>

@@ -14,10 +14,11 @@ import { getDistinctValues } from "./utils";
 import LargeBarChart from "./charts/LargeBarChart";
 import BitesPieChart from "./charts/PieChart";
 import {
-  LongBottomTape,
   LongTopTape,
   TapeBottomRight,
+  TapeBottomLeft,
   TapeTopLeft,
+  TapeTopRight,
 } from "../../Layout/Tape";
 
 export default function Dashboard() {
@@ -44,6 +45,8 @@ export default function Dashboard() {
       </CardTopRatings>
       <CardSmallBarChart>
         <div className="paper-bg">
+          <TapeTopLeft />
+          <TapeTopRight />
           <SmallBarChart foodRecords={activeData.filteredFoodRecords} />
         </div>
       </CardSmallBarChart>
@@ -51,7 +54,8 @@ export default function Dashboard() {
       {/* ======== Bottom ======== */}
       <CardLargeBarChart>
         <LongTopTape />
-        <LongBottomTape />
+        <TapeBottomLeft />
+        <TapeBottomRight />
         <div className="paper-bg">
           <LargeBarChart foodRecords={activeData.filteredFoodRecords} />
         </div>
@@ -59,6 +63,7 @@ export default function Dashboard() {
       <CardLargeLineChart>
         <div className="paper-bg">
           <TapeTopLeft />
+          <TapeBottomLeft />
           <TapeBottomRight />
           <LargeLineChart
             bites={activeData.filteredBites}

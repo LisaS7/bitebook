@@ -40,3 +40,9 @@ export const TapeBottomRight = styled(Tape)`
   bottom: 0px;
   transform: translate(26px, 0px) rotate(-45deg);
 `;
+
+export const TapeBottomLeft = styled(Tape)`
+  left: -70px;
+  bottom: 0px;
+  transform: translate(26px, 0px) rotate(45deg);
+`;

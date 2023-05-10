@@ -63,11 +63,11 @@ export default function BitesPieChart({ bites }) {
             dataKey="value"
             cx="50%"
             cy="50%"
-            outerRadius={90}
+            outerRadius={100}
             labelLine={false}
             label={renderLabel}
           />
-          <Legend height={70} />
+          <Legend height={100} />
         </PieChart>
       </ResponsiveContainer>
     </>

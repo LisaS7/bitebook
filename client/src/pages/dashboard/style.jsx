@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import paper1 from "./images/paper1.png";
 import paper2 from "./images/paper2.avif";
 import paper3 from "./images/paper3.png";
 import paper4 from "./images/paper4.avif";
 import paper5 from "./images/paper5.jpeg";
+import paper6 from "./images/paper6.jpeg";
 
 export const Container = styled.div`
   display: grid;
@@ -30,13 +30,12 @@ export const Container = styled.div`
 
 export const CardSmallBarChart = styled.div`
   grid-area: sm-bar-chart;
-  position: relative;
+  position: absolute;
 
   & .paper-bg {
     height: 100%;
-    background-image: url(${paper1});
-    background-size: 40rem 50rem;
-    background-position: -20px -60px;
+    background-image: url(${paper6});
+    background-position: 20px 0px;
     padding: 4rem 2rem 2rem 3rem;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   }
@@ -44,7 +43,11 @@ export const CardSmallBarChart = styled.div`
 
 export const CardLargeLineChart = styled.div`
   grid-area: lg-line-chart;
-  position: relative;
+  position: absolute;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  transform: rotate(2deg);
 
   & .paper-bg {
     width: 100%;
@@ -59,6 +62,7 @@ export const CardLargeLineChart = styled.div`
 
 export const CardChartControls = styled.div`
   grid-area: chart-controls;
+  position: relative;
 
   & .paper-bg {
     width: 100%;
@@ -105,6 +109,7 @@ export const CardLargeBarChart = styled.div`
 
 export const CardTopRatings = styled.div`
   grid-area: top-ratings;
+  height: 110%;
 
   & .paper-bg {
     width: 100%;
@@ -113,7 +118,6 @@ export const CardTopRatings = styled.div`
     background-size: 40rem 40rem;
     background-position: 0px -10px;
     padding: 5rem 3rem 1.5rem 5rem;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   }
 `;
 
