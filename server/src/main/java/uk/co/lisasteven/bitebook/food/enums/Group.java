@@ -11,5 +11,4 @@ public enum Group {
     @JsonProperty("Fat") FAT,
     @JsonProperty("Condiment") CONDIMENT,
     @JsonProperty("Other") OTHER
-
 }
