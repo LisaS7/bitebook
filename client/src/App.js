@@ -21,6 +21,7 @@ import { auth } from "./lib/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { FoodReport } from "./food/report/index";
 import CategoriesDnd from "./food/Categories";
+import Resources from "./pages/resources/Resources";
 
 function App() {
   const [foods, setFoods] = useState([]);
@@ -58,6 +59,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/reset" element={<Reset />} />
+          <Route path="/resources" element={<Resources />} />
           <Route path="*" element={<Error404 />} />
 
           {/* PROTECTED ROUTES */}

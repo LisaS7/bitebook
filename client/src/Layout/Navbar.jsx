@@ -70,6 +70,9 @@ export default function CustomNavbar() {
           <Nav.Link as={Link} to="/dashboard" data-cy="dashboard-link">
             Dashboard
           </Nav.Link>
+          <Nav.Link as={Link} to="/resources">
+            Resources
+          </Nav.Link>
         </Nav>
         <UserActions user={user} />
       </Navbar.Collapse>
