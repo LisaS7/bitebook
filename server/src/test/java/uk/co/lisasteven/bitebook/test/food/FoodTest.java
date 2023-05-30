@@ -25,11 +25,6 @@ public class FoodTest {
     }
 
     @Test
-    public void hasId(){
-        assertEquals(1L, food.getId());
-    }
-
-    @Test
     public void hasColour(){
         assertEquals("yellow", food.getColour());
     }

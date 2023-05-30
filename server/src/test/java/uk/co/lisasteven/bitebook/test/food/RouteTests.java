@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
@@ -25,6 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(FoodController.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@AutoConfigureMockMvc
 public class RouteTests {
 
     @Autowired
@@ -45,6 +47,8 @@ public class RouteTests {
         food2 = new Food(
                 "ABC","noodles", "", Group.CARBOHYDRATE, "beige", "bland", "soft", "\uD83C\uDF5C"
         );
+        food1.setId(1L);
+        food2.setId(2L);
         service.addNewFood(food1);
         service.addNewFood(food2);
 
@@ -64,10 +68,8 @@ public class RouteTests {
 
     @Test
     public void whenDeleteFood_thenReturn200() throws Exception {
-        String urlId = url + "/" + food2.getId();
-
         this.mockMvc
-                .perform(delete(urlId))
+                .perform(delete(url + "/{id}", food2.getId()))
                 .andExpect(status().isOk());
     }
 
@@ -90,7 +92,6 @@ public class RouteTests {
 
     @Test
     public void whenUpdateFood_thenReturn200AndUpdatedObject() throws Exception {
-        String urlId = url + "/" + food2.getId();
         Food food2Updated = new Food(
                 "ABC", "noodles", "", Group.CARBOHYDRATE, "beige", "bland", "soft", "\uD83C\uDF5C"
         );
@@ -98,7 +99,7 @@ public class RouteTests {
         String foodAsJson = new ObjectMapper().writeValueAsString(food2Updated);
 
         this.mockMvc
-                .perform(put(urlId).content(foodAsJson).contentType(MediaType.APPLICATION_JSON))
+                .perform(put(url + "/{foodId}", food2.getId()).content(foodAsJson).contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 
