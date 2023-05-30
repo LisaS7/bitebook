@@ -49,4 +49,32 @@ Click each item to see screenshots:
 
 &nbsp;
 
-##
+## Installation
+
+1. Clone the repo
+
+```
+git clone https://github.com/LisaS7/bitebook.git
+```
+
+2. Run the Spring Boot server
+
+```
+cd server
+java -jar target/bitebook-0.0.1-SNAPSHOT.jar
+```
+
+3. Install npm packages in client folder
+
+```
+cd ../client
+npm install
+```
+
+4. Run the client server
+
+```
+npm start
+```
+
+5. Open http://localhost:3000/ in the browser
