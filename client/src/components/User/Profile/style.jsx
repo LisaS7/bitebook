@@ -38,3 +38,9 @@ export const PeopleContainer = styled.section`
     height: 50px;
   }
 `;
+
+export const Circle = styled.div`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+`;

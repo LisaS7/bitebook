@@ -31,6 +31,8 @@ export const Container = styled.div`
 export const CardSmallBarChart = styled.div`
   grid-area: sm-bar-chart;
   position: absolute;
+  height: 105%;
+  width: 110%;
 
   & .paper-bg {
     height: 100%;

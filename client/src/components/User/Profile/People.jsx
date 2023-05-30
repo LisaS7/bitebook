@@ -8,6 +8,7 @@ import {
 } from "../../../state/slice";
 import Form from "react-bootstrap/Form";
 import { postRecord } from "../../../Service";
+import { Circle } from "./style";
 
 function Person({ person, isNew }) {
   const dispatch = useDispatch();

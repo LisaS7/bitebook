@@ -31,8 +31,6 @@ export default function InputRow({ action, item, setEditRow }) {
       (record) => record.food.id === parseInt(item.food)
     );
 
-    console.log(existingFoodRecord);
-
     if (existingFoodRecord) {
       item.foodRecord = existingFoodRecord;
     } else {
@@ -48,7 +46,6 @@ export default function InputRow({ action, item, setEditRow }) {
     replaceNullWithDefaults(item);
 
     if (action === "create") {
-      console.log(item);
       const createdBite = await postRecord(item, "bites");
       dispatch(addStateItem({ item: createdBite, list: "bites" }));
       navigate("/bites");

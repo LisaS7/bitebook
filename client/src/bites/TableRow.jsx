@@ -7,7 +7,7 @@ import { DeleteButton } from "../components/Table/Buttons";
 import { PopoverTrigger } from "../food/food_popover";
 import { Circle } from "../components/Table/style";
 
-export default function TableRow({ item, toggleEdit }) {
+export default function TableRow({ item }) {
   const dispatch = useDispatch();
   const dataTemplate = GetDataTemplate();
   const keyOrder = Object.keys(dataTemplate);
